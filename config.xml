@@ -4,7 +4,7 @@
         xmlns:android   = "http://schemas.android.com/apk/res/android"
         id          = "com.a4c.sports"
         
-        versionCode = "1" version     = "0.0.4" >
+        versionCode = "1" version     = "0.0.5" >
 
     <!-- versionCode is optional and Android only -->
 
