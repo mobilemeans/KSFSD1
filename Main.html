@@ -5,31 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Kids Stories For Sport Dads</title>
 		
-		<script type="text/javascript" src="phonegap.js"></script> 
-    <script type="text/javascript">
-      document.addEventListener("deviceready", onDeviceReady, false);
-    </script>
-		<!-- SOCIAL SHARING PLUGIN -->
-		<script type="text/javascript" src="cordova.js"></script>
-		<link rel="stylesheet"  href="http://demos.jquerymobile.com/1.3.0-beta.1/css/themes/default/jquery.mobile-1.3.0-beta.1.css">
+				<link rel="stylesheet"  href="http://demos.jquerymobile.com/1.3.0-beta.1/css/themes/default/jquery.mobile-1.3.0-beta.1.css">
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<!--<script src="http://demos.jquerymobile.com/1.3.0-beta.1/docs/demos/_assets/js/jquery.mobile.demos.js"></script>-->
 		<script src="http://demos.jquerymobile.com/1.3.0-beta.1/js/jquery.mobile-1.3.0-beta.1.js"></script>
 	<link rel="stylesheet" href="style.css" />
 	
 	
-	
+
 	</head>
 	<body>
-<script>
-	document.addEventListener("deviceready", function (){
-      document.addEventListener("backbutton", onBackKeyDown, false); 
-  }, false); 
 
-  function onBackKeyDown(){ 
-    navigator.app.exitApp(); 
-  } 
-</script>
 	
 	
 	
@@ -44,8 +30,8 @@
 			
 				<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch><img src="img/bannerSM.jpg" /></a></center>
 				<h2><p><center>"Get live sports headlines while you read your child a story!"</center></p></h2><br><br>
-				<button onclick="window.plugins.socialsharing.shareViaFacebook('From Kid Stories for Sports Dads - ', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">Facebook</button>&nbsp;&nbsp;
-				<button onclick="window.plugins.socialsharing.shareViaTwitter('From Kid Stories for Sports Dads - ')">Twitter</button>
+				<button onclick="window.plugins.socialsharing.shareViaFacebook('From Kid Stories for Sports Dads ', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">Facebook</button>&nbsp;&nbsp;
+				<button onclick="window.plugins.socialsharing.shareViaTwitter('From Kid Stories for Sports Dads ')">Twitter</button>
 			</div><!-- /content -->
 
 			<div class="jqm-footer">
