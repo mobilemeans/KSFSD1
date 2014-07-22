@@ -4,7 +4,7 @@
         xmlns:android   = "http://schemas.android.com/apk/res/android"
         id          = "com.a4c.sports"
         
-        versionCode = "1" version     = "0.0.3" >
+        versionCode = "1" version     = "0.0.4" >
 
     <!-- versionCode is optional and Android only -->
 
@@ -29,7 +29,7 @@ KID STORIES FOR SPORT DADS has partnered with ESPN to provide you with real time
     
     
     
-    <preference name="fullscreen" value="true" />
+    <preference name="fullscreen" value="false" />
     <preference name="permissions" value="none"/>
     <preference name="android-minSdkVersion"      value="15" />
     <preference name="phonegap-version" value="3.3.0" />
