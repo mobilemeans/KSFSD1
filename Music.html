@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KID STORIES FOR SPORT DADS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+	<link rel="stylesheet" href="style.css" />	
+<script type="text/javascript">
+ 
+    function loadPlayer() {
+        var audioPlayer = new Audio();
+        audioPlayer.controls="controls";
+        audioPlayer.addEventListener('ended',nextSong,false);
+        audioPlayer.addEventListener('error',errorFallback,true);
+        document.getElementById("player").appendChild(audioPlayer);
+        nextSong();
+    }
+    function nextSong() {
+        if(urls[next]!=undefined) {
+            var audioPlayer = document.getElementsByTagName('audio')[0];
+            if(audioPlayer!=undefined) {
+                audioPlayer.src=urls[next];
+                audioPlayer.load();
+                audioPlayer.play();
+                next++;
+            } else {
+                loadPlayer();
+            }
+        } else {
+            alert('The End.  You can press another song to play again!');
+        }
+    }
+    
+    function prevSong() {
+        if(urls[next]!=undefined) {
+            var audioPlayer = document.getElementsByTagName('audio')[0];
+            if(audioPlayer!=undefined) {
+                audioPlayer.src=urls[next];
+                audioPlayer.load();
+                audioPlayer.play();
+                next--;
+            } else {
+                loadPlayer();
+            }
+        } else {
+            alert('The End.  You can press another song to play again!');
+        }
+    }
+    
+    
+    
+    function errorFallback() {
+            nextSong();
+    }
+    function playPause() {
+        var audioPlayer = document.getElementsByTagName('audio')[0];
+        if(audioPlayer!=undefined) {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+            } else {
+                audioPlayer.pause();
+            }
+        } else {
+            loadPlayer();
+        }
+    }
+    function pickSong(num) {
+        next = num;
+        nextSong();
+    }
+ 
+    var urls = new Array();
+    urls[0] = 'data/BahBahBlackSheep.mp3';
+    urls[1] = 'data/HeyDiddleDiddle.mp3';
+    urls[2] = 'data/ItsRainingitsPouring.mp3';
+    urls[3] = 'data/ItsyBitsySpider.mp3';
+    urls[4] = 'data/JackandJill.mp3';
+    urls[5] = 'data/LittleMissMuffet.mp3';
+    urls[6] = 'data/OldMotherHubbard.mp3';
+    urls[7] = 'data/StarlightStarbright.mp3';
+    urls[8] = 'data/StarlightStarbright2.mp3';
+    urls[9] = 'data/SundaysChild.mp3';
+    urls[10] = 'data/TeddyBear.mp3';
+    urls[11] = 'data/TwinkleTwinkle.mp3';
+    urls[12] = 'data/WeeWillieWinky.mp3';    
+    
+    var next = 0;
+	
+	
+ 
+</script>
+</head>
+<body> 
+<div data-role="page">
+	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+		<div data-role="navbar">
+			<ul>
+      			<li><a href="Main.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
+				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
+				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
+				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>
+							
+			</ul>
+		</div><!-- /navbar-->
+	</div><!-- /header -->
+
+	<div id="content" data-role="content">
+		<div id="me" class="normal">
+			
+			
+		</div>		
+		<div id="banner">
+			
+		</div>		
+		<div id="player"></div>		
+		<div id="blurb">
+		<b>Kids Songs Music Player</b>
+		<ul data-role="listview" data-inset="true" data-theme="d">							
+			<li><a href="#" onclick="pickSong(0)"><img src="data/cover1.jpg">Bah Bah Black Sheep</a></li>
+			<li><a href="#" onclick="pickSong(1)"><img src="data/cover2.jpg">Hey Diddle Diddle</a></li>
+			<li><a href="#" onclick="pickSong(2)"><img src="data/cover3.jpg">It's Raining It's Pouring</a></li>
+			<li><a href="#" onclick="pickSong(3)"><img src="data/cover4.jpg">Itsy Bitsy Spider</a></li>
+			<li><a href="#" onclick="pickSong(4)"><img src="data/cover5.jpg">Jack and Jill</a></li>
+			<li><a href="#" onclick="pickSong(5)"><img src="data/cover6.jpg">Little Miss Muffet</a></li>
+			<li><a href="#" onclick="pickSong(6)"><img src="data/cover7.jpg">Old Mother Hubbard</a></li>
+			<li><a href="#" onclick="pickSong(7)"><img src="data/cover8.jpg">Starlight Starbright</a></li>
+			<li><a href="#" onclick="pickSong(8)"><img src="data/cover9.jpg">Starlight Starbright (2)</a></li>
+			<li><a href="#" onclick="pickSong(9)"><img src="data/cover10.jpg">Sunday's Child</a></li>
+			<li><a href="#" onclick="pickSong(10)"><img src="data/cover11.jpg">Teddy Bear</a></li>
+			<li><a href="#" onclick="pickSong(11)"><img src="data/cover12.jpg">Twinkle Twinkle</a></li>
+			<li><a href="#" onclick="pickSong(12)"><img src="data/cover13.jpg">Wee Willie Winky</a></li>
+		</ul>
+		</div><!-- /blurb -->	
+		
+			
+		<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center>- <a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="index.html" rel="external" data-transition="slideup" data-prefetch>About</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+			
+		</div><!-- /footer -->
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,918 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KID STORIES FOR SPORT DADS</title>
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<link rel="stylesheet" href="style.css" />
+<!-- FOR RADIUS FIND -->
+<script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry&bogusParam=.js"></script>  
+<!-- END RADIUS FIND -->
+
+<script>
+function doNBA() {
+
+var myZip = "A4CSportsCity";
+var _myZip = localStorage.getItem(myZip);
+var city;
+var tbody = '';  //map_table
+
+  var gm = google.maps,
+        mapOptions = {
+            zoom: 10,
+            center: new gm.LatLng(45.421530, -75.697193),
+            mapTypeId: gm.MapTypeId.ROADMAP
+        },
+        map = new gm.Map(document.getElementById('map_canvasParks'), mapOptions),
+        geocoder = new gm.Geocoder(),
+         //by population, as of 2006
+		 
+		  top101citiesUS = [						  
+					
+{
+       
+      "name": "boston celtics", 
+      "address": "100 Legends Way, Boston, MA 02114", 
+      "lat": 42.36617589999999, 
+       
+      "lng": -71.0602624 
+     
+    }, 
+    {
+     
+      "name": "brooklyn nets", 
+      "address": "620 Atlantic Avenue, Brooklyn, NY 112", 
+      "lat": 40.6834453, 
+       
+      "lng": -73.9760482
+     
+    }, 
+    {
+      
+      "name": "new york knicks", 
+      "address": "Four Pennsylvania Plaza, New York, NY 10001", 
+      "lat": 40.7508707, 
+     
+      "lng": -73.99426609999999
+     
+    }, 
+    {
+      
+      "name": "philadelphia 76ers", 
+      "address": "3601 S. Broad St., Philadelphia, PA 19148", 
+      "lat": 39.9044734, 
+      
+      "lng": -75.1712574
+      
+    }, 
+    {
+      
+      "name": "toronto raptors", 
+      "address": "40 Bay St., Toronto, ON M5J 2X2", 
+      "lat": 43.644067, 
+      
+      "lng": -79.3784331
+    
+    }, 
+    {
+    
+      "name": "golden state warriors", 
+      "address": "7000 Coliseum Way, Oakland, CA 94621", 
+      "lat": 37.7515541, 
+      
+      "lng": -122.2015715
+     
+    }, 
+    {
+     
+      "name": "los angeles clippers", 
+      "address": "1111 S. Figueroa St., Los Angeles, CA 90015", 
+      "lat": 34.043125, 
+     
+      "lng": -118.267118
+  
+    }, 
+    {
+    
+      "name": "los angeles lakers", 
+      "address": "1111 S. Figueroa St., Los Angeles, CA 90015", 
+      "lat": 34.043125, 
+     
+      "lng": -118.267118
+    
+    }, 
+    {
+      
+      "name": "phoenix suns", 
+      "address": "201 E. Jefferson St., Phoenix, AZ 85004", 
+      "lat": 33.4459, 
+     
+      "lng": -112.071211
+    
+    }, 
+    {
+      
+      "name": "sacramento kings", 
+      "address": "One Sports Parkway, Sacramento, CA 95834", 
+      "lat": 38.648005,
+      
+      "lng": -121.517077
+      
+    }, 
+    {
+      
+      "name": "chicago bulls", 
+      "address": "1901 W. Madison St., Chicago, IL 60612", 
+      "lat": 41.8812526,
+       
+      "lng": -87.6741557
+    
+    }, 
+    {
+      
+      "name": "cleveland cavaliers", 
+      "address": "One Center Court, Cleveland, OH 44115", 
+      "lat": 41.4967035,
+     
+      "lng": -81.6894825
+     
+    }, 
+    {
+     
+      "name": "detroit pistons", 
+      "address": "Six Championship Drive, Auburn Hills, MI 48326", 
+      "lat": 42.69651100000001, 
+       
+      "lng": -83.2437214
+     
+    }, 
+    {
+      
+      "name": "indiana pacers", 
+      "address": "125 S. Pennsylvania St., Indianapolis, IN 46204", 
+      "lat": 39.764064,
+      
+      "lng": -86.155507
+     
+    }, 
+    {
+       
+      "name": "milwaukee bucks", 
+      "address": "1001 N. Fourth St., Milwaukee, WI 53203", 
+      "lat": 43.0430094, 
+      
+      "lng": -87.9165562
+     
+    }, 
+    {
+      
+      "name": "dallas mavericks", 
+      "address": "2500 Victory Ave., Dallas, TX 75219", 
+      "lat": 32.7899544, 
+      
+      "lng": -96.8111569
+     
+    }, 
+    {
+     
+      "name": "houston rockets", 
+      "address": "1510 Polk St., Houston, TX 77002", 
+      "lat": 29.7513984, 
+     
+      "lng": -95.3621397
+     
+    }, 
+    {
+      
+      "name": "memphis grizzlies", 
+      "address": "191 Beale St., Memphis, TN 38103", 
+      "lat": 35.136686, 
+       
+      "lng": -90.051885
+    
+    }, 
+    {
+     
+      "name": "new orleans pelicans", 
+      "address": "1501 Girod St., New Orleans, LA 70113", 
+      "lat": 29.9485576, 
+     
+      "lng": -90.07661159999999
+     
+    }, 
+    {
+     
+      "name": "san antonio spurs", 
+      "address": "One AT&T Center Parkway, San Antonio, TX 78219", 
+      "lat": 29.4342371,
+       
+      "lng": -98.433667
+      
+    }, 
+    {
+      
+      "name": "atlanta hawks", 
+      "address": "One Philips Drive, Atlanta, GA 30303", 
+      "lat": 33.7570952, 
+      
+      "lng": -84.3971653
+      
+    }, 
+    {
+       
+      "name": "charlotte bobcats", 
+      "address": "330 E. Trade St., Charlotte, NC 28202", 
+      "lat": 35.2251392, 
+     
+      "lng": -80.8406959
+      
+    }, 
+    {
+      
+      "name": "miami heat", 
+      "address": "601 Biscayne Blvd., Miami, FL 33132", 
+      "lat": 25.781232, 
+     
+      "lng": -80.187805
+      
+    }, 
+    {
+      
+      "name": "orlando magic", 
+      "address": "400 W. Church St., Orlando, FL 32801", 
+      "lat": 28.539832, 
+     
+      "lng": -81.3840452
+     
+    }, 
+    {
+       
+      "name": "washington wizards", 
+      "address": "601 F St. N.W., Washington, D.C. 20004", 
+      "lat": 38.8975827,       
+      "lng": -77.0210553
+      
+    }, 
+    {       
+      "name": "denver nuggets", 
+      "address": "1000 Chopper Circle, Denver, CO 80204", 
+      "lat": 39.7483118,        
+      "lng": -105.0077534     
+    }, 
+    {      
+      "name": "minnesota timberwolves", 
+      "address": "600 First Ave. North, Minneapolis, MN 55403", 
+      "lat": 44.979548,        
+      "lng": -93.27615899999999
+      
+    }, 
+    {      
+      "name": "oklahoma city thunder", 
+      "address": "100 W. Reno Ave., Oklahoma City, OK 73102", 
+      "lat": 35.463391,       
+      "lng": -97.514594
+     
+    }, 
+    {     
+      "name": "portland trail blazers", 
+      "address": "One Center Court, Portland, OR 97227", 
+      "lat": 45.5319834,       
+      "lng": -122.6678056
+  
+    }, 
+    {  
+      "name": "utah jazz", 
+      "address": "301 W. South Temple St., Salt Lake City, UT 84101", 
+      "lat": 40.768268,      
+      "lng": -111.901087    
+    }
+			],
+        markers = [],
+        infoWindow = new gm.InfoWindow(); 
+
+			
+	function clearMarkers() {
+	    for (var i = 0, len = markers.length; i < len; i++) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+    }
+    
+    function findFiveClosest(zip) {
+
+        //geocoder.geocode({address: ''+zip}, function (result, status) {
+          geocoder.geocode({address: ''+zip}, function (result, status) {
+            if (status != gm.GeocoderStatus.OK) {
+                return alert('Failed to geocode that zipcode! May be invalid?');
+            }
+            var i, tmp, marker //city, tmp, marker,
+                len = top101citiesUS.length,
+                latLng = result[0].geometry.location, //approx. location of our zipcode
+                arr = [],
+                bounds = new gm.LatLngBounds();
+            for (i = 0; i < len; i++) {
+                city = top101citiesUS[i];
+                tmp = new gm.LatLng(city.lat, city.lng);
+				
+                city.distance = gm.geometry.spherical.computeDistanceBetween(latLng, tmp);
+				
+            }
+             //arrange the cities from closest to furthest away
+            top101citiesUS.sort(
+                function (a, b) {
+                    var da = a.distance,
+                        db = b.distance;
+                    if (da === db) {
+                        return 0;
+                    }
+                    return (da > db) ? 1 : -1;
+                }
+            );
+             //clear any previous markers
+            for (i = 0, len = markers.length; i < len; i++) {
+                markers[i].setMap(null);
+            }
+            markers = [];
+             //create markers for the five closest cities
+			 
+			 //for map_table			
+			 var theader = '<div><table border="1" id="tblOptions">\n';
+			
+			//increment i to 5 to allow for a new range of options based on new OD set  
+            for (i = 0; i < 5; i++) {
+			
+                city = top101citiesUS[i];
+				tmp = new gm.LatLng(city.lat, city.lng);
+				var obj = new String('');
+				//add the i count to aid in the conditional options
+				obj = "'" + city.name + i + "'";
+				var replaced = obj.split(' ').join('%20');				
+				var elem = new String('');
+				elem = "'pTeams'";
+				
+				
+				//dynamically load map_table    			
+				tbody += '<tr>';
+				tbody += '<td>';
+				tbody += '<a href=javascript:showStory(1,'+replaced+','+elem+')>'+city.name+'</a>';
+				tbody += '</td>'
+        		tbody += '</tr>';
+								
+                marker = new gm.Marker({map: map, position: tmp});
+                marker.addListener(
+                    'click',
+                    (function (cityObj, iNum) {
+                        return function () {
+                            var postFixes = ['st', 'nd', 'rd', 'th', 'th'],
+                                html = cityObj.name +'<br>('+ (iNum + 1) + postFixes[iNum] +' closest to you)';
+                            infoWindow.setContent(html);
+                            infoWindow.open(map, this);
+                        };
+                    })(city, i)
+                );
+                markers.push(marker);
+                bounds.extend(tmp);
+            }
+            map.fitBounds(bounds);
+			
+			//show map_table
+			tbody += '</tr>\n';	
+            var tfooter = '</table></div>';	
+			
+				document.getElementById('map_tableParks').innerHTML = theader + tbody + tfooter;		
+			
+        });
+    }    
+  
+    findFiveClosest(_myZip);
+    
+}
+	
+function doMLB() {
+
+var myZip = "A4CSportsCity";
+var _myZip = localStorage.getItem(myZip);
+var city;
+var tbody = '';  //map_table
+
+  var gm = google.maps,
+        mapOptions = {
+            zoom: 10,
+            center: new gm.LatLng(45.421530, -75.697193),
+            mapTypeId: gm.MapTypeId.ROADMAP
+        },
+        map = new gm.Map(document.getElementById('map_canvasParks'), mapOptions),
+        geocoder = new gm.Geocoder(),
+         //by population, as of 2006
+		 
+		  top101citiesUS = [						  
+					
+{"name":"Anaheim Angels","address":"2000 Gene Autry Way, Anaheim, CA. 92806","lat":33.799572,"lng":-117.889031},{"name":"Arizona Diamondbacks","address":"P.O. Box 2095, Phoenix, AZ. 85001","lat":33.452922,"lng":-112.038669},{"name":"Atlanta Braves","address":"P.O. Box 4064, Atlanta, GA. 30302","lat":33.74691,"lng":-84.391239},
+{"name":"Baltimore Orioles","address":"333 W. Camden Street, Baltimore, MD. 21201","lat":39.285243,"lng":-76.620103},{"name":"Boston Red Sox","address":"4 Yawkey Way, Boston, MA 02215","lat":42.346613,"lng":-71.098817},
+{"name":"Chicago Cubs","address":"1060 Addison Street, Chicago, IL 60616","lat":41.947201,"lng":-87.656413},
+{"name":"Chicago White Sox","address":"333 W. 35th Street, Chicago, IL 60616","lat":41.830883,"lng":-87.635083},{"name":"Cincinnati Reds","address":"100 Cinergy Field, Cincinnati, OH 45202","lat":39.107183,"lng":-84.507713},{"name":"Cleveland Indians","address":"2401 Ontario Street, Cleveland, OH 44115","lat":41.495149,"lng":-81.68709},{"name":"Colorado Rockies","address":"Coors Field, 2001 Blake Street, Denver, CO 80205-2000","lat":39.75698,"lng":-104.965329},
+{"name":"Detroit Tigers","address":"Comerica Park, 2100 Woodward Ave., Detroit, MI 48201","lat":42.346354,"lng":-83.059619},{"name":"Florida Marlins","address":"2269 NW 199th Street, Miami, FL 33056","lat":25.954428,"lng":-80.238164},
+{"name":"Houston Astros","address":"P.O. Box 288, Houston, TX 77001-0288","lat":29.76045,"lng":-95.369784},
+{"name":"Kansas City Royals","address":"P.O. Boz 419969, Kansas City, MO 64141","lat":39.10222,"lng":-94.583559},
+{"name":"Los Angeles Dodgers","address":"1000 Elysian Park Ave., Los Angeles, CA 90012","lat":34.072437,"lng":-118.246879},{"name":"Milwaukee Brewers","address":"P.O. Box 3099, Milwaukee, WI 53201-3099","lat":43.04205,"lng":-87.905599},{"name":"Minnesota Twins","address":"501 Chicago Ave. S., Minneapolis, MN 55415","lat":44.974346,"lng":-93.259616},
+{"name":"Washington Nationals","address":"1500 South Capitol Street SE, Washington, DC","lat":38.87
+,"lng":-77.01},
+{"name":"New York Mets","address":"Roosevelt Ave & 126th Street, New York, NY 11368","lat":40.75535,"lng":-73.843219},{"name":"New York Yankees","address":"Yankee Stadium, E. 161 Street & River Ave., New York, NY 10451","lat":40.819782,"lng":-73.929939},{"name":"Oakland Athletics","address":"Oakland Coliseum, 700 Coliseum Way, Oakland, Ca 94621-1918","lat":37.74923,"lng":-122.196487},
+{"name":"Philadelphia Phillies","address":"P.O. Box 7575, Philadelphia, PA 19101","lat":39.952313,"lng":-75.162392},{"name":"Pittsburgh Pirates","address":"600 Stadium Circle, Pittsburgh, PA 15212","lat":40.461503,"lng":-80.008924},{"name":"St. Louis Cardinals","address":"250 Stadium Plaza, St. Louis, MO 63102","lat":38.629683,"lng":-90.188247},
+{"name":"San Diego Padres","address":"P.O. Box 2000, San Diego, CA 92112-2000","lat":32.752148,"lng":-117.143635},
+{"name":"San Francisco Giants","address":"Pacific Bell Park, 24 Willie Mays Plaza, San Francisco, CA 94107","lat":37.77987,"lng":-122.389754},
+{"name":"Seattle Mariners","address":"P.O. Box 41000, 411 First Ave. S., Seattle, WA 98104","lat":47.60174,"lng":-122.330829},
+{"name":"Tampa Bay Devil Rays","address":"1 Tropicana Drive, St. Petersburg, FL 33705","lat":27.768487,"lng":-82.648191},{"name":"Texas Rangers","address":"1000 Ballpark Way, Arlington, TX 76011","lat":32.750156,"lng":-97.081117},
+{"name":"Toronto Blue Jays","address":"1 Blue Jay Way, Suite 3200, Toronto, ONT M5V 1J1","lat":43.641653,"lng":-79.3917}
+			],
+        markers = [],
+        infoWindow = new gm.InfoWindow(); 
+
+			
+	function clearMarkers() {
+	    for (var i = 0, len = markers.length; i < len; i++) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+    }
+    
+    function findFiveClosest(zip) {
+
+        //geocoder.geocode({address: ''+zip}, function (result, status) {
+          geocoder.geocode({address: ''+zip}, function (result, status) {
+            if (status != gm.GeocoderStatus.OK) {
+                return alert('Failed to geocode that zipcode! May be invalid?');
+            }
+            var i, tmp, marker //city, tmp, marker,
+                len = top101citiesUS.length,
+                latLng = result[0].geometry.location, //approx. location of our zipcode
+                arr = [],
+                bounds = new gm.LatLngBounds();
+            for (i = 0; i < len; i++) {
+                city = top101citiesUS[i];
+                tmp = new gm.LatLng(city.lat, city.lng);
+				
+                city.distance = gm.geometry.spherical.computeDistanceBetween(latLng, tmp);
+				
+            }
+             //arrange the cities from closest to furthest away
+            top101citiesUS.sort(
+                function (a, b) {
+                    var da = a.distance,
+                        db = b.distance;
+                    if (da === db) {
+                        return 0;
+                    }
+                    return (da > db) ? 1 : -1;
+                }
+            );
+             //clear any previous markers
+            for (i = 0, len = markers.length; i < len; i++) {
+                markers[i].setMap(null);
+            }
+            markers = [];
+             //create markers for the five closest cities
+			 
+			 //for map_table			
+			 var theader = '<div><table border="1" id="tblOptions">\n';
+			
+			//increment i to 5 to allow for a new range of options based on new OD set  
+            for (i = 0; i < 5; i++) {
+			
+                city = top101citiesUS[i];
+				tmp = new gm.LatLng(city.lat, city.lng);
+				var obj = new String('');
+				//add the i count to aid in the conditional options
+				obj = "'" + city.name + i + "'";
+				var replaced = obj.split(' ').join('%20');				
+				var elem = new String('');
+				elem = "'pTeams'";
+				
+				
+				//dynamically load map_table    			
+				tbody += '<tr>';
+				tbody += '<td>';
+				tbody += '<a href=javascript:showStory(1,'+replaced+','+elem+')>'+city.name+'</a>';
+				tbody += '</td>'
+        		tbody += '</tr>';
+								
+                marker = new gm.Marker({map: map, position: tmp});
+                marker.addListener(
+                    'click',
+                    (function (cityObj, iNum) {
+                        return function () {
+                            var postFixes = ['st', 'nd', 'rd', 'th', 'th'],
+                                html = cityObj.name +'<br>('+ (iNum + 1) + postFixes[iNum] +' closest to you)';
+                            infoWindow.setContent(html);
+                            infoWindow.open(map, this);
+                        };
+                    })(city, i)
+                );
+                markers.push(marker);
+                bounds.extend(tmp);
+            }
+            map.fitBounds(bounds);
+			
+			//show map_table
+			tbody += '</tr>\n';	
+            var tfooter = '</table></div>';	
+			
+				document.getElementById('map_tableParks').innerHTML = theader + tbody + tfooter;		
+			
+        });
+    }    
+  
+    findFiveClosest(_myZip);
+    
+}
+	
+
+function doNHL() {
+
+var myZip = "A4CSportsCity";
+var _myZip = localStorage.getItem(myZip);
+var city;
+var tbody = '';  //map_table
+
+  var gm = google.maps,
+        mapOptions = {
+            zoom: 10,
+            center: new gm.LatLng(45.421530, -75.697193),
+            mapTypeId: gm.MapTypeId.ROADMAP
+        },
+        map = new gm.Map(document.getElementById('map_canvasParks'), mapOptions),
+        geocoder = new gm.Geocoder(),
+         //by population, as of 2006
+		 
+		  top101citiesUS = [						  
+					
+{"name": "Anaheim Ducks","lat":33.8078150628187,"lng":-117.87654161453247},
+{"name": "Boston Bruins","lat":42.366281167807934, "lng":-71.06226593255996},	
+{  "name": "Buffalo Sabres","lat":42.87494984499334, "lng":-78.87632131576538},
+{  "name": "Calgary Flames","lat":51.03745752757153, "lng":-114.05205488204956},
+{  "name": "Carolina Hurricanes","lat":35.803320112371956, "lng":-78.72194677591324},
+{  "name": "Chicago Blackhawks","lat":41.88058924492546, "lng":-87.67414927482605},
+{  "name": "Colorado Avalanche","lat":39.74856961976832, "lng":-105.00763803720474},
+{  "name": "Columbus Blue Jackets","lat":39.96927220845562, "lng":-83.00610780715942},
+{  "name": "Dallas Stars","lat":32.790420054007754, "lng":-96.81029230356216},
+{  "name": "Detroit Red Wings","lat":42.32514033170812, "lng":-83.05145859718323},
+{   "name": "Edmonton Oilers","lat":53.571294635376056, "lng":-113.45601975917816},
+{  "name": "Florida Panthers","lat":26.15837033358863, "lng":-80.32539546489715},
+{  "name": "Los Angeles Kings","lat":34.04303865743706, "lng":-118.26711416244507},
+{  "name": "Minnesota Wild","lat":44.94488683641523, "lng":-93.10120761394501},
+{   "name": "Montreal Canadiens","lat":45.49591319297404, "lng":-73.56908798217773},
+ {  "name": "Nashville Predators","lat":36.15911963214768, "lng":-86.77848190069198},
+{  "name": "New Jersey Devils","lat":40.733611, "lng":-74.171111},
+{  "name": "New York Islanders", "lat":40.7228416889373, "lng":-73.59057247638702},
+{  "name": "New York Rangers","lat":40.750481718523844, "lng":-73.9935502409935},
+{  "name": "Ottawa Senators","lat":45.2968034780928, "lng":-75.92723786830902},
+{  "name": "Philadelphia Flyers","lat":39.90112133861436, "lng":-75.17172664403915},
+{  "name": "Phoenix Coyotes","lat":33.53171403984821, "lng":-112.26128339767456},
+{   "name": "Pittsburgh Penguins","lat":40.439444, "lng":-79.989167},
+{  "name": "San Jose Sharks","lat":37.33274407376185, "lng":-121.90135449171066},
+{  "name": "St. Louis Blues","lat":38.62677200283504, "lng":-90.20258724689483},
+{  "name": "Tampa Bay Lightning","lat":27.94266136819524, "lng":-82.45185881853103},
+{  "name": "Toronto Maple Leafs","lat":43.64329216093772, "lng":-79.37907457351684},
+{  "name": "Vancouver Canucks","lat":49.276586305613904, "lng":-123.11197221279144},
+{  "name": "Washington Capitals","lat":38.898007404102145, "lng":-77.02102392911911},
+{  "name": "Winnipeg Jets","lat":49.892892, "lng":-97.143836}
+			],
+        markers = [],
+        infoWindow = new gm.InfoWindow(); 
+
+			
+	function clearMarkers() {
+	    for (var i = 0, len = markers.length; i < len; i++) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+    }
+    
+    function findFiveClosest(zip) {
+
+        //geocoder.geocode({address: ''+zip}, function (result, status) {
+          geocoder.geocode({address: ''+zip}, function (result, status) {
+            if (status != gm.GeocoderStatus.OK) {
+                return alert('Failed to geocode that zipcode! May be invalid?');
+            }
+            var i, tmp, marker //city, tmp, marker,
+                len = top101citiesUS.length,
+                latLng = result[0].geometry.location, //approx. location of our zipcode
+                arr = [],
+                bounds = new gm.LatLngBounds();
+            for (i = 0; i < len; i++) {
+                city = top101citiesUS[i];
+                tmp = new gm.LatLng(city.lat, city.lng);
+				
+                city.distance = gm.geometry.spherical.computeDistanceBetween(latLng, tmp);
+				
+            }
+             //arrange the cities from closest to furthest away
+            top101citiesUS.sort(
+                function (a, b) {
+                    var da = a.distance,
+                        db = b.distance;
+                    if (da === db) {
+                        return 0;
+                    }
+                    return (da > db) ? 1 : -1;
+                }
+            );
+             //clear any previous markers
+            for (i = 0, len = markers.length; i < len; i++) {
+                markers[i].setMap(null);
+            }
+            markers = [];
+             //create markers for the five closest cities
+			 
+			 //for map_table			
+			 var theader = '<div><table border="1" id="tblOptions">\n';
+			
+			//increment i to 5 to allow for a new range of options based on new OD set  
+            for (i = 0; i < 5; i++) {
+			
+                city = top101citiesUS[i];
+				tmp = new gm.LatLng(city.lat, city.lng);
+				var obj = new String('');
+				//add the i count to aid in the conditional options
+				obj = "'" + city.name + i + "'";
+				var replaced = obj.split(' ').join('%20');				
+				var elem = new String('');
+				elem = "'pTeams'";
+				
+				
+				//dynamically load map_table    			
+				tbody += '<tr>';
+				tbody += '<td>';
+				tbody += '<a href=javascript:showStory(1,'+replaced+','+elem+')>'+city.name+'</a>';
+				tbody += '</td>'
+        		tbody += '</tr>';
+								
+                marker = new gm.Marker({map: map, position: tmp});
+                marker.addListener(
+                    'click',
+                    (function (cityObj, iNum) {
+                        return function () {
+                            var postFixes = ['st', 'nd', 'rd', 'th', 'th'],
+                                html = cityObj.name +'<br>('+ (iNum + 1) + postFixes[iNum] +' closest to you)';
+                            infoWindow.setContent(html);
+                            infoWindow.open(map, this);
+                        };
+                    })(city, i)
+                );
+                markers.push(marker);
+                bounds.extend(tmp);
+            }
+            map.fitBounds(bounds);
+			
+			//show map_table
+			tbody += '</tr>\n';	
+            var tfooter = '</table></div>';	
+			
+				document.getElementById('map_tableParks').innerHTML = theader + tbody + tfooter;		
+			
+        });
+    }    
+  
+    findFiveClosest(_myZip);
+    
+}
+	
+function doNFL() {
+
+var myZip = "A4CSportsCity";
+var _myZip = localStorage.getItem(myZip);
+var city;
+var tbody = '';  //map_table
+
+  var gm = google.maps,
+        mapOptions = {
+            zoom: 10,
+            center: new gm.LatLng(45.421530, -75.697193),
+            mapTypeId: gm.MapTypeId.ROADMAP
+        },
+        map = new gm.Map(document.getElementById('map_canvasParks'), mapOptions),
+        geocoder = new gm.Geocoder(),
+         //by population, as of 2006
+		 
+		  top101citiesUS = [						  
+				{"name": "Tennesse Titans	AFC", "lat":	36.166461,"lng":	-86.771289},		
+{"name": "New York Giants	NFC", "lat":	40.812194,"lng":	-74.076983},	 	
+{"name": "Pittspurgh Steelers	AFC", "lat":	40.446786,"lng":	-80.015761},	 	
+{"name": "Carolina Panthers	NFC", "lat":	35.225808,"lng":	-80.852861},	 	
+{"name": "Baltimore Ravens	AFC", "lat":	39.277969,"lng":	-76.622767},	 	
+{"name": "Tampa Bay Buccaneers	NFC", "lat":	27.975967,"lng":	-82.50335},	 	
+{"name": "Indianapolis Colts	AFC", "lat":	39.760056,"lng":	-86.163806},	 	
+{"name": "Minnesotta Vikings	NFC", "lat":	44.973881,"lng":	-93.258094},	 	
+{"name": "Arizona Cardinals	NFC", "lat":	33.5277,"lng":		-112.262608},	 	
+{"name": "Dallas Cowboys	NFC", "lat":	32.747778,"lng":	-97.092778},	 	
+{"name": "Atlanta Falcons	NFC", "lat":	33.757614,"lng":	-84.400972},	 	
+{"name": "New York Jets		AFC", "lat":	40.812194,"lng":	-74.076983},	 	
+{"name": "Denver Broncos	AFC", "lat":	39.743936,"lng":	-105.020097},	 	
+{"name": "Miami Dolphins	AFC", "lat":	25.957919,"lng":	-80.238842},	 	
+{"name": "Philadelphia Eagles	NFC", "lat":	39.900775,"lng":	-75.167453},	 	
+{"name": "Chicago Bears		NFC", "lat":	41.862306,"lng":	-87.616672},	 	
+{"name": "New England Patriots	AFC", "lat":	42.090925,"lng":	-71.26435},	 	
+{"name": "Washington Redskins	NFC", "lat":	38.907697,"lng":	-76.864517},	 	
+{"name": "Green Bay Packers	NFC", "lat":	44.501306,"lng":	-88.062167},	 	
+{"name": "San Diego Chargers	AFC", "lat":	32.783117,"lng":	-117.119525},	 	
+{"name": "New Orelans Saints	NFC", "lat":	29.950931,"lng":	-90.081364},	 	
+{"name": "Houstan Texans	AFC", "lat":	29.684781,"lng":	-95.410956},	 	
+{"name": "Buffalo Bills		AFC", "lat":	42.773739,"lng":	-78.786978},	 	
+{"name": "San Francisco 49ers	NFC", "lat":	37.713486,"lng":	-122.386256},	 	
+{"name": "Jacksonville Jaguars	AFC", "lat":	30.323925,"lng":	-81.637356},	 	
+{"name": "Cleveland Browns	AFC", "lat":	41.506022,"lng":	-81.699564},	 	
+{"name": "Oakland Raiders	AFC", "lat":	37.751411,"lng":	-122.200889},	 	
+{"name": "Kansas City Chiefs	AFC", "lat":	39.048914,"lng":	-94.484039},	 	
+{"name": "LA Rams		NFC", "lat":	38.632975,"lng":	-90.188547},	 	
+{"name": "Seattle Seahawks	NFC", "lat":	47.595153,"lng":	-122.331625},	 	
+{"name": "Cinncinatti Bengals	AFC", "lat":	39.095442,"lng":	-84.516039},	 	
+{"name": "Detroit Lions		NFC", "lat":	42.340156,"lng":	-83.045808}
+			],
+        markers = [],
+        infoWindow = new gm.InfoWindow(); 
+
+			
+	function clearMarkers() {
+	    for (var i = 0, len = markers.length; i < len; i++) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+    }
+    
+    function findFiveClosest(zip) {
+
+        //geocoder.geocode({address: ''+zip}, function (result, status) {
+          geocoder.geocode({address: ''+zip}, function (result, status) {
+            if (status != gm.GeocoderStatus.OK) {
+                return alert('Failed to geocode that zipcode! May be invalid?');
+            }
+            var i, tmp, marker //city, tmp, marker,
+                len = top101citiesUS.length,
+                latLng = result[0].geometry.location, //approx. location of our zipcode
+                arr = [],
+                bounds = new gm.LatLngBounds();
+            for (i = 0; i < len; i++) {
+                city = top101citiesUS[i];
+                tmp = new gm.LatLng(city.lat, city.lng);
+				
+                city.distance = gm.geometry.spherical.computeDistanceBetween(latLng, tmp);
+				
+            }
+             //arrange the cities from closest to furthest away
+            top101citiesUS.sort(
+                function (a, b) {
+                    var da = a.distance,
+                        db = b.distance;
+                    if (da === db) {
+                        return 0;
+                    }
+                    return (da > db) ? 1 : -1;
+                }
+            );
+             //clear any previous markers
+            for (i = 0, len = markers.length; i < len; i++) {
+                markers[i].setMap(null);
+            }
+            markers = [];
+             //create markers for the five closest cities
+			 
+			 //for map_table			
+			 var theader = '<div><table border="1" id="tblOptions">\n';
+			
+			//increment i to 5 to allow for a new range of options based on new OD set  
+            for (i = 0; i < 5; i++) {
+			
+                city = top101citiesUS[i];
+				tmp = new gm.LatLng(city.lat, city.lng);
+				var obj = new String('');
+				//add the i count to aid in the conditional options
+				obj = "'" + city.name + i + "'";
+				var replaced = obj.split(' ').join('%20');				
+				var elem = new String('');
+				elem = "'pTeams'";
+				
+				
+				//dynamically load map_table    			
+				tbody += '<tr>';
+				tbody += '<td>';
+				tbody += '<a href=javascript:showStory(1,'+replaced+','+elem+')>'+city.name+'</a>';
+				tbody += '</td>'
+        		tbody += '</tr>';
+								
+                marker = new gm.Marker({map: map, position: tmp});
+                marker.addListener(
+                    'click',
+                    (function (cityObj, iNum) {
+                        return function () {
+                            var postFixes = ['st', 'nd', 'rd', 'th', 'th'],
+                                html = cityObj.name +'<br>('+ (iNum + 1) + postFixes[iNum] +' closest to you)';
+                            infoWindow.setContent(html);
+                            infoWindow.open(map, this);
+                        };
+                    })(city, i)
+                );
+                markers.push(marker);
+                bounds.extend(tmp);
+            }
+            map.fitBounds(bounds);
+			
+			//show map_table
+			tbody += '</tr>\n';	
+            var tfooter = '</table></div>';	
+			
+				document.getElementById('map_tableParks').innerHTML = theader + tbody + tfooter;		
+			
+        });
+    }    
+  
+    findFiveClosest(_myZip);
+    
+}
+	
+</script>
+
+
+</head>
+<body>
+
+
+
+<section data-role="page" id="pagePreferences">
+    	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		<div data-role="navbar" data-theme="c">
+			<ul>
+      			<li><a href="Main.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
+				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
+				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
+				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>								
+			</ul>
+		</div><!-- /navbar-->
+		
+	</div><!-- /header -->
+    <section data-role="content">		
+         
+          
+		<!--<ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
+		</ul> -->
+		<div id="map_tableParks" style="width:200px; height:400px;"></div>						
+						<div id="map_canvasParks" style="width:1px; height:1px;"></div>
+						<p id="pTeams">
+						<script>
+							if (localStorage.getItem("A4CLeague") == "basketball/nba"){
+								doNBA(1, 'NA', 'pTeams');
+							}
+							else if(localStorage.getItem("A4CLeague") == "football/nfl"){
+								doNFL(1, 'NA', 'pTeams');
+							}
+							else if(localStorage.getItem("A4CLeague") == "hockey/nhl"){
+								doNHL(1, 'NA', 'pTeams');
+							}
+							else{
+								doMLB(1, 'NA', 'pTeams');
+							}							
+						</script>
+						
+
+<div data-role="controlgroup" data-type="horizontal">
+        <a href="TeamB.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
+      	<a href="Tshirt.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>
+        
+</div>
+    </section>
+
+	
+	<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+			<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+	</div><!-- /footer -->
+	
+</section>	
+	
+
+	
+</body>
+</html>

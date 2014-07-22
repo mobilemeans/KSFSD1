@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KID STORIES FOR SPORT DADS</title>
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<link rel="stylesheet" href="style.css" />
+
+
+<!--<script>
+var linkValue = "";
+	(function(){
+var teamId = "A4CTeamId";
+var _teamId = localStorage.getItem(teamId);
+var strLeague = "";
+
+if (localStorage.getItem("A4CLeague") == "basketball/nba"){
+			strLeague = "nba";
+}
+else if(localStorage.getItem("A4CLeague") == "football/nfl"){
+			strLeague = "nfl";
+}
+else if(localStorage.getItem("A4CLeague") == "hockey/nhl"){
+			strLeague = "nhl";
+}
+else{
+			strLeague = "mlb";
+}							
+						
+	
+	//NOW API
+	//change theh leagues and/or team value, if the limit is set to 1 then the ability to align the image with the text disappears.  ideally would want images to align with more than 1 story
+	//http://json.parser.online.fr/
+	//http://jsonformat.com/
+	var espnAPI = "http://api.espn.com/v1/now?leagues="+strLeague+"&teams="+_teamId+"&limit=3&apikey=vy6k3rzwkkfaefg7nkpyd2af&callback=?";
+	
+
+	
+	$.getJSON(espnAPI, {
+		format: "json"
+		})
+		.done(function(data){		
+			var ol = $("<ol/>");
+			var strDesc = "";
+			var teamName = "";
+			var description = "";
+			var headline = "";
+			var linkText = "";
+			var links = "";
+			var byline = "";
+			var imgNow = "";
+			
+			//need to change the value for "data.feed" or "data.sports" dependent upon API call.  use the sample URI in a browser to get the return values or use the sample API tool on their site
+			
+				$.each(data.feed, function(index, value){
+						
+/*				
+alert("byline: " + value.byline + "\n"
++ "description: " + value.description + "\n"
++ "headline: " + value.headline + "\n"
++ "linkText: " + value.linkText + "\n"
++ "links: " + value.links.mobile.href + "\n"
++ "categories team: " + value.categories[0].description + "\n"
++ "categories league: " + value.categories[1].description
+);*/
+				
+        //USE FOR NOW FEED
+				//get the selected player's team's news			
+				teamName = value.categories[0].description;
+				teamLeague = value.categories[1].description;
+				headline = value.headline;				
+				linkText = value.linkText;
+				links = value.links.mobile.href;
+				byline = value.byline;		
+				
+				 			
+				
+				$('#pTeamName').text("A" + );
+				$('#pHeadline').text("B" + headline);
+				$('#pDescription').text("C" + description);
+				linkValue = links;
+				$('#pStoryURL').html('<a href='+linkValue+' target=_blank>Read: '+linkText+'</a>');
+				$('#pByline').text("E" + byline);
+				
+			});
+			
+					
+			/*$.each(data.feed, 
+			function(){				
+			
+				
+				
+				
+				if (this.images[0].url !== 'undefined'){					
+					var img1 = this.images[0].url;
+					var _img = $('<img src='+img1+'>');
+					$('#imgTeam').html(_img);
+				}
+								
+			});	*/			
+		});				
+	})();
+	
+	
+	</script>-->
+
+
+</head>
+<body>
+
+
+
+<section data-role="page" id="pagePreferences">
+    	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		<div data-role="navbar" data-theme="c">
+			<ul>
+      	<li><a href="Main.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      	<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
+				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
+				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
+				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>								
+			</ul>
+		</div><!-- /navbar-->
+		
+	</div><!-- /header -->
+    <section data-role="content">		
+         
+          
+		<!--<ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
+		</ul> -->
+		<div id="teamNews">			
+			<p id="pTeamName"  style="font-family:arial;color:red;font-size:20px;font-weight: bold"/>			 		
+		</div>
+		<table style="width: 100%">
+     <thead>
+          <tr>
+               <!--<th>Team</th>-->
+               <th>Headline</th>
+               <th>Description</th>
+               <!--<th>Link</th>
+               <th>Byline</th>-->
+           </tr>
+     </thead>
+     <tbody id="tbody">
+     </tbody>
+</table>
+		
+		<!--
+		<div id="teamNews">			
+			<p id="pTeamName"  style="font-family:arial;color:red;font-size:20px;font-weight: bold"/>
+			<p id="pHeadline" />
+			<p id="pDescription" />  
+			<p id="pStoryURL" />
+			<p id="pByline" />			 		
+		</div>
+		-->
+		
+		<script>
+var linkValue = "";
+	(function(){
+var teamId = "A4CTeamId";
+var _teamId = localStorage.getItem(teamId);
+var strLeague = "";
+
+if (localStorage.getItem("A4CLeague") == "basketball/nba"){
+			strLeague = "nba";
+}
+else if(localStorage.getItem("A4CLeague") == "football/nfl"){
+			strLeague = "nfl";
+}
+else if(localStorage.getItem("A4CLeague") == "hockey/nhl"){
+			strLeague = "nhl";
+}
+else{
+			strLeague = "mlb";
+}							
+						
+	
+	//NOW API
+	//change theh leagues and/or team value, if the limit is set to 1 then the ability to align the image with the text disappears.  ideally would want images to align with more than 1 story
+	//http://json.parser.online.fr/
+	//http://jsonformat.com/
+	var espnAPI = "http://api.espn.com/v1/now?leagues="+strLeague+"&teams="+_teamId+"&limit=6&apikey=vy6k3rzwkkfaefg7nkpyd2af&callback=?";
+	
+
+	
+	$.getJSON(espnAPI, {
+		format: "json"
+		})
+		.done(function(data){		
+			var ol = $("<ol/>");
+			var strDesc = "";
+			var teamName = "";
+			var description = "";
+			var headline = "";
+			var linkText = "";
+			var links = "";
+			var byline = "";
+			var imgNow = "";
+			
+			//need to change the value for "data.feed" or "data.sports" dependent upon API call.  use the sample URI in a browser to get the return values or use the sample API tool on their site
+        $('#pTeamName').text(strLeague.toUpperCase());        
+        $.each(data.feed, function(index, value){
+				
+        //USE FOR NOW FEED
+				//get the selected player's team's news
+				
+				//nba response is different format
+				if (data.feed[0].categories[0].description == "NBA"  || data.feed[0].categories[1].description == "NBA"){
+                     
+            if (data.feed[index].headline){
+              headline = data.feed[index].headline;
+            }
+            else{
+              headline = "";
+            }
+            
+            if (data.feed[index].description){
+              description = data.feed[index].description;
+            }
+            else{
+              description = "";
+            }
+                         
+            if (data.feed[index].links.web.href){
+              links = data.feed[index].links.web.href
+             
+              var eachrow = "<tr>"
+                // + "<td>" + teamLeague + " " + teamName + "</td>"
+                // + "<td>" + headline + "</td>"
+                 + "<td><a href="+links+" target=_blank>"+headline+"</a></td>" 
+                 + "<td>" + description + "</td>"                                
+                // + "<td>" + byline + "</td>"
+                 + "</tr>";
+              
+            }
+            else{
+               links = "http://www.espn.com";
+            }
+				
+				}
+				else{
+					
+           //teamName = value.categories[0].description;
+          //teamLeague = value.categories[1].description;
+          if (value.headline){
+            headline = value.headline;
+          }
+          else{
+            headline = "";
+          }
+          
+          if (value.description){
+            description = value.description;
+          }
+          else{
+            description = "";
+          }			
+          
+          if (value.linkText){
+            linkText = value.linkText;
+          }
+          else{
+            linkText = "";
+          }
+          
+          if (value.links.web.href == null){
+          
+            links = "http://www.espn.com";
+          }
+         else{
+            links = value.links.web.href;
+            
+            var eachrow = "<tr>"
+                // + "<td>" + teamLeague + " " + teamName + "</td>"
+                // + "<td>" + headline + "</td>"
+                 + "<td><a href="+linkValue+" target=_blank>"+linkText+"</a></td>" 
+                 + "<td>" + description + "</td>"                                
+                // + "<td>" + byline + "</td>"
+                 + "</tr>";        
+          
+             
+          }
+          //byline = value.byline;	
+          
+       }//else closing tag	
+				
+				 			
+        $('#tbody').append(eachrow);
+				
+			});
+		});				
+	})();
+	
+	
+	</script>
+		
+		
+<div data-role="controlgroup" data-type="horizontal">
+        <a href="TeamA.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
+      	<a href="TeamC.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>
+        
+</div>
+</section>
+
+	
+	<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+			<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+	</div><!-- /footer -->
+	
+</section>	
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KID STORIES FOR SPORT DADS</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+	<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+	<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+	<section data-role="page" id="pagePreferences">
+	<img src="img/bannerSM2.jpg" />
+	 <section data-role="header">
+       <h2>KID STORIES FOR SPORT DADS</h2> 
+    </section>
+    <section data-role="content">
+	<ul data-role="listview" data-inset="true">
+	
+	<script type="text/javascript">
+	//PREFERENCES VALUES
+		var myName = "A4CSportsName";
+		var myAge = "A4CSportsAge";	
+		var myCity = "A4CSportsCity";
+		var myTeamName = "A4CTeamName";
+		var myTeamId = "A4CTeamId";
+		var myRemember = "A4CSportsRem";
+		
+		
+        $('#pagePreferences').live('pagecreate', function() {
+            if (Modernizr.localstorage) {
+                showStoreValue();
+            }
+            else {
+               // $('#message').text("Unfortunately your browser doesn't support local storage");
+                $('#addToStorage').attr('disabled', 'disabled');
+               // $('#message').show();
+            }
+            $('#addToStorage').click(function(e) {               
+				localStorage.setItem(myName, $('#myName').val());
+				localStorage.setItem(myAge, $('#myAge').val());		
+				localStorage.setItem(myCity, $('#myCity').val());
+				localStorage.setItem(myRemember, $('input[name="myRemember"]:checked').val());			
+				//team name and id are set on the switch of the select control
+				showStoreValue();
+                e.preventDefault();
+            });
+        });
+
+        function showStoreValue() {
+            
+			var _myName = localStorage.getItem(myName);
+			var _myAge = localStorage.getItem(myAge);
+			var _myCity = localStorage.getItem(myCity);
+			var _myTeamName = localStorage.getItem(myTeamName);
+			var _myTeamId = localStorage.getItem(myTeamId);
+			var _myRemember = localStorage.getItem(myRemember);			   
+			
+			
+			if (_myName == null){
+                _myName = 'Please enter a value';				
+            }
+            else if (_myName.length === 0) {
+                _myName = 'Please enter a value';				
+            }	
+			if (_myAge == null){
+                _myAge = 'Please enter a value';				
+            }
+            else if (_myAge.length === 0) {
+                _myAge = 'Please enter a value';				
+            }	
+			if (_myCity == null){
+                _myCity = 'Please enter a value';				
+            }
+            else if (_myCity.length === 0) {
+                _myCity = 'Please enter a value';				
+            }	
+			
+
+
+			
+			$('.storeItem').text("Name: " + _myName); 
+			$('.storeItem2').text("Age: " + _myAge);
+			$('.storeItem3').text("City: " + _myCity);
+			$('.storeItem4').text("Team: " + _myTeamName);
+			$('.storeItem5').text("Team Id: " + _myTeamId);
+			$('.storeItem6').text("Keep: " + _myRemember);
+			
+			
+ 
+        }
+	
+	
+	//END PREFERENCES VALUES
+	
+	
+	
+	// START ESPN
+	var teamLists = new Array(1);
+		
+  //START BASEBALL
+ (function getBasketball(){
+	//TEAMS API
+	var espnAPI = "http://api.espn.com/v1/sports/football/nfl/teams/?apikey=vy6k3rzwkkfaefg7nkpyd2af&callback=?";
+	
+	$.getJSON(espnAPI, {
+		format: "json"
+		})
+		.done(function(data){		
+			var ulMLB = $('<ol/>');;
+			var linkValue = "";
+			var _URL = "";
+			teamLists["NFL"] = new Array();
+			//need to change the value for "data.feed" or "data.sports" dependent upon API call.  use the sample URI in a browser to get the return values or use the sample API tool on their site
+			$.each(data.sports, function(index, value){
+				//get the team info		(jsonformat.com)
+				$.each(this.leagues[0].teams, function(teamIndex, teamValue){					
+					var teamName = teamValue.name;
+					var teamLocation = teamValue.location;
+					var teamColour = teamValue.color;
+					var teamId = teamValue.id;
+					
+					//var li = $('<li />').text(teamLocation + "-" + teamName + "-" + teamColour + "-" + teamId);
+					linkValue = "http://api.espn.com/v1/sports/football/nfl/teams/" + teamId;
+					//_URL = $('<a href='+linkValue+'>Read now</a>');				
+					//var li = $('<a href=' + linkValue + '><li>'+ teamLocation + ' ' + teamName +'</li></a>');	
+					var li = $('<a href=http://www.teams.html?name='+teamId+'><li>'+ teamLocation + ' ' + teamName +'</li></a>');
+					
+					//create the list of team values
+					ulMLB.append(li);						
+					
+						//add the list of NFL teams
+						for (i=0; i<1; i++){						
+							teamLists["NFL"].push(['' + teamId + '-' + teamName + '']);
+						}
+					
+					
+				});
+					
+			});
+				
+			
+				//add the list to the body
+				//$("body").append(ulMLB);
+		
+				
+					
+				});
+				})();
+ //END BASEBALL
+ 
+ //END ESPN
+ 
+  
+//<![CDATA[
+// array of possible countries in the same order as they appear in the country selection list
+
+ 
+function leagueChange(selectObj) {
+	// get the index of the selected option
+	var idx = selectObj.selectedIndex;
+	// get the value of the selected option
+	var which = selectObj.options[idx].value;
+	// use the selected option value to retrieve the list of items from the teamLists array
+	cList = teamLists[which];	
+	// get the team select element via its known id
+	var cSelect = document.getElementById("teamSelect");
+	// remove the current options from the team select
+	var len=cSelect.options.length;
+	while (cSelect.options.length > 0) {
+		cSelect.remove(0);
+	}
+	var newOption;
+	// create new options
+	for (var i=0; i<cList.length; i++) {
+		newOption = document.createElement("option");
+		newOption.value = cList[i];  // assumes option string and value are the same
+		newOption.text=cList[i];
+		// add the new option
+		try {
+			cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE
+		}
+		catch (e) {
+			cSelect.appendChild(newOption);
+
+		}
+	}
+	
+}
+
+function teamChange(selectObj) {
+	var idx = selectObj.selectedIndex;
+	which = selectObj.options[idx].value;
+	showWidget(which);
+	
+}
+function showWidget(x){
+	
+	//extract the team id
+	var strMark = x.indexOf("-");
+	var strId=""; 
+	
+	if (strMark == 1){
+		strId = x.substring(0,1);
+	}
+	else{
+		strId = x.substring(0,2);
+	}
+	//store values
+	localStorage.setItem("A4CTeamName", x);
+	localStorage.setItem("A4CTeamId", strId);
+	localStorage.setItem("A4CLeague", "football/nfl");
+	//redirect to new page 	
+	//window.location.href = 'Team.html';        
+}
+
+
+function validateProfile(){
+	//validate that the profile has been entered
+	var league = document.getElementById("leagueSelect");
+	var team = document.getElementById("teamSelect");
+	var city = document.getElementById("myCity");
+	var name = document.getElementById("myName");
+	var age = document.getElementById("myAge");
+	
+	if (league.selectedIndex == 0){
+		alert('Please select the league.');
+		league.focus();
+	}
+	else if (team.selectedIndex == 0){
+		alert('Please select the team.');
+		team.focus();
+	}
+	else if(name.value == ""){
+		alert('Please enter your name.');
+		name.focus();
+	}
+	else if (city.value == ""){
+		alert('Please enter your city.');
+		city.focus();
+	}	
+	else if(age.value == 0){
+		alert('Enter your jersey number.');
+		age.focus();
+	}
+	else {
+		//passed validation
+		window.location.href = 'Team.html';
+	}	
+}
+
+//]]>
+</script>
+	
+	
+	<h2>HUT, HUT!</h2>
+	
+			<fieldset>
+			<legend>Step 1.&nbsp;&nbsp;Select your sport and team.</legend><br />
+			<label for="leagueSelect">Select your league</label><br>
+			<select id="leagueSelect" onchange="leagueChange(this);">				
+			<option value="empty"selected>Select a league</option>
+			<option value="NFL" >National Football League</option>	
+			</select>
+			<br />
+			<br>
+			  
+			<label for="teamSelect">Select a team</label><br>
+			<select id="teamSelect" onchange="teamChange(this);">
+			<option value="0">Select a team</option>
+			</select>
+			</fieldset>
+			<br />
+			<br />
+			<fieldset>
+			<legend>Step 2.&nbsp;&nbsp;Personalize the story.</legend><br /> 
+			<input type="text" id="myName" name="myName" placeholder="What is your name?"/>
+			<br />
+			<br />
+			<input type="text" id="myCity" name="myCity" placeholder="What is your city?"/>
+			<br />
+			<br />
+			<label for="myAge">enter a jersey number.</label><br>
+			<input id="myAge" name="age" type="number" value="0" />
+			</fieldset>
+			<br/>
+			<br/>
+			<fieldset>
+					<legend>Step 3.&nbsp;&nbsp;Use these settings for your stories??</legend><br />  
+						<ol>
+							<li>				
+								<input type = "radio" name = "myRemember" id = "yes" value = "yes" checked = "checked" />
+								<label for = "yes">yes</label>
+							</li>
+							<li>
+								<input type = "radio" name = "myRemember" id = "no" value = "no" />
+								<label for = "no">no</label>
+							</li>
+						</ol>
+			</fieldset>
+				<br/><br/><br/>
+			<input type="button" id="addToStorage" value="Press here to save these settings!"/>
+			
+			<li data-role="list-divider">Step 4.&nbsp;&nbsp;Review what you have entered.</li>
+            <li class="storeItem"/>
+			<li class="storeItem2"/>
+			<li class="storeItem3"/>
+			<li class="storeItem4"/>
+			<li class="storeItem5"/>
+			<li class="storeItem6"/>
+		</ul>
+		
+		
+	</section>
+	<a href="#" onclick="validateProfile()" rel="external" data-transition="pop" data-role="button" data-prefetch>Step 5.&nbsp;&nbsp;Click to read story!</a>
+		<p>Note:  We do not collect or recieve any of your entered information and it is used only for the purposes of each story.</p>
+	<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home |</a> <a href="FAQ.html" rel="external" data-transition="slideup" data-prefetch>| FAQ |</a> <a href="mailto:apps4canadians@live.com">| Contact |</a>  </center>
+			
+		</div><!-- /footer -->
+	
+</section>	
+	
+	
+	</body>
+</html>
+	

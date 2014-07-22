@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        xmlns:android   = "http://schemas.android.com/apk/res/android"
+        id          = "com.a4c.sports"
+        
+        versionCode = "1" version     = "0.0.3" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>KID STORIES FOR SPORT DADS</name>
+    
+    <description>
+KID STORIES FOR SPORT DADS has partnered with ESPN to provide you with real time updates for major sports headlines based on your favourite teams. If you're seeking sports headlines for teams in the Major League Baseball (MLB), National Basketball Association (NBA), National Football League (NFL) or the National Hockey League (NHL) then be sure to use our app. We know that quality time reading to your child is very important, but so is your time! Share your love for sports with your child as they become the star of their own sports story that also happens to include live sports headlines from the four major sports in North America. 				
+    </description>
+      <icon src="icon.png" width="65" height="48"/>
+      <icon src="ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+      <icon src="mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+      <icon src="hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+    
+    
+    <author href="http://www.apps4canadians.ca" email="apps4canadians@live.com">
+        Troy MacFarlane 
+    </author>
+    <gap:splash src="Splash.png" />
+    <gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    
+    
+    
+    <preference name="fullscreen" value="true" />
+    <preference name="permissions" value="none"/>
+    <preference name="android-minSdkVersion"      value="15" />
+    <preference name="phonegap-version" value="3.3.0" />
+
+<gap:plugin name="org.apache.cordova.device-motion" version="0.1.0" />	
+<gap:plugin name="org.apache.cordova.device-orientation"  version="0.3.1" />	
+<gap:plugin name="nl.x-services.plugins.socialsharing" />
+<gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
+<feature name="InAppBrowser">
+    <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    <param name="ios-package" value="CDVInAppBrowser" />
+</feature>
+<access origin="*" />  
+
+    
+</widget>

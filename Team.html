@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KID STORIES FOR SPORT DADS</title>
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<link rel="stylesheet" href="style.css" />
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+var myName = "A4CSportsName";
+var myAge = "A4CSportsAge";
+var myCity = "A4CSportsCity";
+var teamId = "A4CTeamId";
+
+var weatherIcon = ""
+
+var _myName = localStorage.getItem(myName);
+var _myAge = localStorage.getItem(myAge);
+var _myCity = localStorage.getItem(myCity);
+var _teamId = localStorage.getItem(teamId);
+
+
+
+
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + _myCity + "&units=metric&lang=en&callback=?", displayWeather2);
+					
+
+
+function displayWeather2(data){	
+		    
+      var canvas = document.getElementById('e');
+      var context = canvas.getContext('2d');
+      var maxWidth = 300;
+      var lineHeight = 25;
+      var x = (canvas.width - maxWidth) / 2;
+      var y = 60;
+      var weather = data.weather[0].description;
+    
+	  var text = "TEST OPEN DATA WEATHER -- It was another " + weather + " day in the Magical Unicorn Kindgom.  All of the unicorns were excited that their cousin " + _myName + " was coming to visit from " + _myCity + ".";
+		$('#message').text(text);
+	 
+	if( weather.indexOf('clouds') >= 0){
+  	//weatherIcon = "http://openweathermap.org/img/w/02d.png";
+  	$("#weatherImage").attr("src", "http://openweathermap.org/img/w/02d.png");
+	}
+	else if( weather.indexOf('thunder') >= 0){
+  	//weatherIcon =	"http://openweathermap.org/img/w/11d.png";
+  	$("#weatherImage").attr("src", "http://openweathermap.org/img/w/11d.png");
+	}
+	else if( weather.indexOf('snow') >= 0){
+  	//weatherIcon =	"http://openweathermap.org/img/w/13d.png";
+  	$("#weatherImage").attr("src", "http://openweathermap.org/img/w/13d.png");
+	}
+	else if( weather.indexOf('rain') >= 0){
+  	//weatherIcon =	"http://openweathermap.org/img/w/09d.png";
+  	$("#weatherImage").attr("src", "http://openweathermap.org/img/w/09d.png");
+	}
+	else if( weather.indexOf('drizzle') >= 0){
+  	//weatherIcon =	"http://openweathermap.org/img/w/09d.png";
+  	$("#weatherImage").attr("src", "http://openweathermap.org/img/w/09d.png");
+	}
+	else{
+	//weatherIcon =	"http://openweathermap.org/img/w/01d.png";
+	$("#weatherImage").attr("http://openweathermap.org/img/w/01d.png");
+	}
+		
+      context.font = '16pt Calibri';
+      context.fillStyle = '#333';     	
+	}
+
+});
+</script>
+
+
+</head>
+<body>
+
+
+
+<section data-role="page" id="pagePreferences">
+    
+      	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		<div data-role="navbar" data-theme="c">
+			<ul>
+      			<li><a href="Main.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
+				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
+				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
+				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>								
+			</ul>
+		</div><!-- /navbar-->
+		
+	</div><!-- /header -->
+   
+    <section data-role="content">		
+         
+          
+		<!--<ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
+		</ul> -->
+		  <img id="weatherImage" /> 
+		   <p id="message" />  
+    <canvas id="e" width="400" height="600"></canvas>
+
+
+<div data-role="controlgroup" data-type="horizontal">
+        <!--<a href="Preferences.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>-->
+      	<a href="TeamA.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>
+        
+</div>
+    </section>
+
+	
+	<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+			<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+	</div><!-- /footer -->
+
+	
+
+	
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KID STORIES FOR SPORT DADS</title>
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<link rel="stylesheet" href="style.css" />
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+var myName = "A4CSportsName";
+var myAge = "A4CSportsAge";
+var myCity = "A4CSportsCity";
+var teamId = "A4CTeamId";
+var leagueName = "A4CLeague";
+
+var weatherIcon = ""
+
+var _myName = localStorage.getItem(myName);
+var _myAge = localStorage.getItem(myAge);
+var _myCity = localStorage.getItem(myCity);
+var _teamId = localStorage.getItem(teamId);
+var _myLeague = localStorage.getItem(leagueName);
+
+var teamColour = "";
+
+
+//START BASKETBALL	
+	//var espnAPI = "http://api.espn.com/v1/sports/basketball/nba/teams/"+_teamId+"/?apikey=vy6k3rzwkkfaefg7nkpyd2af&callback=?";
+	var espnAPI = "http://api.espn.com/v1/sports/"+_myLeague+"/teams/"+_teamId+"/?apikey=vy6k3rzwkkfaefg7nkpyd2af&callback=?";
+	
+	$.getJSON(espnAPI, {
+		format: "json"
+		})
+		.done(function(data){		
+			//var ulNBA = $('<ol/>');;
+			var linkValue = "";
+			var _URL = "";
+			
+			//need to change the value for "data.feed" or "data.sports" dependent upon API call.  use the sample URI in a browser to get the return values or use the sample API tool on their site
+			$.each(data.sports, function(index, value){
+				//get the team info		(jsonformat.com)
+				$.each(this.leagues[0].teams, function(teamIndex, teamValue){					
+					var teamName = teamValue.name;
+					var teamLocation = teamValue.location;
+					teamColour = teamValue.color;
+					var teamId = teamValue.id;
+					
+					//var li = $('<li />').text(teamLocation + "-" + teamName + "-" + teamColour + "-" + teamId);
+					//linkValue = "http://api.espn.com/v1/sports/basketball/nba/teams/" + teamId;
+					//_URL = $('<a href='+linkValue+'>Read now</a>');				
+					//var li = $('<a href=' + linkValue + '><li>'+ teamLocation + ' ' + teamName +'</li></a>');	
+					//var li = $('<a href=http://www.teams.html?name='+teamId+'><li>'+ teamLocation + ' ' + teamName +'</li></a>');
+					
+					//create the list of team values
+					//ulNBA.append(li);				
+						
+					$('#message').text('LOCATION NAME COLOUR ID' + teamLocation + "-" + teamName + "-" + teamColour + "-" + teamId);
+					teamColour = "#" + teamColour;
+					localStorage.setItem("A4CTeamColor", teamColour);
+					
+					
+					
+				});					
+			});				
+			
+				//add the list to the body
+				//$("body").append(ulNBA);
+					
+				});
+				
+			//END BASKETBALL
+			
+			//$('#teamColor').css({'background-color':''+ teamColour +''});
+
+
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + _myCity + "&units=metric&lang=en&callback=?", displayWeather2);
+
+
+
+function displayWeather2(){	
+		    
+     // var canvas = document.getElementById('e');
+     // var context = canvas.getContext('2d');
+     // var maxWidth = 300;
+      //var lineHeight = 25;
+     // var x = (canvas.width - maxWidth) / 2;
+      //var y = 60;
+     
+    
+	  var text = "It was another  day in the Magical Unicorn Kindgom.  All of the unicorns were excited that their cousin " + _myName + " was coming to visit from " + _myCity + ".";
+		//$('#message').text(text);
+	 
+	/* 
+	if( weather.indexOf('clouds') >= 0){
+  	//weatherIcon = "http://openweathermap.org/img/w/02d.png";
+  	$("#weatherImage").attr("src", "http://openweathermap.org/img/w/02d.png");
+	}
+	else if( weather.indexOf('thunder') >= 0){
+  	//weatherIcon =	"http://openweathermap.org/img/w/11d.png";
+  	$("#weatherImage").attr("src", "http://openweathermap.org/img/w/112d.png");
+	}
+	else{
+	//weatherIcon =	"http://openweathermap.org/img/w/01d.png";
+	$("#weatherImage").attr("http://openweathermap.org/img/w/01d.png");
+	}*/
+		
+      //context.font = '16pt Calibri';
+     // context.fillStyle = '#333';     
+     
+    
+			var x = document.getElementById("teamTable");
+			x.innerHTML = "TEST TEAM COLOUR";
+			x.bgColor = localStorage.getItem("A4CTeamColor");
+			x.style.fontSize = '20px';
+			x.style.fontFamily = 'arial';
+			x.style.color = 'white';
+			x.style.border = '1px solid #FFFFFF';
+			
+		
+     
+     	
+	}
+
+});
+
+
+			
+			
+		
+
+
+</script>
+
+
+</head>
+<body>
+
+
+
+<section data-role="page" id="pagePreferences">
+   	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		<div data-role="navbar" data-theme="c">
+			<ul>
+      			<li><a href="Main.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
+				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
+				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
+				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>								
+			</ul>
+		</div><!-- /navbar-->
+		
+	</div><!-- /header -->
+    <section data-role="content">		
+         
+          
+		<!--<ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
+		</ul> -->
+		<div id="teamColor">
+		
+		<table id="teamTable">
+		<tr><td>placeholder</td></tr>
+		</table>
+		<!--<script>
+			var x = document.getElementById("teamTable");
+			x.innerHTML = "TEST TEAM COLOUR";
+			x.bgColor = localStorage.getItem("A4CTeamColor");
+			x.style.fontSize = '20px';
+			x.style.fontFamily = 'arial';
+			x.style.color = 'white';
+			x.style.border = '1px solid #FFFFFF';
+			
+		</script>-->
+		</div>
+		<img id="weatherImage" /> 
+		<p id="message" />  
+		
+		
+
+
+<div data-role="controlgroup" data-type="horizontal">
+        <a href="Team.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
+      	<a href="TeamB.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>
+        
+</div>
+    </section>
+
+	
+	<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+			<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+	</div><!-- /footer -->
+	
+</section>	
+	
+<div id="something" style="background:color">this is a test</div>	
+	
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>KID STORIES FOR SPORT DADS</title> 	
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
+	<link rel="stylesheet" href="style.css" />
+	
+	<!-- PAINT imports -->
+	<link rel="stylesheet" type="text/css" href="stylePaint.css" />
+	<link rel="stylesheet" type="text/css" href="js/jquery.productColorizer.css" />
+	<link href="http://fonts.googleapis.com/css?family=Asap:400,700" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.productColorizer.js"></script>
+	<!--<script type="text/javascript" src="js/prettify.js"></script>-->
+	<script type="text/javascript" src="js/init.js"></script>
+	<!-- use for 2 + colours -->
+	<!-- Load jQuery Library First -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<!-- Load raphael library -->
+	<script type="text/javascript" src="js/raphael-min.js"></script>
+	<!-- Load productColorizer Plugin Next -->
+	<script type="text/javascript" src="js/jquery.productColorizer.pack.js"></script>
+	<!-- END PAINT imports -->
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//get the name
+		var myName = "A4CSportsName";
+		var _myName = localStorage.getItem(myName);
+		$('#message').text(_myName + ", colour the t-shirt with your team's colours.");
+	
+	});
+</script>
+	
+	</head> 
+<body> 
+
+
+<div data-role="page">
+	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+		<div data-role="navbar" data-theme="c">
+			<ul>
+      			<li><a href="Main.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
+				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
+				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
+				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>								
+			</ul>
+		</div><!-- /navbar-->
+		
+	</div><!-- /header -->
+
+	<div id="content" data-role="content">
+		
+		<!-- PAINT -->
+		<div id="demo" class="container clearfix">
+			<h3><p id="message" /></h3>
+			<div class="product-preview">
+				<div class="product">
+					<img src="images/blank_tshirt.jpg" alt="Shirt Image" />
+					<img id="mask" class="mask" src="images/shirt-mask.png" alt="Mask Image" />
+				</div>
+		
+				<h3></h3>
+				<p>#1 Fan</p>
+				<h4>Choose a Color:</h4>
+				<div class="swatch">
+					<a rel="255,255,255" href="#mask" title="White">White</a>
+					<a rel="32,223,95" href="#mask" title="Green">Green</a>
+					<a rel="255,211,8" href="#mask" title="Yellow">Yellow</a>
+					<a rel="255,101,8" href="#mask" title="Orange">Orange/a>
+					<a rel="16,200,255" href="#mask" title="Blue">Blue</a>
+					<a rel="142,8,255" href="#mask" title="Purple">Purple</a>
+					<a rel="245,25,45" href="#mask" title="Red">Red</a>
+					<a rel="153,76,0" href="#mask" title="Brown">Brown</a>
+					<a rel="192, 192, 192" href="#mask" title="Silver">Silver</a>
+					<a rel="220, 20, 60" href="#mask" title="Crimson">Crimson</a>
+					<a rel="255, 20, 147" href="#mask" title="Pink">Pink</a>
+					<a rel="0, 255, 0" href="#mask" title="Lime">Lime</a>
+				</div>
+			</div>
+		</div>
+		<!-- END PAINT -->
+		
+		
+		
+			
+		<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home |</a> <a href="FAQ.html" rel="external" data-transition="slideup" data-prefetch>| FAQ |</a> <a href="mailto:apps4canadians@live.com">| Contact |</a>  </center>
+				
+		</div><!-- /footer -->
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
