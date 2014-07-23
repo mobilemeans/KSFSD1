@@ -4,7 +4,7 @@
         xmlns:android   = "http://schemas.android.com/apk/res/android"
         id          = "com.a4c.sports"
         
-        versionCode = "1" version     = "0.0.6" >
+        versionCode = "1" version     = "0.0.4" >
 
     <!-- versionCode is optional and Android only -->
 
@@ -36,13 +36,25 @@ KID STORIES FOR SPORT DADS has partnered with ESPN to provide you with real time
 
 <gap:plugin name="org.apache.cordova.device-motion" version="0.1.0" />	
 <gap:plugin name="org.apache.cordova.device-orientation"  version="0.3.1" />	
-<gap:plugin name="nl.x-services.plugins.socialsharing" />
-
 <gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
+<gap:plugin name="nl.x-services.plugins.socialsharing" version="3.3" />
+<gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
+<gap:plugin name="org.apache.cordova.vibration" version="0.3.7" />
+
 <feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     <param name="ios-package" value="CDVInAppBrowser" />
 </feature>
+<feature name="SocialSharing">
+  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />  
+</feature>
+<feature name="Notification">
+    <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+</feature>
+<feature name="Vibration">
+    <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
+</feature>
+
 <access origin="*" />  
 
     

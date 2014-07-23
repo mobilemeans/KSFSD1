@@ -3,16 +3,46 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Kids Stories For Sport Dads</title>
+		<title>Kids Stories For Sport Dads</title>		
+		<!-- SOCIAL SHARING PLUGIN -->
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/SocialSharing.js"></script>		
 		
-				<link rel="stylesheet"  href="http://demos.jquerymobile.com/1.3.0-beta.1/css/themes/default/jquery.mobile-1.3.0-beta.1.css">
+		<link rel="stylesheet"  href="http://demos.jquerymobile.com/1.3.0-beta.1/css/themes/default/jquery.mobile-1.3.0-beta.1.css">
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<!--<script src="http://demos.jquerymobile.com/1.3.0-beta.1/docs/demos/_assets/js/jquery.mobile.demos.js"></script>-->
 		<script src="http://demos.jquerymobile.com/1.3.0-beta.1/js/jquery.mobile-1.3.0-beta.1.js"></script>
 	<link rel="stylesheet" href="style.css" />
 	
-	
+	<script type="text/javascript">
+      document.addEventListener("deviceready", onDeviceReady, false);
+	  
+	   function onDeviceReady() {
+        // Now safe to use the PhoneGap API
+    }
+	  // Show a custom alert
+     function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
 
+    // Beep three times
+    function playBeep() {
+        navigator.notification.beep(3);
+    }
+
+    // Vibrate for 2 seconds
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
+     
+	  
+    </script>
+	
+	
 	</head>
 	<body>
 
@@ -28,16 +58,13 @@
 			</div><!-- /header -->
 			<div data-role="content" data-theme="c">
 			
-				<center>
-				<button onclick="window.plugins.socialsharing.share('Message only')">message only</button>
-<button onclick="window.plugins.socialsharing.share('Message and subject', 'The subject')">message and subject</button>
-<button onclick="window.plugins.socialsharing.share(null, null, null, 'http://www.x-services.nl')">link only</button>
-<button onclick="window.plugins.socialsharing.share('Message and link', null, null, 'http://www.x-services.nl')">message and link</button>
-<button onclick="window.plugins.socialsharing.share(null, null, 'https://www.google.nl/images/srpr/logo4w.png', null)">image only</button>
-<button onclick="window.plugins.socialsharing.share(null, 'Android filename', 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null)">base64 image only</button>
-<button onclick="window.plugins.socialsharing.share('Message and image', null, 'https://www.google.nl/images/srpr/logo4w.png', null)">message and image</button>
-<button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, image and link</button>
-<button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button>
+				<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch><img src="img/bannerSM.jpg" /></a></center>
+				<h2><p><center>"Get live sports headlines while you read your child a story!"</center></p></h2><br><br>
+				
+				<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://2.bp.blogspot.com/-cULi2xTkicY/UHS9fkrlzEI/AAAAAAAAAic/Y6zJmSAAE7I/s1600/A4CHorizontalLogo.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
+				<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+				<p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
+				<p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
 			</div><!-- /content -->
 
 			<div class="jqm-footer">
@@ -79,8 +106,11 @@
 		<li data-filtertext="Tshirt">
 			<a href="Tshirt.html" rel="external" data-transition="slideup" data-prefetch>Coloring</a>
 		</li>
-		<li data-filtertext="Music">
-			<a href="Music.html" rel="external" data-transition="slideup" data-prefetch>Music</a>
+		<li data-filtertext="Library">
+			<a href="Library.html" rel="external" data-transition="slideup" data-prefetch>Library</a>
+		</li>
+		<li data-filtertext="Book">
+			<a href="Book.html" rel="external" data-transition="slideup" data-prefetch>Book</a>
 		</li>
 		<li data-filtertext="FAQ">
 			<a href="FAQ.html" rel="external" data-transition="slideup" data-prefetch>FAQ</a>
@@ -88,12 +118,6 @@
 		<li data-filtertext="ACC">
 			<a href="Acc.html" rel="external" data-transition="slideup" data-prefetch>ACC</a>
 		</li>		
-		<li data-filtertext="Distance">
-			<a href="Distance.html" rel="external" data-transition="slideup" data-prefetch>Distance</a>
-		</li>	
-		<li data-filtertext="Distance2">
-			<a href="Distance2.html" rel="external" data-transition="slideup" data-prefetch>Distance2</a>
-		</li>	
 	</ul>
 
 	<!-- panel content goes here -->
@@ -112,7 +136,7 @@
 				<div data-role="panel" data-position="right" data-position-fixed="false" data-display="overlay" id="add-form" data-theme="e">
 
 					<form class="userform">
-						<h2>COMMENTS</h2>
+						<h2>COMMENTS</h2>								   
 						<p>KID STORIES FOR SPORT DADS has partnered with ESPN to provide you with real time updates for Major League Baseball (MLB), National Basketball Association (NBA), National Football League (NFL) and the National Hockey League (NHL). We know that quality time reading to your child is very important, but so is your time!  Share your love for sports with your child as they become the star of their 
 						own sports story that also happens to include live sports headlines from the four major sports in North America.  If you would like to see more live sports content 
 						or other leagues added then click the "COMMENTS" link below.
@@ -129,7 +153,9 @@
 						<input type="email" name="email" id="email" value="" data-clear-btn="true" data-mini="true">
 						-->
 						<br>
-						<a href="mailto:apps4canadians@live.com?body=COMMENTS%20Sports!" + </script>COMMENTS</a>
+						<button onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!  ', 'Kids, Reading and Sports?')">Comments</button>
+				
+						<!--<a href="mailto:apps4canadians@live.com?body=COMMENTS%20Sports!" + </script>COMMENTS</a>-->
 						
 						<!--
 						<div class="ui-grid-a">
