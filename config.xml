@@ -41,6 +41,7 @@ KID STORIES FOR SPORT DADS has partnered with ESPN to provide you with real time
 <gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
 <gap:plugin name="org.apache.cordova.vibration" version="0.3.7" />
 
+<!--
 <feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     <param name="ios-package" value="CDVInAppBrowser" />
@@ -54,7 +55,7 @@ KID STORIES FOR SPORT DADS has partnered with ESPN to provide you with real time
 <feature name="Vibration">
     <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
 </feature>
-
+-->
 <access origin="*" />  
 
     
