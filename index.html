@@ -8,19 +8,38 @@
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/SocialSharing.js"></script>		
 		
+			
+		<!-- CAROUSEL  -->
+        <link rel="stylesheet" type="text/css" href="jcarousel.responsive.css">
+        <link rel="stylesheet" type="text/css" href="carouselstyle.css">		
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+        <script type="text/javascript" src="jcarousel.responsive.js"></script>
+		
+			
 		<link rel="stylesheet"  href="http://demos.jquerymobile.com/1.3.0-beta.1/css/themes/default/jquery.mobile-1.3.0-beta.1.css">
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<!--<script src="http://demos.jquerymobile.com/1.3.0-beta.1/docs/demos/_assets/js/jquery.mobile.demos.js"></script>-->
 		<script src="http://demos.jquerymobile.com/1.3.0-beta.1/js/jquery.mobile-1.3.0-beta.1.js"></script>
-	<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="style.css" />
+	
+	 
+	
 	
 	<script type="text/javascript">
       document.addEventListener("deviceready", onDeviceReady, false);
 	  
-	   function onDeviceReady() {
+	   // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    function onDeviceReady() {
         // Now safe to use the PhoneGap API
+		
     }
-   
+	  
+	   // Vibrate for 2 seconds
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
+	  
 	  // Show a custom alert
      function showAlert() {
         navigator.notification.alert(
@@ -39,33 +58,74 @@
     function vibrate() {
         navigator.notification.vibrate(2000);
     }
-    
+	 </script>
+	 
+	
 	  
-    </script>
+   
+
+	<style>
+	#grad1 {
+   
+     height: 40px;
+    background: -webkit-linear-gradient(-90deg, white, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(-90deg, white, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(-90deg, white, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(-90deg, lightblue, white); /* Standard syntax (must be last) */
+	}
 	
-	
+	</style>
 	</head>
-	<body>
-
+	<body>	
 	
 	
-	
-		<div data-role="page" class="ui-responsive-panel">
-
-			<div data-role="header" data-theme="a">
-				<h1></h1>
+		<div data-role="page" class="ui-responsive-panel">	
+		
+			<div data-role="header" data-theme="a" id="grad1" style="color:white;text-align:center;">
+			
+				
 				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
 				<a href="#add-form" data-icon="plus" data-iconpos="notext">Add</a>
 			</div><!-- /header -->
 			<div data-role="content" data-theme="c">
 			
-				<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch><img src="img/bannerSM.jpg" /></a></center>
-				<h2><p><center>"Get live sports headlines while you read your child a story!"</center></p></h2><br><br>
+				
+				
+				<h2><p><center><img src="img/bannerSM.jpg" id="banner" name="banner" alt="did it work"></center></p></h2><br>
+				<!-- CAROUSEL -->
+				<div class="wrapper">
+				<h1>"get live ESPN sports updates while you read your child a story"</h1>
+            <div class="jcarousel-wrapper"><img src="img/Library.png" />
+                <div class="jcarousel">				
+                    <ul>
+                        <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book1.jpg" alt="Image 1" id="Book1"></a></li>
+                       <li><a href="MLB.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 2" id="Book2" ></a></li>
+                      <li><a href="NHL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book3.jpg" alt="Image 3" id="Book3" ></a></li>
+                      <li><a href="NBA.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book4.jpg" alt="Image 4" id="Book4" ></a> </li>
+                       <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book5.jpg" alt="Image 5" id="Book5" ></a></li>
+						<li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 6"></a></li>
+						<li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book1.jpg" alt="Image 1"></a></li>
+                       <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 2"></a></li>
+                      <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book3.jpg" alt="Image 3"></a></li>
+                      <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book4.jpg" alt="Image 4"></a></li>
+                       <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book5.jpg" alt="Image 5"></a></li>
+						<li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 6"></a></li>
+                    </ul>
+                </div>
+
+                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+
+                <p class="jcarousel-pagination"></p>
+            </div>
+        </div>
+				<!-- END CAROUSEL -->
 				
 				<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://2.bp.blogspot.com/-cULi2xTkicY/UHS9fkrlzEI/AAAAAAAAAic/Y6zJmSAAE7I/s1600/A4CHorizontalLogo.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
-			<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+				<!--<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
 				<p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
-				<p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
+				<p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>-->
+			
 			</div><!-- /content -->
 
 			<div class="jqm-footer">
@@ -109,7 +169,7 @@
 		</li>
 		<li data-filtertext="Library">
 			<a href="Library.html" rel="external" data-transition="slideup" data-prefetch>Library</a>
-		</li>	
+		</li>		
 		<li data-filtertext="FAQ">
 			<a href="FAQ.html" rel="external" data-transition="slideup" data-prefetch>FAQ</a>
 		</li>	
@@ -134,10 +194,12 @@
 				<div data-role="panel" data-position="right" data-position-fixed="false" data-display="overlay" id="add-form" data-theme="e">
 
 					<form class="userform">
-						<h2>COMMENTS</h2>								   
-						<p>KID STORIES FOR SPORT DADS has partnered with ESPN to provide you with real time updates for Major League Baseball (MLB), National Basketball Association (NBA), National Football League (NFL) and the National Hockey League (NHL). We know that quality time reading to your child is very important, but so is your time!  Share your love for sports with your child as they become the star of their 
-						own sports story that also happens to include live sports headlines from the four major sports in North America.  If you would like to see more live sports content 
-						or other leagues added then click the "COMMENTS" link below.
+						<h2>FAQ</h2>								   
+						<p>1. ldjfadsflja dlsfjadslfjasd fjasdlkjfkla;sdfja lsdkfjaldskfja lks;dfja;lksdf<br>
+						2. ald;kfjadlfjasldkfjasdlf   alksdkfj;ads f   alkdfjkads fadsf as dfalkjdsfj<br>
+						3. aldsjkfads;lfkj  adlfjkadslf asdfasdlkfjasdf lkasdjf asdf<br>
+						4. aldjf;lajdsf adlfkjad;sf jadslkfjad lfjald;fjaldfjasldkfjadsf;ljad sklfjadsklfjads; lfjadslkfjadsl;f ajdsflkajdsfla;kdsf<br>
+						5. alfjdalkdjflkad jflkadjflasdjflsadkjgi ohoahohgo hjasdojfalsdfja;sldf asdf aldfjaldfjaldfjka dflkjjadfkja sdf<br>
 						</p>
 						<!--
 						<label for="name">First Name</label>
@@ -151,9 +213,9 @@
 						<input type="email" name="email" id="email" value="" data-clear-btn="true" data-mini="true">
 						-->
 						<br>
-						<!--<button onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!  ', 'Kids, Reading and Sports?')">Comments</button>-->
+						<button onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!  ', 'Kids, Reading and Sports?')">Comments</button>
 				
-						<a href="mailto:apps4canadians@live.com?body=COMMENTS%20Sports!" + </script>COMMENTS</a>
+						<!--<a href="mailto:apps4canadians@live.com?body=COMMENTS%20Sports!" + </script>COMMENTS</a>-->
 						
 						<!--
 						<div class="ui-grid-a">
@@ -170,4 +232,5 @@
 			
 		</div><!-- /page -->
 	</body>
+
 </html>
