@@ -27,6 +27,16 @@
 	
 	
 	<script type="text/javascript">
+	
+	function Setup(storyName){
+		var strStory = storyName;		
+		var strTeamFind = storyName.indexOf("-");
+		var len = storyName.length;
+		var strLeague = storyName.substr(strTeamFind-3, 3);
+		localStorage.setItem("A4CSportsStory", strStory);
+		window.location.href = strLeague + ".html";
+	}
+	
       document.addEventListener("deviceready", onDeviceReady, false);
 	  
 	   // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
@@ -81,35 +91,29 @@
 	
 		<div data-role="page" class="ui-responsive-panel">	
 		
-			<div data-role="header" data-theme="a" id="grad1" style="color:white;text-align:center;">
-			
-				
-				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+			<div data-role="header" data-theme="a" id="grad1" style="color:white;text-align:center;">				
+				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>				
 				<a href="#add-form" data-icon="plus" data-iconpos="notext">Add</a>
 			</div><!-- /header -->
-			<div data-role="content" data-theme="c">
-			
+			<div data-role="content" data-theme="c">	
 				
-				
-				<h2><p><center><img src="img/bannerSM.jpg" id="banner" name="banner" alt="did it work"></center></p></h2><br>
 				<!-- CAROUSEL -->
 				<div class="wrapper">
-				<h1>"get live ESPN sports updates while you read your child a story"</h1>
+				<h2><p><center><img src="img/bannerSM.jpg" id="banner" name="banner" alt="did it work"></center></p></h2><br>
+				
+				<h2>"GET ESPN HEADLINES IN THE STORY"</h2>
+				<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://2.bp.blogspot.com/-cULi2xTkicY/UHS9fkrlzEI/AAAAAAAAAic/Y6zJmSAAE7I/s1600/A4CHorizontalLogo.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
+			
             <div class="jcarousel-wrapper"><img src="img/Library.png" />
                 <div class="jcarousel">				
                     <ul>
-                        <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book1.jpg" alt="Image 1" id="Book1"></a></li>
-                       <li><a href="MLB.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 2" id="Book2" ></a></li>
-                      <li><a href="NHL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book3.jpg" alt="Image 3" id="Book3" ></a></li>
-                      <li><a href="NBA.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book4.jpg" alt="Image 4" id="Book4" ></a> </li>
-                       <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book5.jpg" alt="Image 5" id="Book5" ></a></li>
-						<li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 6"></a></li>
-						<li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book1.jpg" alt="Image 1"></a></li>
-                       <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 2"></a></li>
-                      <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book3.jpg" alt="Image 3"></a></li>
-                      <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book4.jpg" alt="Image 4"></a></li>
-                       <li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book5.jpg" alt="Image 5"></a></li>
-						<li><a href="NFL.html" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 6"></a></li>
+                        <li><a href="#" onclick="Setup('NHL-Miracle On Ice')" rel="external" data-transition="slideup" data-prefetch><img src="img/nhl.jpg" alt="Hockey" id="Hockey" name="NHL1"></a></li>
+                       <li><a href="#" onclick="Setup('NBA-2')" rel="external" data-transition="slideup" data-prefetch><img src="img/NBA.jpg" alt="Basketball" id="Basketball" name="NHL2" ></a></li>
+                      <li><a href="#" onclick="Setup('MLB-Babe Ruth Called Shot')" rel="external" data-transition="slideup" data-prefetch><img src="img/MLB.jpg" alt="Baseball 3" id="Baseball" name="NHL3"></a></li>
+                      <li><a href="#" onclick="Setup('NFL-3')" rel="external" data-transition="slideup" data-prefetch><img src="img/NFL.jpg" alt="Football 4" id="Football" ></a> </li>
+                       <li><a href="#" rel="external" data-transition="slideup" data-prefetch><img src="img/Book5.jpg" alt="Image 5" id="Book5" ></a></li>
+						<li><a href="#" rel="external" data-transition="slideup" data-prefetch><img src="img/Book2.jpg" alt="Image 6"></a></li>
+						
                     </ul>
                 </div>
 
@@ -121,8 +125,7 @@
         </div>
 				<!-- END CAROUSEL -->
 				
-				<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://2.bp.blogspot.com/-cULi2xTkicY/UHS9fkrlzEI/AAAAAAAAAic/Y6zJmSAAE7I/s1600/A4CHorizontalLogo.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
-				<!--<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+					<!--<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
 				<p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
 				<p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>-->
 			

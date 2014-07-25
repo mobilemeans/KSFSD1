@@ -8,6 +8,7 @@
 		<meta name="description" content="Book Preview with BookBlock" />
 		<meta name="keywords" content="BookBlock, book preview, look inside, css, transforms, animations, css3, 3d, perspective, fullscreen" />
 		<meta name="author" content="Book Sellers Canada" />
+		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/bookblock.css" />
@@ -532,26 +533,6 @@ var tbody = '';  //map_table
 		}
 		
 	</script>
-	
-	 <style type="text/css">
-        #tbody {
-            width: 100%;
-        }
-        thead {
-            background-color: white;
-            color: black;
-            text-indent: 14px;
-            text-align: left;
-        }
-        tbody td:nth-child(odd) {
-            background-color: black; 
-        }
-        tbody td:nth-child(even) {
-            background-color: red; 
-        }
-        
-    </style>
-	
 	</head>
 	<body>
 		<div id="scroll-wrap" class="container">
@@ -650,7 +631,6 @@ var tbody = '';  //map_table
 		
 			
 		<div id="footer"><center>
-		<a href="NHL_1.html" rel="external" data-transition="slideup" data-prefetch>Carousel Story View</a>
 		<img src="img/A4C.jpg" />
 			&copy; Apps4Canadians
 			</center>
@@ -1009,9 +989,8 @@ var tbody = '';  //map_table
 				links = value.links.web.href;
 				
 				var eachrow = "<tr>"
-					+ "<td><a href="+linkValue+" target=_blank>"+description+"</a></td></tr><tr><td></td>"
-					// + "<td><a href="+linkValue+" target=_blank>"+linkText+"</a></td>" 
-					// + "<td>" + description + "</td>"                                
+					 + "<td><a href="+linkValue+" target=_blank>"+linkText+"</a></td>" 
+					 + "<td>" + description + "</td>"                                
 					 + "</tr>";  				 
 			  }
 			  				  
