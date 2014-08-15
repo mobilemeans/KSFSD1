@@ -44,25 +44,13 @@
 		</ul> -->
 		<div id="teamNews">			
 			<p id="pTeamName1"  style="font-family:Century Gothic;color:black;font-size:20px;font-weight: bold"/>	
-			<p id="pTeamName2"  style="font-family:Century Gothic;color:black;font-size:20px;font-weight: bold"/>			
+			<p id="pTeamName2"  style="font-family:Century Gothic;color:black;font-size:20px;font-weight: bold"/>	
+			
+        		
 		</div>
-		<table style="width: 100%">
-		<thead>
-          <tr>
-			<th>Headline</th>
-            <th>Description</th>           
-           </tr>
-		</thead>
-		<tbody id="tbody">
-		</tbody>
-		</table>
-		<p id="pTeamName3"  style="font-family:Century Gothic;color:black;font-size:20px;font-weight: bold"/>	
-		<table style="width: 25%">		
-		<tbody id="tableNav">
-		</tbody>
-		</table>	
-			
-			
+		<a href="Feeds.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Read</a>
+		
+	
 			
 	<script>
 	var linkValue = "";
@@ -126,104 +114,7 @@
 		//END STORY
 						
 	
-	//NOW API
-	//change theh leagues and/or team value, if the limit is set to 1 then the ability to align the image with the text disappears.  ideally would want images to align with more than 1 story
-	//http://json.parser.online.fr/
-	//http://jsonformat.com/
-	var espnAPI = "http://api.espn.com/v1/now?leagues="+strLeague+"&teams="+_teamId+"&limit=6&apikey=vy6k3rzwkkfaefg7nkpyd2af&callback=?";	
-	$.getJSON(espnAPI, {
-		format: "json"
-		})
-		.done(function(data){		
-			var ol = $("<ol/>");
-			var strDesc = "";
-			var teamName = "";
-			var description = "";
-			var headline = "";
-			var linkText = "";
-			var links = "";
-			var byline = "";
-			var imgNow = "";
-			
-		//need to change the value for "data.feed" or "data.sports" dependent upon API call.  use the sample URI in a browser to get the return values or use the sample API tool on their site
-        //$('#pTeamName').text(strLeague.toUpperCase()); 
 		
-        $.each(data.feed, function(index, value){
-				
-        //USE FOR NOW FEED
-				//get the selected player's team's news				
-				//nba response is different format
-				if (data.feed[0].categories[0].description == "NBA"  || data.feed[0].categories[1].description == "NBA"){
-                     
-					if (data.feed[index].headline){
-					  headline = data.feed[index].headline;
-					}
-					else{
-					  headline = "";
-					}
-					
-					if (data.feed[index].description){
-					  description = data.feed[index].description;
-					}
-					else{
-					  description = "";
-					}
-								 
-					if (data.feed[index].links.web.href){
-					  links = data.feed[index].links.web.href
-					 
-					  var eachrow = "<tr>"
-						 + "<td><a href="+links+" target=_blank>"+headline+"</a></td>" 
-						 + "<td>" + description + "</td>"                                
-						 + "</tr>";              
-					}
-					else{
-					   links = "http://www.espn.com";
-					}				
-				}
-				else{
-					
-			   //teamName = value.categories[0].description;
-			  //teamLeague = value.categories[1].description;
-			  if (value.headline){
-				headline = value.headline;
-			  }
-			  else{
-				headline = "";
-			  }
-			  
-			  if (value.description){
-				description = value.description;
-			  }
-			  else{
-				description = "";
-			  }			
-			  
-			  if (value.linkText){
-				linkText = value.linkText;
-			  }
-			  else{
-				linkText = "";
-			  }
-			  
-			  if (value.links.web.href == null){
-			  
-				links = "http://www.espn.com";
-			  }
-			 else{
-				links = value.links.web.href;
-				
-				var eachrow = "<tr>"
-					 + "<td><a href="+linkValue+" target=_blank>"+linkText+"</a></td>" 
-					 + "<td>" + description + "</td>"                                
-					 + "</tr>";  				 
-			  }
-			  				  
-		   }//else closing tag		
-				 			
-        $('#tbody').append(eachrow);				
-			});
-		});				
 	})();	
 	</script>
 		
@@ -231,12 +122,7 @@
 	
 		
 		
-<!--		
-<div data-role="controlgroup" data-type="horizontal">
-        <a href="TeamA.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
-      	<a href="TeamC.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>
-        
-</div>-->
+
 </section>
 
 	

@@ -58,7 +58,7 @@
 			var _myCity = localStorage.getItem(myCity);
 			var _myTeamName = localStorage.getItem(myTeamName);
 			var _myTeamId = localStorage.getItem(myTeamId);
-			var _myRemember = localStorage.getItem(myRemember);			   
+			var _myRemember = localStorage.getItem(myRemember);	  
 			
 			
 			if (_myName == null){
@@ -97,64 +97,44 @@
 	
 	//END PREFERENCES VALUES
 	
-	
-	
-	// START ESPN
+	//CREATE A NFL TEAM ARRAY
 	var teamLists = new Array(1);
-		
-  //START BASEBALL
- (function getBasketball(){
-	//TEAMS API
-	var espnAPI = "http://api.espn.com/v1/sports/football/nfl/teams/?apikey=vy6k3rzwkkfaefg7nkpyd2af&callback=?";
+	teamLists["NFL"] = new Array();
 	
-	$.getJSON(espnAPI, {
-		format: "json"
-		})
-		.done(function(data){		
-			var ulMLB = $('<ol/>');;
-			var linkValue = "";
-			var _URL = "";
-			teamLists["NFL"] = new Array();
-			//need to change the value for "data.feed" or "data.sports" dependent upon API call.  use the sample URI in a browser to get the return values or use the sample API tool on their site
-			$.each(data.sports, function(index, value){
-				//get the team info		(jsonformat.com)
-				$.each(this.leagues[0].teams, function(teamIndex, teamValue){					
-					var teamName = teamValue.name;
-					var teamLocation = teamValue.location;
-					var teamColour = teamValue.color;
-					var teamId = teamValue.id;
-					
-					//var li = $('<li />').text(teamLocation + "-" + teamName + "-" + teamColour + "-" + teamId);
-					linkValue = "http://api.espn.com/v1/sports/football/nfl/teams/" + teamId;
-					//_URL = $('<a href='+linkValue+'>Read now</a>');				
-					//var li = $('<a href=' + linkValue + '><li>'+ teamLocation + ' ' + teamName +'</li></a>');	
-					var li = $('<a href=http://www.teams.html?name='+teamId+'><li>'+ teamLocation + ' ' + teamName +'</li></a>');
-					
-					//create the list of team values
-					ulMLB.append(li);						
-					
-						//add the list of NFL teams
-						for (i=0; i<1; i++){						
-							teamLists["NFL"].push(['' + teamId + '-' + teamName + '']);
-						}
-					
-					
-				});
-					
-			});
-				
-			
-				//add the list to the body
-				//$("body").append(ulMLB);
-		
-				
-					
-				});
-				})();
- //END BASEBALL
- 
- //END ESPN
- 
+		teamLists["NFL"].push(["TEN - Tennesse Titans"]);	
+		teamLists["NFL"].push(["NYG - New York Giants"]);
+		teamLists["NFL"].push(["PIT - Pittspurgh Steelers"]); 	
+		teamLists["NFL"].push(["CAR - Carolina Panthers"]); 	
+		teamLists["NFL"].push(["BAL - Baltimore Ravens"]); 
+		teamLists["NFL"].push(["TB - Tampa Bay Buccaneers"]); 		
+		teamLists["NFL"].push(["IND - Indianapolis Colts"]); 		 	
+		teamLists["NFL"].push(["MIN - Minnesotta Vikings"]); 	
+	 	teamLists["NFL"].push(["ARI - Arizona Cardinals"]); 	
+		teamLists["NFL"].push(["DAL - Dallas Cowboys"]); 	
+		teamLists["NFL"].push(["ATL - Atlanta Falcons"]); 	
+		teamLists["NFL"].push(["NYJ - New York Jets"]); 	
+		teamLists["NFL"].push(["DEN - Denver Broncos"]); 
+		teamLists["NFL"].push(["MIA - Miami Dolphins"]); 
+		teamLists["NFL"].push(["PHI - Philadelphia Eagles"]); 	
+		teamLists["NFL"].push(["CHI - Chicago Bears"]); 	
+		teamLists["NFL"].push(["NE - New England Patriots"]); 	
+		teamLists["NFL"].push(["WAS - Washington Redskins"]); 	
+		teamLists["NFL"].push(["GB - Green Bay Packers"]); 	
+		teamLists["NFL"].push(["SD - San Diego Chargers"]); 	
+		teamLists["NFL"].push(["NO - New Orelans Saints"]); 
+		teamLists["NFL"].push(["HOU - Houstan Texans"]); 	
+		teamLists["NFL"].push(["BUF - Buffalo Bills"]); 		 	
+		teamLists["NFL"].push(["SF - San Francisco 49ers"]); 	 	
+		teamLists["NFL"].push(["JAC - Jacksonville Jaguars"]); 		 	
+		teamLists["NFL"].push(["CLE - Cleveland Browns"]); 		 	
+		teamLists["NFL"].push(["OAK - Oakland Raiders"]); 		 	
+		teamLists["NFL"].push(["KC - Kansas City Chiefs"]); 	 	
+		teamLists["NFL"].push(["STL - St. Louis Rams"]); 		 	
+		teamLists["NFL"].push(["SEA - Seattle Seahawks"]); 		 	
+		teamLists["NFL"].push(["CIN - Cinncinatti Bengals"]); 	
+		teamLists["NFL"].push(["DET - Detroit Lions"]); 
+	
+	
   
 //<![CDATA[
 // array of possible countries in the same order as they appear in the country selection list
@@ -204,8 +184,8 @@ function showWidget(x){
 	var strMark = x.indexOf("-");
 	var strId=""; 
 	
-	if (strMark == 1){
-		strId = x.substring(0,1);
+	if (strMark == 4){
+		strId = x.substring(0,3);
 	}
 	else{
 		strId = x.substring(0,2);
