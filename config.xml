@@ -4,14 +4,14 @@
         xmlns:android   = "http://schemas.android.com/apk/res/android"
         id          = "com.a4c.sports"
         
-        versionCode = "1" version     = "0.0.4" >
+        versionCode = "1" version     = "0.0.5" >
 
     <!-- versionCode is optional and Android only -->
 
     <name>KID STORIES FOR SPORT DADS</name>
     
     <description>
-KID STORIES FOR SPORT DADS has partnered with ESPN to provide you with real time updates for major sports headlines based on your favourite teams. If you're seeking sports headlines for teams in the Major League Baseball (MLB), National Basketball Association (NBA), National Football League (NFL) or the National Hockey League (NHL) then be sure to use our app. We know that quality time reading to your child is very important, but so is your time! Share your love for sports with your child as they become the star of their own sports story that also happens to include live sports headlines from the four major sports in North America. 				
+KID STORIES FOR SPORT DADS provides you with real time updates for major sports headlines based on your favourite teams. If you're seeking sports headlines for teams in the Major League Baseball (MLB), National Basketball Association (NBA), National Football League (NFL) or the National Hockey League (NHL) then be sure to use our app. We know that quality time reading to your child is very important, but so is your time! Share your love for sports with your child as they become the star of their own sports story that also happens to include live sports headlines from the four major sports in North America. 				
     </description>
       <icon src="icon.png" width="65" height="48"/>
       <icon src="ldpi.png" gap:platform="android" gap:qualifier="ldpi" />

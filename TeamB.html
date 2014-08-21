@@ -10,10 +10,19 @@
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
 	<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
 	<link rel="stylesheet" href="style.css" />
+	
+	<style>
+		p.serif {    
+			font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+			font-size: 18px;
+		}
+		
+	</style>
+	
 </head>
 <body>
 <section data-role="page" id="pagePreferences">
-    <div data-role="header" data-theme="a">
+    <div data-role="header" data-theme="c">
 	<script type="text/javascript"><!--
 		google_ad_client = "ca-pub-6908679240944495";
 		/* MobileBanner320by50 */
@@ -28,11 +37,9 @@
 
 		<div data-role="navbar" data-theme="c">
 			<ul>
-      	<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
-      	<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
-				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
-				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
-				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>								
+      	<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
+      			<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
+				<li><a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>								
 			</ul>
 		</div><!-- /navbar-->
 		
@@ -41,15 +48,18 @@
           
 		<!--<ul data-role="listview" data-inset="true">
             <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
-		</ul> -->
-		<div id="teamNews">			
-			<p id="pTeamName1"  style="font-family:Century Gothic;color:black;font-size:20px;font-weight: bold"/>	
-			<p id="pTeamName2"  style="font-family:Century Gothic;color:black;font-size:20px;font-weight: bold"/>	
+		</ul> -->	 <img id="teamIcon" src="img/Football/Cardinals.png" />
+		<div id="teamNews">
+		 
+			<p id="pTeamName1"  class="serif"/>	
+			<p id="pTeamName2"  class="serif"/>	
 			
         		
 		</div>
-		<a href="Feeds.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Read</a>
-		
+		<!--<a href="Feeds.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Read</a>-->
+		<a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="Feeds.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
 	
 			
 	<script>
@@ -90,9 +100,9 @@
 		var len = _myTeam.length;
 		var strTeamName = _myTeam.substr(n+1, len-n);
     	
-		storyText1 = _myName + ", is it true that your favourite " + strLeagueFormat + " team is the " + strTeamName + "?  I like to read the latest " + strTeamName + " headlines.";
+		storyText1 = "Everyone knew that " +_myName + " had a favourite " + strLeagueFormat + " team and that it was the " + strTeamName + ".  " +_myName+ " wanted to read the latest " + strTeamName + " news to see they needed an extra player.";
 		$('#pTeamName1').text(storyText1);
-		storyText2 = "Can you help me to read about some of the new " + strTeamName + " stories from today?";
+		storyText2 = _myName + " anxiously waited to read the new " + strTeamName + " stories from today.";
 		$('#pTeamName2').text(storyText2);
 		$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');
 		
@@ -136,4 +146,111 @@
 	
 </section>	
 </body>
+<script>
+	//NFL LOGOS
+	if(localStorage.getItem("A4CTeamId") == "GB"){
+						$("#teamIcon").attr("src", "img/Football/Packers.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "BAL"){
+					$("#teamIcon").attr("src", "img/Football/Ravens.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "NYG"){
+					$("#teamIcon").attr("src", "img/Football/Giants.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "KC"){
+					$("#teamIcon").attr("src", "img/Football/Chiefs.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "NO"){
+					$("#teamIcon").attr("src", "img/Football/Saints.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "IND"){
+					$("#teamIcon").attr("src", "img/Football/Colts.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "DEN"){
+					$("#teamIcon").attr("src", "img/Football/Broncos.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "SEA"){
+					$("#teamIcon").attr("src", "img/Football/Seahawks.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "CIN"){
+					$("#teamIcon").attr("src", "img/Football/Bengals.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "WAS"){
+					$("#teamIcon").attr("src", "img/Football/Redskins.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "OAK"){
+					$("#teamIcon").attr("src", "img/Football/Raiders.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "CAR"){
+					$("#teamIcon").attr("src", "img/Football/Panthers.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "NYJ"){
+					$("#teamIcon").attr("src", "img/Football/Jets.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "BUF"){
+					$("#teamIcon").attr("src", "img/Football/Bills.png");
+	  }	  
+	  else if(localStorage.getItem("A4CTeamId") == "SF"){
+					$("#teamIcon").attr("src", "img/Football/49ers.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "PIT"){
+					$("#teamIcon").attr("src", "img/Football/Steelers.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "NO"){
+					$("#teamIcon").attr("src", "img/Football/Saints.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "PHI"){
+					$("#teamIcon").attr("src", "img/Football/Eagles.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "CHI"){
+					$("#teamIcon").attr("src", "img/Football/Bears.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "STL"){
+					$("#teamIcon").attr("src", "img/Football/Rams.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "DET"){
+					$("#teamIcon").attr("src", "img/Football/Lions.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "DAL"){
+					$("#teamIcon").attr("src", "img/Football/Cowboys.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "MIN"){
+					$("#teamIcon").attr("src", "img/Football/Vikings.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "TB"){
+					$("#teamIcon").attr("src", "img/Football/Bucaneers.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "JAC"){
+					$("#teamIcon").attr("src", "img/Football/Jaguars.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "NE"){
+					$("#teamIcon").attr("src", "img/Football/Patriots.png");
+	  }	  
+	  else if(localStorage.getItem("A4CTeamId") == "HOU"){
+					$("#teamIcon").attr("src", "img/Football/Texans.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "TEN"){
+					$("#teamIcon").attr("src", "img/Football/Titans.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "GB"){
+					$("#teamIcon").attr("src", "img/Football/Packers.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "ATL"){
+					$("#teamIcon").attr("src", "img/Football/Falcons.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "MIA"){
+					$("#teamIcon").attr("src", "img/Football/Dolphins.png");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "CLE"){
+					$("#teamIcon").attr("src", "img/Football/Browns.png");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "SD"){
+					$("#teamIcon").attr("src", "img/Football/Chargers.png");
+	  } 	  	  
+	  else{					$("#teamIcon").attr("src", "img/Football/DefaultNFL.png");
+	  }
+	 
+	  
+	  
+	</script>
 </html>

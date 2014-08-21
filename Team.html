@@ -11,7 +11,6 @@
 <script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
 <link rel="stylesheet" href="style.css" />
 
-
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -28,11 +27,8 @@ var _myCity = localStorage.getItem(myCity);
 var _teamId = localStorage.getItem(teamId);
 
 
-
-
 $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + _myCity + "&units=metric&lang=en&callback=?", displayWeather2);
 					
-
 
 function displayWeather2(data){	
 		    
@@ -43,10 +39,25 @@ function displayWeather2(data){
       var x = (canvas.width - maxWidth) / 2;
       var y = 60;
       var weather = data.weather[0].description;
+	  var strLeague = "";
+	  
+	  if (localStorage.getItem("A4CLeague") == "basketball/nba"){
+					strLeague = "basketball";
+	  }
+	  else if(localStorage.getItem("A4CLeague") == "football/nfl"){
+					strLeague = "football";
+	  }
+	  else if(localStorage.getItem("A4CLeague") == "hockey/nhl"){
+					strLeague = "hockey";
+	  }
+	  else{
+					strLeague = "baseball";
+	  }
     
-	  var text = "TEST OPEN DATA WEATHER -- It was another " + weather + " day in the Magical Unicorn Kindgom.  All of the unicorns were excited that their cousin " + _myName + " was coming to visit from " + _myCity + ".";
-		$('#message').text(text);
-	 
+	  var text = "It was another " + weather + " day in " +_myCity+ ".  " + _myName + " was thinking about playing " +strLeague+ " with some friends.";
+	$('#message').text(text);
+	
+/*	
 	if( weather.indexOf('clouds') >= 0){
   	//weatherIcon = "http://openweathermap.org/img/w/02d.png";
   	$("#weatherImage").attr("src", "http://openweathermap.org/img/w/02d.png");
@@ -69,16 +80,23 @@ function displayWeather2(data){
 	}
 	else{
 	//weatherIcon =	"http://openweathermap.org/img/w/01d.png";
-	$("#weatherImage").attr("http://openweathermap.org/img/w/01d.png");
+	$("#weatherImage").attr("src","http://openweathermap.org/img/w/01d.png");
 	}
-		
-      context.font = '16pt Calibri';
-      context.fillStyle = '#333';     	
+	*/
+$("#weatherImage").attr("src","img/demo.png");
+	
+      //context.font = "Lucida Grande";
+      //context.fillStyle = '#333';     	
 	}
 
 });
 </script>
-
+<style>
+p.serif {    
+			font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+			font-size: 18px;
+		}
+</style>
 
 </head>
 <body>
@@ -103,11 +121,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 		<div data-role="navbar" data-theme="c">
 			<ul>
-      			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
-      			<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
-				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
-				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
-				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>								
+      			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
+      			<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
+				<li><a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>							
 			</ul>
 		</div><!-- /navbar-->
 		
@@ -120,14 +136,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
             <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
 		</ul> -->
 		  <img id="weatherImage" /> 
-		   <p id="message" />  
-    <canvas id="e" width="400" height="600"></canvas>
+		   <p id="message" class="serif"/>  
+		  
+    <canvas id="e" width="400" height="400"></canvas>
 
 
 <div data-role="controlgroup" data-type="horizontal">
-        <!--<a href="Preferences.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>-->
-      	<a href="TeamA.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>
-        
+        <!--<a href="Preferences.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
+      	<a href="TeamA.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>-->
+        <a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" alt="next" /></a>
 </div>
     </section>
 

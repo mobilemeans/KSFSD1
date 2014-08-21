@@ -81,7 +81,7 @@
     background: -webkit-linear-gradient(-90deg, white, white); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(-90deg, white, white); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(-90deg, white, white); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(-90deg, lightblue, white); /* Standard syntax (must be last) */
+    background: linear-gradient(-90deg, red, yellow); /* Standard syntax (must be last) */
 	}
 	
 	</style>
@@ -95,15 +95,14 @@
 				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>				
 				<a href="#add-form" data-icon="plus" data-iconpos="notext">Add</a>
 			</div><!-- /header -->
-			<div data-role="content" data-theme="c">	
+			<div data-role="content" data-theme="d">	
 				
 				<!-- CAROUSEL -->
 				<div class="wrapper">
-				<h2><p><center><img src="img/bannerSM.jpg" id="banner" name="banner" alt="did it work"></center></p></h2><br>
+				<img src="img/bannerSM3.jpg" id="banner" name="banner" alt="banner">
+				<!--<h2><p><center><img src="img/bannerSM3.jpg" id="banner" name="banner" alt="banner"></center></p></h2><br>	-->			
 				
-				<h2>"GET ESPN HEADLINES IN THE STORY"</h2>
-				<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://2.bp.blogspot.com/-cULi2xTkicY/UHS9fkrlzEI/AAAAAAAAAic/Y6zJmSAAE7I/s1600/A4CHorizontalLogo.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
-			
+				
             <div class="jcarousel-wrapper"><img src="img/Library.png" />
                 <div class="jcarousel">				
                     <ul>
@@ -119,7 +118,8 @@
 
                 <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
                 <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-
+<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://2.bp.blogspot.com/-cULi2xTkicY/UHS9fkrlzEI/AAAAAAAAAic/Y6zJmSAAE7I/s1600/A4CHorizontalLogo.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
+			<p><b><center>KID STORIES FOR SPORT DADS</center></b></p>
                 <p class="jcarousel-pagination"></p>
             </div>
         </div>
@@ -141,7 +141,7 @@
 			<style>
 				.nav-search .ui-btn-up-a {
 					background-image:none;
-					background-color:red;
+					background-color:green;
 				}
 				.nav-search .ui-btn-inner {
 					border-top: 1px solid white;
@@ -149,36 +149,35 @@
 				}
 			</style>
 			
-			<div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="c">
+			<div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="d">
 
 	<ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
 		<li data-icon="delete" style="background-color:#111;">
 			<a href="#" data-rel="close">Close menu</a>
 		</li>
-		<li data-filtertext="MLB">
-			<a href="MLB.html" rel="external" data-transition="slideup" data-prefetch>Baseball (MLB)</a>
-		</li>
+		
 		<li data-filtertext="NFL">
 			<a href="NFL.html" rel="external" data-transition="slideup" data-prefetch>Football (NFL)</a>
 		</li>
 		<li data-filtertext="NBA">
 			<a href="NBA.html" rel="external" data-transition="slideup" data-prefetch>Basketball (NBA)</a>
 		</li>		
+		<li data-filtertext="MLB">
+			<a href="#" rel="external" data-transition="slideup" data-prefetch>Baseball (coming soon)</a>
+		</li>
 		<li data-filtertext="NHL">
-			<a href="NHL.html" rel="external" data-transition="slideup" data-prefetch>Hockey (NHL)</a>
+			<a href="#" rel="external" data-transition="slideup" data-prefetch>Hockey (coming soon)</a>
 		</li>	
+		<li data-filtertext="MLS">
+			<a href="#" rel="external" data-transition="slideup" data-prefetch>Soccer (coming soon)</a>
+		</li>		
 		<li data-filtertext="Tshirt">
 			<a href="Tshirt.html" rel="external" data-transition="slideup" data-prefetch>Coloring</a>
 		</li>
 		<li data-filtertext="Library">
 			<a href="Library.html" rel="external" data-transition="slideup" data-prefetch>Library</a>
 		</li>		
-		<li data-filtertext="FAQ">
-			<a href="FAQ.html" rel="external" data-transition="slideup" data-prefetch>FAQ</a>
-		</li>	
-		<li data-filtertext="ACC">
-			<a href="Acc.html" rel="external" data-transition="slideup" data-prefetch>ACC</a>
-		</li>		
+			
 	</ul>
 
 	<!-- panel content goes here -->
@@ -198,11 +197,15 @@
 
 					<form class="userform">
 						<h2>FAQ</h2>								   
-						<p>1. ldjfadsflja dlsfjadslfjasd fjasdlkjfkla;sdfja lsdkfjaldskfja lks;dfja;lksdf<br>
-						2. ald;kfjadlfjasldkfjasdlf   alksdkfj;ads f   alkdfjkads fadsf as dfalkjdsfj<br>
-						3. aldsjkfads;lfkj  adlfjkadslf asdfasdlkfjasdf lkasdjf asdf<br>
-						4. aldjf;lajdsf adlfkjad;sf jadslkfjad lfjald;fjaldfjasldkfjadsf;ljad sklfjadsklfjads; lfjadslkfjadsl;f ajdsflkajdsfla;kdsf<br>
-						5. alfjdalkdjflkad jflkadjflasdjflsadkjgi ohoahohgo hjasdojfalsdfja;sldf asdf aldfjaldfjaldfjka dflkjjadfkja sdf<br>
+						<p><b>1. What is Kids Stories For Sports Dads?</b><br>
+						Kids Stories For Sports Dads provides personalized and original sports themed children stories.  Each story includes the latest league and team sports headlines based upon your personal interest.  If you're a Dallas Cowboys fan then you're child's story will include the latest NFL and Cowboys news, and if you're a Los Angeles Lakers fan then you'll enjoy the latest NBA and Lakers news.  Kids Stories for Sports Dads provides stories for all National Football League (NFL), National Basketball Association (NBA), Major League Baseball (MLB) and National Hockey League (NHL) teams.
+						<br>
+						<b>2. Why do I have to enter a name and city in order to begin each story?</b><br>
+						Each story is personalized for your child so we request a name and city value be entered in order to be shown in the story.  We don't collect any of the information you enter and you can enter any personal name and any city name.  It just helps to make the story more personalized for your child.
+						<br>
+						<b>3. Can you add more leagues?</b><br>
+						Yes, we will be adding more leagues in future releases.  We are presently working on adding football (soccer).
+					
 						</p>
 						<!--
 						<label for="name">First Name</label>

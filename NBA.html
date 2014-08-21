@@ -16,7 +16,7 @@
 	<section data-role="page" id="pagePreferences">
 	<img src="img/bannerSM2.jpg" />
 	 <section data-role="header">
-       <h2>KID STORIES FOR SPORT DADS</h2> 
+       <h2>Personalize your story</h2>  
     </section>
     <section data-role="content">
 	<ul data-role="listview" data-inset="true">
@@ -58,7 +58,7 @@
 			var _myCity = localStorage.getItem(myCity);
 			var _myTeamName = localStorage.getItem(myTeamName);
 			var _myTeamId = localStorage.getItem(myTeamId);
-			var _myRemember = localStorage.getItem(myRemember);			   
+			var _myRemember = localStorage.getItem(myRemember);	  
 			
 			
 			if (_myName == null){
@@ -97,64 +97,41 @@
 	
 	//END PREFERENCES VALUES
 	
-	
-	
-	// START ESPN
+	//CREATE A NBA TEAM ARRAY
 	var teamLists = new Array(1);
-		
-  //START BASEBALL
- (function getBasketball(){
-	//TEAMS API
-	var espnAPI = "http://api.espn.com/v1/sports/basketball/nba/teams/?apikey=vy6k3rzwkkfaefg7nkpyd2af&callback=?";
+	teamLists["NBA"] = new Array();
 	
-	$.getJSON(espnAPI, {
-		format: "json"
-		})
-		.done(function(data){		
-			var ulMLB = $('<ol/>');;
-			var linkValue = "";
-			var _URL = "";
-			teamLists["NBA"] = new Array();
-			//need to change the value for "data.feed" or "data.sports" dependent upon API call.  use the sample URI in a browser to get the return values or use the sample API tool on their site
-			$.each(data.sports, function(index, value){
-				//get the team info		(jsonformat.com)
-				$.each(this.leagues[0].teams, function(teamIndex, teamValue){					
-					var teamName = teamValue.name;
-					var teamLocation = teamValue.location;
-					var teamColour = teamValue.color;
-					var teamId = teamValue.id;
-					
-					//var li = $('<li />').text(teamLocation + "-" + teamName + "-" + teamColour + "-" + teamId);
-					linkValue = "http://api.espn.com/v1/sports/baseball/mlb/teams/" + teamId;
-					//_URL = $('<a href='+linkValue+'>Read now</a>');				
-					//var li = $('<a href=' + linkValue + '><li>'+ teamLocation + ' ' + teamName +'</li></a>');	
-					var li = $('<a href=http://www.teams.html?name='+teamId+'><li>'+ teamLocation + ' ' + teamName +'</li></a>');
-					
-					//create the list of team values
-					ulMLB.append(li);						
-					
-						//add the list of NFL teams
-						for (i=0; i<1; i++){						
-							teamLists["NBA"].push(['' + teamId + '-' + teamName + '']);
-						}
-					
-					
-				});
-					
-			});
-				
-			
-				//add the list to the body
-				//$("body").append(ulMLB);
-		
-				
-					
-				});
-				})();
- //END BASEBALL
- 
- //END ESPN
- 
+		teamLists["NBA"].push(["celtics - Boston Celtics"]);	
+		teamLists["NBA"].push(["nets - Brooklyn Nets"]);
+		teamLists["NBA"].push(["knicks - New York Knicks"]);	
+		teamLists["NBA"].push(["sixers - philadelphia 76ers"]);	
+		teamLists["NBA"].push(["raptors - toronto raptors"]);
+		teamLists["NBA"].push(["warriors - golden state warriors"]);	
+		teamLists["NBA"].push(["clippers - los angeles clippers"]);
+		teamLists["NBA"].push(["lakers - los angeles lakers"]);	
+		teamLists["NBA"].push(["suns - phoenix suns"]);
+		teamLists["NBA"].push(["kings - sacramento kings"]);	
+		teamLists["NBA"].push(["bulls - chicago bulls"]);
+		teamLists["NBA"].push(["cavaliers - cleveland cavaliers"]);	
+		teamLists["NBA"].push(["pacers - indiana pacers"]);
+		teamLists["NBA"].push(["bucks - milwaukee bucks"]);	
+		teamLists["NBA"].push(["mavericks - dallas mavericks"]);
+		teamLists["NBA"].push(["rockets - houston rockets"]);	
+		teamLists["NBA"].push(["grizzlies - memphis grizzlies"]);
+		teamLists["NBA"].push(["pelicans - new orleans pelicans"]);	
+		teamLists["NBA"].push(["spurs - san antonio spurs"]);
+		teamLists["NBA"].push(["hawks - atlanta hawks"]);	
+		teamLists["NBA"].push(["bobcats - charlotte bobcats"]);
+		teamLists["NBA"].push(["heat - miami Heat"]);	
+		teamLists["NBA"].push(["magic - orlando magic"]);
+		teamLists["NBA"].push(["wizards - washington wizards"]);	
+		teamLists["NBA"].push(["nuggets - denver nuggets"]);
+		teamLists["NBA"].push(["timberwolves - minnesota timberwolves"]);	
+		teamLists["NBA"].push(["thunder - oklahoma city thunder"]);
+		teamLists["NBA"].push(["blazers - Portland Trail Blazers"]);	
+		teamLists["NBA"].push(["jazz - Utah Jazz"]);
+	
+//http://www.nba.com/bucks/rss.xml	
   
 //<![CDATA[
 // array of possible countries in the same order as they appear in the country selection list
@@ -203,17 +180,21 @@ function showWidget(x){
 	//extract the team id
 	var strMark = x.indexOf("-");
 	var strId=""; 
-	
-	if (strMark == 1){
-		strId = x.substring(0,1);
+	/*
+	if (strMark == 4){
+		strId = x.substring(0,3);
 	}
 	else{
 		strId = x.substring(0,2);
 	}
+	*/
+	strId = x.substr(0, strMark - 1)
+	
 	//store values
 	localStorage.setItem("A4CTeamName", x);
 	localStorage.setItem("A4CTeamId", strId);
 	localStorage.setItem("A4CLeague", "basketball/nba");
+	
 	//redirect to new page 	
 	//window.location.href = 'Team.html';        
 }
@@ -240,11 +221,11 @@ function validateProfile(){
 		name.focus();
 	}
 	else if (city.value == ""){
-		alert('Enter a jersey number.');
+		alert('Please enter your city.');
 		city.focus();
 	}	
 	else if(age.value == 0){
-		alert('Please enter your age.');
+		alert('Enter your jersey number.');
 		age.focus();
 	}
 	else {
@@ -252,11 +233,12 @@ function validateProfile(){
 		window.location.href = 'Team.html';
 	}	
 }
+
 //]]>
 </script>
 	
 	
-	<h2>LACE UP!</h2>
+	<h2>GET ON THE HARDCOURT!</h2>
 	
 			<fieldset>
 			<legend>Step 1.&nbsp;&nbsp;Select your sport and team.</legend><br />
@@ -283,11 +265,11 @@ function validateProfile(){
 			<input type="text" id="myCity" name="myCity" placeholder="What is your city?"/>
 			<br />
 			<br />
-			<label for="myAge">enter a jersey number.</label><br>
+			<label for="myAge">Enter a jersey number.</label><br>
 			<input id="myAge" name="age" type="number" value="0" />
 			</fieldset>
 			<br/>
-			<br/>
+			<br/><!--
 			<fieldset>
 					<legend>Step 3.&nbsp;&nbsp;Use these settings for your stories??</legend><br />  
 						<ol>
@@ -302,7 +284,9 @@ function validateProfile(){
 						</ol>
 			</fieldset>
 				<br/><br/><br/>
-			<input type="button" id="addToStorage" value="Press here to save these settings!"/>
+			-->
+			<input type="button" id="addToStorage" value="Step 3.  Press here to save these settings!"/>
+			<br/><br/><br/>
 			
 			<li data-role="list-divider">Step 4.&nbsp;&nbsp;Review what you have entered.</li>
             <li class="storeItem"/>

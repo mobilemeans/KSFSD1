@@ -14,7 +14,20 @@
 <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry&bogusParam=.js"></script>  
 <!-- END RADIUS FIND -->
 
+
+<style>
+p.serif {    
+			font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+			font-size: 18px;
+		}
+</style>
+
+
 <script>
+
+var text = "How could they find the 5 closest teams?";
+	$('#message').text(text);
+
 function doNBA() {
 
 var myZip = "A4CSportsCity";
@@ -341,7 +354,7 @@ var tbody = '';  //map_table
              //create markers for the five closest cities
 			 
 			 //for map_table			
-			 var theader = '<div><table border="1" id="tblOptions">\n';
+			 var theader = '<p class="serif">Here they are!</p><br/><br/><div><table border="1" id="tblOptions">\n';
 			
 			//increment i to 5 to allow for a new range of options based on new OD set  
             for (i = 0; i < 5; i++) {
@@ -479,7 +492,7 @@ var tbody = '';  //map_table
              //create markers for the five closest cities
 			 
 			 //for map_table			
-			 var theader = '<div><table border="1" id="tblOptions">\n';
+			 var theader = '<p class="serif">Here they are!</p><br/><br/><div><table border="1" id="tblOptions">\n';
 			
 			//increment i to 5 to allow for a new range of options based on new OD set  
             for (i = 0; i < 5; i++) {
@@ -631,7 +644,7 @@ var tbody = '';  //map_table
              //create markers for the five closest cities
 			 
 			 //for map_table			
-			 var theader = '<div><table border="1" id="tblOptions">\n';
+			 var theader = '<p class="serif">Here they are!</p><br/><br/><div><table border="1" id="tblOptions">\n';
 			
 			//increment i to 5 to allow for a new range of options based on new OD set  
             for (i = 0; i < 5; i++) {
@@ -783,7 +796,7 @@ var tbody = '';  //map_table
              //create markers for the five closest cities
 			 
 			 //for map_table			
-			 var theader = '<div><table border="1" id="tblOptions">\n';
+			  var theader = '<p class="serif">Here they are!</p><br/><br/><div><table border="1" id="tblOptions">\n';
 			
 			//increment i to 5 to allow for a new range of options based on new OD set  
             for (i = 0; i < 5; i++) {
@@ -844,7 +857,7 @@ var tbody = '';  //map_table
 
 
 <section data-role="page" id="pagePreferences">
-    	<div data-role="header" data-theme="a">
+    	<div data-role="header" data-theme="c">
 	<script type="text/javascript"><!--
 google_ad_client = "ca-pub-6908679240944495";
 /* MobileBanner320by50 */
@@ -860,18 +873,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 		<div data-role="navbar" data-theme="c">
 			<ul>
-      			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
-      			<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
-				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
-				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
-				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>								
+      			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
+      			<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
+				<li><a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>								
 			</ul>
 		</div><!-- /navbar-->
 		
 	</div><!-- /header -->
     <section data-role="content">		
          
-          
+       
 		<!--<ul data-role="listview" data-inset="true">
             <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
 		</ul> -->
@@ -895,8 +906,11 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 						
 
 <div data-role="controlgroup" data-type="horizontal">
-        <a href="TeamA.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
-      	<a href="TeamB.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>
+       <!-- <a href="TeamA.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
+      	<a href="TeamB.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>-->
+		<a href="TeamB.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="S1.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
         
 </div>
     </section>

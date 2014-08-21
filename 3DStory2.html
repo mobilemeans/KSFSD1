@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>KID STORIES FOR SPORT DADS</title>
+		<meta name="description" content="Book Preview with BookBlock" />
+		<meta name="keywords" content="BookBlock, book preview, look inside, css, transforms, animations, css3, 3d, perspective, fullscreen" />
+		<meta name="author" content="Book Sellers Canada" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/bookblock.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+		
+	<!-- GET WEATHER AND LOCALSTORAGE VALUES 
+	1.  retrieve localStorage values
+	2.  pass City value to JSON call
+	3.  display localStorage and weather in message
+	-->
+	
+
+
+	
+
+	</head>
+	<body>
+		<div id="scroll-wrap" class="container">
+			<header class="codrops-header">
+				<div class="codrops-top clearfix">
+				
+				
+			</header>
+			<div class="main">
+				<div id="bookshelf" class="bookshelf">
+				<!-- BOOK 10 -->
+					<figure>
+						<div class="book" data-book="book-1"></div>
+						<div class="buttons"><a href="FIGCAPTION.html">Read Now</a><a href="#">Summary</a></div>
+						
+						<figcaption><h2>FIGCAPTION<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>USA vs RUSSIA for the 1980 Winter Olympics Hockey Gold medal.</li>
+								<li>Book Sellers Canada</li>
+								<li>03.06.2014</li>
+								<li>13 pages</li>
+							</ul>
+						</div>
+					</figure>
+					<!-- BOOK 5 -->
+					<figure>
+						<div class="book" data-book="book-2"></div>						
+						<div class="buttons"><a href="#">Read Now</a><a href="#">Summary</a></div>
+						<figcaption><h2>Day at the Dog Park<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Michael and his dog Jack go to the dog park.</li>
+								<li>Book Sellers Canada</li>
+								<li>03.06.2014</li>
+								<li>9 pages</li>
+							</ul>
+						</div>
+					</figure>
+					<!-- BOOK 1 -->
+					<figure>
+						<div class="book" data-book="book-2"></div>
+						<div class="buttons"><a href="#">Coming Soon</a><a href="#">Summary</a></div>
+						<figcaption><h2>Lost in Toyland<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Sarah is lost in the world of toys and needs your help to get back home.</li>
+								<li>Book Sellers Canada</li>
+								<li>coming soon</li>
+								<li>50 pages</li>
+							</ul>
+						</div>
+					</figure>
+					<!-- BOOK 2 -->
+					<figure>
+						<div class="book" data-book="book-2"></div>
+						<div class="buttons"><a href="#">Coming Soon</a><a href="#">Summary</a></div>
+						<figcaption><h2>The Museum Mystery<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Can you help Shaelynn solve the case of the missing dinosaur bones?  All of the clues are in Ottawa musuems.</li>
+								<li>Book Sellers Canada</li>
+								<li>coming soon</li>
+								<li>20 pages</li>
+							</ul>
+						</div>
+					</figure>
+					<!-- BOOK 3 -->
+					<figure>
+						<div class="book" data-book="book-3"></div>
+						<div class="buttons"><a href="#">Coming Soon</a><a href="#">Summary</a></div>
+						<figcaption><h2>Kayak Canucks<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Join Anton in a kayak adventure down the Ottawa river.</li>
+								<li>Book Sellers Canada</li>
+								<li>coming soon</li>
+								<li>20 pages</li>
+							</ul>
+						</div>
+					</figure>					
+				</div>
+			</div><!-- /main -->
+			<div class="related">
+				<!--<h3>Check out more great mobile web apps from Apps 4 Canadians and Book Sellers Canada:</h3>
+				<a href="http://bsccart.appspot.com/ONG/index.html">
+					<img src="img/iconong.jpg" />
+					<h3>Ottawa Neighbourhood Guide</h3>
+				</a>
+				<a href="http://www.booksellerscanada.com">
+					<img src="img/iconauthors.jpg" />
+					<h3>Free Canadian Author Previews</h3>
+				</a>-->
+			</div>
+			
+				
+		
+			
+		<div id="footer"><center>
+		<img src="img/A4C.jpg" />
+			&copy; Apps4Canadians
+			</center>
+			<br>
+			<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+			
+		</div><!-- /footer -->
+		</div><!-- /container -->
+
+			
+	
+		
+			
+		<script src="js/bookblock.min.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/bookshelf.js"></script>
+	</body>
+	
+	<script>
+	var linkValue = "";
+	var myName = "A4CSportsName";
+	var myNum = "A4CSportsAge";
+	var myCity = "A4CSportsCity";
+	var myTeam = "A4CTeamName";
+	var _myName = localStorage.getItem(myName);
+	var _myNum = localStorage.getItem(myNum);
+	var _myCity = localStorage.getItem(myCity);
+	var _myTeam = localStorage.getItem(myTeam);
+	var storyText1 = "";
+	var storyText2 = "";
+
+	(function(){
+		var teamId = "A4CTeamId";
+		var _teamId = localStorage.getItem(teamId);
+		var strLeague = "";
+
+		if (localStorage.getItem("A4CLeague") == "basketball/nba"){
+					strLeague = "nba";
+		}
+		else if(localStorage.getItem("A4CLeague") == "football/nfl"){
+					strLeague = "nfl";
+		}
+		else if(localStorage.getItem("A4CLeague") == "hockey/nhl"){
+					strLeague = "nhl";
+		}
+		else{
+					strLeague = "mlb";
+		}
+
+		//BEGIN STORY
+		var strLeagueFormat = strLeague.toUpperCase();
+		var strTeamFind = _myTeam.indexOf("-");
+		var n = _myTeam.indexOf("-");
+		var len = _myTeam.length;
+		var strTeamName = _myTeam.substr(n+1, len-n);
+    	
+		storyText1 = _myName + ", is it true that your favourite " + strLeagueFormat + " team is the " + strTeamName + "?  I like to read the latest " + strTeamName + " headlines.";
+		$('#pTeamName1').text(storyText1);
+		//storyText2 = "Can you help me to read about some of the new " + strTeamName + " stories from today?";
+		//$('#pTeamName2').text(storyText2);
+		//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');
+	
+		
+		//END STORY
+						
+	
+		
+	})();	
+	</script>
+	
+</html>
