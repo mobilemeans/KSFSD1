@@ -4,19 +4,84 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>KID STORIES FOR SPORT DADS</title>
-	
-			<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+		<title>KID STORIES FOR SPORT DADS</title>	
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
 <script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
-<link rel="stylesheet" href="style.css" />
-	
+<script src="js/doNavigation.js"></script>
+<link rel="stylesheet" href="style.css" />	
+
+
+<script type="text/javascript">
+$(document).ready(function(){	
+
+var _myStory = localStorage.getItem("A4CSportsStory");
+var _myStoryPos = localStorage.getItem("A4CSportsStoryPos");
+var iStory = parseInt(_myStory);
+var iPos = parseInt(_myStoryPos);
+
+switch(iStory) {
+					case 1:
+						if (_myStoryPos == "1"){						
+							$("#image").attr("src","img/Football/Stories/S1_0.png");
+						}
+						else if (_myStoryPos == "4"){				
+							$("#image").attr("src","img/Football/Stories/S1_1.png");
+						}
+						else if (_myStoryPos == "7"){				
+							$("#image").attr("src","img/Football/Stories/S1_2.png");
+						}
+						else if (_myStoryPos == "11"){				
+						$("#image").attr("src","img/Football/Stories/S1_3.png");
+						}
+						else if (_myStoryPos == "14"){				
+							$("#image").attr("src","img/Football/Stories/S1_4.png"); 
+						}
+						else{						
+							$("#image").attr("src","img/demo.png");
+						}						
+						break;
+					
+					case 2:
+						if (_myStoryPos == "0"){						
+							$("#image").attr("src","img/demo.png"); 
+						}
+						else if (_myStoryPos == "1"){				
+							$("#image").attr("src","img/demo.png");
+						}
+						else{						
+							$("#image").attr("src","img/demo.png");
+						}						
+						break;
+						
+					case 3:
+						if (_myStoryPos == "0"){						
+							$("#image").attr("src","img/demo.png");
+						}
+						else if (_myStoryPos == "1"){				
+							$("#image").attr("src","img/demo.png");
+						}
+						else{						
+							$("#image").attr("src","img/demo.png");
+						}						
+						break;
+						
+					
+					default:
+						$("#image").attr("src","img/demo.png");
+				}		
 
 
 	
+	
+	
+});	
+</script>
+
+
 <script>
                 
         document.createElement('figure');
@@ -36,9 +101,7 @@
 		
 </script>
 
-	<script type="text/javascript">      
-
-   
+	<script type="text/javascript">  
  
     var minMarginTopBottom=50;
     var minMarginLeftRight=40;
@@ -94,102 +157,72 @@
          $image.after('<div style="position:fixed;left:' + l + 'px;top:' + (t + 15) + 'px;width:' + iwr + 'px;text-align:center;">' + $image.data('title') + '</div>');
          
         }
-    }
+    }    
     
-    
-    </script>
-    
+</script>    
       <style type="text/css">
-    body {
-    padding:0;
-    margin:0;
-    }
-    
-    .menu {
-    margin-left:70px;
-    color: maroon;
-    font-family: "Helvetica Neue";
-    }
-    
-     .menu-items {
-    margin-left:30px;
-    color: #999;
-    font-family: "Helvetica Neue";
-    font-size:14px;
-    
-    }
-    
-    section figure div {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
-    padding: 0;
-}
-    
-
+			body {
+			padding:0;
+			margin:0;
+			}
+			
+			.menu {
+			margin-left:70px;
+			color: maroon;
+			font-family: "Helvetica Neue";
+			}
+			
+			.menu-items {
+			margin-left:30px;
+			color: #999;
+			font-family: "Helvetica Neue";
+			font-size:14px;    
+			}
+			
+			section figure div {
+			position: relative;
+			display: inline-block;
+			max-width: 100%;
+			padding: 0;
+			}
     </style>
+	
 
+	
+	
 	</head>
-	<body>
-		<section data-role="page" id="pagePreferences">
-    
+<body>
+		<section data-role="page" id="pagePreferences">    
       	<div data-role="header" data-theme="c">
-	<script type="text/javascript"><!--
-google_ad_client = "ca-pub-6908679240944495";
-/* MobileBanner320by50 */
-google_ad_slot = "7580604750";
-google_ad_width = 320;
-google_ad_height = 50;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-
+			<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-6908679240944495";
+			/* MobileBanner320by50 */
+			google_ad_slot = "7580604750";
+			google_ad_width = 320;
+			google_ad_height = 50;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
 		<div data-role="navbar" data-theme="c">
 			<ul>
       			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
-      			<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
-				<li><a href="S3.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>
-				<!--
-				<li><a href="NFL.html" rel="external" data-transition="pop" data-prefetch>NFL</a></li>
-				<li><a href="MLB.html" rel="external" data-transition="pop" data-prefetch>MLB</a></li>
-				<li><a href="NHL.html" rel="external" data-transition="slidedown" data-prefetch>NHL</a></li>	-->							
+      			<li><a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
+				<li><a href="#" onclick="doNav(1);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>										
 			</ul>
-		</div><!-- /navbar-->
-		
-	</div><!-- /header -->
-	
-	
-		<section data-role="content">		
+		</div><!-- /navbar-->		
+</div><!-- /header -->	
+		<section data-role="content">				
 				
-		<!--
-	<figure>		
-		<img  src= "img/demo2.jpg" alt="Assistant art director James Fekete"  width="400" height="400"/>		
-		<figcaption>
-			This is my story with static text.  I'm putting words here.  Can you see the words?  How many words? 
-		</figcaption>
-	</figure>
-	--><img id="image" src="img/nhl1.jpg" alt="image" data-title=""  />
-			<!--<img id="image" src="img/demo2.jpg" alt="image" data-title="this is the image title"  />	-->
-						
-						
+			<img id="image" data-title="" alt="Kid Stories For Sport Dads" />
 			
-				<div data-role="controlgroup" data-type="horizontal">
-				
-        <!--
-         <a href="Team.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
-		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>-->
-</div>
-    </section>
-
-	
-	
-	</body>
-	
-	
-
-	
+			<div data-role="controlgroup" data-type="horizontal">			
+				<!--
+				 <a href="Team.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>-->
+			</div>
+		</section>	
+	</body>	
 </html>

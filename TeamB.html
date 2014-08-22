@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
 	<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+	<script src="js/doNavigation.js"></script>
 	<link rel="stylesheet" href="style.css" />
 	
 	<style>
@@ -38,8 +39,8 @@
 		<div data-role="navbar" data-theme="c">
 			<ul>
       	<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
-      			<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
-				<li><a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>								
+      			<li><a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
+				<li><a href="#" onclick="doNav(1);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>							
 			</ul>
 		</div><!-- /navbar-->
 		
@@ -57,9 +58,9 @@
         		
 		</div>
 		<!--<a href="Feeds.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Read</a>-->
-		<a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="Feeds.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
+		<a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#" onclick="doNav(1);" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
 	
 			
 	<script>

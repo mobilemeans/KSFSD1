@@ -25,10 +25,10 @@
 <script>
 
 //check that they have created a profile
-var _myName = localStorage.getItem(myName);
+var _myName = localStorage.getItem("A4CSportsName");
 
 if (_myName == null){
-                alert("Please start off by selecting either NFL, NBA, MLB or NHL and entering the required fields to personalize your story.";			
+                alert("Please start off by selecting either NFL, NBA, MLB or NHL and entering the required fields to personalize your story.");			
 				window.location.href = 'index.html'; 				
 }
 </script>
@@ -48,15 +48,16 @@ if (_myName == null){
 				<!-- BOOK 10 -->
 					<figure>
 						<div class="book" data-book="book-1"></div>
-						<div class="buttons"><a href="S1.html">Read Now</a><a href="#">Summary</a></div>
+						<div class="buttons"><a href="#" onclick="getStory1(1,0);">Read Now</a><a href="#">Summary</a></div>
 						
-						<figcaption><h2>Story Name Here<span>Troy MacFarlane</span></h2></figcaption>
+						
+						<figcaption><h2>The Big Fumble<span>Troy MacFarlane</span></h2></figcaption>
 						<div class="details">
 							<ul>
-								<li>USA vs RUSSIA for the 1980 Winter Olympics Hockey Gold medal.</li>
+								<li>This is where the summary section of the story is located.  You can add a few lines to describe the concept and give the reader a glimpse into the greatness.</li>
 								<li>Book Sellers Canada</li>
-								<li>03.06.2014</li>
-								<li>13 pages</li>
+								<li>01.09.2014</li>
+								<li>14 pages</li>
 							</ul>
 						</div>
 					</figure>
@@ -111,6 +112,8 @@ if (_myName == null){
 	</body>
 	
 	<script>
+	
+	
 	var linkValue = "";
 	var myName = "A4CSportsName";
 	var myNum = "A4CSportsAge";
@@ -160,6 +163,19 @@ if (_myName == null){
 	
 		
 	})();	
+	</script>
+	
+	<script>
+	function getStory1(storyId, storyPos){	
+		//store values
+		localStorage.setItem("A4CSportsStory", storyId);
+		localStorage.setItem("A4CSportsStoryPos", storyPos);			
+		//start story
+		window.location.href = 'S1.html';
+	};
+	
+	
+	
 	</script>
 	
 </html>

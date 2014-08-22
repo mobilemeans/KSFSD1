@@ -9,6 +9,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
 <script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<script src="js/doNavigation.js"></script>
 <link rel="stylesheet" href="style.css" />
 
 
@@ -127,8 +128,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		<div data-role="navbar" data-theme="c">
 			<ul>
       			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
-      			<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
-				<li><a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>								
+      			<li><a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
+				<li><a href="#" onclick="doNav(1);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>									
 			</ul>
 		</div><!-- /navbar-->
 		
@@ -163,11 +164,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 
 <div data-role="controlgroup" data-type="horizontal">
-        <!--<a href="Team.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
-      	<a href="TeamC.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>-->
-		<a href="Team.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="TeamB.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
+       <a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#" onclick="doNav(1);" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
         
 </div>
     </section>

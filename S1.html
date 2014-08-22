@@ -12,8 +12,14 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
 <script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<script src="js/doNavigation.js"></script>
 <link rel="stylesheet" href="style.css" />
-	
+
+<!--  
+FLOW
+
+S1A, S2A, W, S1B, S2B, L, S1C, S2C, T, F, S1D, S2D, S1E, S2E, etc...
+-->
 
 <style>
 		figure {			
@@ -44,22 +50,107 @@
 	</style>		
 	
 <script>
-                
-        document.createElement('figure');
-        document.createElement('figcaption');
 
-		$(document).ready(function(){		
-				
-			$('figcaption').css('top','300px');
+//control the next and previous button logic and prepare the story
+var _myStory = localStorage.getItem("A4CSportsStory");
+var _myStoryPos = localStorage.getItem("A4CSportsStoryPos");
+var iStory = parseInt(_myStory);
+var iPos = parseInt(_myStoryPos);
+
+/*
+story1 layout:
+S1, S2, Team, S1, S2, TeamA, S1, S2, TeamB, Feed, S1, S2, TeamC, S1, S2
+
+story2 layout:
+
+story3 layout:
+
+*/
+
+
+
+
+$(document).ready(function(){     
+
+//story1
+var story1A = "Would you like to hear a story about how a magic shoe saved the Riverview Reds to the championship game?";
+var story1B = "The playoffs were happening and the Riverview Reds were going to play against the undefeated Capital City Cardinals.  They had the best linesmen in the entire league.";
+var story1C = "Their championship game did not seem to make it today's football news.  However, they knew they had a big game to play and they were nervous.";
+var story1D = "Lauren saw her favourite football player was doing well so she went back to her game and drew some strategy to make the final play.  Everyone on the Riverview Reds were happy.";
+var story1E = "The magic shoes kicked the final field goal of the game and the crowd went nuts.";
+
+//story2
+var story2A = "Story 2 A";
+var story2B = "Story 2 B";
+var story2C = "Story 2 C";
+var story2D = "Story 2 D";
+
+//story3
+var story3A = "a";
+var story3B = "b";
+var story3C = "c";
+var story3D = "d";
+
+switch(iStory) {
+					case 1:
+						if (_myStoryPos == "0"){						
+							$('#storyText').text(story1A); 
+						}
+						else if (_myStoryPos == "3"){				
+							$('#storyText').text(story1B); 
+						}
+						else if (_myStoryPos == "6"){				
+							$('#storyText').text(story1C); 
+						}
+						//compensate for navigation issue on feeds page
+						else if (_myStoryPos == "9"){				
+							$('#storyText').text(story1D); 
+							localStorage.setItem("A4CSportsStoryPos", 10);
+						}
+						//hack
+						else if (_myStoryPos == "10"){				
+							$('#storyText').text(story1D); 
+						}
+						else if (_myStoryPos == "13"){				
+							$('#storyText').text(story1E); 
+						}
+						else{						
+							$('#storyText').text("Kid Stories For Sports Dads: Story 1");
+						}						
+						break;
+					
+					case 2:
+						if (_myStoryPos == "0"){						
+							$('#storyText').text(story2A); 
+						}
+						else if (_myStoryPos == "1"){				
+							$('#storyText').text(story2B); 
+						}
+						else{						
+							$('#storyText').text("Kid Stories For Sports Dads: Story 2");
+						}						
+						break;
+						
+					case 3:
+						if (_myStoryPos == "0"){						
+							$('#storyText').text(story3A); 
+						}
+						else if (_myStoryPos == "1"){				
+							$('#storyText').text(story3B); 
+						}
+						else{						
+							$('#storyText').text("Kid Stories For Sports Dads: Story 3");
+						}						
+						break;
+						
+					
+					default:
+						$('#storyText').text("Kid Stories For Sports Dads: Story Id not assigned.");
+				}		
+
 			
-			$('figure').hover(function(){			
-				$(this).find('figcaption').stop().animate({'top':'240px'}, 200, function(){});
-		
-			},function(){				
-				$(this).find('figcaption').stop().animate({'top':'300px'}, 200, function(){});				
-			});
-		});
-		
+        
+});
 </script>
 
 	
@@ -85,8 +176,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		<div data-role="navbar" data-theme="a">
 			<ul>
 				<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
-      			<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
-				<li><a href="TeamA.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>
+      			<li><a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
+				<li><a href="#" onclick="doNav(1);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>	
 				<!--
       			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
       			<li><a href="NBA.html" rel="external" data-transition="slidedown" data-prefetch>NBA</a></li>
@@ -98,22 +189,17 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		</div><!-- /navbar-->
 		
 	</div><!-- /header -->
-		<section data-role="content">		
-				
-		<p class="serif">This is the template placeholder for story text.  A second sentence would come here.  If you need a third sentence then it goes here.  Finally, a fourth sentence can be added to this exact spot right here.</p>
-	
-	
-						
-						
+		<section data-role="content">				
+		<p class="serif" id="storyText">
+		<!--This is the template placeholder for story text.  A second sentence would come here.  If you need a third sentence then it goes here.  Finally, a fourth sentence can be added to this exact spot right here.</p>
+						-->
 			
-				<div data-role="controlgroup" data-type="horizontal">
-        <!--<a href="Preferences.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-l" data-prefetch>Prev Page</a>
-      	<a href="TeamA.html" rel="external" data-transition="pop" data-role="button" data-icon="arrow-r" data-prefetch>Next Page</a>-->
-         <a href="Team.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
-		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="S2.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
-</div>
-    </section>
+				<div data-role="controlgroup" data-type="horizontal">        
+					<a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#" onclick="doNav(1);" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
+				</div>
+		</section>
 
 	
 	<div id="footer"><center>
