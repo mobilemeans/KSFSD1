@@ -38,9 +38,17 @@ function displayWeather2(data){
       var maxWidth = 300;
       var lineHeight = 25;
       var x = (canvas.width - maxWidth) / 2;
-      var y = 60;
-      var weather = data.weather[0].description;
+      var y = 60;     
 	  var strLeague = "";
+	  var weather = "";
+	  
+	  if (data.message == "Error: Not found city"){
+		alert("Oooops.  The city that you entered in your story setup was not found.  Please confirm the spelling or enter another city name.  Don't worry because your story will now default to being a beautiful and sunny day!  Thank you.");
+		weather = "beautiful";
+	  }
+	  else{	  
+		weather = data.weather[0].description;
+	  };
 	  
 	  if (localStorage.getItem("A4CLeague") == "basketball/nba"){
 					strLeague = "basketball";
@@ -55,7 +63,7 @@ function displayWeather2(data){
 					strLeague = "baseball";
 	  }
     
-	  var text = "It was another " + weather + " day in " +_myCity+ ".  " + _myName + " was thinking about playing " +strLeague+ " with some friends.";
+	  var text = "It was another " + weather + " day in " +_myCity+ ".  Now " + _myName + " was thinking about playing " +strLeague+ " with some friends.";
 	$('#message').text(text);
 	
 
@@ -104,7 +112,7 @@ p.serif {
 
 <section data-role="page" id="pagePreferences">
     
-      	<div data-role="header" data-theme="a">
+      	<div data-role="header" data-theme="c">
 	<script type="text/javascript"><!--
 google_ad_client = "ca-pub-6908679240944495";
 /* MobileBanner320by50 */
@@ -118,7 +126,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
 
-		<div data-role="navbar" data-theme="c">
+		<div data-role="navbar" data-theme="a">
 			<ul>
       			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
       			<li><a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
@@ -150,7 +158,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 	
 	<div id="footer"><center>
-		<img src="img/A4C.jpg" />
+		<img src="img/bannerSM2.jpg" /><br/>
 			&copy; Apps4Canadians
 			</center>
 			<br>

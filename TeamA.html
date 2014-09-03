@@ -111,7 +111,7 @@ function displayWeather2(){
 <body>
 
 <section data-role="page" id="pagePreferences">
-   	<div data-role="header" data-theme="a">
+   	<div data-role="header" data-theme="c">
 	
 	<script type="text/javascript"><!--
 google_ad_client = "ca-pub-6908679240944495";
@@ -125,7 +125,7 @@ google_ad_height = 50;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
-		<div data-role="navbar" data-theme="c">
+		<div data-role="navbar" data-theme="a">
 			<ul>
       			<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>
       			<li><a href="#" onclick="doNav(0);" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>
@@ -138,7 +138,10 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     <section data-role="content">
 		<img id="weatherImage" /> 
 		<p id="message" class="serif"/>
-        
+        <div id="divNBA">
+		<h1>LATEST BASKETBALL HEADLINES</h1>
+		<script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Fwww.nba.com%2Frss%2Fnba_rss.xml&chan=y&desc=1&date=y" type="text/javascript"></script>
+		</div>
 		<div id="divNFL" >
 		<h1>LATEST FOOTBALL HEADLINES</h1>
         <script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Fsports.espn.go.com%2Fespn%2Frss%2Fnfl%2Fnews&chan=y&desc=1&date=y" type="text/javascript"></script>
@@ -147,10 +150,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		<h1>LATEST BASEBALL HEADLINES</h1>
 		<script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Fsports.espn.go.com%2Fespn%2Frss%2Fmlb%2Fnews&chan=y&desc=1&date=y" type="text/javascript"></script>
 		</div>
-		<div id="divNBA">
-		<h1>LATEST BASKETBALL HEADLINES</h1>
-		<script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Fsports.espn.go.com%2Fespn%2Frss%2Fnba%2Fnews&chan=y&desc=1&date=y" type="text/javascript"></script>
-		</div>
+		
 		<div id="divNHL">
 		<h1>LATEST HOCKEY HEADLINES</h1>
 		<script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Fsports.espn.go.com%2Fespn%2Frss%2Fnhl%2Fnews&chan=y&desc=1&date=y" type="text/javascript"></script>
@@ -173,7 +173,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 	
 	<div id="footer"><center>
-		<img src="img/A4C.jpg" />
+		<img src="img/bannerSM2.jpg" /><br/>
 			&copy; Apps4Canadians
 			</center>
 			<br>

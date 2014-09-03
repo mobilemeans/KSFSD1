@@ -48,30 +48,81 @@ if (_myName == null){
 				<!-- BOOK 10 -->
 					<figure>
 						<div class="book" data-book="book-1"></div>
-						<div class="buttons"><a href="#" onclick="getStory1(1,0);">Read Now</a><a href="#">Summary</a></div>
+						<div class="buttons"><a href="#" onclick="getStory1(1,0);">Read Now</a><a href="#">Summary</a>|<a href="#" onclick="getWords(1,0);">Word List</a></div>
 						
 						
-						<figcaption><h2>The Big Fumble<span>Troy MacFarlane</span></h2></figcaption>
+						<figcaption><h2>Lauren And The Magic Shoe<span>Troy MacFarlane</span></h2></figcaption>
 						<div class="details">
 							<ul>
-								<li>This is where the summary section of the story is located.  You can add a few lines to describe the concept and give the reader a glimpse into the greatness.</li>
+								<li>The Rastila Reds are once again playing in the big championship football game but they must first play against the undefeated Capital City Cardinals.  Can a little bit of magic help the Rastila Reds play against the toughest defence in the league?</li>
 								<li>Book Sellers Canada</li>
 								<li>01.09.2014</li>
-								<li>14 pages</li>
 							</ul>
 						</div>
 					</figure>
-					<!-- BOOK 1 -->
+					<!-- BOOK 2 -->
 					<figure>
 						<div class="book" data-book="book-2"></div>
-						<div class="buttons"><a href="#">Coming Soon</a><a href="#">Summary</a></div>
-						<figcaption><h2>Lost in Toyland<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="buttons"><a href="#" >Coming soon</a><a href="#">Summary</a>|<a href="#" onclick="getWords(2,0);">Word List</a></div>
+						<figcaption><h2>The Museum Mystery<span>Troy MacFarlane</span></h2></figcaption>
 						<div class="details">
 							<ul>
-								<li>Sarah is lost in the world of toys and needs your help to get back home.</li>
+								<li>Shaelynn's favourite basketball team's mascot has gone missing before the important children's hospital charity game.  She's a sleuth specialist and is now on the hunt along with Orange to find the clues to solve the mystery.</li>
 								<li>Book Sellers Canada</li>
 								<li>coming soon</li>
-								<li>50 pages</li>
+							</ul>
+						</div>
+					</figure>
+					<!-- BOOK 3 -->
+					<figure>
+						<div class="book" data-book="book-3"></div>
+						<div class="buttons"><a href="#" >Coming soon</a><a href="#">Summary</a>|<a href="#" onclick="getWords(3,0);">Word List</a></div>
+						<figcaption><h2>Carlos Learns About Friendship<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>Carlos is the best football player in his school and he loves to make sure that everyone knows it.  Read along as Carlos learns the hard way about the importance of humility and friendship.</li>
+								<li>Book Sellers Canada</li>
+								<li>coming soon</li>
+							</ul>
+						</div>
+					</figure>
+						<!-- BOOK 4 -->
+					<figure>
+						<div class="book" data-book="book-4"></div>
+						<div class="buttons"><a href="#" onclick="getStory1(4,0);">Read now</a><a href="#">Summary</a>|<a href="#" onclick="getWords(4,0);">Word List</a></div>
+						<figcaption><h2>Leap Of Faith<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>The Tinker Bots are miserable living on the wrong side of the island and all of the robots have a negative attitude.  Everything changes one day when two new robots have a positive attitude and take a giant leap of faith.</li>
+								<li>Book Sellers Canada</li>
+								<li>01.09.2014</li>
+							</ul>
+						</div>
+					</figure>
+
+					<!-- BOOK 5 -->
+					<figure>
+						<div class="book" data-book="book-5"></div>
+						<div class="buttons"><a href="#" onclick="getStory1(5,0);">Read Now</a><a href="#">Summary</a>|<a href="#" onclick="getWords(5,0);">Word List</a></div>
+						<figcaption><h2>Trouble at the Ant Ball<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>It is time again for the annual Ant Ball World Championship with all types of ants from around the world.  Things go wrong when not all of the ants can get along and the tournament is stopped.  Could this be the last Ant Ball World Championship?</li>
+								<li>Book Sellers Canada</li>
+								<li>01.09.2014</li>								
+							</ul>
+						</div>
+					</figure>
+					<!-- BOOK 6 -->
+					<figure>
+						<div class="book" data-book="book-6"></div>
+						<div class="buttons"><a href="#" onclick="getStory1(6,0);">Read Now</a><a href="#">Summary</a>|<a href="#" onclick="getWords(6,0);">Word List</a></div>
+						<figcaption><h2>Every Sport Needs Smiles<span>Troy MacFarlane</span></h2></figcaption>
+						<div class="details">
+							<ul>
+								<li>All of the smiles have left Castle Enchanted leaving the Princess too sick to even watch her favourite team.  Dudley and Derick the Dragons go on a journey to find a smile and help to bring smiles and happiness back to the Enchanted Castle in time for the Princess to watch the football game. </li>
+								<li>Book Sellers Canada</li>
+								<li>01.09.2014</li>
 							</ul>
 						</div>
 					</figure>
@@ -97,7 +148,7 @@ if (_myName == null){
 		
 			
 		<div id="footer"><center>
-		<img src="img/A4C.jpg" />
+		<img src="img/bannerSM2.jpg" /><br/>
 			&copy; Apps4Canadians
 			</center>
 			<br>
@@ -174,6 +225,13 @@ if (_myName == null){
 		window.location.href = 'S1.html';
 	};
 	
+	function getWords(storyId, storyPos){	
+		//store values
+		localStorage.setItem("A4CSportsStory", storyId);
+		localStorage.setItem("A4CSportsStoryPos", storyPos);			
+		//start story
+		window.location.href = 'Words.html';
+	};
 	
 	
 	</script>

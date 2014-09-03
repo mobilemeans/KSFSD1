@@ -51,12 +51,56 @@ S1A, S2A, W, S1B, S2B, L, S1C, S2C, T, F, S1D, S2D, S1E, S2E, etc...
 	
 <script>
 
+//phonegap methods
+  document.addEventListener("deviceready", onDeviceReady, false);
+	  
+	   // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    function onDeviceReady() {
+        // Now safe to use the PhoneGap API
+		
+    }	  
+	   // Vibrate for 2 seconds
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
+	  
+	  // Show a custom alert
+     function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+    // Beep three times
+    function playBeep() {
+        navigator.notification.beep(3);
+    }
+
+    // Vibrate for 2 seconds
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
+
+
+
+
+
 //control the next and previous button logic and prepare the story
 var _myStory = localStorage.getItem("A4CSportsStory");
 var _myStoryPos = localStorage.getItem("A4CSportsStoryPos");
 var iStory = parseInt(_myStory);
 var iPos = parseInt(_myStoryPos);
+var _myCity = localStorage.getItem("A4CSportsCity");
+var _myName = localStorage.getItem("A4CSportsName");
+var _myAge = localStorage.getItem("A4CSportsAge");
+var _myTeam = localStorage.getItem("A4CTeamName");
 
+var strTeamFind = _myTeam.indexOf("-");
+var n = _myTeam.indexOf("-");
+var len = _myTeam.length;
+var strTeamName = _myTeam.substr(n+1, len-n);
 /*
 story1 layout:
 S1, S2, Team, S1, S2, TeamA, S1, S2, TeamB, Feed, S1, S2, TeamC, S1, S2
@@ -72,12 +116,22 @@ story3 layout:
 
 $(document).ready(function(){     
 
-//story1
-var story1A = "Would you like to hear a story about how a magic shoe saved the Riverview Reds to the championship game?";
-var story1B = "The playoffs were happening and the Riverview Reds were going to play against the undefeated Capital City Cardinals.  They had the best linesmen in the entire league.";
-var story1C = "Their championship game did not seem to make it today's football news.  However, they knew they had a big game to play and they were nervous.";
-var story1D = "Lauren saw her favourite football player was doing well so she went back to her game and drew some strategy to make the final play.  Everyone on the Riverview Reds were happy.";
-var story1E = "The magic shoes kicked the final field goal of the game and the crowd went nuts.";
+
+
+//story1 - Lauren And The Magic Shoe
+var story1A = "Would you like to hear an incredible story about how toast crumbs and a magic ";
+//img shoe
+var story1A1 = "shoe helped the Rastila Reds to win the championship ";
+//img trophy
+var story1A2 = "trophy?  Let us start at the beginning of the story.";
+var story1B = "The annual ";
+//img football
+var story1B1 ="Football Frenzy was happening in " + _myCity + " and " + _myName + " and the Rastila Reds were going to play against the undefeated Capital City Cardinals.  <br><br>" + _myName + " was practicing magic and had just finished eating breakfast.  " + _myName + " put the leftover toast in a napkin to eat later.";
+var story1C = "The game started with a whistle from the referee and the Cardinals came out strong.  They had the lead for the entire game.  " + _myName + " was the quarterback for the Reds and threw a long touchdown pass to Ernie but he dropped the ball near the 10 yard line! <br><br>Oh no!  " + _myName + " knew that the team needed a game play just like the " + strTeamName + " would do in order to win the game.";
+var story1D = "After reading the " + strTeamName + "  news " + _myName + "  had remembered a great winning play from when " + _myName + " had a seen a " + strTeamName + " game last season.<br><br>  But which teams were near " + _myCity + " that " + _myName + " would have seen play? ";
+var story1E = _myName + " now remembered the game.  The " + strTeamName + "  won the game when they kicked a field goal from over 80 yards away.  <br><br>But " + _myName + " had to kick a 95 yard field goal, which was even further, to win the championship!  Could a little bit of magic help?";
+var story1F = "But " + _myName + " had used too much magic dust practicing magic during breakfast and it was all gone.  Just then " + _myName + " remembered the leftover toast from breakfast that was in the napkin.  <br><br>" + _myName + " crumbled the toast over a pair of shoes just like magic dust and said MYSTERY, HISTORY, WONDER and AWE put some MAGIC here - HEE HAW! ";
+var story1G = "The shoes came alive and were bouncing all over the place.  " + _myName + " gave a magic wink to the shoes and they rushed over to kick the field goal.  With one swift and powerful boot the magic shoes fueled by toast crumbs and magic had soared the football into the field goal.  <br><br>The toast crumbs had worked!  <br><br>The Rastila Reds had won the game all thanks to the magic shoes and of course the toast crumbs!";
 
 //story2
 var story2A = "Story 2 A";
@@ -91,31 +145,188 @@ var story3B = "b";
 var story3C = "c";
 var story3D = "d";
 
+//story4
+var story4A = _myName + " and David were Tinker Robots who loved to watch the " + strTeamName + " play but they lived on the wrong side of the ";
+//[img island]
+var story4A1 = " island called Cog near " + _myCity + ".  <br><br>The two sides of Cog were seperated by a great cliff and they were very different. The good side was filled with electricity,  ";
+//[img rivers]
+var story4A2 = "rivers of oil and filled with lots of mechanical ";
+//[img trees] 
+var story4A3 = "trees, flowers, birds and abundant food, while on the wrong side there was hardly any electricity or oil to use as energy " + 
+				"to help them watch " + strTeamName + " games on their robot screens. ";
+var story4B = "That meant if they played their favourite game then the Tinker Robots would have the misfortune of running out of all their energy for the day. <br><br> "  + _myName + " heard a story about a big game coming to " + _myCity + " but they did not know when or where.  They just knew that they would have so much fun if they went. <br><br>" + _myName + " stared out of their bedroom window at the other side of the island.";
+var story4C = _myName + " would soon have to cross the great cliff in order to read more headlines.  They remembered the robot legend that told of their ancestors being able to cross with just the help of a small pole, but for many years not a single ";
+//[img tree] 
+var story4C1 = "tree had " + 
+				"grown that would be strong enough to make such a pole, so few robots including Blinkee the eldest robot believed this was possible, and they had become used to " + 
+				"their difficult life.  <br><br>David wondered what " + _myName + "'s favourite team would do.";
+var story4D = "But one day, along the edge of the cliff seperating the two sides of the ";
+//[img island] 
+var story4D1 = "island, a skinny but very strong ";
+//img tree
+var story4D2 = " tree grew, which " + 
+				"they could build two poles.  <br><br>All of the Tinker Robots were excited and everyone knew that the great chief robots would be the first to try the jump.  <br><br>"  + 
+				_myName + " and David dreamed about which game they would see first if they were able to cross.  But were the " + strTeamName + " or any other teams nearby?";
+var story4E = "But when two of the older robots were given their chance to make the jump, they became so afraid that they did not dare try and they thought that the pole " + 
+				"would break, or it would not be long enough or that something would go wrong during the jump.  They put so much energy into these negative thoughts that their " + 
+				" fear caused them to give up.  <br><br>When they saw saw that this could lead them to being teased, they decided to create some " + 
+				"stories and legends about failed jumps to the other side.  They told so many of these tales and they spread so much that there was no robot " + 
+				"who did not know how careless and foolish you would have to be to even attempt the jump.  <br><br>There lay the poles, waiting for some robot " + 
+				"wanting to use them, but never used, because trying had become the worst thing that a robot could do.";
+var story4F = "Several years had passed and one day David and " + _myName + " were looking for change and  " + 
+				"they decided to take up the poles. <br><br>None of the other robots stopped them, but everyone did try to discourage them, trying to convince them of the dangers " + 
+				"of jumping, using a thousand excuses.";
+var story4G = "\"" + "What if they are right," + "\"" + " asked " + _myName + ".";
+var story4G1 = "\"" +"Why do they talk so much about a leap they have never done? I too am a bit scared, but it does not look so difficult" + "\"" +  
+				"replied David.";
+var story4G2 = "\"" +"But if it goes wrong, it would be a terrible end" + "\"" + " said " + _myName + " undecidedly.";
+var story4G3 = "\"" +"Maybe the jump will go badly and maybe not.  But staying forever on this side of the island surely will not work out well either." + "\"";
+var story4G4 = "\"" +"You are right, David.  And if we wait much longer we won't have the power to make the leap....Let's do it tomorrow." + "\"";
+var story4H = "And on the next day, " + _myName + " and David jumped to the good side of the island.  <br><br>When taking up the poles, taking their run up, while feeling the desire, " + 
+				"the fear had hardly allowed them to move.  And while flying through the air, helpless and without support, they felt that something surely must " + 
+				"have gone wrong and certain death awaited them.  <br><br>But when they landed on the other side of the island and happily hugged each other, they thought " + 
+				"the jump really hadn't been so bad after all.";
+var story4I = "And as they ran away to discover their new life, behind them they could hear the other robots, like a whispering choir:";
+var story4I1 = "\"" + "It was just luck." + "\"";
+var story4I2 = "\"" + "Well...maybe tomorrow." + "\"";
+var story4I3 = "\"" + "What a terrible jump! Had it not been for the pole..." + "\"";
+var story4I4 = "And " + _myName + " and David understood why so few people took the leap - because on the bad side of the island you only ever heard the negative voices of robots " + 
+				"without dreams, robots filled with fear and despair, and robots that would never jump.";
+
+//story5 - Trouble At The Ant Ball
+var story5A = "The big hollow";
+// [img tree] 
+var story5A1 = "tree would once again be buzzing with activity.  It was almost time for the Ant Ball ";
+//[img trophy] 
+var story5A2 = "World Championship.  Ant Ball was basketball for ";
+//[img ants
+var story5A3 = "ants, and it was " + _myName + "&#39;s favourite game to play.  "  + _myName + " got out of bed to look out the window to check the weather for the Ant Ball.";
+//img ants
+var story5B = "Ants of all shapes and sizes, from every ant hole in the world, had arrived to play in the Ant Ball World Championship.  <br><br>There were teams of red ants, black ants, flying ants, " + 
+			"termites, and even some multicolored ants.  Some ants talked about players from the " + strTeamName + " coming to watch a game.  <br><br>Could it be true?";  
+var story5B1 = "The excitement grew as the tournament started, and the fans cheered for their teams.  <br><br>There were fast passes, smooth dribbling and of course thrilling dunks made by the ants.<br><br>" + _myName + " looked around the crowd to see if there were any clue of players from the " + strTeamName + " watching the game.";
+var story5C = "Each game brought the crowd excitement and they roared loudly and proudly for their team.  <br><br>" + 
+				"But a problem started when the large army ants made fun of the much smaller ";
+//img ant
+var story5C1 = "red ants.  The red ants responded by a " + 
+				"bit of pushing and shoving, and the whole crowd turned into a great big ball of legs, jaws and antennae.  <br><br>By the end, " + 
+				"thousands of ants were in ";
+//[img hospital
+var story5C2 = "hospital, and the championship had to be stopped.  "  + _myName + " thought that the " + strTeamName + " would not act this way and wanted to find a way to stop this behaviour.";
+var story5D = _myName + " had already read every headline but still could not tell how the " + strTeamName + " would solve this problem.  <br><br>This time the ants had gone too far with their poor sportsmanship so a meeting of " + 
+				"the Ant Elders was called.  The Elders discussed the matter for days, trying to reach a solution which would end this kind of trouble once and for all.";
+var story5E = "The Ant Elders thought long and hard and finally came to a decision:  " + "\"" + "We believe that ";
+//img ants 
+var story5E1 = "ants of all teams are equal.  It seems, though, that this tournament is being used to prove which kind of ";
+//img ant
+var story5E2 ="ant is the best.  We know that all the different types of ";
+//img ant
+var story5E3 = "ant are indeed pretty impressive.  Therefore, we we say that comparisons " + 
+				"should not be made, and that from this day on every Ant Ball team will be made up of different kinds of ants." + "\"";
+var story5F = "The Ant Elders decision caused quite a ruckus, but soon the crowds of ants started forming themselves into new teams, mixed teams, and each ";
+//img ant 
+var story5F1 = "ant was free to choose which team he would support.  <br><br>The fans began to cheer for the great plays and not just for their own type of ant, and the ants began to see that all ants can play together.";
+
+	//story6 - Every Sport Needs Smiles
+	//0
+var story6A = "It was early in the morning at the Enchanted Castle and the "; 
+//[img princess] 
+var story6A1 = "princess of the fairies was ill.  Everyone feared that she would not be able to see her favourite team play tomorrow for the Enchanted Rose Bowl.  <br><br>The" ; 
+//[img castle] 
+var story6A2 = "castle doctors could not find what the problem was and they hoped that the weather tomorrow would bring the princess more joy.<br><br>";
+//[img dragons] 
+var story6A3 = "Dragons were the friend of the princess and Dudley and " + _myName + " were two of the best.  No one in the castle felt like playing while the princess was sick and no one was certain if her favourite team would arrive.  " + _myName + " managed to find out what was wrong with the princess - the problem was that the ";
+//[img princess] 
+var story6A4 = "princess wasn't seeing anyone smile and having fun playing sports.";  
+
+//3
+var story6B = "But they could not play while their friend was ill.  So the two little " ; 
+//[img dragons] 
+var story6B1 = "dragons set off around the world, trying to find some smiles and ensure that the Enchanted Rose Bowl took place.  <br><br>Sadly, they didn't come across a single smile. So off the ";
+//[img dragons] 
+var story6B2 = "dragons flew once again.  <br><br>They flew to amazing places that were as wide as an ocean, as high as a ";
+//img mountain
+var story6B3 = "mountain top, and as low as a valley and as far as the ";
+//[img stars] 
+var story6B4 = "stars, all the while searching for a smile to present to their friend. " + _myName + " was feeling that they were very close to finding a smile and that the Enchanted Rose Bowl would be on schedule.";
+
+//6
+var story6C = "Dudley Dragon was doubting if they were ever going to find a smile and he also doubted if any teams would make it to the Enchanted Rose Bowl.  <br><br>Were any teams planning to attend the Enchanted Rose Bowl?";
+
+//10
+var story6D = "They travelled far and wide with no success, and Dudley ";
+//[img dragons] 
+var story6D1 = "dragon decided to head home so he could be with the ";
+//[img princess] 
+var story6D2 = "princess to cheer her up since they could not find a single smile.  <br><br>During their travels they heard that a team was on their way to the Enchanted Castle.  <br><br>But " + _myName + " could not remember which team was nearest the Enchanted Castle in " + _myCity + "?  Perhaps they would play in the Enchanted Rose Bowl.";
+
+//13
+var story6E = _myName;
+//[img dragon] 
+var story6E1 = " decided to carry on searching for smiles without Dudley, and in the very next planet - a small and dark planet which was hardly visible - "+_myName+ " found an " + 
+				"exciting discovery: all of the smiles were gathering for a ";
+//[img party] 
+var story6E2 = "party. <br><br>";
+//[img dragon]
+var story6E3 =  _myName + " told the smiles what the problem was, and without a second thought millions of smiles agreed to accompany "+_myName+ " on the return home to the Enchanted Castle.";
+
+//14
+var story6F = _myName + " the";
+//[img dragon]
+var story6F1 = " dragon arrived breathing large fireballs in excitement, and as soon as the ";
+//[img princess] 
+var story6F2 = "princess saw so many smiles, she instantly began to feel better. <br><br>Suddenly, the Enchanted Castle was surprised by the " + strTeamName + ".  The ";
+//[img princess] 
+var story6F3 = "princess jumped for joy and declared that the Enchanted Rose Bowl shall commence!<br><br> Dudley ";
+//[img dragon]
+var story6F4 = "dragon, on seeing this, was very happy that his friend "+_myName+ " had been more patient than himself.";
+
+				
+
 switch(iStory) {
 					case 1:
 						if (_myStoryPos == "0"){						
-							$('#storyText').text(story1A); 
+							$('#storyText').html(story1A + "<img src=img/Words/Shoe.jpg>" + story1A1 + "<img src=img/Words/Trophy.jpg>" + story1A2);					
+							
 						}
 						else if (_myStoryPos == "3"){				
-							$('#storyText').text(story1B); 
+							$('#storyText').html(story1B + "<img src=img/Words/Football.jpg>" + story1B1);	 
+							
 						}
-						else if (_myStoryPos == "6"){				
-							$('#storyText').text(story1C); 
+						else if (_myStoryPos == "6"){			
+							
+							$('#storyText').html(story1C);
+							
 						}
 						//compensate for navigation issue on feeds page
 						else if (_myStoryPos == "9"){				
-							$('#storyText').text(story1D); 
+							$('#storyText').html(story1D); 
 							localStorage.setItem("A4CSportsStoryPos", 10);
+							
 						}
 						//hack
 						else if (_myStoryPos == "10"){				
-							$('#storyText').text(story1D); 
+							$('#storyText').html(story1D);
+														
 						}
 						else if (_myStoryPos == "13"){				
-							$('#storyText').text(story1E); 
+							$('#storyText').html(story1E); 
+							
+							
+						}
+						else if (_myStoryPos == "14"){				
+							$('#storyText').html(story1F); 
+							
+							
+						}
+						else if (_myStoryPos == "15"){				
+							$('#storyText').text(story1G); 
+							this.vibrate();
+							
 						}
 						else{						
 							$('#storyText').text("Kid Stories For Sports Dads: Story 1");
+							
 						}						
 						break;
 					
@@ -128,6 +339,7 @@ switch(iStory) {
 						}
 						else{						
 							$('#storyText').text("Kid Stories For Sports Dads: Story 2");
+							 vibrate();
 						}						
 						break;
 						
@@ -142,10 +354,132 @@ switch(iStory) {
 							$('#storyText').text("Kid Stories For Sports Dads: Story 3");
 						}						
 						break;
+					
+					case 4:
+						if (_myStoryPos == "0"){						
+							$('#storyText').html(story4A + "<img src=img/Words/Island.jpg>" + story4A1 + "<img src=img/Words/River.jpg>" + story4A2 + "<img src=img/Words/Tree.jpg>" + story4A3);					
+							
+						}
+						else if (_myStoryPos == "3"){				
+							$('#storyText').html(story4B);	 
+							
+						}
+						else if (_myStoryPos == "6"){			
+							
+							$('#storyText').html(story4C + "<img src=img/Words/Tree.jpg>" + story4C1);
+							
+						}
+						//compensate for navigation issue on feeds page
+						else if (_myStoryPos == "9"){				
+							$('#storyText').html(story4D + "<img src=img/Words/Island.jpg>" + story4D1 + "<img src=img/Words/Tree.jpg>" + story4D2); 
+							localStorage.setItem("A4CSportsStoryPos", 10);
+							
+						}
+						//hack
+						else if (_myStoryPos == "10"){				
+							$('#storyText').html(story4D + "<img src=img/Words/Island.jpg>" + story4D1 + "<img src=img/Words/Tree.jpg>" + story4D2); 
+														
+						}
+						else if (_myStoryPos == "13"){				
+							$('#storyText').html(story4E); 
+							
+							
+						}
+						
+						else if (_myStoryPos == "15"){				
+							$('#storyText').html(story4F + "<br><br>" + story4G + "<br><br>" + story4G1 + "<br><br>" + story4G2 + "<br><br>" + story4G3 + "<br><br>" + story4G4); 
+							this.vibrate();
+							
+						}
+						else if (_myStoryPos == "16"){				
+							$('#storyText').html(story4H); 
+							this.vibrate();
+							
+						}
+						else if (_myStoryPos == "17"){				
+							$('#storyText').html(story4I + "<br><br><i>" + story4I1 + "<br>" + story4I2 + "<br>" + story4I3 + "</i><br><br>" + story4I4); 
+							this.vibrate();
+							
+						}
+						else{						
+							$('#storyText').text("Kid Stories For Sports Dads: Story 4");
+							
+						}						
+						break;
+					
+					case 5:
+						if (_myStoryPos == "0"){						
+							$('#storyText').html(story5A + "<img src=img/Words/Hollow.jpg>" + story5A1 + "<img src=img/Words/Trophy.jpg>" + story5A2 + "<img src=img/Words/Ant.jpg>" + story5A3); 
+						}
+						else if (_myStoryPos == "3"){				
+							$('#storyText').html(story5B); 
+						}
+						else if (_myStoryPos == "6"){				
+							$('#storyText').html(story5B1); 
+						}
+						else if (_myStoryPos == "9"){				
+							$('#storyText').html(story5C + "<img src=img/Words/Redant.jpg>" + story5C1 + "<img src=img/Words/Hospital.jpg>" + story5C2); 
+							localStorage.setItem("A4CSportsStoryPos", 10); //hack issue with feeds
+						}
+						else if (_myStoryPos == "10"){				
+							$('#storyText').html(story5D); 
+						}
+						else if (_myStoryPos == "13"){				
+							$('#storyText').html(story5E + "<img src=img/Words/Ant.jpg>" + story5E1 + "<img src=img/Words/Ant.jpg>" + story5E2 + "<img src=img/Words/Ant.jpg>" + story5E3); 
+						}
+						else if (_myStoryPos == "14"){
+							$('#storyText').html(story5F + "<img src=img/Words/Ant.jpg>" + story5F1);
+						}
+						
+						else{						
+							$('#storyText').html("Kid Stories For Sports Dads: Story 5");
+						}						
+						break;
+						
+					case 6:					
+									
+						if (_myStoryPos == "0"){						
+							$('#storyText').html(story6A + "<img src=img/Words/Princess.jpg>" + story6A1 + "<img src=img/Words/Castle.jpg>" + story6A2 + "<img src=img/Words/Dragons.jpg>" + story6A3 + "<img src=img/Words/Princess.jpg>" + story6A4);					
+							
+						}
+						else if (_myStoryPos == "3"){				
+							$('#storyText').html(story6B + "<img src=img/Words/Dragons.jpg>" + story6B1 + "<img src=img/Words/Dragons.jpg>" + story6B2 + "<img src=img/Words/Mountain.jpg>" + story6B3 + "<img src=img/Words/Stars.jpg>" + story6B4);	 
+							
+						}
+						else if (_myStoryPos == "6"){			
+							
+							$('#storyText').html(story6C);
+							
+						}
+						//compensate for navigation issue on feeds page
+						else if (_myStoryPos == "9"){				
+						$('#storyText').html(story6D + "<img src=img/Words/Dragons.jpg>" + story6D1 + "<img src=img/Words/Princess.jpg>" + story6D2);
+							localStorage.setItem("A4CSportsStoryPos", 10);
+							
+						}
+						//hack
+						else if (_myStoryPos == "10"){				
+							$('#storyText').html(story6D + "<img src=img/Words/Dragons.jpg>" + story6D1 + "<img src=img/Words/Princess.jpg>" + story6D2);
+														
+						}
+						else if (_myStoryPos == "13"){				
+							$('#storyText').html(story6E + story6E1 + story6E2 + story6E3); 
+							
+						}
+						else if (_myStoryPos == "15"){				
+							$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							vibrate();
+							
+						}
+						else{						
+							$('#storyText').html("Kid Stories For Sports Dads: Story 6");
+							
+						}						
+						break;
 						
 					
 					default:
-						$('#storyText').text("Kid Stories For Sports Dads: Story Id not assigned.");
+						$('#storyText').html("Kid Stories For Sports Dads: Story Id not assigned.");
 				}		
 
 			
@@ -189,8 +523,11 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		</div><!-- /navbar-->
 		
 	</div><!-- /header -->
-		<section data-role="content">				
-		<p class="serif" id="storyText">
+		<section data-role="content">
+		
+		<p class="serif" id="storyText"><br/>	
+		
+		
 		<!--This is the template placeholder for story text.  A second sentence would come here.  If you need a third sentence then it goes here.  Finally, a fourth sentence can be added to this exact spot right here.</p>
 						-->
 			
@@ -203,7 +540,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 	
 	<div id="footer"><center>
-		<img src="img/A4C.jpg" />
+		<img src="img/bannerSM2.jpg" /><br/>
 			&copy; Apps4Canadians
 			</center>
 			<br>

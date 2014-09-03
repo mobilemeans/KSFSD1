@@ -101,9 +101,9 @@
 		var len = _myTeam.length;
 		var strTeamName = _myTeam.substr(n+1, len-n);
     	
-		storyText1 = "Everyone knew that " +_myName + " had a favourite " + strLeagueFormat + " team and that it was the " + strTeamName + ".  " +_myName+ " wanted to read the latest " + strTeamName + " news to see they needed an extra player.";
+		storyText1 = "Everyone knew that " +_myName + " had a favourite " + strLeagueFormat + " team and that it was the " + strTeamName + ".  " +_myName+ " wanted to read the latest " + strTeamName + " team news.";
 		$('#pTeamName1').text(storyText1);
-		storyText2 = _myName + " anxiously waited to read the new " + strTeamName + " stories from today.";
+		storyText2 = "Perhaps "+ _myName + " would find a helpful clue while reading the " + strTeamName + " stories from today.";
 		$('#pTeamName2').text(storyText2);
 		$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');
 		
@@ -138,7 +138,7 @@
 
 	
 	<div id="footer"><center>
-		<img src="img/A4C.jpg" />
+		<img src="img/bannerSM2.jpg" /><br/>
 			&copy; Apps4Canadians
 			</center>
 			<br>
@@ -148,108 +148,208 @@
 </section>	
 </body>
 <script>
+//get logos for chosen sport
+if (localStorage.getItem("A4CLeague") == "football/nfl"){
 	//NFL LOGOS
 	if(localStorage.getItem("A4CTeamId") == "GB"){
-						$("#teamIcon").attr("src", "img/Football/Packers.png");
-	  }
-	  else if(localStorage.getItem("A4CTeamId") == "BAL"){
-					$("#teamIcon").attr("src", "img/Football/Ravens.png");
+						$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Packers.png");
+	} 
+	else if(localStorage.getItem("A4CTeamId") == "BAL"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Ravens.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "NYG"){
-					$("#teamIcon").attr("src", "img/Football/Giants.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Giants.png");
 	  }
 	  else if(localStorage.getItem("A4CTeamId") == "KC"){
-					$("#teamIcon").attr("src", "img/Football/Chiefs.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Chiefs.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "NO"){
-					$("#teamIcon").attr("src", "img/Football/Saints.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Saints.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "IND"){
-					$("#teamIcon").attr("src", "img/Football/Colts.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Colts.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "DEN"){
-					$("#teamIcon").attr("src", "img/Football/Broncos.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Broncos.png");
 	  }
 	  else if(localStorage.getItem("A4CTeamId") == "SEA"){
-					$("#teamIcon").attr("src", "img/Football/Seahawks.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Seahawks.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "CIN"){
-					$("#teamIcon").attr("src", "img/Football/Bengals.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Bengals.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "WAS"){
-					$("#teamIcon").attr("src", "img/Football/Redskins.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Redskins.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "OAK"){
-					$("#teamIcon").attr("src", "img/Football/Raiders.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Raiders.png");
 	  }
 	  else if(localStorage.getItem("A4CTeamId") == "CAR"){
-					$("#teamIcon").attr("src", "img/Football/Panthers.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Panthers.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "NYJ"){
-					$("#teamIcon").attr("src", "img/Football/Jets.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Jets.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "BUF"){
-					$("#teamIcon").attr("src", "img/Football/Bills.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Bills.png");
 	  }	  
 	  else if(localStorage.getItem("A4CTeamId") == "SF"){
-					$("#teamIcon").attr("src", "img/Football/49ers.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/49ers.png");
 	  }
 	  else if(localStorage.getItem("A4CTeamId") == "PIT"){
-					$("#teamIcon").attr("src", "img/Football/Steelers.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Steelers.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "NO"){
-					$("#teamIcon").attr("src", "img/Football/Saints.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Saints.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "PHI"){
-					$("#teamIcon").attr("src", "img/Football/Eagles.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Eagles.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "CHI"){
-					$("#teamIcon").attr("src", "img/Football/Bears.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Bears.png");
 	  }
 	  else if(localStorage.getItem("A4CTeamId") == "STL"){
-					$("#teamIcon").attr("src", "img/Football/Rams.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Rams.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "DET"){
-					$("#teamIcon").attr("src", "img/Football/Lions.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Lions.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "DAL"){
-					$("#teamIcon").attr("src", "img/Football/Cowboys.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Cowboys.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "MIN"){
-					$("#teamIcon").attr("src", "img/Football/Vikings.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Vikings.png");
 	  }
 	  else if(localStorage.getItem("A4CTeamId") == "TB"){
-					$("#teamIcon").attr("src", "img/Football/Bucaneers.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Bucaneers.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "JAC"){
-					$("#teamIcon").attr("src", "img/Football/Jaguars.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Jaguars.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "NE"){
-					$("#teamIcon").attr("src", "img/Football/Patriots.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Patriots.png");
 	  }	  
 	  else if(localStorage.getItem("A4CTeamId") == "HOU"){
-					$("#teamIcon").attr("src", "img/Football/Texans.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Texans.png");
 	  }
 	  else if(localStorage.getItem("A4CTeamId") == "TEN"){
-					$("#teamIcon").attr("src", "img/Football/Titans.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Titans.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "GB"){
-					$("#teamIcon").attr("src", "img/Football/Packers.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Packers.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "ATL"){
-					$("#teamIcon").attr("src", "img/Football/Falcons.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Falcons.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "MIA"){
-					$("#teamIcon").attr("src", "img/Football/Dolphins.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Dolphins.png");
 	  }
 	   else if(localStorage.getItem("A4CTeamId") == "CLE"){
-					$("#teamIcon").attr("src", "img/Football/Browns.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Browns.png");
 	  }
 	  else if(localStorage.getItem("A4CTeamId") == "SD"){
-					$("#teamIcon").attr("src", "img/Football/Chargers.png");
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/Chargers.png");
 	  } 	  	  
-	  else{					$("#teamIcon").attr("src", "img/Football/DefaultNFL.png");
+	  else{					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Football/DefaultNFL.png");
 	  }
+	 //end nfl logos
+	 
+}
+else if(localStorage.getItem("A4CLeague") == "basketball/nba"){
+//NBA LOGOS
+if(localStorage.getItem("A4CTeamId") == "celtics"){
+						$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif");
+	} 
+	else if(localStorage.getItem("A4CTeamId") == "nets"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/nets.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "knicks"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/nyk.gif");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "sixers"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/phi.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "raptors"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/raptors.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "warriors"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/warriors.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "clippers"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/clippers.gif");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "lakers"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/lakers.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "suns"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/suns.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "kings"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/kings.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "bulls"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/chi.gif");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "cavaliers"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/cavaliers.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "pacers"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/ind.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "bucks"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/bucks.gif");
+	  }	  
+	  else if(localStorage.getItem("A4CTeamId") == "mavericks"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/dal.gif");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "rockets"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/rockets.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "grizzlies"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/mem.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "pelicans"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/pelicans.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "spurs"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/spurs.gif");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "hawks"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/hawks.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "bobcats"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/cha_hornets.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "heat"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/heat.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "magic"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/magic.gif");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "wizards"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/wizards.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "nuggets"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/nuggets.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "timberwolves"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/min.gif");
+	  }	  
+	  else if(localStorage.getItem("A4CTeamId") == "thunder"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/okc.gif");
+	  }
+	  else if(localStorage.getItem("A4CTeamId") == "blazers"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/por.gif");
+	  }
+	   else if(localStorage.getItem("A4CTeamId") == "jazz"){
+					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/uth.gif");
+	  }	  	  
+	  else{					$("#teamIcon").attr("src", "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif");
+	  }
+
+
+}
+
 	 
 	  
 	  

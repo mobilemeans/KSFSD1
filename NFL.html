@@ -51,44 +51,39 @@
             });
         });
 
-        function showStoreValue() {
-            
+        function showStoreValue() {            
+		
 			var _myName = localStorage.getItem(myName);
 			var _myAge = localStorage.getItem(myAge);
 			var _myCity = localStorage.getItem(myCity);
 			var _myTeamName = localStorage.getItem(myTeamName);
 			var _myTeamId = localStorage.getItem(myTeamId);
-			var _myRemember = localStorage.getItem(myRemember);	  
-			
-			
-			if (_myName == null){
-                _myName = 'Please enter a value';				
-            }
-            else if (_myName.length === 0) {
-                _myName = 'Please enter a value';				
-            }	
-			if (_myAge == null){
-                _myAge = 'Please enter a value';				
-            }
-            else if (_myAge.length === 0) {
-                _myAge = 'Please enter a value';				
-            }	
-			if (_myCity == null){
-                _myCity = 'Please enter a value';				
-            }
-            else if (_myCity.length === 0) {
-                _myCity = 'Please enter a value';				
-            }	
-			
+			var _myRemember = localStorage.getItem(myRemember);	
 
-
+			
+			//name
+			if (_myName != null){                
+				document.getElementById("myName").setAttribute("value", _myName);	
+			}            
+						
+			//age
+			if (_myAge != null){                
+				document.getElementById("myAge").setAttribute("value", _myAge);	
+			}
+            			
+			//city
+			if (_myCity != null){                
+				document.getElementById("myCity").setAttribute("value", _myCity);	
+			}
+			
+			
 			
 			$('.storeItem').text("Name: " + _myName); 
-			$('.storeItem2').text("Age: " + _myAge);
+			$('.storeItem2').text("Jersey #: " + _myAge);
 			$('.storeItem3').text("City: " + _myCity);
 			$('.storeItem4').text("Team: " + _myTeamName);
 			$('.storeItem5').text("Team Id: " + _myTeamId);
-			$('.storeItem6').text("Keep: " + _myRemember);
+			//$('.storeItem6').text("Keep: " + _myRemember);
 			
 			
  
@@ -211,6 +206,7 @@ function validateProfile(){
 	var name = document.getElementById("myName");
 	var age = document.getElementById("myAge");
 	
+	
 	if (league.selectedIndex == 0){
 		alert('Please select the league.');
 		league.focus();
@@ -219,17 +215,29 @@ function validateProfile(){
 		alert('Please select the team.');
 		team.focus();
 	}
-	else if(name.value == ""){
+	else if(name.value == "" || name.value.length < 1){
 		alert('Please enter your name.');
 		name.focus();
 	}
-	else if (city.value == ""){
+	else if (localStorage.getItem("A4CSportsName") == null || localStorage.getItem("A4CSportsName") == "" && name.value.length > 1){
+		alert('Please remember to complete Step 3 next time to save your Name value!');
+		localStorage.setItem("A4CSportsName", name.value);
+	}
+	else if (city.value == ""  || city.value.length < 1){
 		alert('Please enter your city.');
 		city.focus();
-	}	
+	}
+	else if (localStorage.getItem("A4CSportsCity") == null || localStorage.getItem("A4CSportsCity") == "" && city.value.length > 1){
+		alert('Please remember to complete Step 3 next time to save your City value!');
+		localStorage.setItem("A4CSportsCity", city.value);
+	}
 	else if(age.value == 0){
 		alert('Enter your jersey number.');
 		age.focus();
+	}
+	else if (localStorage.getItem("A4CSportsAge") == null || localStorage.getItem("A4CSportsAge") == "0" && age.value > 0){
+		alert('Please remember to complete Step 3 next time to save your Jersey number value!');
+		localStorage.setItem("A4CSportsAge", age.value);
 	}
 	else {
 		//passed validation
@@ -295,7 +303,7 @@ function validateProfile(){
 			<li class="storeItem3"/>
 			<li class="storeItem4"/>
 			<li class="storeItem5"/>
-			<li class="storeItem6"/>
+			<!--<li class="storeItem6"/>-->
 		</ul>
 		
 		
@@ -303,11 +311,11 @@ function validateProfile(){
 	<a href="#" onclick="validateProfile()" rel="external" data-transition="pop" data-role="button" data-prefetch>Step 5.&nbsp;&nbsp;Click to read a story!</a>
 		<p>Note:  We do not collect or recieve any of your entered information and it is used only for the purposes of each story.</p>
 	<div id="footer"><center>
-		<img src="img/A4C.jpg" />
+		<img src="img/bannerSM2.jpg" /><br/>
 			&copy; Apps4Canadians
 			</center>
 			<br>
-	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home |</a> <a href="FAQ.html" rel="external" data-transition="slideup" data-prefetch>| FAQ |</a> <a href="mailto:apps4canadians@live.com">| Contact |</a>  </center>
+	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home |</a> <a href="mailto:apps4canadians@live.com">| Contact |</a>  </center>
 			
 		</div><!-- /footer -->
 	
