@@ -4,7 +4,7 @@
         xmlns:android   = "http://schemas.android.com/apk/res/android"
         id          = "com.a4c.sports"
         
-        versionCode = "1" version     = "0.0.7" >
+        versionCode = "1" version     = "0.0.8" >
 
     <!-- versionCode is optional and Android only -->
 
@@ -41,6 +41,8 @@ KID STORIES FOR SPORT DADS provides you with real time updates for major sports 
 <gap:plugin name="nl.x-services.plugins.socialsharing"  />
 <gap:plugin name="org.apache.cordova.dialogs"  />
 <gap:plugin name="org.apache.cordova.vibration"  />
+<gap:plugin name="org.thalesvalentim.canvas2imageplugin" version="0.1" />
+
 
 <feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
@@ -54,6 +56,9 @@ KID STORIES FOR SPORT DADS provides you with real time updates for major sports 
 </feature>
 <feature name="Vibration">
     <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
+</feature>
+<feature name="Accelerometer">
+    <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
 </feature>
 
 <access origin="*" />  

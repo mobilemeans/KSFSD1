@@ -47,13 +47,23 @@ $(document).ready(function () {
             var td = $('<td>');
             var img = $('<img>');
             img.attr('src', 'img/Words/' + story + '.jpg');
-            img.click(function () {
+			
+			//if able to click on image to hear word
+			if ('speechSynthesis' in window) {
+				img.click(function () {
                 doSpeech(story);
-            })
+				})
+				$('#speechHeader').html("<b>Click on an image to hear the word.</b>");
+			} 
+			else{
+				$('#speechHeader').html("<b>How many of these words do you know?</b>");
+			}
+		
             img.appendTo(td);
-            td.append("  " + story);
-            td.appendTo(tr);
+			td.append("  " + story);
+			td.appendTo(tr);
             tr.appendTo(table);
+			
         })(storyWords[index]);
     }
     $("#wordText").append(table);
@@ -105,15 +115,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
             <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
 		</ul> -->
 		<H2>WORD LIST</H2>
-		<H3>click on the image to hear the word</H3>
-		 <div id="wordText"></div>
+		<p id="speechHeader" name="speechHeader" />
+		<div id="wordText"></div>
 		  
     
 
 
 <div data-role="controlgroup" data-type="horizontal">
-        
-         <a href="Library.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>
+        <br/><br/>
+         <a href="Library.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /><br/><br/>Back to Library</a>
 		<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="#" onclick="doNav(1);" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>
 		-->

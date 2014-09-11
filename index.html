@@ -19,12 +19,9 @@
 			
 		<link rel="stylesheet"  href="http://demos.jquerymobile.com/1.3.0-beta.1/css/themes/default/jquery.mobile-1.3.0-beta.1.css">
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<!--<script src="http://demos.jquerymobile.com/1.3.0-beta.1/docs/demos/_assets/js/jquery.mobile.demos.js"></script>-->
 		<script src="http://demos.jquerymobile.com/1.3.0-beta.1/js/jquery.mobile-1.3.0-beta.1.js"></script>
 		<link rel="stylesheet" href="style.css" />
-	
-	 
-	
+		
 	
 	<script type="text/javascript">
 	
@@ -36,11 +33,38 @@
 		localStorage.setItem("A4CSportsStory", strStory);
 		window.location.href = strLeague + ".html";
 	}	
-    
-	 </script>
-	 
 	
+	document.addEventListener("deviceready", onDeviceReady, false);
 	  
+	   // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    function onDeviceReady() {
+        // Now safe to use the PhoneGap API
+		
+    }
+	  
+	   // Vibrate for 2 seconds
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
+	  
+	  // Show a custom alert
+     function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+    // Beep three times
+    function playBeep() {
+        navigator.notification.beep(3);
+    }
+
+	
+	
+       
+	 </script> 
    
 
 	<style>
@@ -76,7 +100,7 @@
 				<img src="img/bannerSM2.jpg" id="banner" name="banner" alt="banner">
 				<!--<h2><p><center><img src="img/bannerSM3.jpg" id="banner" name="banner" alt="banner"></center></p></h2><br>	-->		
 				
-				<p class="serif">"enjoy live NFL, NBA, MLB or NHL headlines while reading a personalized story for your child"</p>
+				<p class="serif">"enjoy live NFL, NBA, MLB or NHL headlines while reading a personalized story to your child"</p>
 				
             <div class="jcarousel-wrapper"><img src="img/Library.png" />
                 <div class="jcarousel">				
@@ -85,7 +109,7 @@
                         <li><a href="#" onclick="Setup('NBA-The Museum Mystery')" rel="external" data-transition="slideup" data-prefetch><img src="img/cover2.jpg" alt="Basketball" id="Basketball" name="NBA1" ></a></li>
                         <li><a href="#" onclick="Setup('NFL-Carlos Learns About Friendship')" rel="external" data-transition="slideup" data-prefetch><img src="img/cover3.jpg" alt="NFL2" id="NFL2" name="NFL2"></a></li>
                         <li><a href="#" onclick="Setup('NBA-Robots')"rel="external" data-transition="slideup" data-prefetch><img src="img/cover4.jpg" alt="Basketball" id="NBA2" ></a></li>
-						 <li><a href="#" onclick="Setup('NBA-Trouble At The Ant Ball')"rel="external" data-transition="slideup" data-prefetch><img src="img/cover5.jpg" alt="Basketball" id="NBA2" ></a></li>
+						<li><a href="#" onclick="Setup('NBA-Trouble At The Ant Ball')"rel="external" data-transition="slideup" data-prefetch><img src="img/cover5.jpg" alt="Basketball" id="NBA2" ></a></li>
 						<li><a href="#" onclick="Setup('NFL-Every Sport Needs Smiles')" rel="external" data-transition="slideup" data-prefetch><img src="img/cover6.jpg" alt="NFL3" id="NFL3" ></a> </li>
                        
 					</ul>
@@ -93,23 +117,23 @@
 
                 <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
                 <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://2.bp.blogspot.com/-cULi2xTkicY/UHS9fkrlzEI/AAAAAAAAAic/Y6zJmSAAE7I/s1600/A4CHorizontalLogo.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
-			<p><b><center>KID STORIES FOR SPORT DADS</center></b></p>
+				<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://bsccart.appspot.com/Sports/img/bannerSM2.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
+				<p><b><center>KID STORIES FOR SPORT DADS</center></b></p>
                 <p class="jcarousel-pagination"></p>
             </div>
         </div>
 				<!-- END CAROUSEL -->
 				
 					<!--<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
-				<p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
-				<p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>-->
+				    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
+				    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>-->
 			
 			</div><!-- /content -->
 
 			<div class="jqm-footer">
 				<center>
-		<img src="img/bannerSM2.jpg" /><br/>
-			&copy; Apps4Canadians
+		<!--<img src="img/bannerSM2.jpg" /><br/>
+			&copy; Apps4Canadians-->
 			</center>
 			</div><!-- /jqm-footer -->
 			
@@ -137,7 +161,7 @@
 		<li data-filtertext="NBA">
 			<a href="NBA.html" rel="external" data-transition="slideup" data-prefetch>Basketball (NBA)</a>
 		</li>		
-		<li data-filtertext="MLB">
+		<!--<li data-filtertext="MLB">
 			<a href="#" rel="external" data-transition="slideup" data-prefetch>Baseball (coming soon)</a>
 		</li>
 		<li data-filtertext="NHL">
@@ -147,11 +171,36 @@
 			<a href="#" rel="external" data-transition="slideup" data-prefetch>Soccer (coming soon)</a>
 		</li>		
 		<li data-filtertext="Tshirt">
-			<a href="Tshirt.html" rel="external" data-transition="slideup" data-prefetch>Coloring</a>
-		</li>
+			<a href="Tshirt.html" rel="external" data-transition="slideup" data-prefetch>Fan Zone</a>
+		</li>-->
 		<li data-filtertext="Library">
 			<a href="Library.html" rel="external" data-transition="slideup" data-prefetch>Library</a>
-		</li>		
+		</li>
+		<li data-filtertext="Library">
+			<a href="Games.html" rel="external" data-transition="slideup" data-prefetch>Games</a>
+		</li>
+		<!--
+		<li data-filtertext="Speedy">
+			<a href="Gamelogo.html" rel="external" data-transition="slideup" data-prefetch>Speedy</a>
+		</li>
+		<li data-filtertext="Drawing">
+			<a href="Sketch.html" rel="external" data-transition="slideup" data-prefetch>Draw</a>
+		</li>
+		<li data-filtertext="Maze">
+			<a href="#" onclick="javascript:doHomerun()" rel="external" data-transition="slideup" data-prefetch>Baseball Maze Game</a>
+		</li>
+		<li data-filtertext="Maze">
+			<a href="#" onclick="javascript:doBasketball()" rel="external" data-transition="slideup" data-prefetch>Basketball Maze Game</a>
+		</li>
+		<li data-filtertext="Maze">
+			<a href="#" onclick="javascript:doFootball()" rel="external" data-transition="slideup" data-prefetch>Football Maze Game</a>
+		</li>-->
+		<li data-filtertext="Store">
+			<a href="http://astore.amazon.com/ksfsdnfl-20" rel="external" data-transition="slideup" data-prefetch>Shop</a>
+		</li>
+		<!--<li data-filtertext="Test">
+			<a href="test.html" rel="external" data-transition="slideup" data-prefetch>TEST</a>
+		</li>-->		
 			
 	</ul>
 
@@ -209,7 +258,7 @@
 					<!-- panel content goes here -->
 				</div><!-- /panel -->
 				
-		<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home |</a> |</a> <a href="mailto:apps4canadians@live.com">| Contact |</a>  </center>
+		<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home</a> | <a href="mailto:apps4canadians@live.com">Contact |</a>  </center>
 			
 		</div><!-- /page -->
 	</body>

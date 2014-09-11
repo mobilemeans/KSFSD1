@@ -28,6 +28,13 @@ p.serif {
 
 var text = "How could they find the 5 closest teams?";
 	$('#message').text(text);
+	
+	
+function showStory(version, a, b){
+
+	//alert(version)
+
+};
 
 function doNBA() {
 
@@ -367,13 +374,52 @@ var tbody = '';  //map_table
 				obj = "'" + city.name + i + "'";
 				var replaced = obj.split(' ').join('%20');				
 				var elem = new String('');
-				elem = "'pTeams'";
-				
-				
+				elem = "'pTeams'";					
+				var abbr = "";
 				//dynamically load map_table    			
 				tbody += '<tr>';
-				tbody += '<td>';
-				tbody += '<a href=javascript:showStory(1,'+replaced+','+elem+')>'+city.name+'</a>';
+				tbody += '<td>';				
+		
+					if (replaced.indexOf("Toronto") == 1){abbr = 'raptors';}
+					else if (replaced.indexOf("Boston") == 1){abbr = 'bos';}
+					else if (replaced.indexOf("Cleveland") == 1){abbr = 'cavaliers';}
+					else if (replaced.indexOf("Milwaukee") == 1){abbr = 'bucks';}
+					else if (replaced.indexOf("Charlotte") == 1){abbr = 'cha_hornets';}
+					else if (replaced.indexOf("Chicago") == 1){abbr = 'chi';}
+					else if (replaced.indexOf("Los%20Angeles%20C") == 1){abbr = 'clippers';}
+					else if (replaced.indexOf("Dallas") == 1){abbr = 'dal';}
+					else if (replaced.indexOf("Atlanta") == 1){abbr = 'hawks';}
+					else if (replaced.indexOf("Miami") == 1){abbr = 'heat';}
+					else if (replaced.indexOf("Indiana") == 1){abbr = 'ind';}
+					else if (replaced.indexOf("Sacramento") == 1){abbr = 'kings';}
+					else if (replaced.indexOf("Los%20Angeles%20L") == 1){abbr = 'lakers';}
+					else if (replaced.indexOf("Orlando") == 1){abbr = 'magic';}
+					else if (replaced.indexOf("Memphis") == 1){abbr = 'mem';}
+					else if (replaced.indexOf("Minnesota") == 1){abbr = 'min';}
+					else if (replaced.indexOf("Brooklyn") == 1){abbr = 'nets';}
+					else if (replaced.indexOf("Denver") == 1){abbr = 'nuggets';}
+					else if (replaced.indexOf("New%20York") == 1){abbr = 'nyk';}
+					else if (replaced.indexOf("Oklahoma") == 1){abbr = 'okc';}
+					else if (replaced.indexOf("New%20Orleans") == 1){abbr = 'pelicans';}
+					else if (replaced.indexOf("Philadelphia") == 1){abbr = 'phi';}
+					else if (replaced.indexOf("Detroit") == 1){abbr = 'pistons';}
+					else if (replaced.indexOf("Portland") == 1){abbr = 'por';}
+					else if (replaced.indexOf("Houston") == 1){abbr = 'rockets';}
+					else if (replaced.indexOf("San%20Antonio") == 1){abbr = 'spurs';}
+					else if (replaced.indexOf("Phoenix") == 1){abbr = 'suns';}
+					else if (replaced.indexOf("Utah") == 1){abbr = 'uth';}
+					else if (replaced.indexOf("Golden") == 1){abbr = 'warriors';}
+					else if (replaced.indexOf("Washington") == 1){abbr = 'wizards';}
+									
+					else {
+						abbr = 'nyk';
+					}
+					
+					var str = "Hello world, welcome to the universe.";
+					var n = str.indexOf("welcome");
+				
+				
+				tbody += '<a href=javascript:showStory(1,'+replaced+','+elem+')>'+city.name+'&nbsp;&nbsp;<img src=http://bsccart.appspot.com/Sports/img/Basketball/'+abbr+'.gif height=25 width=25/></a>';
 				tbody += '</td>'
         		tbody += '</tr>';
 								
@@ -811,11 +857,50 @@ var tbody = '';  //map_table
 				var elem = new String('');
 				elem = "'pTeams'";
 				
+				var abbr = "";
+				
+				
+					if (replaced.indexOf("San%20Francisco") == 1){abbr = '49ers';}
+					else if (replaced.indexOf("Chicago") == 1){abbr = 'Bears';}
+					else if (replaced.indexOf("Cincinnati") == 1){abbr = 'Bengals';}
+					else if (replaced.indexOf("Buffalo") == 1){abbr = 'Bills';}
+					else if (replaced.indexOf("Denver") == 1){abbr = 'Broncos';}
+					else if (replaced.indexOf("Cleveland") == 1){abbr = 'Browns';}
+					else if (replaced.indexOf("Tampa") == 1){abbr = 'Bucaneers';}
+					else if (replaced.indexOf("Arizona") == 1){abbr = 'Cardinals';}
+					else if (replaced.indexOf("San%20Diego") == 1){abbr = 'Chargers';}
+					else if (replaced.indexOf("Kansas") == 1){abbr = 'Chiefs';}
+					else if (replaced.indexOf("Indianapolis") == 1){abbr = 'Colts';}
+					else if (replaced.indexOf("Dallas") == 1){abbr = 'Cowboys';}
+					else if (replaced.indexOf("Miami") == 1){abbr = 'Dolphins';}
+					else if (replaced.indexOf("Philadelphia") == 1){abbr = 'Eagles';}
+					else if (replaced.indexOf("Atlanta") == 1){abbr = 'Falcons';}
+					else if (replaced.indexOf("New%20York%20G") == 1){abbr = 'Giants';}
+					else if (replaced.indexOf("Jacksonville") == 1){abbr = 'Jaguars';}
+					else if (replaced.indexOf("New%20York%20J") == 1){abbr = 'Jets';}
+					else if (replaced.indexOf("Detroit") == 1){abbr = 'Lions';}
+					else if (replaced.indexOf("Green") == 1){abbr = 'Packers';}
+					else if (replaced.indexOf("England") == 1){abbr = 'Patriots';}
+					else if (replaced.indexOf("Carolina") == 1){abbr = 'Panthers';}
+					else if (replaced.indexOf("Oakland") == 1){abbr = 'Raiders';}
+					else if (replaced.indexOf("Rams") == 1){abbr = 'Rams';}
+					else if (replaced.indexOf("Baltimore") == 1){abbr = 'Ravens';}
+					else if (replaced.indexOf("Washington") == 1){abbr = 'Redskins';}
+					else if (replaced.indexOf("New%20Orleans") == 1){abbr = 'Saints';}
+					else if (replaced.indexOf("Seattle") == 1){abbr = 'Seahawks';}
+					else if (replaced.indexOf("Pittsburgh") == 1){abbr = 'Steelers';}
+					else if (replaced.indexOf("Houston") == 1){abbr = 'Texans';}
+					else if (replaced.indexOf("Tennesse") == 1){abbr = 'Titans';}
+					else if (replaced.indexOf("Minnesotta") == 1){abbr = 'Vikings';}
+					else {
+						abbr = 'DefaultNFL';
+					}
+				
 				
 				//dynamically load map_table    			
 				tbody += '<tr>';
 				tbody += '<td>';
-				tbody += '<a href=javascript:showStory(1,'+replaced+','+elem+')>'+city.name+'</a>';
+				tbody += '<a href=javascript:showStory(1,'+replaced+','+elem+')>'+city.name+'&nbsp;&nbsp;<img src=http://bsccart.appspot.com/Sports/img/Football/'+abbr+'.png height=25 width=25/></a>';
 				tbody += '</td>'
         		tbody += '</tr>';
 								
