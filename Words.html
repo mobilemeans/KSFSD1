@@ -29,12 +29,21 @@ $(document).ready(function () {
 	var storyId = localStorage.getItem("A4CSportsStory");
     var table = $('<table>');
     if (storyId == "1") {
-        storyWords = ["Ant", "Bananas", "Bottle", "Car", "Castle"];
+        storyWords = ["Football", "Shoe", "Trophy"];
     } else if (storyId == "2") {
-        storyWords = ["Dragons", "Football", "Hollow", "Hospital", "Island"];
+        storyWords = ["", "", "", "", ""];
     } else if (storyId == "3") {
-        storyWords = ["Log", "Party", "Mountain", "Poles", "Princess"];
-    } else {
+        storyWords = ["", "", "", "", ""];
+    } 
+	else if (storyId == "4") {
+        storyWords = ["Green", "Rocket", "Robot", "Spiral", "Planet"];
+    
+	} else if (storyId == "5") {
+        storyWords = ["Ant", "Hospital", "Tree", "Log"];
+    
+	} else if (storyId == "6") {
+        storyWords = ["Castle", "Dragons", "Princess", "Mountain", "Stars"];
+    }else {
         storyWords = ["Trophy"];
     }
 

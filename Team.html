@@ -19,6 +19,7 @@ var myName = "A4CSportsName";
 var myAge = "A4CSportsAge";
 var myCity = "A4CSportsCity";
 var teamId = "A4CTeamId";
+var storyId = "A4CSportsStory";
 
 var weatherIcon = ""
 
@@ -26,7 +27,7 @@ var _myName = localStorage.getItem(myName);
 var _myAge = localStorage.getItem(myAge);
 var _myCity = localStorage.getItem(myCity);
 var _teamId = localStorage.getItem(teamId);
-
+var _storyId = localStorage.getItem(storyId);
 
 $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + _myCity + "&units=metric&lang=en&callback=?", displayWeather2);
 					
@@ -50,6 +51,7 @@ function displayWeather2(data){
 		weather = data.weather[0].description;
 	  };
 	  
+	  //get sport
 	  if (localStorage.getItem("A4CLeague") == "basketball/nba"){
 					strLeague = "basketball";
 	  }
@@ -63,8 +65,42 @@ function displayWeather2(data){
 					strLeague = "baseball";
 	  }
     
-	  var text = "It was another " + weather + " day in " +_myCity+ ".  Now " + _myName + " was thinking about playing " +strLeague+ " with some friends.";
-	$('#message').text(text);
+	//customize story text 
+	var text = "";
+	var text2 = "";
+	
+	if (_storyId == "1"){	
+		text = "The Rastila Reds warmed up for the game during another " + weather + " day in " +_myCity+ ".  " + _myName + " knew that it was a good day to play " +strLeague+ " with some friends.";
+	    text2 = "";	
+	}
+	else if (_storyId == "2"){	
+		text = " " + weather + " " +_myCity+ ".   " + _myName + " " +strLeague+ " .";
+	    text2 = "";	
+	}
+	else if (_storyId == "3"){	
+		text = " " + weather + "  " +_myCity+ ".  " + _myName + "  " +strLeague+ " ";
+	    text2 = "";	
+	}
+	else if (_storyId == "4"){	
+		text = "Planet Lime had the exact same weather as " +_myCity+ ".  Bolt used the weather gadget he built to see that it was going to be a " + weather + " day on Planet Lime.  That was perfect weather for a space trip especially since one of the closest teams to " +_myCity+ " were also going to Planet Lime.";
+	    text2 = "";	
+	}
+	else if (_storyId == "5"){	
+		text = _myName + " stretched and slowly looked out the window.  ";
+	    text2 = "All of the ants loved to watch " + strLeague + " whenever it was a " + weather + " day in " +_myCity+ ".";
+	}
+	else if (_storyId == "6"){	
+		text = "Dudley had an idea.  Since it was a " + weather + " day in " +_myCity+ " that meant that they could fly further than any other day.  <BR><BR>Dudley told " + _myName + " that they should fly to the five closest teams and find some smiles.  Then the princess would really want to play " +strLeague+ " with the dragons.";
+	    text2 = "";	
+	}
+	else{
+		text = "It was another " + weather + " day in " +_myCity+ ".  " + _myName + " was thinking about playing " +strLeague+ " with some friends.";
+	    text2 = "";	
+	};
+	  
+	
+	
+	$('#message').html(text + text2);
 	
 
 	if( weather.indexOf('clouds') >= 0){

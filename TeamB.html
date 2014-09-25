@@ -69,10 +69,13 @@
 	var myNum = "A4CSportsAge";
 	var myCity = "A4CSportsCity";
 	var myTeam = "A4CTeamName";
+	var storyId = "A4CSportsStory";
+	
 	var _myName = localStorage.getItem(myName);
 	var _myNum = localStorage.getItem(myNum);
 	var _myCity = localStorage.getItem(myCity);
 	var _myTeam = localStorage.getItem(myTeam);
+	var _storyId = localStorage.getItem(storyId);
 	var storyText1 = "";
 	var storyText2 = "";
 
@@ -101,11 +104,66 @@
 		var len = _myTeam.length;
 		var strTeamName = _myTeam.substr(n+1, len-n);
     	
-		storyText1 = "Everyone knew that " +_myName + " had a favourite " + strLeagueFormat + " team and that it was the " + strTeamName + ".  " +_myName+ " wanted to read the latest " + strTeamName + " team news.";
-		$('#pTeamName1').text(storyText1);
-		storyText2 = "Perhaps "+ _myName + " would find a helpful clue while reading the " + strTeamName + " stories from today.";
-		$('#pTeamName2').text(storyText2);
-		$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');
+		if (_storyId == "1"){
+			storyText1 = "Everyone knew that " +_myName + " had a favourite " + strLeagueFormat + " team and that it was the " + strTeamName + ".  " +_myName+ " wanted to read the latest " + strTeamName + " team news.";
+			$('#pTeamName1').text(storyText1);
+			storyText2 = "Perhaps "+ _myName + " would find a helpful clue while reading the " + strTeamName + " stories from today.";
+			$('#pTeamName2').text(storyText2);
+			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');
+		}
+		else if (_storyId == "2"){
+			storyText1 = "" +_myName + "  " + strLeagueFormat + "  " + strTeamName + ".  " +_myName+ "  " + strTeamName + " ";
+			$('#pTeamName1').text(storyText1);
+			storyText2 = " "+ _myName + "  " + strTeamName + " ";
+			$('#pTeamName2').text(storyText2);
+			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');
+		}
+		else if (_storyId == "3"){
+			storyText1 = "" +_myName + "  " + strLeagueFormat + "  " + strTeamName + ".  " +_myName+ "  " + strTeamName + " ";
+			$('#pTeamName1').text(storyText1);
+			storyText2 = " "+ _myName + "  " + strTeamName + " ";
+			$('#pTeamName2').text(storyText2);
+			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');	
+		}
+		else if (_storyId == "4"){
+			storyText1 = _myName + " had never seen the " + strTeamName + " before and wanted to double and triple check that the " + strTeamName + " were going to Planet Lime.";
+			storyText2 = "The " + strTeamName + " used a special signal when talking with other planets.  Bolt hoped that he could find the signal.";
+			$('#pTeamName1').text(storyText1);
+			$('#pTeamName2').text(storyText2)
+					
+		}
+		else if (_storyId == "5"){
+			storyText1 = _myName + " knew that the best " + strLeagueFormat + " team was the " + strTeamName + ".  " +_myName+ " was sure that the " + strTeamName + " would be watching the game.";
+			$('#pTeamName1').text(storyText1);
+			storyText2 = _myName + " could not sit still while reading the " + strTeamName + " stories from today.";
+			$('#pTeamName2').text(storyText2);
+			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');		
+		}
+		else if (_storyId == "6"){
+			storyText1 = "The dragons knew that the princess had a favourite " + strLeagueFormat + " team and that it was the " + strTeamName + ".  " +_myName+ " searched the " + strTeamName + " team news in case they had extra smiles to share.";
+			$('#pTeamName1').text(storyText1);
+			storyText2 = "Perhaps "+ _myName + " would find a helpful clue while reading the " + strTeamName + " stories from today.";
+			$('#pTeamName2').text(storyText2);
+			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');		
+		}
+		else {
+			storyText1 = "Everyone knew that " +_myName + " had a favourite " + strLeagueFormat + " team and that it was the " + strTeamName + ".  " +_myName+ " wanted to read the latest " + strTeamName + " team news.";
+			$('#pTeamName1').text(storyText1);
+			storyText2 = "Perhaps "+ _myName + " would find a helpful clue while reading the " + strTeamName + " stories from today.";
+			$('#pTeamName2').text(storyText2);
+			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');		
+		};
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		var navLinks = "";
 		if (strLeagueFormat == "NFL"){

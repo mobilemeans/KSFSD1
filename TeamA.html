@@ -21,6 +21,7 @@ var myAge = "A4CSportsAge";
 var myCity = "A4CSportsCity";
 var teamId = "A4CTeamId";
 var leagueName = "A4CLeague";
+var storyId = "A4CSportsStory";
 
 var weatherIcon = ""
 
@@ -28,6 +29,7 @@ var _myName = localStorage.getItem(myName);
 var _myAge = localStorage.getItem(myAge);
 var _myCity = localStorage.getItem(myCity);
 var _teamId = localStorage.getItem(teamId);
+var _storyId = localStorage.getItem(storyId);
 var _myLeague = localStorage.getItem(leagueName);
 var _sport = "";
 
@@ -75,10 +77,42 @@ $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + _myCity + "&unit
 function displayWeather2(){	    
     
 	
+	//customize story text 
+	var text = "";
+	var text2 = "";
 	
-	var text = _myName + " was very excited and wanted to check if their big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
-	$('#message').text(text);
 	
+	if (_storyId == "1"){	
+		text = _myName + " was very excited and wanted to check if the Rastila Reds big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
+		text2 = "";	
+	}
+	else if (_storyId == "2"){	
+		text = _myName + " was very excited and wanted to check if their big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
+		 text2 = "";	
+	}
+	else if (_storyId == "3"){	
+		text = _myName + " was very excited and wanted to check if their big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
+		text2 = "";	
+	}
+	else if (_storyId == "4"){	
+		text = "The announcement was so new that Bolt could not see it in the " + _sport + " headlines for today.  Bolt and " + _myName + " wished that they could go to Planet Lime.<br><br>Can you read the headlines from today?";	
+text2 = "";	
+	}
+	else if (_storyId == "5"){	
+		text = _myName + " wondered if the Ant Ball was in the " + _sport + " headlines for today.  " + _myName + " began to read the latest " + _sport + " news.";
+		text2 = "";
+	}
+	else if (_storyId == "6"){	
+		text = "The kingdom was normally filled with fun and games that gathered people from all across the land.  The princess read each one of the latest " + _sport + " headlines and she coud not find any stories about the kingdom.  <br><br><i>Do you see any stories about the Magestic Kingdom?<i>";
+		text2 = "";	
+	}
+	else{
+		text = _myName + " was very excited and wanted to check if their big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
+			
+	};
+	
+	//assign the value
+	$('#message').html(text);
 	
 	 
 	/* 

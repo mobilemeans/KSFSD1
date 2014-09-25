@@ -396,3 +396,68 @@ margin-top:-5px;
 	background: url(img/iconrealestate.jpg) 50% 50% no-repeat;
 	background-size:40px 40px;
 }
+
+
+
+
+
+h1 {
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-weight:700;
+  font-style:italic;
+}
+
+
+.form {
+  width:460px;
+  float: left;
+}
+
+.border {
+  border: 2px solid #009;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+  box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+  background: rgb(240,	248,	255);
+  background: -moz-linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%);
+  background: -webkit-linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%);
+  background: -o-linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%);
+  background: -ms-linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%);
+  background: linear-gradient(270deg, rgb(240,	248,	255) 7%, rgb(176,	224,	230) 99%);  
+}
+
+label {
+  display: block;
+  margin-left: 3px;
+  padding-top: 2px;
+  text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.75);
+  font-family:Verdana, Geneva, sans-serif;
+  font-size:.9em;
+}
+
+legend {
+  text-shadow: 2px 2px 3px rgba(150, 150, 150, 0.75);
+  font-family:Verdana, Geneva, sans-serif;
+  font-size:1.4em;
+  border-top: 2px solid #009;
+  border-left: 2px solid #009;
+  border-right:  2px solid #009;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+  box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+  padding: 3px;
+  background: rgb(176,	196,	222);
+  background: -moz-linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%);
+  background: -webkit-linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%);
+  background: -o-linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%);
+  background: -ms-linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%);
+  background: linear-gradient(270deg, rgb(176,	196,	222) 7%, rgb(90, 140, 250) 99%); 
+}
+
+.inline {
+  display:inline-block;
+}
