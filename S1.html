@@ -70,6 +70,7 @@ var _myCity = localStorage.getItem("A4CSportsCity");
 var _myName = localStorage.getItem("A4CSportsName");
 var _myAge = localStorage.getItem("A4CSportsAge");
 var _myTeam = localStorage.getItem("A4CTeamName");
+var _myPlayer = localStorage.getItem("A4CPlayerName");
 
 var strTeamFind = _myTeam.indexOf("-");
 var n = _myTeam.indexOf("-");
@@ -96,10 +97,17 @@ var story1F = "But " + _myName + " had used too much magic dust practicing magic
 var story1G = "The shoes came alive and were bouncing all over the place.  " + _myName + " gave a magic wink to the shoes and they rushed over to kick the field goal.  With one swift and powerful boot the magic shoes fueled by toast crumbs and magic had soared the football into the field goal.  <br><br>The toast crumbs had worked!  <br><br>The Rastila Reds had won the game all thanks to the magic shoes and of course the toast crumbs!";
 
 //story2
-var story2A = "Story 2 A";
-var story2B = "Story 2 B";
-var story2C = "Story 2 C";
-var story2D = "Story 2 D";
+var story2A = _myName + " closed the book on zoology and with eyes closed started to spell Hippopotamus.<br><br>  Hippopotamus is spelled ";
+var story2B = _myName + " was practicing to spell words like orangutan, crocodiles and petrel.  <br><br>Crocodile is spelled ";
+var story2C = "The grand prize were free tickets for the whole class to see a " + strTeamName + " game in " + _myCity + ".  " + _myName + "  had a secret strategy for learning new words.";
+var story2D = _myName + " found some new words again today in the " + strTeamName + " headlines and began to practice spelling.  <br><br>What new words did you find today?";
+var story2E = _myName + " sat in seat Q of row Z and was contestant number " + _myAge + ".  <br><br>" + _myName + " was thrilled when they announced the surprise judge -- " + _myPlayer + " from the " + strTeamName + "!";
+var story2F = "Kids were spelling words like aquatic, coniferous, albatross and aardvark with no problem at all.";
+var story2G = "As the contest went on words were spelled and some were right and some were wrong.  <br><br>" + _myName + "  and a girl not too far from " + _myCity + " named Rory were the last two spellers.";
+var story2H = "The final word to spell was CONSERVATION and Rory was first to try.  She started with C-O-N-V-E-R-S-A-T-I-O-N.  That was not right and " + _myName + "  had a chance to win the tickets for the whole class to see " + strTeamName + " play in " + _myCity + ".<br><br>  " + _myName + "  smiled and remembered reading that word while looking at a story about " + _myPlayer + ".  " + _myName + "  began and slowly spelled out C-O-N-S-E-R-V-A-T-I-O-N.";
+var story2I = "The judges and " + _myPlayer + " rang their bells to declare that " + _myName + "  had just won the Animal spelling bee!<br><br>Everyone from " + _myName + "'s class jumped up with joy!";
+var story2J = "Game day quickly came in " + _myCity + ".  " + _myName + " watched as " + _myPlayer + " waved at the class while the " + strTeamName + " came charging out to play."
+var story2K = _myName + " and the entire class cheered and roared as they watched the " + strTeamName + " make the game winning play.   The " + strTeamName + " fans clapped when " + _myName + "  was on the giant screen with " + _myName + "'s newest favourite words : ";
 
 //story3
 var story3A = "a";
@@ -108,9 +116,9 @@ var story3C = "c";
 var story3D = "d";
 
 //story4
-var story4_0 = "Bolt and " + _myName + " were Tinker Bots that lived about 5 galaxies away from the City of " + _myCity + ".  The Tinker Bots loved to build new things but what they loved the most of all was the " + strTeamName + ".  The Tinker Bots heard a distant message from planet Earth which announced that the " + strTeamName + " were visiting Planet Lime today.";	
+var story4_0 = "Bolt and " + _myName + " were Tinker Bots that lived about 5 galaxies away from the City of " + _myCity + ".  <br><br>The Tinker Bots loved to build new things but what they loved the most of all was the " + strTeamName + ".  <br><br>The Tinker Bots heard a distant message from planet Earth which announced that " + _myPlayer + " and the " + strTeamName + " were visiting Planet Lime today.";	
 var story4_3 = _myName + " stared into the wide galaxy and charted a course to Planet Lime just for fun.";	
-var story4_7 = "Rusty thought that Bolt and " + _myName + " were never going to make the space trip.  He said that no Tinker Bot has ever travelled that far before and that it was too hard so do not even both to try.";
+var story4_7 = "Rusty thought that Bolt and " + _myName + " were never going to make the space trip and see " + _myPlayer + ".  He said that no Tinker Bot has ever travelled that far before and that it was too hard, so do not even both to try.";
 var story4_9 = _myName + " felt that if any space rocket could make the space trip then it had to be the Rouge Rocket.  It was the oldest space rocket that the Tinker Bots owned.<br><br>Bolt remembered building it when " + _myName + " was just a little piece of steel.";
 var story4_13 = "They found the clue because they read every headline!  Now they could go to Planet Lime.  Lemmy reminded Bolt and " + _myName + " of how the Rouge Rocket had previously crashed when it flew into a spiral and out of control.";	
 var story4_15 = "The Rouge Rocket needed to be fixed.  " + _myName + " found the problem and showed it to the other Tinker Bots.  Together they worked all day on fixing the Rouge Rocket until it could safely fly to Planet Lime.";
@@ -165,7 +173,7 @@ var story6_7 = "Dudley and " +_myName + " swooped through the air and began thei
 var story6_9 = "They flew even further reaching the stars, but there were no smiles.  Dudley could not believe that they had yet not seen one smile and told " +_myName + " that he was giving up.";
 var story6_13 = "But " +_myName + " went on without Dudley and flew through the wide valley.  The rain sounded like laughter as it fell to the ground and into the streams. <br><br>" +_myName + " heard the laughter again and again, so off he flew into the cloud to find out who was laughing.";
 var story6_15 = "As soon as " +_myName + " passed through the clouds " +_myName + " could see a million smiles laughing and having fun.  The smiles were gathering from all across the land and it was a grand celebration of happiness.";
-var story6_17 = "All of the smiles had agreed to visit the princess with " +_myName + ".  ,br><br>Upon seeing the kingdom filled with smiles once again she declared that from this period onward everyone in the kingdom must remember to smile when playing and that sports is all about having fun.";
+var story6_17 = "All of the smiles had agreed to visit the princess with " +_myName + ".  <br><br>Upon seeing the kingdom filled with smiles once again she declared that from this period onward everyone in the kingdom must remember to smile when playing and that sports is all about having fun.";
 
 //END STORY TEXT
 
@@ -210,13 +218,13 @@ $(document).ready(function(){
 
 
 
-
 				
 
 switch(iStory) {
 					case 1:
 						if (_myStoryPos == "0"){						
-							$('#storyText').html(story1A + "<img src=img/Words/Shoe.jpg>" + story1A1 + "<img src=img/Words/Trophy.jpg>" + story1A2);					
+							$('#storyText').html(story1A + "<img src=img/Words/Shoe.jpg>" + story1A1 + "<img src=img/Words/Trophy.jpg>" + story1A2);	
+							
 							
 						}
 						else if (_myStoryPos == "3"){				
@@ -262,26 +270,169 @@ switch(iStory) {
 					
 					case 2:
 						if (_myStoryPos == "0"){						
-							$('#storyText').text(story2A); 
+							$('#storyText').html(story2A); 
+								var text="H-i-p-p-o-p-o-t-a-m-u-s.";
+								var delay=300;
+								var elem = $("#storyText");								
+								var addTextByDelay = function(text,elem,delay){
+									if(!elem){
+										elem = $("body");
+									}
+									if(!delay){
+										delay = 300;
+									}
+									if(text.length >0){
+										//append first character 
+										elem.append(text[0]);
+										setTimeout(
+											function(){
+												//Slice text by 1 character and call function again                
+												addTextByDelay(text.slice(1),elem,delay);            
+											 },delay                 
+											);
+									}
+								}
+
+								addTextByDelay(text,elem,delay);
+							
+							
+						
+							
+							
+							
 						}
-						else if (_myStoryPos == "1"){				
-							$('#storyText').text(story2B); 
+						else if (_myStoryPos == "2"){				
+							$('#storyText').html(story2B); 
+							var text="c-r-o-c-o-d-i-l-e.";
+								var delay=300;
+								var elem = $("#storyText");								
+								var addTextByDelay = function(text,elem,delay){
+									if(!elem){
+										elem = $("body");
+									}
+									if(!delay){
+										delay = 300;
+									}
+									if(text.length >0){
+										//append first character 
+										elem.append(text[0]);
+										setTimeout(
+											function(){
+												//Slice text by 1 character and call function again                
+												addTextByDelay(text.slice(1),elem,delay);            
+											 },delay                 
+											);
+									}
+								}
+
+								addTextByDelay(text,elem,delay);
+						
+						
+						
+						
+						
 						}
+						else if (_myStoryPos == "5"){				
+							$('#storyText').html(story2C); 
+						}
+						
+						//compensate for navigation issue on feeds page
+						else if (_myStoryPos == "9"){				
+							$('#storyText').html(story2D); 
+							localStorage.setItem("A4CSportsStoryPos", 10);							
+						}
+						//hack
+						else if (_myStoryPos == "10"){				
+							$('#storyText').html(story2D);														
+						}
+						else if (_myStoryPos == "12"){				
+							$('#storyText').html(story2E); 
+						}else if (_myStoryPos == "14"){				
+							$('#storyText').html(story2F); 
+						}else if (_myStoryPos == "16"){				
+							$('#storyText').html(story2G); 
+						}
+						else if (_myStoryPos == "18"){				
+							$('#storyText').html(story2H); 
+						}
+						else if (_myStoryPos == "20"){				
+							$('#storyText').html(story2I); 
+						}
+						else if (_myStoryPos == "22"){				
+							$('#storyText').html(story2J); 
+						}	
+						else if (_myStoryPos == "24"){				
+							$('#storyText').html(story2K); 
+							
+							setTimeout(
+								function(){alert("Can you guess?");},2000
+							);
+								
+								
+								
+								var text="S-P-E-L-L-I-N-G    B-E-E    C-H-A-M-P.";						
+								var elem = $("#storyText");
+								var delay=300;
+								var addTextByDelay = function(text,elem,delay){
+									if(text.length >0){
+										//append first character 
+										elem.append(text[0]);
+										setTimeout(
+											function(){
+												//Slice text by 1 character and call function again                
+												addTextByDelay(text.slice(1),elem,delay);            
+											 },delay                 
+											);
+									}
+								}
+								
+								
+								addTextByDelay(text,elem,delay);
+							
+								
+								/*var text="C-H-A-M-P.";
+								var delay=300;
+								var elem = $("#storyText");								
+								var addTextByDelay = function(text,elem,delay){
+									if(!elem){
+										elem = $("body");
+									}
+									if(!delay){
+										delay = 300;
+									}
+									if(text.length >0){
+										//append first character 
+										elem.append(text[0]);
+										setTimeout(
+											function(){
+												//Slice text by 1 character and call function again                
+												addTextByDelay(text.slice(1),elem,delay);            
+											 },delay                 
+											);
+									}
+								}
+								
+
+								addTextByDelay(text,elem,delay);*/
+							
+							
+						}
+						
 						else{						
-							$('#storyText').text("Kid Stories For Sports Dads: Story 2");
+							$('#storyText').html("Kid Stories For Sports Dads: Story 2");
 							 vibrate();
 						}						
 						break;
 						
 					case 3:
 						if (_myStoryPos == "0"){						
-							$('#storyText').text(story3A); 
+							$('#storyText').html(story3A); 
 						}
 						else if (_myStoryPos == "1"){				
-							$('#storyText').text(story3B); 
+							$('#storyText').html(story3B); 
 						}
 						else{						
-							$('#storyText').text("Kid Stories For Sports Dads: Story 3");
+							$('#storyText').html("Kid Stories For Sports Dads: Story 3");
 						}						
 						break;
 					

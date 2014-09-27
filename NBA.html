@@ -17,6 +17,23 @@
 	<img src="img/bannerSM2.jpg" />
 	 <section data-role="header">
        <h2>Personalize your story</h2>  
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/bos.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/cavaliers.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/chi.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/clippers.gif" height="25" width="25"/> 
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/ind.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/lakers.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/mem.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/min.gif" height="25" width="25"/> 
+			
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/nuggets.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/nyk.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/okc.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/rockets.gif" height="25" width="25"/> 
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/raptors.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/spurs.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/wizards.gif" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/pistons.gif" height="25" width="25"/> 
     </section>
     <section data-role="content">
 	<ul data-role="listview" data-inset="true">
@@ -29,6 +46,7 @@
 		var myTeamName = "A4CTeamName";
 		var myTeamId = "A4CTeamId";
 		var myRemember = "A4CSportsRem";
+		var myPlayerName = "A4CPlayerName"; 
 		
 		
         $('#pagePreferences').live('pagecreate', function() {
@@ -58,7 +76,8 @@
 			var _myCity = localStorage.getItem(myCity);
 			var _myTeamName = localStorage.getItem(myTeamName);
 			var _myTeamId = localStorage.getItem(myTeamId);
-			//var _myRemember = localStorage.getItem(myRemember);	  
+			//var _myRemember = localStorage.getItem(myRemember);	
+			var _myPlayerName = localStorage.getItem(myPlayerName); 			
 			
 			
 			//name
@@ -79,12 +98,12 @@
 
 
 			
-			$('.storeItem').text("Name: " + _myName); 
-			$('.storeItem2').text("Age: " + _myAge);
-			$('.storeItem3').text("City: " + _myCity);
-			$('.storeItem4').text("Team: " + _myTeamName);
-			$('.storeItem5').text("Team Id: " + _myTeamId);
-			//$('.storeItem6').text("Keep: " + _myRemember);
+			$('.storeItem').html("&nbsp;<b>Name:&nbsp; " + _myName + "</b>");  
+ 			$('.storeItem2').html("&nbsp;<b>Jersey #:&nbsp; " + _myAge+ "</b>"); 
+ 			$('.storeItem3').html("&nbsp;<b>City:&nbsp; " + _myCity+ "</b>"); 
+ 		    $('.storeItem4').html("&nbsp;<b>Team:&nbsp; " + _myTeamName+ "</b>"); 
+ 		    $('.storeItem5').html("&nbsp;<b>Team Id:nbsp; " + _myTeamId+ "</b>"); 
+ 		    $('.storeItem6').html("&nbsp;<b>Player:&nbsp; " + _myPlayerName+ "</b>");	 
 			
 			
  
@@ -127,7 +146,106 @@
 		teamLists["NBA"].push(["blazers - Portland Trail Blazers"]);	
 		teamLists["NBA"].push(["jazz - Utah Jazz"]);
 	
-//http://www.nba.com/bucks/rss.xml	
+//CREATE A NBA TEAM ARRAY
+		var playerLists = new Array(28);
+		playerLists["celtics - Boston Celtics"]= new Array();	
+		playerLists["nets - Brooklyn Nets"]= new Array();
+		playerLists["knicks - New York Knicks"]= new Array();	
+		playerLists["sixers - Philadelphia 76ers"]= new Array();	
+		playerLists["raptors - Toronto Raptors"]= new Array();
+		playerLists["warriors - Golden State Warriors"]= new Array();	
+		playerLists["clippers - Los Angeles Clippers"]= new Array();
+		playerLists["lakers - Los Angeles Lakers"]= new Array();	
+		playerLists["suns - Phoenix Suns"]= new Array();
+		playerLists["kings - Sacramento Kings"]= new Array();	
+		playerLists["bulls - Chicago Bulls"]= new Array();
+		playerLists["cavaliers - Cleveland Cavaliers"]= new Array();	
+		playerLists["pacers - Indiana Pacers"]= new Array();
+		playerLists["bucks - Milwaukee Bucks"]= new Array();	
+		playerLists["mavericks - Dallas Mavericks"]= new Array();
+		playerLists["rockets - Houston Rockets"]= new Array();	
+		playerLists["grizzlies - Memphis Grizzlies"]= new Array();
+		playerLists["pelicans - New Orleans Pelicans"]= new Array();	
+		playerLists["spurs - San Antonio Spurs"]= new Array();
+		playerLists["hawks - Atlanta Hawks"]= new Array();	
+		playerLists["bobcats - Charlotte Bobcats"]= new Array();
+		playerLists["heat - Miami Heat"]= new Array();
+		playerLists["magic - Orlando Magic"]= new Array();
+		playerLists["wizards - Washington Wizards"]= new Array();	
+		playerLists["nuggets - Denver Nuggets"]= new Array();
+		playerLists["timberwolves - Minnesota Timberwolves"]= new Array();
+		playerLists["thunder - Oklahoma City Thunder"]= new Array();
+		playerLists["blazers - Portland Trail Blazers"]= new Array();	
+		playerLists["jazz - Utah Jazz"]= new Array();
+		
+		playerLists["celtics - Boston Celtics"].push({ name: "Rajon Rondo", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		playerLists["celtics - Boston Celtics"].push({ name: "Player 2", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player2.png"})	
+		playerLists["celtics - Boston Celtics"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player3.png"})	
+		
+		playerLists["nets - Brooklyn Nets"].push({ name: "Player 1", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/nets.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		playerLists["nets - Brooklyn Nets"].push({ name: "Player 2", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/nets.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		
+		playerLists["knicks - New York Knicks"].push({ name: "Carmelo Anthony", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/nyk.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["sixers - Philadelphia 76ers"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/phi.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["raptors - Toronto Raptors"].push({ name: "Demar DeRozen", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/raptors.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["warriors - Golden State Warriors"].push({ name: "Player 1", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/warriors.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["clippers - Los Angeles Clippers"].push({ name: "Blake Griffin", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/clippers.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["lakers - Los Angeles Lakers"].push({ name: "Kobe Bryant", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/lakers.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["suns - Phoenix Suns"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/suns.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["kings - Sacramento Kings"].push({ name: "DeMarcus Cousins", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/kings.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["bulls - Chicago Bulls"].push({ name: "Derick Rose", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/chi.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		playerLists["bulls - Chicago Bulls"].push({ name: "Pau Gasol", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/chi.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		
+		playerLists["cavaliers - Cleveland Cavaliers"].push({ name: "Lebron James", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/cavaliers.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["pacers - Indiana Pacers"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/ind.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["bucks - Milwaukee Bucks"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bucks.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["mavericks - Dallas Mavericks"].push({ name: "Dirk Nowitzki", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/dal.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["rockets - Houston Rockets"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/rockets.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["grizzlies - Memphis Grizzlies"].push({ name: "Marc Gasol", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/pelicans.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["pelicans - New Orleans Pelicans"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/spurs.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["spurs - San Antonio Spurs"].push({ name: "Tim Duncan", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/hawks.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		playerLists["spurs - San Antonio Spurs"].push({ name: "Tony Parker", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/hawks.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		
+		playerLists["hawks - Atlanta Hawks"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/spurs.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["bobcats - Charlotte Bobcats"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bobcats.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["heat - Miami Heat"].push({ name: "Dwayne Wade", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/heat.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		playerLists["heat - Miami Heat"].push({ name: "Chris Bosh", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/heat.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		
+		playerLists["magic - Orlando Magic"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/magic.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["wizards - Washington Wizards"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/wizards.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["nuggets - Denver Nuggets"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/nuggets.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["timberwolves - Minnesota Timberwolves"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/min.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["thunder - Oklahoma City Thunder"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/ock.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+		
+		playerLists["blazers - Portland Trail Blazers"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/por.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
+		
+		playerLists["jazz - Utah Jazz"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/uth.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
+  
   
 //<![CDATA[
 // array of possible countries in the same order as they appear in the country selection list
@@ -147,6 +265,15 @@ function leagueChange(selectObj) {
 	while (cSelect.options.length > 0) {
 		cSelect.remove(0);
 	}
+	
+	//add the default option to deal with issue of 1st item not selectable
+	var defaultOption;
+	defaultOption = document.createElement("option");
+	defaultOption.value = "Select A Team";  // assumes option string and value are the same
+	defaultOption.text="Select A Team";
+	cSelect.add(defaultOption);
+	
+	
 	var newOption;
 	// create new options
 	for (var i=0; i<cList.length; i++) {
@@ -156,21 +283,113 @@ function leagueChange(selectObj) {
 		// add the new option
 		try {
 			cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE
+			
 		}
 		catch (e) {
-			cSelect.appendChild(newOption);
-
-		}
+      if(e instanceof TypeError) {
+          // statements to handle TypeError exceptions
+      }
+      else if(e instanceof RangeError) {
+          // statements to handle RangeError exceptions
+      }
+      else if(e instanceof EvalError) {
+          // statements to handle EvalError exceptions
+      }
+      else {
+          // statements to handle any unspecified exceptions
+          
+      }
+    }
 	}
 	
 }
 
 function teamChange(selectObj) {
+	
+	// get the index of the selected option
 	var idx = selectObj.selectedIndex;
-	which = selectObj.options[idx].value;
+	// get the value of the selected option
+	var which = selectObj.options[idx].value;
+	// use the selected option value to retrieve the list of items from the playerLists array
+	cList = playerLists[which];	
+	// get the player select element via its known id
+	var cSelect = document.getElementById("playerSelect");
+	// remove the current options from the player select
+	var len=cSelect.options.length;
+	while (cSelect.options.length > 0) {
+		cSelect.remove(0);
+	}
+	
+	//add the default option to deal with issue of 1st item not selectable
+	var defaultOption;
+	defaultOption = document.createElement("option");
+	defaultOption.value = "Select A Player";  // assumes option string and value are the same
+	defaultOption.text="Select A Player";
+	cSelect.add(defaultOption);
+	
+	var newOption;
+	// create new options
+	for (var i=0; i<cList.length; i++) {
+		newOption = document.createElement("option");
+		newOption.value = cList[i].name;  // assumes option string and value are the same
+		newOption.text=cList[i].name;
+		var imgTeam = document.getElementById("imgTeam");
+		imgTeam.src = cList[i].teamLogo;	
+		
+	// add the new option
+		try {
+			cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE
+			
+		}
+		catch (e) {
+      if(e instanceof TypeError) {
+          // statements to handle TypeError exceptions
+      }
+      else if(e instanceof RangeError) {
+          // statements to handle RangeError exceptions
+      }
+      else if(e instanceof EvalError) {
+          // statements to handle EvalError exceptions
+      }
+      else {
+          // statements to handle any unspecified exceptions
+          
+      }
+    }
+	}
+	//assign the value to localstorage
 	showWidget(which);
 	
+	//assign the selected team value to the global variable for use in playerChange()
+	selectedTeamArray = which;
+	
+	
 }
+
+function playerChange(selectObj) {
+	
+	doSndEffect();
+	
+	// get the index of the selected option
+	var idx = selectObj.selectedIndex;
+	alert(idx);
+	//show the player's pic	and profile
+	var imgPic = document.getElementById("imgPic");
+	
+	imgPic.src = playerLists[selectedTeamArray][idx].pic;	
+    document.getElementById("pProfile").innerHTML = playerLists[selectedTeamArray][idx].name + "-" + playerLists[selectedTeamArray][idx].profile
+	
+	//assign the selected player to localstorage
+	alert(selectObj.options[idx].value);
+	localStorage.setItem("A4CPlayerName", selectObj.options[idx].value);
+	
+}
+
+function doSndEffect(){
+	var snd = new Audio("http://soundbible.com/grab.php?id=2017&type=wav"); 
+	snd.play();
+}
+
 function showWidget(x){
 	
 	//extract the team id
@@ -248,7 +467,7 @@ function validateProfile(){
 	
 	<h2>GET ON THE HARDCOURT!</h2>
 	
-			<fieldset>
+			<fieldset class="border">
 			<legend>Step 1.&nbsp;&nbsp;Select your sport and team.</legend><br />
 			<label for="leagueSelect">Select your league</label><br>
 			<select id="leagueSelect" onchange="leagueChange(this);">				
@@ -256,58 +475,65 @@ function validateProfile(){
 			<option value="NBA" >National Basketball Association</option>	
 			</select>
 			<br />
-			<br>
-			  
+			<br>			  
 			<label for="teamSelect">Select a team</label><br>
 			<select id="teamSelect" onchange="teamChange(this);">
 			<option value="0">Select a team</option>
 			</select>
+			<br />
+			<br>			  
+			<img id="imgTeam" align="left" src="img/Football/BlankSM.png" height="50" width="50"/>&nbsp;
+			<label for="playerSelect">Roster </label><br>
+			<select id="playerSelect" onchange="playerChange(this);">
+			<option value="0">Select a player</option>
+			</select>
+			<br>
+			<img id="imgPic" align="center" src="img/Football/BlankSM.png"/>
+			<p id="pProfile" style="color:#FFFF00;text-shadow: 1px 1px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>
 			</fieldset>
 			<br />
 			<br />
-			<fieldset>
-			<legend>Step 2.&nbsp;&nbsp;Personalize the story.</legend><br /> 
+			<fieldset class="border">
+			<legend><b>Step 2.&nbsp;&nbsp;Personalize the story.</b></legend><br /> 
 			<input type="text" id="myName" name="myName" placeholder="What is your name?"/>
 			<br />
 			<br />
 			<input type="text" id="myCity" name="myCity" placeholder="What is your city?"/>
 			<br />
 			<br />
-			<label for="myAge">Enter a jersey number.</label><br>
+			<label for="myAge">Favourite jersey number.</label><br>
 			<input id="myAge" name="age" type="number" value="0" />
 			</fieldset>
 			<br/>
-			<br/><!--
-			<fieldset>
-					<legend>Step 3.&nbsp;&nbsp;Use these settings for your stories??</legend><br />  
-						<ol>
-							<li>				
-								<input type = "radio" name = "myRemember" id = "yes" value = "yes" checked = "checked" />
-								<label for = "yes">yes</label>
-							</li>
-							<li>
-								<input type = "radio" name = "myRemember" id = "no" value = "no" />
-								<label for = "no">no</label>
-							</li>
-						</ol>
-			</fieldset>
-				<br/><br/><br/>
-			-->
-			<input type="button" id="addToStorage" value="Step 3.  Press here to save these settings!"/>
+			<br/>
+			<fieldset class="border">
+			<legend><b>Step 3.&nbsp;&nbsp;Save settings.</b></legend><br /> 
+			<b><input type="button" id="addToStorage" value="save"/></b>
 			<br/><br/><br/>
-			
-			<li data-role="list-divider">Step 4.&nbsp;&nbsp;Review what you have entered.</li>
-            <li class="storeItem"/>
-			<li class="storeItem2"/>
-			<li class="storeItem3"/>
-			<li class="storeItem4"/>
-			<li class="storeItem5"/>
-			<!--<li class="storeItem6"/>-->
-		</ul>
-		
-		
+			</fieldset>
+			<br/>
+			<br/>
+			<fieldset class="border">
+			<legend><b>Step 4.&nbsp;&nbsp;Your story settings.</b></legend><br /> 
+			<li data-role="list-divider"><b>Values</b></li>
+      <li class="storeItem" style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem2"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem3"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem4"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem5"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem6"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			</fieldset>
+      <br/>
+			<br/>
+			<fieldset class="border">
+			<legend><b>Step 5.&nbsp;&nbsp;Click to read a story.</b></legend><br /> 
+			<a href="#" onclick="validateProfile()" rel="external" data-transition="pop" data-role="button" data-prefetch><b>READ NOW!</b></a>
+      </fieldset>
 	</section>
-	<a href="#" onclick="validateProfile()" rel="external" data-transition="pop" data-role="button" data-prefetch>Step 5.&nbsp;&nbsp;Click to read story!</a>
+	
+		
+		
+		
 		<p>Note:  We do not collect or recieve any of your entered information and it is used only for the purposes of each story.</p>
 	<div id="footer"><center>
 		<img src="img/bannerSM2.jpg" /><br/>
