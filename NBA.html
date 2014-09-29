@@ -178,6 +178,7 @@
 		playerLists["blazers - Portland Trail Blazers"]= new Array();	
 		playerLists["jazz - Utah Jazz"]= new Array();
 		
+		playerLists["celtics - Boston Celtics"].push({ name: "Rajon Rondo", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})
 		playerLists["celtics - Boston Celtics"].push({ name: "Rajon Rondo", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player1.png"})	
 		playerLists["celtics - Boston Celtics"].push({ name: "Player 2", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player2.png"})	
 		playerLists["celtics - Boston Celtics"].push({ name: "Player 3", profile: "AGE: 00 HT:	0ft 0inch	WT: 000lbs", teamLogo: "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif", pic: "http://bsccart.appspot.com/Sports/img/Basketball/Pic/Player3.png"})	
@@ -380,8 +381,8 @@ function teamChange(selectObj) {
 	cSelect.add(defaultOption);
 	
 	var newOption;
-	// create new options
-	for (var i=0; i<cList.length; i++) {
+	// create new options, set to 1 since we need to add a dummy record to the arry to deal with select issue on 1st entry
+	for (var i=1; i<cList.length; i++) {
 		newOption = document.createElement("option");
 		newOption.value = cList[i].name;  // assumes option string and value are the same
 		newOption.text=cList[i].name;
@@ -424,7 +425,6 @@ function playerChange(selectObj) {
 	
 	// get the index of the selected option
 	var idx = selectObj.selectedIndex;
-	alert(idx);
 	//show the player's pic	and profile
 	var imgPic = document.getElementById("imgPic");
 	
@@ -432,7 +432,6 @@ function playerChange(selectObj) {
     document.getElementById("pProfile").innerHTML = playerLists[selectedTeamArray][idx].name + "-" + playerLists[selectedTeamArray][idx].profile
 	
 	//assign the selected player to localstorage
-	alert(selectObj.options[idx].value);
 	localStorage.setItem("A4CPlayerName", selectObj.options[idx].value);
 	
 }
@@ -520,7 +519,7 @@ function validateProfile(){
 	<h2>GET ON THE HARDCOURT!</h2>
 	
 			<fieldset class="border">
-			<legend>Step 1.&nbsp;&nbsp;Select your sport and team.</legend><br />
+			<legend>Step 1.&nbsp;&nbsp;Select your team and player.</legend><br />
 			<label for="leagueSelect">Select your league</label><br>
 			<select id="leagueSelect" onchange="leagueChange(this);">				
 			<option value="empty"selected>Select a league</option>
