@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>KID STORIES FOR SPORT DADS</title>
+		<title>DAD, PUT ME IN THE GAME</title>
 	
 			<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -174,6 +174,19 @@ var story6_9 = "They flew even further reaching the stars, but there were no smi
 var story6_13 = "But " +_myName + " went on without Dudley and flew through the wide valley.  The rain sounded like laughter as it fell to the ground and into the streams. <br><br>" +_myName + " heard the laughter again and again, so off he flew into the cloud to find out who was laughing.";
 var story6_15 = "As soon as " +_myName + " passed through the clouds " +_myName + " could see a million smiles laughing and having fun.  The smiles were gathering from all across the land and it was a grand celebration of happiness.";
 var story6_17 = "All of the smiles had agreed to visit the princess with " +_myName + ".  <br><br>Upon seeing the kingdom filled with smiles once again she declared that from this period onward everyone in the kingdom must remember to smile when playing and that sports is all about having fun.";
+
+var story9_0 = _myName + "'s eyes were starting to feel heavy after hours of playing basketball in the backyard.  " +_myName + "'s team was the super " + strTeamName + " led by " +_myName + " and of course " + _myPlayer + " making a few baskets.<BR><BR>  Now it was time for bed and maybe just one more story.";
+var story9_2 = _myName + " was now the youngest star reporter for the " + _myCity + " paper and was sitting in the front row in Washington, D.C. as reporters asked the President about the big questions of the day.  " + "\"" + "Mr. President, Mr. President" + "\"" + ", every said at the same time tyring to get the President's attention.<BR><BR>  But " +_myName + " stood on a chair and said " + "\"" + "Mr. President you need to work on your free throws!" + "\"" + "  <BR><BR>The President surprisingly looked at " +_myName + ".";
+var story9_4 = "\"" + "Are you the star reporter from " + _myCity + " that loves to play basketball?" + "\"" + ", the President asked.  " + "\"" + "How about a fun game in " + _myCity + " where it is you and I versus the " + strTeamName + " star player " + _myPlayer + "?" + "\"" + ", asked the President.";
+var story9_7 = "The President was getting in some last minute free throw shooting practice before getting on Air Force One and travelling to " + _myCity + " to play basketball with " +_myName + ".";
+var story9_12 = "The game started with the President winning the tip against " + _myPlayer + ".  <BR><BR>He had been practicing his left hand dribbling at the White House and " +_myName + " had decided before the game to focus on a pick and roll offense.";
+var story9_14 = _myName + " set a pick against " + _myPlayer + " and the President bolted to the hoop for an easy layup.  <BR><BR>" + _myPlayer + " was a top defensive player so " +_myName + " knew that the " + strTeamName + " would make a defensive adjustment.";
+var story9_16 = "For the rest of the game the President made layups, three point shots, gave " +_myName + " amazing behind the back passes leading to easy buckets and grabbed almost as many rebounds as " + _myPlayer + ".";
+var story9_18 = "The " + strTeamName + " tried to make a comeback and when their three point shot was not working attempted to post up the President down in the low blocks. <BR><BR> The President held his ground and made several steals against the " + strTeamName + " rookies.";
+var story9_20 = "The President even made a game saving block near the final seconds of the game.  <BR><BR>The game was tied 20-20 and there was only 3 seconds left on the game clock for our final possession.";
+var story9_22 = "The President knew that if " +_myName + " could go backdoor on " + _myPlayer + " then " +_myName + " would have an easy shot to win the game.  <BR><BR>Without a second thought " +_myName + " faked left and then made a tight cut right toward the goal.  <BR><BR>The President was amazed at the quickness of " +_myName + " and sent a crisp bounce pass that landed right in the hands of " +_myName + ".  <BR><BR>With only 1 second left on the clock " +_myName + " made the game winning jump shot!";
+var story9_24 = _myName + " woke up the next day to the sound of the telephone ringing.  <BR><BR>It was the President.  <BR><BR>" + "\"" + "Hi, " +_myName + " I would like to thank you for the fun game against the " + strTeamName + ".  If you would ever like to play again then I have my basketball ready when you are." + "\"" + "<BR><BR>" + "\"" + "Sure thing Mr. President it was my dream game!" + "\"" + " said " +_myName + ".";
+
 
 //END STORY TEXT
 
@@ -574,6 +587,81 @@ switch(iStory) {
 						}
 						else{						
 							$('#storyText').html("Kid Stories For Sports Dads: Story 6");
+							
+						}						
+						break;
+						
+				case 9:					
+									
+						if (_myStoryPos == "0"){						
+							//$('#storyText').html(story6A + "<img src=img/Words/Princess.jpg>" + story6A1 + "<img src=img/Words/Castle.jpg>" + story6A2 + story6A3 + "<img src=img/Words/Princess.jpg>" + story6A4);					
+							$('#storyText').html(story9_0);					
+							
+						}
+						else if (_myStoryPos == "2"){				
+							//$('#storyText').html(story6B + "<img src=img/Words/Dragons.jpg>" + story6B1 + "<img src=img/Words/Dragons.jpg>" + story6B2 + "<img src=img/Words/Mountain.jpg>" + story6B3 + "<img src=img/Words/Stars.jpg>" + story6B4);	 
+							$('#storyText').html(story9_2);
+						}
+						else if (_myStoryPos == "4"){			
+							
+							//$('#storyText').html(story6C);
+							$('#storyText').html(story9_4);
+							
+						}
+						//compensate for navigation issue on feeds page
+						else if (_myStoryPos == "7"){				
+						//$('#storyText').html(story6D + "<img src=img/Words/Dragons.jpg>" + story6D1 + "<img src=img/Words/Princess.jpg>" + story6D2);
+							//localStorage.setItem("A4CSportsStoryPos", 10);
+							$('#storyText').html(story9_7);
+							
+						}
+						//hack
+						else if (_myStoryPos == "11"){				
+							//$('#storyText').html(story6D + "<img src=img/Words/Dragons.jpg>" + story6D1 + "<img src=img/Words/Princess.jpg>" + story6D2);
+							$('#storyText').html(story9_12);	
+							localStorage.setItem("A4CSportsStoryPos", 12);
+						}
+						else if (_myStoryPos == "12"){				
+							//$('#storyText').html(story6E + story6E1 + story6E2 + story6E3); 
+							$('#storyText').html(story9_12);
+						}
+						else if (_myStoryPos == "14"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+						$('#storyText').html(story9_14);
+							
+						}
+						else if (_myStoryPos == "16"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story9_16);
+							
+						}
+						else if (_myStoryPos == "18"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story9_18);
+							
+						}
+						else if (_myStoryPos == "20"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story9_20);
+							
+						}
+						else if (_myStoryPos == "22"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story9_22);
+							
+						}
+						else if (_myStoryPos == "24"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story9_24);
+							
+						}
+						else{						
+							$('#storyText').html("Kid Stories For Sports Dads: Story 9");
 							
 						}						
 						break;

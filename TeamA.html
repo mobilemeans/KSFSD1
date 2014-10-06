@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>KID STORIES FOR SPORT DADS</title>
+<title>DAD, PUT ME IN THE GAME</title>
 <script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
@@ -13,6 +13,16 @@
 <link rel="stylesheet" href="style.css" />
 
 
+<!-- BEGIN FEED -->
+	<script src="http://www.google.com/jsapi/?key=internal-sample" type="text/javascript"></script>
+
+    <!-- Dynamic Feed Control and Stylesheet -->
+    <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
+    <style type="text/css">
+      @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+    </style>
+
+ 
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -32,6 +42,7 @@ var _teamId = localStorage.getItem(teamId);
 var _storyId = localStorage.getItem(storyId);
 var _myLeague = localStorage.getItem(leagueName);
 var _sport = "";
+
 
 //show only the div for the selected league    
 	if (_myLeague.indexOf("nfl") > 0){
@@ -67,6 +78,7 @@ var _sport = "";
 	 $('#divNBA').css('background','#ECF9F9');
 	 $('#divNHL').css('background','#ECF9F9');
 	 $('#divMLB').css('background','#ECF9F9');
+	 
 	 
 	
 	
@@ -104,6 +116,10 @@ text2 = "";
 	}
 	else if (_storyId == "6"){	
 		text = "The kingdom was normally filled with fun and games that gathered people from all across the land.  The princess read each one of the latest " + _sport + " headlines and she coud not find any stories about the kingdom.  <br><br><i>Do you see any stories about the Magestic Kingdom?<i>";
+		text2 = "";	
+	}
+	else if (_storyId == "9"){	
+		text = "The President was looking at the latest " + _sport + " news and read each headline to see if the game with " + _myName + " was being discussed.";
 		text2 = "";	
 	}
 	else{
@@ -170,9 +186,10 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	</div><!-- /header -->
 	
     <section data-role="content">
+		
 		<img id="weatherImage" /> 
 		<p id="message" class="serif"/>
-        <div id="divNBA">
+       <div id="divNBA">
 		<h1>LATEST BASKETBALL HEADLINES</h1>
 		<script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Fwww.nba.com%2Frss%2Fnba_rss.xml&chan=y&desc=1&date=y" type="text/javascript"></script>
 		</div>
@@ -183,15 +200,14 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		<div id="divMLB">
 		<h1>LATEST BASEBALL HEADLINES</h1>
 		<script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Fsports.espn.go.com%2Fespn%2Frss%2Fmlb%2Fnews&chan=y&desc=1&date=y" type="text/javascript"></script>
-		</div>
-		
+		</div>		
 		<div id="divNHL">
 		<h1>LATEST HOCKEY HEADLINES</h1>
 		<script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Fsports.espn.go.com%2Fespn%2Frss%2Fnhl%2Fnews&chan=y&desc=1&date=y" type="text/javascript"></script>
 		</div>
 		
 		<!--<ul data-role="listview" data-inset="true">
-            <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
+            <li data-role="list-divider">DAD, PUT ME IN THE GAME, by Troy MacFarlane</li>					 
 		</ul> -->	
 		
 		

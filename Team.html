@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>KID STORIES FOR SPORT DADS</title>
+<title>DAD, PUT ME IN THE GAME</title>
 <script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
@@ -94,6 +94,11 @@ function displayWeather2(data){
 		text = "Dudley had an idea.  Since it was a " + weather + " day in " +_myCity+ " that meant that they could fly further than any other day.  <BR><BR>Dudley told " + _myName + " that they should fly to the five closest teams and find some smiles.  Then the princess would really want to play " +strLeague+ " with the dragons.";
 	    text2 = "";	
 	}
+	else if (_storyId == "9"){	
+		text = _myName + " had accepted the challenge and was practicing dribbling during the " + weather + " day in " +_myCity+ ".";
+	    text2 = "";	
+	}
+	
 	else{
 		text = "It was another " + weather + " day in " +_myCity+ ".  " + _myName + " was thinking about playing " +strLeague+ " with some friends.";
 	    text2 = "";	
@@ -177,7 +182,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
          
           
 		<!--<ul data-role="listview" data-inset="true">
-            <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
+            <li data-role="list-divider">DAD, PUT ME IN THE GAME, by Troy MacFarlane</li>					 
 		</ul> -->
 		  <img id="weatherImage" /> 
 		   <p id="message" class="serif"/>  

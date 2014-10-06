@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>KID STORIES FOR SPORT DADS</title>
+	<title>DAD, PUT ME IN THE GAME</title>
 	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
@@ -48,7 +48,7 @@
     <section data-role="content">      
           
 		<!--<ul data-role="listview" data-inset="true">
-            <li data-role="list-divider">KID STORIES FOR SPORT DADS, by Troy MacFarlane</li>					 
+            <li data-role="list-divider">DAD, PUT ME IN THE GAME, by Troy MacFarlane</li>					 
 		</ul> -->	 <img id="teamIcon" src="http://bsccart.appspot.com/Sports/img/Football/Cardinals.png" width="50" height="50"/>
 		<div id="teamNews">
 		 
@@ -70,12 +70,14 @@
 	var myCity = "A4CSportsCity";
 	var myTeam = "A4CTeamName";
 	var storyId = "A4CSportsStory";
+	var myPlayer = "A4CPlayerName";
 	
 	var _myName = localStorage.getItem(myName);
 	var _myNum = localStorage.getItem(myNum);
 	var _myCity = localStorage.getItem(myCity);
 	var _myTeam = localStorage.getItem(myTeam);
 	var _storyId = localStorage.getItem(storyId);
+	var _myPlayer = localStorage.getItem(myPlayer);
 	var storyText1 = "";
 	var storyText2 = "";
 
@@ -146,10 +148,17 @@
 			$('#pTeamName2').text(storyText2);
 			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');		
 		}
-		else {
-			storyText1 = "Everyone knew that " +_myName + " had a favourite " + strLeagueFormat + " team and that it was the " + strTeamName + ".  " +_myName+ " wanted to read the latest " + strTeamName + " team news.";
+		else if (_storyId == "9"){
+			storyText1 = "The " + strTeamName + " were sending "+_myPlayer+" and all of their rookies to play against the President and "+ _myName + ".";
 			$('#pTeamName1').text(storyText1);
-			storyText2 = "Perhaps "+ _myName + " would find a helpful clue while reading the " + strTeamName + " stories from today.";
+			storyText2 = "The President read each of the " + strTeamName + " headlines to help find some offensive strategy clues for "+ _myName + ".";
+			$('#pTeamName2').text(storyText2);
+			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');		
+		}
+		else {
+			storyText1 = "The " + strTeamName + " were the favourite team of "+ _myName + "."
+			$('#pTeamName1').text(storyText1);
+			storyText2 = "";
 			$('#pTeamName2').text(storyText2);
 			//$('#pTeamName3').text('Would you like to read about one of my favourite ' + strLeagueFormat + ' stories?');		
 		};
