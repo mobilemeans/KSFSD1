@@ -81,7 +81,20 @@ var strTeamName = _myTeam.substr(n+1, len-n);
 
 //BEGIN STORY TEXT
 
-//story1 - Lauren And The Magic Shoe
+//story1 - The Comeback
+var story1_0 = "The Rastila Reds were the number one team and they had arrived to play against the " + _myCity + " Blues.  The " + _myCity + " Blues had never won a game against the Reds and today's game would decide which team would win the league championship.";
+var story1_2 = "The Reds had the best defence and were led by number five who made the game winning touchdown during last year's game against the Reds.";
+var story1_4 = _myName + "knew that this year would be different.   " + _myName + " was the youngest star quarterback for the " + _myCity + " Blues and " + _myName + " still remembered watching the game ending touch down pass that was fumbled leading to the Blues losing the game.";
+var story1_7 = "The Rastila Reds played a tough defence and " + _myName + " had thrown two interceptions so far in the game.  " + _myName + " was getting very frustrated.";
+var story1_12 = "That's it!  " + _myName + " called a huddle and gave the team the play that would surely work against the Rastila Reds. ";
+var story1_14 = "The " + _myCity + " Blues had the ball on the Rastila Reds thirty yard line.  The game clock was quickly ticking away leaving only enough time for one last play.";
+var story1_16 = _myName +" took the snap and looked into the end zone but there was no one open!";
+var story1_18 = "The Reds defence had broken through and they were going for a quarterback sack to end the game.";
+var story1_20 = _myName +" faked left and then right to lose the defender.  " + _myName + " tightly tucked the ball and began to run.  " + _myName + " ran past one defender, leaped to avoid a hard tackle and set their eyes on the goal line.";
+var story1_22 = "With every last bit of energy " + _myName + " ran toward the end zone and with defenders coming from the left and the right dove quickly to the first yard line.  " + _myName + " reached out as far as they could and had stretched the ball into the end zone for a touch down!  ";
+var story1_24 = "The " + _myCity + " Blues crowd erupted in celebration.  The " + _myCity + " Blues had won the game!";
+
+
 var story1A = "Would you like to hear an incredible story about how toast crumbs and a magic ";
 //img shoe
 var story1A1 = "shoe helped the Rastila Reds to win the championship ";
@@ -236,47 +249,74 @@ $(document).ready(function(){
 switch(iStory) {
 					case 1:
 						if (_myStoryPos == "0"){						
-							$('#storyText').html(story1A + "<img src=img/Words/Shoe.jpg>" + story1A1 + "<img src=img/Words/Trophy.jpg>" + story1A2);	
-							
-							
-						}
-						else if (_myStoryPos == "3"){				
-							$('#storyText').html(story1B + "<img src=img/Words/Football.jpg>" + story1B1);	 
+							//$('#storyText').html(story6A + "<img src=img/Words/Princess.jpg>" + story6A1 + "<img src=img/Words/Castle.jpg>" + story6A2 + story6A3 + "<img src=img/Words/Princess.jpg>" + story6A4);					
+							$('#storyText').html(story1_0);					
 							
 						}
-						else if (_myStoryPos == "6"){			
+						else if (_myStoryPos == "2"){				
+							//$('#storyText').html(story6B + "<img src=img/Words/Dragons.jpg>" + story6B1 + "<img src=img/Words/Dragons.jpg>" + story6B2 + "<img src=img/Words/Mountain.jpg>" + story6B3 + "<img src=img/Words/Stars.jpg>" + story6B4);	 
+							$('#storyText').html(story1_2);
+						}
+						else if (_myStoryPos == "4"){			
 							
-							$('#storyText').html(story1C);
+							//$('#storyText').html(story6C);
+							$('#storyText').html(story1_4);
 							
 						}
 						//compensate for navigation issue on feeds page
-						else if (_myStoryPos == "9"){				
-							$('#storyText').html(story1D); 
-							localStorage.setItem("A4CSportsStoryPos", 10);
+						else if (_myStoryPos == "7"){				
+						//$('#storyText').html(story6D + "<img src=img/Words/Dragons.jpg>" + story6D1 + "<img src=img/Words/Princess.jpg>" + story6D2);
+							//localStorage.setItem("A4CSportsStoryPos", 10);
+							$('#storyText').html(story1_7);
 							
 						}
 						//hack
-						else if (_myStoryPos == "10"){				
-							$('#storyText').html(story1D);
-														
+						else if (_myStoryPos == "11"){				
+							//$('#storyText').html(story6D + "<img src=img/Words/Dragons.jpg>" + story6D1 + "<img src=img/Words/Princess.jpg>" + story6D2);
+							$('#storyText').html(story1_12);	
+							localStorage.setItem("A4CSportsStoryPos", 12);
 						}
-						else if (_myStoryPos == "13"){				
-							$('#storyText').html(story1E); 
-							
-							
+						else if (_myStoryPos == "12"){				
+							//$('#storyText').html(story6E + story6E1 + story6E2 + story6E3); 
+							$('#storyText').html(story1_12);
 						}
 						else if (_myStoryPos == "14"){				
-							$('#storyText').html(story1F); 
-							
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+						$('#storyText').html(story1_14);
 							
 						}
-						else if (_myStoryPos == "15"){				
-							$('#storyText').html(story1G); 
-							this.vibrate();
+						else if (_myStoryPos == "16"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story1_16);
+							
+						}
+						else if (_myStoryPos == "18"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story1_18);
+							
+						}
+						else if (_myStoryPos == "20"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story1_20);
+							
+						}
+						else if (_myStoryPos == "22"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story1_22);
+							
+						}
+						else if (_myStoryPos == "24"){				
+							//$('#storyText').html(story6F + "<img src=img/Words/Dragons.jpg>" + story6F1 + "<img src=img/Words/Princess.jpg>" + story6F2 + "<img src=img/Words/Princess.jpg>" +story6F3 + "<img src=img/Words/Dragons.jpg>" + story6F4); 
+							//vibrate();
+							$('#storyText').html(story1_24);
 							
 						}
 						else{						
-							$('#storyText').text("Kid Stories For Sports Dads: Story 1");
+							$('#storyText').html("Kid Stories For Sports Dads: Story 1");
 							
 						}						
 						break;
