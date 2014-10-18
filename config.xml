@@ -33,7 +33,7 @@ DAD, PUT ME IN THE GAME (NBA Edition) provides you with real time updates for ma
     <preference name="permissions" value="none"/>
     <preference name="android-minSdkVersion"    value="14" />
     <preference name="android-targetSdkVersion" value="19" /> 
-    <preference name="phonegap-version" value="3.5.0" />
+    <preference name="phonegap-version" value="3.6.3" />
 
 <gap:plugin name="org.apache.cordova.device-motion"  />	
 <gap:plugin name="org.apache.cordova.device-orientation"   />	
