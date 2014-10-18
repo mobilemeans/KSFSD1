@@ -1,0 +1,639 @@
+/* ================================= *\
+    Project: Example
+    Version: 0.1
+    Date: xx.xx.xxxx
+
+    Author: Sadi Qevani
+    Website: www.sadiqevani.com
+\* ================================= */
+
+@font-face {
+    font-family: 'Conv_kenvector_future_thin';
+    src: url('fonts/kenvector_future_thin.eot');
+    src: local('☺'),
+    url('fonts/kenvector_future_thin.woff') format('woff'),
+    url('fonts/kenvector_future_thin.ttf') format('truetype'),
+    url('fonts/kenvector_future_thin.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ==================== *\
+   - Normalize
+\* ==================== */
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+[hidden],
+template {
+    display: none;
+}
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+}
+
+a {
+    background: transparent;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+h1 {
+    margin: 0.67em 0;
+    font-size: 2em;
+}
+
+h2 {
+    margin: 0.83em 0;
+    font-size: 1.5em;
+}
+
+h3 {
+    margin: 1em 0;
+    font-size: 1.17em;
+}
+
+h4 {
+    margin: 1.33em 0;
+    font-size: 1em;
+}
+
+h5 {
+    margin: 1.67em 0;
+    font-size: 0.83em;
+}
+
+h6 {
+    margin: 2.33em 0;
+    font-size: 0.67em;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+dfn {
+    font-style: italic;
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+mark {
+    background: #ffff00;
+    color: #000000;
+}
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+img {
+    border: 0;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+figure {
+    margin: 0;
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    vertical-align: baseline;
+    *vertical-align: middle;
+    font-size: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+
+button,
+input {
+    line-height: normal;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ==================== *\
+   - Base Styles
+\* ==================== */
+
+html, body, main {
+    height: 100%;
+}
+
+body {
+    font-family: "Conv_kenvector_future_thin", sans-serif;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    margin: 1em 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ==================== *\
+   - Basic Layout Style
+\* ==================== */
+
+.context {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    background: url("../img/background.png");
+    -webkit-animation: animatedBackground 5s linear infinite;
+    animation: animatedBackground 5s linear infinite;
+    cursor: url("../img/UI/cursor.png"), auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.context:before, .context:after {
+    display: table;
+    content: " ";
+}
+
+.context:after {
+    clear: both;
+}
+
+.context {
+    overflow: hidden;
+    *zoom: 1;
+}
+
+/* ==================== *\
+   - Start Menu
+\* ==================== */
+
+.score {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    font-size: 28px;
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+.youlost {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 500px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 28px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    background: #997055;
+    border: 5px solid #836049;
+    z-index: 10;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 400px;
+    height: 300px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    background: #997055;
+    border: 5px solid #836049;
+    z-index: 10;
+}
+
+.shipMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 400px;
+    height: 300px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    background: #997055;
+    border: 5px solid #836049;
+    z-index: 20;
+    display: none;
+    visibility: hidden;
+}
+
+.shipMenu img {
+    width: 60px;
+    height: 50px;
+    margin: 20px 20px 50px 20px;
+    padding: 5px;
+}
+
+.shipMenu img:hover {
+    border: 1px solid #737373;
+}
+
+.scoreMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 400px;
+    height: 300px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    background: #997055;
+    border: 5px solid #836049;
+    z-index: 30;
+    display: none;
+    visibility: hidden;
+}
+
+.scoreMenu > span {
+    display: block;
+    margin: 50px 0;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+.play,
+.scores,
+.ship,
+.backScore,
+.backShip {
+    display: block;
+    width: 222px;
+    height: 39px;
+    margin: 0 auto;
+    border: none;
+    margin-bottom: 25px;
+}
+
+.play {
+    background: url("../img/UI/buttonBlue.png") no-repeat center center;
+}
+
+.scores {
+    background: url("../img/UI/buttonGreen.png") no-repeat center center;
+}
+
+.ship {
+    background: url("../img/UI/buttonRed.png") no-repeat center center;
+}
+
+.backScore,
+.backShip {
+    background: url("../img/UI/buttonYellow.png") no-repeat center center;
+}
+
+/* ==================== *\
+   - Spaceship
+\* ==================== */
+
+.spaceship {
+    position: absolute;
+    display: inline-block;
+    width: 60px;
+    height: 45px;
+    left: -75px;
+    bottom: 20px;
+    margin: 0 auto;
+}
+
+.destroyed {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    margin: 0 auto;
+    display: inline-block;
+    width: 99px;
+    height: 76px;
+    -webkit-animation: explode 1s linear;
+    animation: explode 1s linear;
+}
+
+/* ==================== *\
+   - Meteor
+\* ==================== */
+
+.meteor {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: -120px;
+    margin: 0 auto;
+    -webkit-animation: rotateMeteor 10s infinite both;
+    animation: rotateMeteor 10s infinite both;
+}
+
+/* ==================== *\
+   - Animations
+\* ==================== */
+
+@-webkit-keyframes rotateMeteor {
+    from {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateMeteor {
+    from {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 100%;
+    }
+}
+
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 100%;
+    }
+}
+
+@-webkit-keyframes explode {
+    0% {
+        background: url("../img/Damage/playerShip1_damage3.png");
+    }
+
+    50% {
+        background: url("../img/Damage/playerShip1_damage2.png");
+    }
+
+    100% {
+        background: url("../img/Damage/playerShip1_damage1.png");
+    }
+}
+
+@keyframes explode {
+    0% {
+        background: url("../img/Damage/playerShip1_damage3.png");
+    }
+
+    50% {
+        background: url("../img/Damage/playerShip1_damage2.png");
+    }
+
+    100% {
+        background: url("../img/Damage/playerShip1_damage1.png");
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu {
+        height: 100%;
+        width: 100%;
+    }
+}

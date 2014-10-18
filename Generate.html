@@ -1,0 +1,226 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>DAD, PUT ME IN THE GAME</title> 	
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
+	<link rel="stylesheet" href="style.css" />	
+	
+<style>
+/* story styling here*/
+div[id^="place"]
+{float:left; width:80px; height:100px; margin:3px; padding:3px; border:1px dotted #333333; background-color:#ffff99;}
+span
+{float:left; width:80px; margin:3px; padding:3px; border:1px solid #999999; color:#333333;}
+.pics, .nums
+{clear:both; text-align:left;}
+</style>
+
+<script type="text/javascript">
+
+//global variables to track the order
+var loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8, loc9, loc10;
+
+  //function called when drag starts
+  function dragIt(theEvent) {
+    //tell the browser what to drag
+    //theEvent.dataTransfer.setData("Text", theEvent.target.src); //use this approach to get the exact name of the img src
+    theEvent.dataTransfer.setData("Text", theEvent.target.id); //use this approach if want to have a generic name set of images (i.e. img1, img2, img3)
+  }
+
+	//function called when element drops
+	function dropIt(theEvent, location) {   
+  		//get a reference to the element being dragged
+  		var theData = theEvent.dataTransfer.getData("Text");
+  		//alert('moving item: ' + theData + ' to ' + location);//pic1
+  
+  		//get the element
+  		var theDraggedElement = document.getElementById(theData);
+  
+  		//add it to the drop element
+  		theEvent.target.appendChild(theDraggedElement);
+  
+  		//instruct the browser to allow the drop
+  		theEvent.preventDefault();
+
+		//assign the image location to variables to show the placement
+ 		if (location=="10"){
+      loc10 = theData;
+			localStorage.setItem("A4CCustom10", theData);
+      }
+ 		else if (location=="9"){
+ 		 loc9 = theData;
+			localStorage.setItem("A4CCustom9", theData);
+  		}
+ 		else if (location=="8"){
+ 		 loc8 = theData;
+			localStorage.setItem("A4CCustom8", theData);
+  		}
+ 		else if (location=="7"){
+ 		 loc7 = theData;
+			localStorage.setItem("A4CCustom7", theData);
+  		}
+ 		else if (location=="6"){
+ 		 loc6 = theData;
+			localStorage.setItem("A4CCustom6", theData);
+  		}
+ 		else if (location=="5"){
+ 		 loc5 = theData;
+			localStorage.setItem("A4CCustom5", theData);
+  		}
+ 		else if (location=="4"){
+ 		 loc4 = theData;
+			localStorage.setItem("A4CCustom4", theData);
+  		}
+ 		else if (location=="3"){
+ 		 loc3 = theData;
+			localStorage.setItem("A4CCustom3", theData);
+  		}
+ 		else if (location=="2"){
+ 		 loc2 = theData;
+			localStorage.setItem("A4CCustom2", theData);
+  		}
+ 		else {
+ 		 loc1 = theData;
+			localStorage.setItem("A4CCustom1", theData);
+  	}
+
+	}
+
+	function resetStory(){
+		//refresh the page and reset the images to their original positions
+		document.location.reload(true);
+	}//end resetStory
+
+
+	function createStory(){
+		//assemble the order of images and determine logic for text based on avatar health   
+		//alert("loc10:" + loc10 +"\n  loc9:" + loc9 +"\n  loc8:" + loc8 +"\n  loc7:" + loc7 +"\n  loc6:" + loc6 + "\n  loc5:" + loc5 +"\n  loc4:" + loc4 +"\n loc3:" + loc3 +"  \n loc2:" + loc2 +"\n  loc1:" + loc1);
+
+	//pseudocode
+	/*
+	validate that all fields have been assigned an image
+	find the level of health
+	determine the story location
+	apply the health tier to deterimine the story context
+	only a subgroup of images have 3 possible storylines
+	*/
+
+    //validate that fields have been populated by checking if locX is assigned a value
+    if (loc1 == null){
+      alert("You need to place an image in story board 1!");
+    }
+    if (loc2 == null){
+      alert("You need to place an image in story board 2!");
+    }
+    if (loc3 == null){
+      alert("You need to place an image in story board 3!");
+    }
+    if (loc4 == null){
+      alert("You need to place an image in story board 4!");
+    }
+    if (loc5 == null){
+      alert("You need to place an image in story board 5!");
+    }
+    if (loc6 == null){
+      alert("You need to place an image in story board 6!");
+    }
+    if (loc7 == null){
+      alert("You need to place an image in story board 7!");
+    }
+    if (loc8 == null){
+      alert("You need to place an image in story board 8!");
+    }
+    if (loc9 == null){
+      alert("You need to place an image in story board 9!");
+    }
+    if (loc10 == null){
+      alert("You need to place an image in story board 10!");
+    }	
+
+	}
+</script>
+
+</head> 
+<body> 
+<div data-role="page">
+	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+  google_ad_client = "ca-pub-6908679240944495";
+  /* MobileBanner320by50 */
+  google_ad_slot = "7580604750";
+  google_ad_width = 320;
+  google_ad_height = 50;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+		<div data-role="navbar" data-theme="c">
+			<ul>
+      		<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      		<li><a href="Library.html" rel="external" data-transition="slidedown" data-prefetch>Library</a></li>
+          <li><a href="Games.html" rel="external" data-transition="pop" data-prefetch>Games</a></li>
+          <li><a href="http://astore.amazon.com/ksfsdnfl-20" rel="external" data-transition="pop" data-prefetch>Store</a></li>								
+			</ul>
+		</div><!-- /navbar-->		
+	</div><!-- /header -->	
+	<div id="content" data-role="content">
+		<!--element with draggable pictures-->
+
+<div class="pics" id="divBasketball">Drag and drop your image to any of the open story boxes below.
+<div id="1">
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_0.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_0" />
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_1.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_1" />
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_2.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_2" />
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_3.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_3" />
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_4.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_4" />
+<br/>
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_5.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_5" />
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_6.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_6" />
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_7.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_7" />
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_8.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_8" />
+<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_9.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_9" />
+</div>
+
+<div id="place1" ondrop="dropIt(event, '1');" ondragover="event.preventDefault();">1</div>
+<div id="place2" ondrop="dropIt(event, '2');" ondragover="event.preventDefault();">2</div>
+<div id="place3" ondrop="dropIt(event, '3');" ondragover="event.preventDefault();">3</div>
+<div id="place4" ondrop="dropIt(event, '4');" ondragover="event.preventDefault();">4</div>
+<div id="place5" ondrop="dropIt(event, '5');" ondragover="event.preventDefault();">5</div>
+<div id="place6" ondrop="dropIt(event, '6');" ondragover="event.preventDefault();">6</div>
+<div id="place7" ondrop="dropIt(event, '7');" ondragover="event.preventDefault();">7</div>
+<div id="place8" ondrop="dropIt(event, '8');" ondragover="event.preventDefault();">8</div>
+<div id="place9" ondrop="dropIt(event, '9');" ondragover="event.preventDefault();">9</div>
+<div id="place10" ondrop="dropIt(event,'10');" ondragover="event.preventDefault();">10</div>
+</div>
+<div>
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="#" onclick="javascript:createStory()" >[CREATE]</a><br/>
+<a href="#" onclick="javascript:resetStory()" >[RESET]</a><br/><br/>
+<a href="Generateread.html" rel="external" data-transition="slideup" data-prefetch>[READ STORY]</a>
+</div>		
+		
+
+		
+		<div id="footer"><center>
+		<img src="img/bannerSM.jpg" /><br/>
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home </a> |<a href="mailto:apps4canadians@live.com"> Contact |</a>  </center>
+				
+		</div><!-- /footer -->
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+
+
+</html>
+

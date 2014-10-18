@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>DAD, PUT ME IN THE GAME</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
+<link rel="stylesheet" href="style.css" />	
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+<style>
+	img.c  { position:absolute; }
+	div.bg { position: absolute; left: 0px; width: 16000px; background-repeat: repeat-x; }
+</style>
+<script>
+var bird = null, board = null;
+var dimPipe = { width:40, height:420 }, cPos = { x: 80, y:100, h:40, w:50 };
+var gravity = 0.5, iniSpeed = -7, curSpeed = 0;
+var score = 0, noClr = 0, tmStep = 0, state = 0; 		// 0-not started,1-play,2-over;
+
+(function($) {
+	$.cssNumber.rotate = true;
+	$.cssHooks.rotate = {
+		set : function(el, v) {
+			if (typeof v === 'string') 
+				v = (v.indexOf("rad") != -1) ? parseInt(v) * 180 / Math.PI : parseInt(v);
+			v = (~~v);
+			if (v == ($.data(el, 'rotate') || 0)) return;
+			el.style["MozTransform"] = el.style["MozTransform"] = el.style["-webkit-transform"]
+				= el.style["transform"] = " rotate(" + (v % 360) + "deg)"; 
+			$.data(el, 'rotate', v);
+		},
+		get : function(el, computed) {
+			return $.data(el, 'rotate') || 0;
+		}
+	};
+})(jQuery);
+
+function gameOver() {
+	state = 2;
+	$(":animated").stop();
+	if (tmStep) tmStep = window.clearInterval(tmStep);
+	bird.animate({ top:board.height()-cPos.h, rotate:540}, 1000)
+		.animate({ top:board.height()-cPos.h}, 500, function() {
+			$('#score').text(' Score: ' + score);
+			start();
+		});
+}
+function Parallax(elm, tmo) {
+	elm.css('left', 0).animate({left:-15360}, {
+			duration:tmo*1000, easing:'linear', //step : PrlxStep,
+			complete : function() { Parallax(elm, tmo); } 
+	});
+}
+
+function BirdStep() {
+	curSpeed += gravity;
+	cPos.y = Math.max(cPos.y + curSpeed, 0);
+	var ang = curSpeed * 5, mh = board.height()-cPos.h, m = -12, lo = 0, actPipe = $('.obs');
+	bird.css({top: cPos.y, rotate:(ang < -20) ? -20 : (ang > 90) ? 90 : ang});
+	if (cPos.y > mh)
+		return gameOver();
+	for (var i = actPipe.length-1; i >= 0; i--) {
+		var s = actPipe[i].style, x = parseInt(s.left), y = parseInt(s.top);
+		lo = Math.max(lo, x);
+		if (x+dimPipe.width +m < cPos.x || x > cPos.x+cPos.w+m)	continue;
+		if (y+dimPipe.height+m < cPos.y || y > cPos.y+cPos.h+m) continue;
+		return gameOver();
+	}
+	if (actPipe.length > 3 || lo > 300 || Math.random() >= 0.05 * (1+noClr))
+		return;
+	var og = cPos.h * 2;
+	var oh = og + Math.floor(Math.random() * (mh-og+1));
+	var obs = $("<img/><img/>").addClass('c obs').css({left:480, zIndex:3}).css(dimPipe).attr('src', 'img/dribble_vine.png')
+		.appendTo(board).animate({left:-50}, Math.max(2000,3500-noClr*50), 'linear', function() { 
+			$('#score').text(' Score: ' + (score += 1 + Math.floor(++noClr/10)));
+			this.remove();
+		});
+	obs[0].style.top = oh + 'px';
+	obs[1].style.top = (oh - og - dimPipe.height) + "px";
+}
+function onTap() {
+	if (state > 1) return;
+	if (state == 0) {
+		state = 1;
+		$('#score').text(' Score: ' + (score = 0));
+		Parallax($('#bGrnd'), 240);
+		Parallax($('#fGrnd'), 80);
+		$('#instr').hide();
+		tmStep = window.setInterval(BirdStep, 30);
+	}
+	curSpeed = iniSpeed;
+}
+function start() {
+	state = noClr = score = 0;					// not started
+	cPos = { x: 80, y:100, h:40, w:50 };
+	bird.css({left:cPos.x, top:cPos.y, width:cPos.w, height:cPos.h, rotate:0});
+	$('.obs').remove();
+	$('#instr').show();
+}
+
+$(document).ready(function() {
+	bird = $('#bird');
+	var evt = (typeof(bird[0].ontouchend) == "function") ? "touchstart" : "mousedown";
+	board = $('#board').bind(evt, onTap);
+	start();
+});
+
+</script>
+</head>
+<body style='margin:0 0; background-color:#bfb06c'>
+<div data-role="page">
+	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+		<div data-role="navbar" data-theme="c">
+			<ul>
+      		<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      			<li><a href="Library.html" rel="external" data-transition="slidedown" data-prefetch>Library</a></li>
+				<li><a href="Games.html" rel="external" data-transition="pop" data-prefetch>Games</a></li>
+				<li><a href="http://astore.amazon.com/ksfsdnfl-20" rel="external" data-transition="pop" data-prefetch>Store</a></li>								
+			</ul>
+		</div><!-- /navbar-->		
+	</div><!-- /header -->	
+	<div id="content" data-role="content">
+	<!-- dribble game content -->
+	<div id='board' style='position:absolute; left:0px; top:75px; width:478px; height:300px; overflow:hidden;'>
+	<div id='score' style='position:absolute; left:0px; top:0px; height:25px; z-index:5; color:red; font-weight:900'></div>
+	<img class="c" id='bird' src="img/dribble_b2.gif" style="z-index:5"/>
+	<img id='instr' src='img/dribble_instr.png' class='c' style="left:205px; top:75px; z-index:100" />
+	<div class="bg" id='bGrnd' style="top:-20px; height:320px; background-image:url(img/dribble_bg1.png) "/>
+	<div class="bg" id='fGrnd' style="top:235px; height:85px; z-index:4; background-image:url(img/dribble_bg2.png) "/>
+	</div>
+	<!-- end dribble game content-->
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>

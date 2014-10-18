@@ -1527,12 +1527,23 @@ story3 layout:
 						}
 						else if (_myStoryPos == "24"){	
 							if (direction == 1){
-								localStorage.setItem("A4CSportsStoryPos", 0);
-								window.location.href = 'index.html';
+								localStorage.setItem("A4CSportsStoryPos", 25);
+								window.location.href = 'S2.html';
 							}
 							else{
 								localStorage.setItem("A4CSportsStoryPos", 23);
 								window.location.href = 'S2.html';							
+							}
+						}
+						
+						else if (_myStoryPos == "25"){	
+							if (direction == 1){
+								localStorage.setItem("A4CSportsStoryPos", 0);
+								window.location.href = 'index.html';
+							}
+							else{
+								localStorage.setItem("A4CSportsStoryPos", 24);
+								window.location.href = 'S1.html';							
 							}
 						}
 						

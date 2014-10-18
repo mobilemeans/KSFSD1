@@ -2,16 +2,16 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         xmlns:android   = "http://schemas.android.com/apk/res/android"
-        id          = "com.a4c.sports"
+        id          = "com.a4c.sports.nba"
         
         versionCode = "1" version     = "0.0.8" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>DAD, PUT ME IN THE GAME</name>
+    <name>NBA child ebook and games (unofficial)</name>
     
     <description>
-DAD, PUT ME IN THE GAME provides you with real time updates for major sports headlines based on your favourite teams. If you're seeking sports headlines for teams in the Major League Baseball (MLB), National Basketball Association (NBA), National Football League (NFL) or the National Hockey League (NHL) then be sure to use our app. We know that quality time reading to your child is very important, but so is your time! Share your love for sports with your child as they become the star of their own sports story that also happens to include live sports headlines from the four major sports in North America. 				
+DAD, PUT ME IN THE GAME (NBA Edition) provides you with real time updates for major sports headlines based on your favourite teams. If you're seeking sports headlines for teams in the Major League Baseball (MLB), National Basketball Association (NBA), National Football League (NFL) or the National Hockey League (NHL) then be sure to use our app. We know that quality time reading to your child is very important, but so is your time! Share your love for sports with your child as they become the star of their own sports story that also happens to include live sports headlines from the four major sports in North America. 				
     </description>
       <icon src="icon.png" />
       <icon src="ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
