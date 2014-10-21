@@ -1,158 +1,108 @@
-<!DOCTYPE html> 
-<html> 
-	<head> 
-	<title>DAD, PUT ME IN THE GAME</title> 	
-	
-
-	
-	
-<meta name="viewport" content="width=device-width, initial-scale=1" />	
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf8">
+<title>DAD, PUT ME IN THE GAME</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
-	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
 	<link rel="stylesheet" href="style.css" />	
-	
-<style>
-/* story styling here*/
-div[id^="place"]
-{float:left; width:80px; height:100px; margin:3px; padding:3px; border:1px dotted #333333; background-color:#ffff99;}
-span
-{float:left; width:80px; margin:3px; padding:3px; border:1px solid #999999; color:#333333;}
-.pics, .nums
-{clear:both; text-align:left;}
-</style>
 
 <script>
-//global variables to track the order
-var loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8, loc9, loc10;
-
-  //function called when drag starts
-  function dragIt(theEvent) {
-    //tell the browser what to drag
-    //theEvent.dataTransfer.setData("Text", theEvent.target.src); //use this approach to get the exact name of the img src
-    theEvent.dataTransfer.setData("Text", theEvent.target.id); //use this approach if want to have a generic name set of images (i.e. img1, img2, img3)
-  }
-
-	//function called when element drops
-	function dropIt(theEvent, location) {   
-  		//get a reference to the element being dragged
-  		var theData = theEvent.dataTransfer.getData("Text");
-  		//alert('moving item: ' + theData + ' to ' + location);//pic1
-  
-  		//get the element
-  		var theDraggedElement = document.getElementById(theData);
-  
-  		//add it to the drop element
-  		theEvent.target.appendChild(theDraggedElement);
-  
-  		//instruct the browser to allow the drop
-  		theEvent.preventDefault();
-
-		//assign the image location to variables to show the placement
- 		if (location=="10"){
-      loc10 = theData;
-			localStorage.setItem("A4CCustom10", theData);
-      }
- 		else if (location=="9"){
- 		 loc9 = theData;
-			localStorage.setItem("A4CCustom9", theData);
-  		}
- 		else if (location=="8"){
- 		 loc8 = theData;
-			localStorage.setItem("A4CCustom8", theData);
-  		}
- 		else if (location=="7"){
- 		 loc7 = theData;
-			localStorage.setItem("A4CCustom7", theData);
-  		}
- 		else if (location=="6"){
- 		 loc6 = theData;
-			localStorage.setItem("A4CCustom6", theData);
-  		}
- 		else if (location=="5"){
- 		 loc5 = theData;
-			localStorage.setItem("A4CCustom5", theData);
-  		}
- 		else if (location=="4"){
- 		 loc4 = theData;
-			localStorage.setItem("A4CCustom4", theData);
-  		}
- 		else if (location=="3"){
- 		 loc3 = theData;
-			localStorage.setItem("A4CCustom3", theData);
-  		}
- 		else if (location=="2"){
- 		 loc2 = theData;
-			localStorage.setItem("A4CCustom2", theData);
-  		}
- 		else {
- 		 loc1 = theData;
-			localStorage.setItem("A4CCustom1", theData);
-  	}
-
-	}
-
 	function resetStory(){
 		//refresh the page and reset the images to their original positions
 		document.location.reload(true);
 	}//end resetStory
 
-
-	function createStory(){
-		//assemble the order of images and determine logic for text based on avatar health   
-		//alert("loc10:" + loc10 +"\n  loc9:" + loc9 +"\n  loc8:" + loc8 +"\n  loc7:" + loc7 +"\n  loc6:" + loc6 + "\n  loc5:" + loc5 +"\n  loc4:" + loc4 +"\n loc3:" + loc3 +"  \n loc2:" + loc2 +"\n  loc1:" + loc1);
-
-	//pseudocode
-	/*
-	validate that all fields have been assigned an image
-	find the level of health
-	determine the story location
-	apply the health tier to deterimine the story context
-	only a subgroup of images have 3 possible storylines
-	*/
-
-    //validate that fields have been populated by checking if locX is assigned a value
-    if (loc1 == null){
-      alert("You need to place an image in story board 1!");
-    }
-    if (loc2 == null){
-      alert("You need to place an image in story board 2!");
-    }
-    if (loc3 == null){
-      alert("You need to place an image in story board 3!");
-    }
-    if (loc4 == null){
-      alert("You need to place an image in story board 4!");
-    }
-    if (loc5 == null){
-      alert("You need to place an image in story board 5!");
-    }
-    if (loc6 == null){
-      alert("You need to place an image in story board 6!");
-    }
-    if (loc7 == null){
-      alert("You need to place an image in story board 7!");
-    }
-    if (loc8 == null){
-      alert("You need to place an image in story board 8!");
-    }
-    if (loc9 == null){
-      alert("You need to place an image in story board 9!");
-    }
-    if (loc10 == null){
-      alert("You need to place an image in story board 10!");
-    }	
-
-	}
-	
 </script>
 
-</head> 
-<body> 
+
+<style>
+/* these are special */
+.slip-reordering {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+}
+
+.slip-swiping-container {
+    overflow-x: hidden;
+}
+
+#slippylist li {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+/* the rest is junk for the demo page */
+#slippylist li.demo-allow-select {
+    padding: 1em;
+    line-height: 1.3;
+    user-select: text;
+    -moz-user-select: text;
+    -webkit-user-select: text;
+}
+#slippylist li.demo-allow-select span {
+    cursor: text;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 40em;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+#slippylist {
+    clear:left;
+    margin: 1em;
+    padding: 0 0 1px;
+}
+
+#slippylist li {
+    display:block;
+    border: 1px solid black;
+    background: white;
+    margin: 0; padding: 0 1em;
+    border-radius: 3px;
+    margin-bottom: -1px;
+    max-width: 100%;
+    line-height: 3;
+    vertical-align: middle;
+}
+
+#slippylist input {
+    vertical-align: middle;
+}
+
+#slippylist .instant::after {
+    content: " \2261";
+}
+#slippylist .instant {
+    float: right;
+}
+
+.skewed {
+    transform: rotate(2deg) scale(0.99);
+    -webkit-transform: rotate(2deg) scale(0.99);
+}
+
+.demo-no-swipe.demo-no-reorder {
+    opacity: 0.5;
+}
+
+h1, h2 {
+    color: #666;
+}
+h1 {
+    float:left; margin-top: 0; margin-right: 1ex;
+}
+h1+p {
+    overflow:auto; margin-top: 0.2em;
+}
+</style>
+<body>
 <div data-role="page">
 	<div data-role="header" data-theme="a">
 	<script type="text/javascript"><!--
@@ -176,47 +126,25 @@ var loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8, loc9, loc10;
 		</div><!-- /navbar-->		
 	</div><!-- /header -->	
 	<div id="content" data-role="content">
+	<a href="#" onclick="Generate();return false;">[CREATE]</a><br/>
+	<a href="#" onclick="javascript:resetStory()" >[RESET]</a><br/><br/>
+  <a href="Generateread.html" rel="external" data-transition="slideup" data-prefetch>[READ STORY]</a>
+	<br/>
 		<!--element with draggable pictures-->
-
-<div class="pics" id="divBasketball">Drag and drop your image to any of the open story boxes below.
-<div id="1">
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_0.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_0" />
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_1.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_1" />
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_2.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_2" />
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_3.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_3" />
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_4.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_4" />
-<br/>
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_5.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_5" />
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_6.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_6" />
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_7.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_7" />
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_8.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_8" />
-<img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_9.jpg" width="80" height="80" draggable="true" ondragstart="dragIt(event);" id="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_9" />
-</div>
-
-<div id="place1" ondrop="dropIt(event, '1');" ondragover="event.preventDefault();">1</div>
-<div id="place2" ondrop="dropIt(event, '2');" ondragover="event.preventDefault();">2</div>
-<div id="place3" ondrop="dropIt(event, '3');" ondragover="event.preventDefault();">3</div>
-<div id="place4" ondrop="dropIt(event, '4');" ondragover="event.preventDefault();">4</div>
-<div id="place5" ondrop="dropIt(event, '5');" ondragover="event.preventDefault();">5</div>
-<div id="place6" ondrop="dropIt(event, '6');" ondragover="event.preventDefault();">6</div>
-<div id="place7" ondrop="dropIt(event, '7');" ondragover="event.preventDefault();">7</div>
-<div id="place8" ondrop="dropIt(event, '8');" ondragover="event.preventDefault();">8</div>
-<div id="place9" ondrop="dropIt(event, '9');" ondragover="event.preventDefault();">9</div>
-<div id="place10" ondrop="dropIt(event,'10');" ondragover="event.preventDefault();">10</div>
-</div>
-<div>
-<br/>
-<br/>
-<br/>
-<br/>
-<a href="#" onclick="javascript:createStory()" >[CREATE]</a><br/>
-<a href="#" onclick="javascript:resetStory()" >[RESET]</a><br/><br/>
-<a href="Generateread.html" rel="external" data-transition="slideup" data-prefetch>[READ STORY]</a>
-</div>		
-		
-
-		
-		<div id="footer"><center>
+<ol id="slippylist">
+    <li class="demo-no-reorder"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_0.jpg" width="50" height="50" /><input id="Field_1" type="hidden" value="S9_0" />A</li>
+    <li class="demo-no-swipe"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_1.jpg" width="50" height="50" /><input id="Field_2" type="hidden" value="S9_1"/>B <span class="instant">or instantly</span></li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_2.jpg" width="50" height="50" /><input id="Field_3" type="hidden" value="S9_2"/>C</li>
+    <!--<li class="demo-no-swipe demo-no-reorder">--><li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_3.jpg" width="50" height="50" /><input id="Field_4" type="hidden" value="S9_3"/>D</li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_4.jpg" width="50" height="50" /><input id="Field_5" type="hidden" value="S9_4"/>E</li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_5.jpg" width="50" height="50" /><input id="Field_6" type="hidden" value="S9_5"/>F</li>
+    <li style="transform: scaleX(0.97) skewX(-10deg); -webkit-transform: scaleX(0.97) skewX(-10deg)"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_6.jpg" width="50" height="50" /><input id="Field_7" type="hidden" value="S9_6"/>G</li>
+    <li class="skewed"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_7.jpg" width="50" height="50" /><input id="Field_8" type="hidden" value="S9_7" />H</li>
+    <li class="demo-allow-select"><span class="demo-no-reorder"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_8.jpg" width="50" height="50" /><input id="Field_9" type="hidden" value="S9_8" />I</span></li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_9.jpg" width="50" height="50" /><input id="Field_10" type="hidden" value="S9_9"/>J</li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_10.jpg" width="50" height="50" /><input id="Field_11" type="hidden" value="S9_10"/>K</li>
+</ol>
+<div id="footer"><center>
 		<img src="img/bannerSM.jpg" /><br/>
 			&copy; Apps4Canadians
 			</center>
@@ -226,8 +154,47 @@ var loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8, loc9, loc10;
 		</div><!-- /footer -->
 	</div><!-- /content -->
 </div><!-- /page -->
-</body>
+<script>
+function Generate() {
+    var unorderedList    = document.getElementById('slippylist'),
+        ListItems        = unorderedList.getElementsByTagName('li');  
 
+    for (var input, i = 0; i < ListItems.length; i++) {
+        input = ListItems[i].getElementsByTagName('input')[0];
+        localStorage.setItem("A4CCustom" + i, input.value);
+        alert("A4CCustom" + i, input.id, input.value);
+        console.log(input.id, input.value);
+    }
+}
+</script>
+<script src="js/slip.js"></script>
+<script>
+    var ol = document.getElementById('slippylist');
+    ol.addEventListener('slip:beforereorder', function(e){
+       if (/demo-no-reorder/.test(e.target.className)) {
+            e.preventDefault();
+             
+        }
+    }, false);
 
-</html>
+    ol.addEventListener('slip:beforeswipe', function(e){
+        if (e.target.nodeName == 'INPUT' || /demo-no-swipe/.test(e.target.className)) {
+            e.preventDefault();
+        }
+    }, false);
 
+    ol.addEventListener('slip:beforewait', function(e){
+        if (e.target.className.indexOf('instant') > -1) e.preventDefault();
+    }, false);
+
+    ol.addEventListener('slip:afterswipe', function(e){
+        e.target.parentNode.appendChild(e.target);
+  
+    }, false);
+
+    ol.addEventListener('slip:reorder', function(e){
+        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+        return false;
+    }, false);
+    new Slip(ol);
+</script>

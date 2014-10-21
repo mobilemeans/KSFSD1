@@ -1,9 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf8">
-<title>Slip.js — sortable and swipeable views</title>
+<title>DAD, PUT ME IN THE GAME</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
+	<link rel="stylesheet" href="style.css" />	
+
+<script>
+	function resetStory(){
+		//refresh the page and reset the images to their original positions
+		document.location.reload(true);
+	}//end resetStory
+
+</script>
+
+
 <style>
 /* these are special */
 .slip-reordering {
@@ -90,36 +103,77 @@ h1+p {
 }
 </style>
 <body>
-<h1>Slip.js</h1>
-<p>Swiping and reordering lists of elements on touch screens, no fuss. A&nbsp;tiny library by <a href="http://twitter.com/pornelski">Kornel</a>.</p>
+<div data-role="page">
+	<div data-role="header" data-theme="a">
+	<script type="text/javascript"><!--
+  google_ad_client = "ca-pub-6908679240944495";
+  /* MobileBanner320by50 */
+  google_ad_slot = "7580604750";
+  google_ad_width = 320;
+  google_ad_height = 50;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+		<div data-role="navbar" data-theme="c">
+			<ul>
+      		<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
+      		<li><a href="Library.html" rel="external" data-transition="slidedown" data-prefetch>Library</a></li>
+          <li><a href="Games.html" rel="external" data-transition="pop" data-prefetch>Games</a></li>
+          <li><a href="http://astore.amazon.com/ksfsdnfl-20" rel="external" data-transition="pop" data-prefetch>Store</a></li>								
+			</ul>
+		</div><!-- /navbar-->		
+	</div><!-- /header -->	
+	<div id="content" data-role="content">
+	<a href="#" onclick="Generate();return false;">[CREATE]</a><br/>
+	<a href="#" onclick="javascript:resetStory()" >[RESET]</a><br/><br/>
+  <a href="Generateread.html" rel="external" data-transition="slideup" data-prefetch>[READ STORY]</a>
+	<br/>
+		<!--element with draggable pictures-->
 <ol id="slippylist">
-    <li class="demo-no-reorder">Swipe,</li>
-    <li class="demo-no-swipe">hold &amp; reorder <span class="instant">or instantly</span></li>
-    <li>or either</li>
-    <li class="demo-no-swipe demo-no-reorder">or none of them.</li>
-    <li>Can play nicely with:</li>
-    <li>interaction <input type="range"></li>
-    <li style="transform: scaleX(0.97) skewX(-10deg); -webkit-transform: scaleX(0.97) skewX(-10deg)">inline CSS transforms</li>
-    <li class="skewed">stylesheet transforms</li>
-    <li class="demo-allow-select"><span class="demo-no-reorder">and selectable text, even though animating elements with selected text is a bit weird.</span></li>
-    <li>iOS Safari</li>
-    <li>Mobile Chrome</li>
-    <li>Android Firefox</li>
-    <li>Oprea Presto and Blink</li>
-    <li>No dependencies</li>
+    <li class="demo-no-reorder"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_0.jpg" width="50" height="50" /><input id="Field_1" type="hidden" value="S9_0" />A</li>
+    <li class="demo-no-swipe"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_1.jpg" width="50" height="50" /><input id="Field_2" type="hidden" value="S9_1"/>B <span class="instant">or instantly</span></li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_2.jpg" width="50" height="50" /><input id="Field_3" type="hidden" value="S9_2"/>C</li>
+    <!--<li class="demo-no-swipe demo-no-reorder">--><li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_3.jpg" width="50" height="50" /><input id="Field_4" type="hidden" value="S9_3"/>D</li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_4.jpg" width="50" height="50" /><input id="Field_5" type="hidden" value="S9_4"/>E</li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_5.jpg" width="50" height="50" /><input id="Field_6" type="hidden" value="S9_5"/>F</li>
+    <li style="transform: scaleX(0.97) skewX(-10deg); -webkit-transform: scaleX(0.97) skewX(-10deg)"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_6.jpg" width="50" height="50" /><input id="Field_7" type="hidden" value="S9_6"/>G</li>
+    <li class="skewed"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_7.jpg" width="50" height="50" /><input id="Field_8" type="hidden" value="S9_7" />H</li>
+    <li class="demo-allow-select"><span class="demo-no-reorder"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_8.jpg" width="50" height="50" /><input id="Field_9" type="hidden" value="S9_8" />I</span></li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_9.jpg" width="50" height="50" /><input id="Field_10" type="hidden" value="S9_9"/>J</li>
+    <li><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_10.jpg" width="50" height="50" /><input id="Field_11" type="hidden" value="S9_10"/>K</li>
 </ol>
-<h2>Known limitations</h2>
-<ul>
-    <li>Doesn't scroll page when dragging element to edge of the screen.</li>
-    <li>There are few bits in animations that could be smoother or more efficient.</li>
-</ul>
-<p><a href="https://github.com/pornel/slip">Bug/fork/star on GitHub</a>.</p>
+<div id="footer"><center>
+		<img src="img/bannerSM.jpg" /><br/>
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home </a> |<a href="mailto:apps4canadians@live.com"> Contact |</a>  </center>
+				
+		</div><!-- /footer -->
+	</div><!-- /content -->
+</div><!-- /page -->
+<script>
+function Generate() {
+    var unorderedList    = document.getElementById('slippylist'),
+        ListItems        = unorderedList.getElementsByTagName('li');  
+
+    for (var input, i = 0; i < ListItems.length; i++) {
+        input = ListItems[i].getElementsByTagName('input')[0];
+        localStorage.setItem("A4CCustom" + i, input.value);
+        alert("A4CCustom" + i, input.id, input.value);
+        console.log(input.id, input.value);
+    }
+}
+</script>
 <script src="js/slip.js"></script>
 <script>
     var ol = document.getElementById('slippylist');
     ol.addEventListener('slip:beforereorder', function(e){
-        if (/demo-no-reorder/.test(e.target.className)) {
+       if (/demo-no-reorder/.test(e.target.className)) {
             e.preventDefault();
+             
         }
     }, false);
 
@@ -135,13 +189,12 @@ h1+p {
 
     ol.addEventListener('slip:afterswipe', function(e){
         e.target.parentNode.appendChild(e.target);
+  
     }, false);
 
     ol.addEventListener('slip:reorder', function(e){
         e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
         return false;
     }, false);
-
     new Slip(ol);
 </script>
-<script async="async" src="https://d1agz031tafz8n.cloudfront.net/thedaywefightback.js/widget.min.js"></script>
