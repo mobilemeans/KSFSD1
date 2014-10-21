@@ -62,6 +62,7 @@ var loc7 = localStorage.getItem("A4CCustom6");
 var loc8 = localStorage.getItem("A4CCustom7");
 var loc9 = localStorage.getItem("A4CCustom8");
 var loc10 = localStorage.getItem("A4CCustom9");
+var loc11 = localStorage.getItem("A4CCustom10");
 var myHealth = "A4CHealth";
 var _myHealth = localStorage.getItem(myHealth);
 var _storyText = "";
@@ -92,26 +93,27 @@ runStory(1);
       case 1:
       if (storyPos == 0){
         if (storyRange > 0 && storyRange < 19){
-            if (direction == 1){
+            
               _storyText = "A1";
               storyPos = 1;
-            }          
+            
+                      
         }
         else if (storyRange > 20 && storyRange < 39){	
-           if (direction == 1){
+          
               _storyText = "A2";
               storyPos =  1;
-            } 
+           
           
         }
         else if (storyRange > 40 && storyRange < 59){
-           if (direction == 1){
+         
               _storyText = "A3";
               storyPos =  1;
-            } 	
+           
         }
         else{
-          _storyText ="error";
+          _storyText ="1 error";
         }
         imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc1 + ".jpg";      
       }
@@ -147,7 +149,7 @@ runStory(1);
             }
         }
         else{
-          _storyText ="error";
+          _storyText ="2 error";
         }
         imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc2 + ".jpg";
       
@@ -185,43 +187,85 @@ runStory(1);
             }
         }
         else{
-          _storyText ="error";
+          _storyText ="3 error";
         }
         imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc3 + ".jpg";
       
       }
       else if (storyPos == 3){
         if (storyRange > 0 && storyRange < 19){
-          _storyText = opt2_A;
+         if (direction == 1){
+                _storyText = "D3";
+                storyPos = 3;
+            }
+            else{
+                _storyText = "C3";
+                storyPos = 1;
+            }
                 
         }
         else if (storyRange > 20 && storyRange < 39){	
+          if (direction == 1){
+                _storyText = "D3";
+                storyPos = 3;
+            }
+            else{
+                _storyText = "C3";
+                storyPos = 1;
+            }
           
-          _storyText = opt2_B;
         }
         else if (storyRange > 40 && storyRange < 59){
-          _storyText = opt2_C;	
+          if (direction == 1){
+                _storyText = "D3";
+                storyPos = 3;
+            }
+            else{
+                _storyText = "C3";
+                storyPos = 1;
+            }	
         }
         else{
-          _storyText ="error";
+          _storyText ="4 error";
         }
         imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc4 + ".jpg";
       
       }
       else if (storyPos == 4){
         if (storyRange > 0 && storyRange < 19){
-          _storyText = opt2_A;
+         if (direction == 1){
+                _storyText = "E3";
+                storyPos = 3;
+            }
+            else{
+                _storyText = "D3";
+                storyPos = 1;
+            }
                 
         }
         else if (storyRange > 20 && storyRange < 39){	
-          
-          _storyText = opt2_B;
+          if (direction == 1){
+                _storyText = "E3";
+                storyPos = 3;
+            }
+            else{
+                _storyText = "D3";
+                storyPos = 1;
+            }
+         
         }
         else if (storyRange > 40 && storyRange < 59){
-          _storyText = opt2_C;	
+          if (direction == 1){
+                _storyText = "E3";
+                storyPos = 3;
+            }
+            else{
+                _storyText = "D3";
+                storyPos = 1;
+            }
         }
         else{
-          _storyText ="error";
+          _storyText ="5 error";
         }
         imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc5 + ".jpg";
       
@@ -361,7 +405,7 @@ runStory(1);
 		default:
 		_storyText ="switcherror";
 	}
-alert('storytext' + _storyText);
+//alert('storytext' + _storyText);
 	document.getElementById("pStory").innerHTML = _storyText;
 	document.getElementById("imgStory").src = imgSrc;
 
