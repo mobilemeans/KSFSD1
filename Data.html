@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TEST</title>
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<link rel="stylesheet" href="style.css" />
+<!-- SET PREFERENCES VALUES TO LOCALSTORAGE -->
+<script type="text/javascript">
+        var myQ1 = "myQ1";
+	var myQ2 = "myQ2";
+	var myQ3 = "myQ3";
+	var myQ4 = "myQ4";
+	var myQ5 = "myQ5";
+	var myQ6 = "myQ6";
+	var myPoints = "myPoints";
+	var day1 = "";
+
+        $('#pagePreferences').live('pagecreate', function() {
+            if (Modernizr.localstorage) {
+                showStoreValue();
+            }
+            else {
+                $('#message').text("Unfortunately your browser doesn't support local storage");
+                $('#addToStorage').attr('disabled', 'disabled');
+                $('#message').show();
+            }           
+            
+               
+            $('#addToStorage').click(function(e) {            
+                 //declare the variables to use for adding the points
+var num1, num2, num3, num4, num5, num6 = 0;
+
+//validate that an value was selected
+if($('#myQ1').val() == ""){
+alert("Please enter a value for the first question.");
+}
+else{
+localStorage.setItem(myQ1, $('#myQ1').val());
+num1 = parseInt($('#myQ1').val(), 10);
+} 
+                if($('#myQ2').val() == ""){
+alert("Please enter a value for the second question.");
+}
+else{
+localStorage.setItem(myQ2, $('#myQ2').val());
+num2 = parseInt($('#myQ2').val(), 10);
+}
+if($('#myQ3').val() == ""){
+alert("Please enter a value for the third question.");
+}
+else{
+localStorage.setItem(myQ3, $('#myQ3').val());
+num3 = parseInt($('#myQ3').val(), 10);
+}
+if($('#myQ4').val() == ""){
+alert("Please enter a value for the fourth question.");
+}
+else{
+localStorage.setItem(myQ4, $('#myQ4').val())
+num4 = parseInt($('#myQ4').val(), 10);;
+}
+localStorage.setItem(myQ5, $('input[name="myQ5"]:checked').val());
+localStorage.setItem(myQ6, $('input[name="myQ6"]:checked').val()); 
+var num5 = parseInt($('input[name="myQ5"]:checked').val(), 10);
+var num6 = parseInt($('input[name="myQ6"]:checked').val(), 10);
+
+//UPDATE THE # OF POINTS 
+var newPoints = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4) + parseInt(num5) + parseInt(num6);
+var curPoints = localStorage.getItem(myPoints);
+var totalPoints = parseInt(curPoints) + parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4) + parseInt(num5) + parseInt(num6);
+if (totalPoints > 0){
+//check if the period is less than 30d, if not then reset points to 0
+//todo:
+localStorage.setItem(myPoints, totalPoints); 
+var countTimerMax = 86400;  //don't allow adding any more points for specified time
+countDown(countTimerMax, 'message'); 
+}
+
+showStoreValue();
+                e.preventDefault();
+            });
+        });
+
+        function showStoreValue() {
+            
+var _myQ1 = localStorage.getItem(myQ1);
+var _myQ2 = localStorage.getItem(myQ2);
+var _myQ3 = localStorage.getItem(myQ3);
+var _myQ4 = localStorage.getItem(myQ4);
+var _myQ5 = localStorage.getItem(myQ5);
+var _myQ6 = localStorage.getItem(myQ6);
+var _myPoints = localStorage.getItem(myPoints);          
+
+if (_myQ1 == null  || _myQ1.length === 0) {
+                _myQ1 = 'There is no value for Q1'; 
+            }
+else if (_myQ2 == null  || _myQ2.length === 0) {
+                _myQ2 = 'There is no value for Q2'; 
+            }
+else if (_myQ3 == null  || _myQ3.length === 0) {
+                _myQ3 = 'There is no value for Q3'; 
+            }
+else if (_myQ4 == null  || _myQ4.length === 0) {
+                _myQ4 = 'There is no value for Q41'; 
+            }
+else if (_myQ5 == null  || _myQ5.length === 0) {
+                _myQ5 = 'There is no value for Q5'; 
+            }
+else if (_myQ6 == null  || _myQ6.length === 0) {
+                _myQ6 = 'There is no value for Q6'; 
+            }
+else{
+$('.storeItem').text("Q1: " + _myQ1);
+$('.storeItem2').text("Q2: " + _myQ2);
+$('.storeItem3').text("Q3: " + _myQ3);
+$('.storeItem4').text("Q4: " + _myQ4);
+$('.storeItem5').text("Q5: " + _myQ5);
+$('.storeItem6').text("Q6: " + _myQ6);
+}
+
+if (isNaN(parseInt(localStorage.getItem(myPoints))) == true){
+localStorage.setItem(myPoints, 0); 
+$('.storeItem7').text("POINTS: " + _myPoints);
+}
+else{
+$('.storeItem7').text("POINTS: " + _myPoints);
+}
+        }
+        
+        
+        //do countdown
+        function countDown(secs, elem){
+        var element = document.getElementById(elem);
+        element.innerHTML = "You must wait 24 hours before adding new points.  There are " + secs + " seconds remaining";
+        document.getElementById('addToStorage').disabled = true;
+        if (secs < 1){
+        clearTimeout(timer);   
+        showLevel(elem); //show the current leve as icon        
+        document.getElementById('addToStorage').disabled = false;
+        secs = 5;  //set to same value as the value entered into countdown fn
+        }
+        else{
+        secs--;
+        var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000); //control the countdown by 1 sec
+        }
+        }
+        
+        function showLevel(elem){
+        var element = document.getElementById(elem); 
+//get the current points level
+        var pointsLevel;
+var currPoints = parseInt(localStorage.getItem(myPoints));
+
+//check if there have already been points entered into localstorage, if not then default to 0
+if (currPoints == 0){
+pointsLevel = 0;
+element.innerHTML = '<h2>Welcome.  Enter your progress each day to progress to chickadee level 1.</h2>';
+}
+else if (currPoints > 0 && currPoints < 20){
+pointsLevel = 1;
+element.innerHTML = '<h2>Hooray! You are at chickadee level 1.</h2>'; 
+}
+else if (currPoints > 19 && currPoints < 40){
+pointsLevel = 2;    
+element.innerHTML = '<h2>Keep up the good work! You are at chickadee level 2.</h2>';    
+}
+else if (currPoints > 39 && currPoints < 60){
+pointsLevel = 3;    
+element.innerHTML = '<h2>Super! You are at chickadee level 3.</h2>';    
+}
+else if (currPoints > 59 && currPoints < 80){
+pointsLevel = 4;    
+element.innerHTML = '<h2>Fantastic! You are at chickadee level 4.</h2>';    
+}
+else if (currPoints > 79 && currPoints < 100){
+pointsLevel = 5;    
+element.innerHTML = '<h2>Wow! You are at the higest chickadee level.</h2>';    
+} 
+else{
+pointsLevel = 0;
+element.innerHTML = '<h2>You are just beginning.  You are almost at chickadee level 1</h2>'; 
+}   
+
+
+for (i=1; i <= pointsLevel; ++i){
+element.innerHTML += '<img src="img/pointsicon.jpg" />'; 
+var snd = new Audio("sounds/chicks.mp3"); //play chirp sound  // buffers automatically when created
+snd.play(); 
+} 
+        }
+        
+    </script>
+
+</head>
+<body onload="showLevel('message')">
+<div id="status"></div>
+<section data-role="page" id="pagePreferences">
+    <section data-role="header">
+        <h2>Dad, Put Me In the Game: Rewards</h2>
+    </section>
+    <section data-role="content">
+        <p id="message"/>
+<img src="img/bannerSM.jpg" />
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">Step 1.  Enter your progress!</li>
+            <li>
+               
+               <select id="myQ1" name="myQ1">
+               <option default value="" >1.  Did you make healthy eating choices today?</option>
+    <option value="0">No, but I will tomorrow.</option>
+    <option value="1">Yes, I had some healthy snacks</option>
+    <option value="2">Yes, I ate a healthy serving of fruits today.</option>
+    <option value="3">Yes, I ate a healthy serving of fruits and vegetables today.</option>
+</select>
+               
+               <select id="myQ2" name="myQ2">
+               <option default value="">2.  How many minutes of exericse did you get today?</option>
+    <option value="0">None, but I will try tomorrow.</option>
+    <option value="1">A few minutes</option>
+    <option value="2">At least 30 minutes</option>
+    <option value="3">A lot!</option>
+</select>
+
+<select id="myQ3" name="myQ3">
+               <option default value="">3.  How many words could you read in the story today?</option>
+    <option value="0">None, but I'm practicing!</option>
+    <option value="1">1-3</option>
+    <option value="2">4-6</option>
+    <option value="3">more than 7!</option>
+</select>
+               
+               <select id="myQ4" name="myQ4">
+               <option default value="">4.  Have you been practicing your counting today?</option>
+    <option value="0">No, but I'll try tomorrow!</option>
+    <option value="1">Yes, I can count up to 10</option>
+    <option value="2">Yes, I can count up to 20</option>
+    <option value="3">Yes, I can count up to 100</option>
+</select>
+               
+       
+<br/>  
+<fieldset>
+<legend>5.  Were you a good friend or teammate to someone this week?</legend><br/>
+<ol>
+<li> 
+<input type = "radio" name = "myQ5" id = "boy" value = "1" checked = "checked" />
+<label for = "boy">Yes</label>
+</li>
+<li>
+<input type = "radio" name = "myQ5" id = "girl" value = "0" />
+<label for = "girl">No</label>
+</li>
+</ol>
+</fieldset>
+
+<br />
+<fieldset>
+<legend>6.  Did you get enough sleep this week?</legend><br />  
+<ol>
+<li> 
+<input type = "radio" name = "myQ6" id = "yes" value = "1" checked = "checked" />
+<label for = "yes">Yes</label>
+</li>
+<li>
+<input type = "radio" name = "myQ6" id = "no" value = "0" />
+<label for = "no">No</label>
+</li>
+</ol>
+</fieldset>
+<br/><br/><br/> 
+
+<input type="button" id="addToStorage" value="Step 2.  Press here to submit."/>
+
+            </li>
+            <li data-role="list-divider">Step 3.  Review</li>
+            <li class="storeItem"/>
+<li class="storeItem2"/>
+<li class="storeItem3"/>
+<li class="storeItem4"/>
+<li class="storeItem5"/>
+<li class="storeItem6"/> 
+<li class="storeItem7"/> 
+
+        </ul>
+<a href="Library.html" rel="external" data-transition="pop" data-role="button" data-prefetch>Step 4.  Click here to read a story.</a>
+    </section>
+
+<div id="footer"><center>
+<img src="img/A4C.jpg" />
+&copy; Apps4Canadians
+</center>
+<br>
+<center><a href="index.html" rel="external" data-transition="slideup" data-icon="home" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>
+
+</div><!-- /footer -->
+
+</section> 
+
+</body>
+</html>

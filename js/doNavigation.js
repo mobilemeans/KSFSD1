@@ -292,7 +292,7 @@ story3 layout:
 						else if (_myStoryPos == "25"){	
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 0);
-								window.location.href = 'index.html';
+								window.location.href = 'Data.html';
 							}
 							else{
 								localStorage.setItem("A4CSportsStoryPos", 24);
@@ -301,7 +301,7 @@ story3 layout:
 						}
 						
 						else{						
-							window.location.href = 'index.html';
+							window.location.href = 'Data.html';
 						}						
 						break;
 					
@@ -580,7 +580,7 @@ story3 layout:
 						else if (_myStoryPos == "25"){	
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 0);
-								window.location.href = 'index.html'; 
+								window.location.href = 'Data.html'; 
 							}
 							else{
 								localStorage.setItem("A4CSportsStoryPos", 24);
@@ -589,7 +589,7 @@ story3 layout:
 						}
 						
 						else{						
-							window.location.href = 'index.html';
+							window.location.href = 'Data.html';
 						}						
 						break;
 						
@@ -850,7 +850,7 @@ story3 layout:
 						else if (_myStoryPos == "22"){	
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 0);
-								window.location.href = 'index.html';
+								window.location.href = 'Data.html';
 							}
 							else{
 								localStorage.setItem("A4CSportsStoryPos", 21);
@@ -859,7 +859,7 @@ story3 layout:
 						}
 						
 						else{						
-							window.location.href = 'index.html';
+							window.location.href = 'Data.html';
 						}						
 						break;
 					case 5:
@@ -1037,7 +1037,7 @@ story3 layout:
 						else if (_myStoryPos == "15"){	
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 0);
-								window.location.href = 'index.html';
+								window.location.href = 'Data.html';
 							}
 							else{
 								localStorage.setItem("A4CSportsStoryPos", 14);
@@ -1046,7 +1046,7 @@ story3 layout:
 						}	
 						
 						else{						
-							window.location.href = 'index.html';
+							window.location.href = 'Data.html';
 						}						
 						break;
 					
@@ -1255,7 +1255,7 @@ story3 layout:
 						else if (_myStoryPos == "18"){	
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 0);
-								window.location.href = 'index.html';
+								window.location.href = 'Data.html';
 							}
 							else{
 								localStorage.setItem("A4CSportsStoryPos", 17);
@@ -1539,7 +1539,7 @@ story3 layout:
 						else if (_myStoryPos == "25"){	
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 0);
-								window.location.href = 'index.html';
+								window.location.href = 'Data.html';
 							}
 							else{
 								localStorage.setItem("A4CSportsStoryPos", 24);
@@ -1548,7 +1548,7 @@ story3 layout:
 						}
 						
 						else{						
-							window.location.href = 'index.html';
+							window.location.href = 'Data.html';
 						}						
 						break;
 					

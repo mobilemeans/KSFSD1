@@ -132,21 +132,100 @@ $(document).ready(function(){
                     '  </div>' +
                     '</div>');
             }
-            /* JSONP */
-            $(function() {
-                var _myLeague = localStorage.getItem("A4CLeague");
             
-                if (_myLeague.indexOf("nfl") > 0){
-                  getOnlineFeed('http://www.nfl.com/rss/rsslanding?searchString=team&abbr=' + localStorage.getItem("A4CTeamId"));
+/* JSONP */
+            
+$(function() {
+                
+	var _myLeague = localStorage.getItem("A4CLeague");
+            
+                
+	if (_myLeague.indexOf("nfl") > 0){
+ getOnlineFeed('http://www.nfl.com/rss/rsslanding?searchString=team&abbr=' + localStorage.getItem("A4CTeamId"));
                 }
-                else if (_myLeague.indexOf("nba") > 0){
+                
+	else if (_myLeague.indexOf("nba") > 0){
                   getOnlineFeed('http://www.nba.com/' + localStorage.getItem("A4CTeamId") + '/rss.xml');
                 }
-                 else if (_myLeague.indexOf("nhl") > 0){
-				 alert("NHL isn't being offered!");
-                  //getOnlineFeed('http://www.nba.com/grizzlies/rss.xml');
+                 
+	else if (_myLeague.indexOf("epl") > 0){
+   
+		var strEPLId = localStorage.getItem("A4CTeamId");
+		var strEPLUrl = "";
+		if (strEPL == "CHE"){
+			strEPLUrl = "chelsea";
+		}
+		else if (strEPL == "SH"){
+			strEPLUrl = "southampton";
+		}
+		else if (strEPL == "MC"){
+			strEPLUrl = "manchester_city";
+		}
+		else if (strEPL == "WHU"){
+			strEPLUrl = "west_ham_united";
+		}
+		else if (strEPL == "ARS"){
+			strEPLUrl = "arsenal";
+		}
+		else if (strEPL == "SWC"){
+			strEPLUrl = "swansea_city";
+		}
+		else if (strEPL == "LIV"){
+			strEPLUrl = "liverpool";
+		}
+		else if (strEPL == "MU"){
+			strEPLUrl = "manchester_united";
+		}
+		else if (strEPL == "EVE"){
+			strEPLUrl = "everton";
+		}
+		else if (strEPL == "HC"){
+			strEPLUrl = "hull_city";
+		}
+		else if (strEPL == "TH"){
+			strEPLUrl = "tottenham_hotspur";
+		}
+		else if (strEPL == "SC"){
+			strEPLUrl = "stoke_city";
+		}
+		else if (strEPL == "WBA"){
+			strEPLUrl = "west_bromwich_albion";
+		}
+		else if (strEPL == "NU"){
+			strEPLUrl = "newcastle_united";
+		}
+		else if (strEPL == "AV"){
+			strEPLUrl = "aston_villa";
+		}
+		else if (strEPL == "CP"){
+			strEPLUrl = "crystal_palace";
+		}
+		else if (strEPL == "LC"){
+			strEPLUrl = "leicester_city";
+		}
+		else if (strEPL == "SUN"){
+			strEPLUrl = "sunderland";
+		}
+		else if (strEPL == "QPR"){
+			strEPLUrl = "queens_park_rangers";
+		}
+		else {
+			strEPLUrl = "burnley";
+		}
+		
+               
+		getOnlineFeed('http://football.co.uk/teams/' + strEPLUrl + '/rss.xml');
+		//getOnlineFeed('http://football.co.uk/teams/' + localStorage.getItem("A4CTeamId") + '/rss.xml');
                 }
-                 else if (_myLeague.indexOf("mlb") > 0){
+                 
+	
+	else if (_myLeague.indexOf("nhl") > 0){
+				 alert("NHL isn't being offered!");
+                  
+	//getOnlineFeed('http://www.nba.com/grizzlies/rss.xml');
+                }
+                 
+	else if (_myLeague.indexOf("mlb") > 0){
                   getOnlineFeed('http://mlb.mlb.com/partnerxml/gen/news/rss/' +localStorage.getItem("A4CTeamId")+ '.xml');
                 }
 				else{
@@ -154,8 +233,11 @@ $(document).ready(function(){
 					getOnlineFeed('http://www.nba.com/raptors/rss.xml');
 				}
             });
-            /* functions */
-            var listEntries = function(json) {
+            
+
+/* functions */
+            
+var listEntries = function(json) {
                 if (!json.responseData.feed.entries) return false;
                 $('#widgetTitle').text(json.responseData.feed.title);
                 var articleLength = json.responseData.feed.entries.length;

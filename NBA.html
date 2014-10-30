@@ -14,7 +14,7 @@
 	</head>
 	<body>
 	<section data-role="page" id="pagePreferences">
-	<img src="img/bannerSM2.jpg" />
+	<img src="img/bannerSM.jpg" />
 	 <section data-role="header">
        <h2>Personalize your story</h2>  
 			<img align="left" src="http://bsccart.appspot.com/Sports/img/Basketball/bos.gif" height="25" width="25"/>
@@ -58,7 +58,8 @@
                 $('#addToStorage').attr('disabled', 'disabled');
                // $('#message').show();
             }
-            $('#addToStorage').click(function(e) {               
+            $('#addToStorage').click(function(e) {       
+            
 				localStorage.setItem(myName, $('#myName').val());
 				localStorage.setItem(myAge, $('#myAge').val());		
 				localStorage.setItem(myCity, $('#myCity').val());

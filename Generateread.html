@@ -1,411 +1,534 @@
-<!DOCTYPE html> 
-<html> 
-	<head> 
-	<title>DAD, PUT ME IN THE GAME</title> 	
-	<meta name="viewport" content="width=device-width, initial-scale=1" />	
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf8">
+<head>
+<title>DAD, PUT ME IN THE GAME</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>	
 	<link rel="stylesheet" href="style.css" />
-</head> 
-<body> 
+</head>
+<body>
 <div data-role="page">
 	<div data-role="header" data-theme="a">
-    <script type="text/javascript"><!--
-      google_ad_client = "ca-pub-6908679240944495";
-      /* MobileBanner320by50 */
-      google_ad_slot = "7580604750";
-      google_ad_width = 320;
-      google_ad_height = 50;
-      //-->
-    </script>
-    <script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
+	<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6908679240944495";
+/* MobileBanner320by50 */
+google_ad_slot = "7580604750";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 		<div data-role="navbar" data-theme="c">
 			<ul>
       		<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a></li>
-      		<li><a href="Library.html" rel="external" data-transition="slidedown" data-prefetch>Library</a></li>
-				  <li><a href="Games.html" rel="external" data-transition="pop" data-prefetch>Games</a></li>
-				  <li><a href="http://astore.amazon.com/ksfsdnfl-20" rel="external" data-transition="pop" data-prefetch>Store</a></li>								
+      			<li><a href="Library.html" rel="external" data-transition="slidedown" data-prefetch>Library</a></li>
+				<li><a href="Games.html" rel="external" data-transition="pop" data-prefetch>Games</a></li>
+				<li><a href="http://astore.amazon.com/ksfsdnfl-20" rel="external" data-transition="pop" data-prefetch>Store</a></li>								
 			</ul>
 		</div><!-- /navbar-->		
 	</div><!-- /header -->	
-  <div id="content" data-role="content">
-		<!-- STORY SECTION -->
+<div id="content" data-role="content">
+
+  
+<!-- STORY SECTION -->
   <p id="pStory" />
   <br/>
   <div>
-    <img src="http://bsccart.appspot.com/Sports/img/Football/BlankSM.png" width="200" height="200" id="imgStory" />
+    <img src="http://bsccart.appspot.com/Sports/img/Football/Stories/BlankSM.png" width="200" height="200" id="imgStory" />
   </div><br/>
     <a href="#" onclick="javascript:runStory(0)" >PREVIOUS</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="#" onclick="javascript:runStory(1)" >NEXT</a>			
-		<div id="footer"><center>
+    <a href="#" onclick="javascript:runStory(1)" >NEXT</a>
+
+
+<div id="footer"><center>
 		<img src="img/bannerSM.jpg" /><br/>
 			&copy; Apps4Canadians
 			</center>
 			<br>
-	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home </a> |<a href="mailto:apps4canadians@live.com"> Contact |</a>  </center>				
+	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home </a> |<a href="mailto:apps4canadians@live.com"> Contact |</a>  </center>
+				
 		</div><!-- /footer -->
-	<!--</div><!-- /content -->
+	</div><!-- /content -->
 </div><!-- /page -->
+
+		
 </body>
 <script type="text/javascript">
 //global variables to track the order
-var loc1 = localStorage.getItem("A4CCustom0");
-var loc2 = localStorage.getItem("A4CCustom1");
-var loc3 = localStorage.getItem("A4CCustom2");
-var loc4 = localStorage.getItem("A4CCustom3");
-var loc5 = localStorage.getItem("A4CCustom4");
-var loc6 = localStorage.getItem("A4CCustom5");
-var loc7 = localStorage.getItem("A4CCustom6");
-var loc8 = localStorage.getItem("A4CCustom7");
-var loc9 = localStorage.getItem("A4CCustom8");
-var loc10 = localStorage.getItem("A4CCustom9");
-var loc11 = localStorage.getItem("A4CCustom10");
-var myHealth = "A4CHealth";
-var _myHealth = localStorage.getItem(myHealth);
+ var loc9 = 'S9_9'; 
+ var loc8 = 'S9_8'; 
+ var loc7 = 'S9_7'; 
+ var loc6 = 'S9_6'; 
+ var loc5 = 'S9_5';
+ var loc4 = 'S9_4'; 
+ var loc3 = 'S9_3'; 
+ var loc2 = 'S9_2'; 
+ var loc1 = 'S9_1'; 
+ var loc0 = 'S9_0';
+var _myHealth = 2;
 var _storyText = "";
-var imgSrc;
-var storyPos = 0;
+var imgSrc = "http://bsccart.appspot.com/Sports/img/Football/BlankSM.png";
+var pos = 0;
 
-runStory(1);
+
+
+runStory(0);
 
 //show only the selected story div
 	//this code will be in the new page running the story and will use localstorage values
 	function runStory(direction){
 
-		if (loc1 != null && loc2 != null && loc3 != null && loc4 != null && loc5 != null && loc6 != null & loc7 != null && loc8 != null && loc9 != null && loc10 != null){
-		var opt1_A = "1a";
-		var opt1_B = "1b";
-		var opt1_C = "1c";
-		var opt2_A = "2a";
-		var opt2_B = "2b";
-		var opt2_C = "2c";
-		var opt3_A = "3a";
-		var opt3_B = "3b";
-		var opt3_C = "3c";
-		var storyRange = _myHealth;
+		if (loc1 != null && loc2 != null && loc3 != null && loc4 != null){
 		var storyId = 1;
+		//story text
+		pic10H = "this is the high text for pic 10";
+		pic10M = "this is the med text for pic 10"; 
+		pic10L = "this is the low text for pic 10";
+		pic9H = "this is the high text for pic 9";
+		pic9M = "this is the med text for pic 9"; 
+		pic9L = "this is the low text for pic 9";
+		pic8H = "this is the high text for pic 8";
+		pic8M = "this is the med text for pic 8"; 
+		pic8L = "this is the low text for pic 8";
+		pic7H = "this is the high text for pic 7";
+		pic7M = "this is the med text for pic 7"; 
+		pic7L = "this is the low text for pic 7";
+		pic6H = "this is the high text for pic 6";
+		pic6M = "this is the med text for pic 6"; 
+		pic6L = "this is the low text for pic 6";
+		pic5H = "this is the high text for pic 5";
+		pic5M = "this is the med text for pic 5"; 
+		pic5L = "this is the low text for pic 5";
+		pic4H = "this is the high text for pic 4";
+		pic4M = "this is the med text for pic 4"; 
+		pic4L = "this is the low text for pic 4";
+		pic3H = "this is the high text for pic 3";
+		pic3M = "this is the med text for pic 3"; 
+		pic3L = "this is the low text for pic 3";
+		pic2H = "this is the high text for pic 2";
+		pic2M = "this is the med text for pic 2"; 
+		pic2L = "this is the low text for pic 2";
+		pic1H = "this is the high text for pic 1";
+		pic1M = "this is the med text for pic 1"; 
+		pic1L = "this is the low text for pic 1";
+
+	switch (storyId){
+
+	
+	case 1:
+		if (pos == 0){	
+			 
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc0 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc0 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc0 + "H"];
+				}
+				else{
+					_storyText = "position 0 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc0 + ".jpg";
+			}
+			else{
+				_storyText = "Please click forward to start."
+				pos = 0;
+				imgSrc = "http://bsccart.appspot.com/Sports/img/Football/BlankSM.jpg";
+				//console.log(pos);
+				
+			}
+				
+		}
+
+		else if (pos == 1){	
+			 
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc1 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc1 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc1 + "H"];
+				}
+				else{
+					_storyText = "position 1 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc1 + ".jpg";
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc0 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc0 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc0 + "H"];
+				}
+				else{
+					_storyText = "position 1 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc0 + ".jpg";
+				
+			}			
+				
+		}
 		
+		else if (pos == 2){	
+			
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc2 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc2 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc2 + "H"];
+				}
+				else{
+					_storyText = "position 2 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc2 + ".jpg";
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc1 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc1 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc1 + "H"];
+				}
+				else{
+					_storyText = "position 1 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc0 + ".jpg";
+				
+			}			
+				
+		}
 
-		switch(storyId){
-      case 1:
-      if (storyPos == 0){
-        if (storyRange > 0 && storyRange < 19){
-            
-              _storyText = "A1";
-              storyPos = 1;
-            
-                      
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          
-              _storyText = "A2";
-              storyPos =  1;
-           
-          
-        }
-        else if (storyRange > 40 && storyRange < 59){
-         
-              _storyText = "A3";
-              storyPos =  1;
-           
-        }
-        else{
-          _storyText ="1 error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc1 + ".jpg";      
-      }
-      else if (storyPos == 1){
-        if (storyRange > 0 && storyRange < 19){
-            if (direction == 1){
-                _storyText = "B1";
-                storyPos = 2;
-            }
-            else{
-                _storyText = "A1";
-                storyPos = 0;
-            }
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          if (direction == 1){
-                _storyText = "B2";
-                storyPos = 2;
-            }
-            else{
-                _storyText = "A2";
-                storyPos = 0;
-            }
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          if (direction == 1){
-                _storyText = "B3";
-                storyPos = 2;
-            }
-            else{
-                _storyText = "A3";
-                storyPos = 0;
-            }
-        }
-        else{
-          _storyText ="2 error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc2 + ".jpg";
-      
-      }
-      else if (storyPos == 2){
-        if (storyRange > 0 && storyRange < 19){
-            if (direction == 1){
-                _storyText = "C1";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "B1";
-                storyPos = 1;
-            }
-                
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-            if (direction == 1){
-                _storyText = "C2";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "B2";
-                storyPos = 1;
-            }
-        }
-        else if (storyRange > 40 && storyRange < 59){
-            if (direction == 1){
-                _storyText = "C3";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "B3";
-                storyPos = 1;
-            }
-        }
-        else{
-          _storyText ="3 error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc3 + ".jpg";
-      
-      }
-      else if (storyPos == 3){
-        if (storyRange > 0 && storyRange < 19){
-         if (direction == 1){
-                _storyText = "D3";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "C3";
-                storyPos = 1;
-            }
-                
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          if (direction == 1){
-                _storyText = "D3";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "C3";
-                storyPos = 1;
-            }
-          
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          if (direction == 1){
-                _storyText = "D3";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "C3";
-                storyPos = 1;
-            }	
-        }
-        else{
-          _storyText ="4 error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc4 + ".jpg";
-      
-      }
-      else if (storyPos == 4){
-        if (storyRange > 0 && storyRange < 19){
-         if (direction == 1){
-                _storyText = "E3";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "D3";
-                storyPos = 1;
-            }
-                
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          if (direction == 1){
-                _storyText = "E3";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "D3";
-                storyPos = 1;
-            }
-         
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          if (direction == 1){
-                _storyText = "E3";
-                storyPos = 3;
-            }
-            else{
-                _storyText = "D3";
-                storyPos = 1;
-            }
-        }
-        else{
-          _storyText ="5 error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc5 + ".jpg";
-      
-      }
-      else if (storyPos == 5){
-        if (storyRange > 0 && storyRange < 19){
-          _storyText = opt2_A;
-                
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          
-          _storyText = opt2_B;
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          _storyText = opt2_C;	
-        }
-        else{
-          _storyText ="error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc6 + ".jpg";
-      
-      }
-      else if (storyPos == 6){
-        if (storyRange > 0 && storyRange < 19){
-          _storyText = opt2_A;
-                
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          _storyText = opt2_B;
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          _storyText = opt2_C;	
-        }
-        else{
-          _storyText ="error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc7 + ".jpg";
-      
-      }
-      else if (storyPos == 7){
-        if (storyRange > 0 && storyRange < 19){
-          _storyText = opt2_A;
-                
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          _storyText = opt2_B;
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          _storyText = opt2_C;	
-        }
-        else{
-          _storyText ="error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc8 + ".jpg";
-      
-      }
-      else if (storyPos == 8){
-        if (storyRange > 0 && storyRange < 19){
-          _storyText = opt2_A;
-        
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          
-          _storyText = opt2_B;
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          _storyText = opt2_C;	
-        }
-        else{
-          _storyText ="error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc9 + ".jpg";
-      
-      }
-      else if (storyPos == 9){
-        if (storyRange > 0 && storyRange < 19){
-          _storyText = opt2_A;
-                
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          
-          _storyText = opt2_B;
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          _storyText = opt2_C;	
-        }
-        else{
-          _storyText ="error";
-        }
-        imgSrc = "http://bsccart.appspot.com/Sports/img/Basketball/Stories/" + loc10 + ".jpg";
-      
-      }
-      else{
-        _storyText ="storyposerror";
-      }
+		else if (pos == 3){	
+			
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc3 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc3 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc3 + "H"];
+				}
+				else{
+					_storyText = "position 3 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc3 + ".jpg";
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc2 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc2 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc2 + "H"];
+				}
+				else{
+					_storyText = "position 2 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc1 + ".jpg";
+				
+			}			
+				
+		}	
+		
+		else if (pos == 4){	
+			
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc4 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc4 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc4 + "H"];
+				}
+				else{
+					_storyText = "position 4 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc4 + ".jpg";
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc3 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc3 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc3 + "H"];
+				}
+				else{
+					_storyText = "position 3 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc2 + ".jpg";
+				
+			}			
+				
+		}
 
-      break;
+		else if (pos == 5){	
+			
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc5 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc5 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc5 + "H"];
+				}
+				else{
+					_storyText = "position 5 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc5 + ".jpg";
+				
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc4 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc4 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc4 + "H"];
+				}
+				else{
+					_storyText = "position 4 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc3 + ".jpg";
+				
+			}			
+				
+		}	
 
-      case 2:
-      if (storyPos == 1){
-        if (storyRange > 0 && storyRange < 19){
-          _storyText = "case2"+ opt1_A;
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          
-          _storyText = "case2"+opt1_B;
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          _storyText = "case2"+opt1_C;	
-        }
-        else{
-          _storyText ="case2error";
-        }
-      
-      }
-      break;
+		else if (pos == 6){	
+			
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc6 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc6 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc6 + "H"];
+				}
+				else{
+					_storyText = "position 6 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc6 + ".jpg";
+				
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc5 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc5 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc5 + "H"];
+				}
+				else{
+					_storyText = "position 5 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc4 + ".jpg";
+				
+			}			
+				
+		}	
 
-      case 3:
-      if (storyPos == 2){
-        if (storyRange > 0 && storyRange < 19){
-          _storyText = opt1_A;
-        }
-        else if (storyRange > 20 && storyRange < 39){	
-          
-          _storyText = opt1_B;
-        }
-        else if (storyRange > 40 && storyRange < 59){
-          _storyText = opt1_C;	
-        }
-        else{
-          _storyText ="case3error";
-        }
-      
-      }
-      break;
+		else if (pos == 7){	
+			
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc7 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc7 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc7 + "H"];
+				}
+				else{
+					_storyText = "position 7 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc7 + ".jpg";
+				
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc6 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc6 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc6 + "H"];
+				}
+				else{
+					_storyText = "position 6 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc5 + ".jpg";
+				
+			}			
+				
+		}	
 
-		default:
+		else if (pos == 8){	
+			
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc8 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc8 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc8 + "H"];
+				}
+				else{
+					_storyText = "position 8 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc8 + ".jpg";
+				
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc7 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc7 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc7 + "H"];
+				}
+				else{
+					_storyText = "position 7 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc6 + ".jpg";
+				
+			}			
+				
+		}	
+
+		else if (pos == 9){	
+			
+			if (direction == 1){
+						
+				if (_myHealth > 0 && _myHealth < 19){
+					_storyText = this[loc9 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc9 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc9 + "H"];
+				}
+				else{
+					_storyText = "position 7 error";
+				}
+				pos = pos + 1;//console.log(pos);
+				imgSrc =  loc9 + ".jpg";
+				
+			}
+			else{
+				if (_myHealth > 0 && _myHealth < 19){
+				_storyText = this[loc7 + "L"];
+				}
+				else if (_myHealth > 20 && _myHealth < 39){
+					_storyText = this[loc7 + "M"];
+				}
+				else if (_myHealth > 40 && _myHealth < 59){
+					_storyText = this[loc7 + "H"];
+				}
+				else{
+					_storyText = "position 7 error";
+				}
+				pos = pos - 1;//console.log(pos);
+				imgSrc =  loc7 + ".jpg";
+				
+			}			
+				
+		}				
+					
+		
+		else{
+			if (direction == 1){
+				_storyText = "the end";
+				imgSrc = "http://bsccart.appspot.com/Sports/img/Football/BlankSM.png";
+				pos = 0;
+			}
+			else{
+				_storyText = "the beginning";
+				imgSrc = "http://bsccart.appspot.com/Sports/img/Football/BlankSM.png";
+				pos = 0;
+			}
+		}
+		
+		break;
+
+	default:
 		_storyText ="switcherror";
+		imgSrc = "http://bsccart.appspot.com/Sports/img/Football/BlankSM.png";
+
 	}
-//alert('storytext' + _storyText);
+
+
 	document.getElementById("pStory").innerHTML = _storyText;
 	document.getElementById("imgStory").src = imgSrc;
 

@@ -17,6 +17,8 @@
 </script>
 
 
+
+
 <style>
 /* these are special */
 .slip-reordering {
@@ -101,7 +103,38 @@ h1 {
 h1+p {
     overflow:auto; margin-top: 0.2em;
 }
+
+.link2{
+border:solid 1px #aaa;
+border-radius:15px;
+background-color: #89ba38;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+margin:10px 3px 10px 3px;
+padding 8px;
+display: inline-block;
+}
+.link2:hover {background-color: yellow;}
+
+.link3{
+border:solid 1px #aaa;
+border-radius:15px;
+background-color: lightsteelblue;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+margin:10px 3px 10px 3px;
+padding 8px;
+display: inline-block;
+}
+.link3:hover {background-color: yellow;}
+
+
 </style>
+
+
+
 <body>
 <div data-role="page">
 	<div data-role="header" data-theme="a">
@@ -126,11 +159,15 @@ h1+p {
 		</div><!-- /navbar-->		
 	</div><!-- /header -->	
 	<div id="content" data-role="content">
-	<a href="#" onclick="Generate();return false;">[CREATE]</a><br/>
-	<a href="#" onclick="javascript:resetStory()" >[RESET]</a><br/><br/>
-  <a href="Generateread.html" rel="external" data-transition="slideup" data-prefetch>[READ STORY]</a>
-	<br/>
-		<!--element with draggable pictures-->
+	
+
+<a href="#" onclick="Generate();return false;" class="link2" >&nbsp;&nbsp;&nbsp;create&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;
+	<a href="#" onclick="javascript:resetStory()" class="link2">&nbsp;&nbsp;&nbsp;reset&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;
+  	<a href="Generateread_wip.html" rel="external" data-transition="slideup" data-prefetch class="link3">&nbsp;&nbsp;&nbsp;read&nbsp;&nbsp;&nbsp;</a>
+	<br/>	
+
+
+<!--element with draggable pictures-->
 <ol id="slippylist">
     <li class="demo-no-reorder"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_0.jpg" width="50" height="50" /><input id="Field_1" type="hidden" value="S9_0" />A</li>
     <li class="demo-no-swipe"><img src="http://bsccart.appspot.com/Sports/img/Basketball/Stories/S9_1.jpg" width="50" height="50" /><input id="Field_2" type="hidden" value="S9_1"/>B <span class="instant">or instantly</span></li>

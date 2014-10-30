@@ -1,53 +1,74 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Dad, Put Me In The Game</title>		
-		<!-- SOCIAL SHARING PLUGIN -->
-		<script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" src="js/SocialSharing.js"></script>		
-		
-			
-		<!-- CAROUSEL  -->
-        <link rel="stylesheet" type="text/css" href="jcarousel.responsive.css">
-        <link rel="stylesheet" type="text/css" href="carouselstyle.css">		
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
-        <script type="text/javascript" src="jcarousel.responsive.js"></script>
-		
-			
-		<link rel="stylesheet"  href="http://demos.jquerymobile.com/1.3.0-beta.1/css/themes/default/jquery.mobile-1.3.0-beta.1.css">
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="http://demos.jquerymobile.com/1.3.0-beta.1/js/jquery.mobile-1.3.0-beta.1.js"></script>
-		<link rel="stylesheet" href="style.css" />
-		
-	
-	<script type="text/javascript">
-	
-	function Setup(storyName){
-		var strStory = storyName;		
-		var strTeamFind = storyName.indexOf("-");
-		var len = storyName.length;
-		var strLeague = storyName.substr(strTeamFind-3, 3);
-		localStorage.setItem("A4CSportsStory", strStory);
-		window.location.href = strLeague + ".html";
-	}	
-	
-	document.addEventListener("deviceready", onDeviceReady, false);
-	  
-	   // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator"
+        content="HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org" />
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1" />
+
+  <title>Dad, Put Me In The Game</title><!-- SOCIAL SHARING PLUGIN -->
+
+  <script type="text/javascript"
+        src="cordova.js">
+</script>
+  <script type="text/javascript"
+        src="js/SocialSharing.js">
+</script><!-- CAROUSEL  -->
+  <link rel="stylesheet"
+        type="text/css"
+        href="jcarousel.responsive.css" />
+  <link rel="stylesheet"
+        type="text/css"
+        href="carouselstyle.css" />
+  <script type="text/javascript"
+        src="js/jquery.js">
+</script>
+  <script type="text/javascript"
+        src="js/jquery.jcarousel.min.js">
+</script>
+  <script type="text/javascript"
+        src="jcarousel.responsive.js">
+</script>
+  <link rel="stylesheet"
+        href=
+        "http://demos.jquerymobile.com/1.3.0-beta.1/css/themes/default/jquery.mobile-1.3.0-beta.1.css"
+        type="text/css" />
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"
+        type="text/javascript">
+</script>
+  <script src=
+  "http://demos.jquerymobile.com/1.3.0-beta.1/js/jquery.mobile-1.3.0-beta.1.js"
+        type="text/javascript">
+</script>
+  <link rel="stylesheet"
+        href="style.css"
+        type="text/css" />
+  <script type="text/javascript">
+//<![CDATA[
+        
+        function Setup(storyName){
+                var strStory = storyName;               
+                var strTeamFind = storyName.indexOf("-");
+                var len = storyName.length;
+                var strLeague = storyName.substr(strTeamFind-3, 3);
+                localStorage.setItem("A4CSportsStory", strStory);
+                window.location.href = strLeague + ".html";
+        }       
+        
+        document.addEventListener("deviceready", onDeviceReady, false);
+          
+           // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     function onDeviceReady() {
         // Now safe to use the PhoneGap API
-		
+                
     }
-	  
-	   // Vibrate for 2 seconds
+          
+           // Vibrate for 2 seconds
     function vibrate() {
         navigator.notification.vibrate(2000);
     }
-	  
-	  // Show a custom alert
+          
+          // Show a custom alert
      function showAlert() {
         navigator.notification.alert(
             'You are the winner!',  // message
@@ -61,218 +82,340 @@
         navigator.notification.beep(3);
     }
 
-	
-	
+        
+        
        
-	 </script> 
-   
-
-	<style>
-	#grad1 {
+  //]]>
+  </script>
+  <style type="text/css">
+/*<![CDATA[*/
+        #grad1 {
    
      height: 40px;
     background: -webkit-linear-gradient(-90deg, red, yellow); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(-90deg, red, yellow); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(-90deg, red, yellow); /* For Firefox 3.6 to 15 */
     background: linear-gradient(-90deg, red, yellow); /* Standard syntax (must be last) */
-	}
-	
-	p.serif {    
-			font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-			font-size: 18px;
-	}
-	
-	</style>
-	</head>
-	<body>	
-	
-	
-		<div data-role="page" class="ui-responsive-panel">	
-		
-			<div data-role="header" data-theme="a" id="grad1" style="color:white;text-align:center;">				
-				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>				
-				<a href="#add-form" data-icon="plus" data-iconpos="notext">Add</a>
-			</div><!-- /header -->
-			<div data-role="content" data-theme="d">	
-				
-				<!-- CAROUSEL -->
-				<div class="wrapper">
-				<img src="img/bannerSM2.jpg" id="banner" name="banner" alt="banner">
-				<!--<h2><p><center><img src="img/bannerSM3.jpg" id="banner" name="banner" alt="banner"></center></p></h2><br>	-->		
-				
-				<p class="serif">"enjoy live NFL, NBA, MLB or NHL headlines while reading a personalized story to your child"</p>
-				
-            <div class="jcarousel-wrapper"><img src="img/Library.png" />
-                <div class="jcarousel">				
-                    <ul>
-                        <li><a href="#" onclick="Setup('NFL-Against the Odds')" rel="external" data-transition="slideup" data-prefetch><img src="img/cover1.jpg" alt="NFL1" id="NFL1" name="NFL1"></a></li>
-                        <li><a href="#" onclick="Setup('NBA-President')"rel="external" data-transition="slideup" data-prefetch><img src="img/cover9.jpg" alt="Basketball" id="NBA4" ></a></li>
-						<li><a href="#" onclick="Setup('NFL-Animal Spelling Bee')" rel="external" data-transition="slideup" data-prefetch><img src="img/cover2.jpg" alt="Football" id="Football" name="NFL4" ></a></li>
-                         <li><a href="#" onclick="Setup('NBA-Pass Dribble Shoot')"rel="external" data-transition="slideup" data-prefetch><img src="img/cover8.jpg" alt="Basketball" id="NBA3" ></a></li>
-						<li><a href="#" onclick="Setup('NBA-The Museum Mystery')" rel="external" data-transition="slideup" data-prefetch><img src="img/cover7.jpg" alt="Basketball" id="Basketball" name="NBA1" ></a></li>
-                        <li><a href="#" onclick="Setup('NFL-Carlos Learns About Friendship')" rel="external" data-transition="slideup" data-prefetch><img src="img/cover3.jpg" alt="NFL2" id="NFL2" name="NFL2"></a></li>
-                        <li><a href="#" onclick="Setup('NBA-Robots')"rel="external" data-transition="slideup" data-prefetch><img src="img/cover4.jpg" alt="Basketball" id="NBA2" ></a></li>
-						<li><a href="#" onclick="Setup('NBA-Trouble At The Ant Ball')"rel="external" data-transition="slideup" data-prefetch><img src="img/cover5.jpg" alt="Basketball" id="NBA2" ></a></li>
-						<li><a href="#" onclick="Setup('NFL-Every Sport Needs Smiles')" rel="external" data-transition="slideup" data-prefetch><img src="img/cover6.jpg" alt="NFL3" id="NFL3" ></a> </li>
-                      
-					</ul>
-                </div>
+        }
+        
+        p.serif {    
+                        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+                        font-size: 18px;
+        }
+        
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+                                .nav-search .ui-btn-up-a {
+                                        background-image:none;
+                                        background-color:green;
+                                }
+                                .nav-search .ui-btn-inner {
+                                        border-top: 1px solid white;
+                                        border-color: rgba(255, 255, 255, 1);
+                                }
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+                                        .userform { padding:.8em 1.2em; background-color:white;}
+                                        .userform h2 { color:red; margin:0.3em 0 .8em 0; padding-bottom:.5em; border-bottom:1px solid rgba(0,0,0,.1); }
+                                        .userform p { color:black; margin:0.3em 0 .8em 0; padding-bottom:.5em; border-bottom:1px solid rgba(0,0,0,.1); }
+                                        .userform label { display:block; margin-top:1.2em; }
+                                        .switch .ui-slider-switch { width: 6.5em !important }
+                                        .ui-grid-a { margin-top:1em; padding-top:.8em; margin-top:1.4em; border-top:1px solid rgba(0,0,0,.1); }
+  /*]]>*/
+  </style>
+</head>
 
-                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-				<a href="#" onclick="window.plugins.socialsharing.share('I can read with my children and get sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://bsccart.appspot.com/Sports/img/bannerSM2.jpg', 'http://www.apps4canadians.ca')"><img src="img/Twitter.jpg" /></a>		
-				<p><b><center>KID STORIES FOR SPORT DADS</center></b></p>
-                <p class="jcarousel-pagination"></p>
-            </div>
+<body>
+  <div data-role="page"
+       class="ui-responsive-panel">
+    <div data-role="header"
+         data-theme="a"
+         id="grad1"
+         style="color:white;text-align:center;">
+      <a href="#nav-panel"
+           data-icon="bars"
+           data-iconpos="notext">Menu</a> <a href="#add-form"
+           data-icon="plus"
+           data-iconpos="notext">Add</a>
+    </div><!-- /header -->
+
+    <div data-role="content"
+         data-theme="d">
+      <!-- CAROUSEL -->
+
+      <div class="wrapper">
+        <img src="img/bannerSM2.jpg"
+             id="banner"
+             name="banner"
+             alt="banner" /> 
+             <!--<h2><p><center><img src="img/bannerSM3.jpg" id="banner" name="banner" alt="banner"></center></p></h2><br>   -->
+
+        <p class="serif">"enjoy live NFL, NBA, MLB or NHL headlines while reading a
+        personalized story to your child"</p>
+
+        <div class="jcarousel-wrapper">
+          <img src="img/Library.png" />
+
+          <div class="jcarousel">
+            <ul>
+	      <li><a href="#"
+                 onclick="Setup('EPL-Practice')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover11.jpg"
+                   alt="EPL1"
+                   id="EPL1"
+                   name="EPL1" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NFL-Against the Odds')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover1.jpg"
+                   alt="NFL1"
+                   id="NFL1"
+                   name="NFL1" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NBA-President')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover9.jpg"
+                   alt="Basketball"
+                   id="NBA4" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NFL-Animal Spelling Bee')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover2.jpg"
+                   alt="Football"
+                   id="Football"
+                   name="NFL4" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NBA-Pass Dribble Shoot')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover8.jpg"
+                   alt="Basketball"
+                   id="NBA3" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NBA-The Museum Mystery')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover7.jpg"
+                   alt="Basketball"
+                   id="Basketball"
+                   name="NBA1" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NFL-Carlos Learns About Friendship')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover3.jpg"
+                   alt="NFL2"
+                   id="NFL2"
+                   name="NFL2" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NBA-Robots')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover4.jpg"
+                   alt="Basketball"
+                   id="NBA2" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NBA-Trouble At The Ant Ball')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover5.jpg"
+                   alt="Basketball"
+                   id="NBA2" /></a></li>
+
+              <li><a href="#"
+                 onclick="Setup('NFL-Every Sport Needs Smiles')"
+                 rel="external"
+                 data-transition="slideup"
+                 data-prefetch=""><img src="img/cover6.jpg"
+                   alt="NFL3"
+                   id="NFL3" /></a></li>
+            </ul>
+          </div><a href="#"
+               class="jcarousel-control-prev">&#8249;</a> <a href="#"
+               class="jcarousel-control-next">&#8250;</a> <a href="#"
+               onclick=
+               "window.plugins.socialsharing.share('I can read with my children and get sports headlines for NFL, MLB, NBA and NHL at the same time!', 'Kids, Reading and Sports?', 'http://bsccart.appspot.com/Sports/img/bannerSM2.jpg', 'http://www.apps4canadians.ca')">
+          <img src="img/Twitter.jpg" /></a>
+
+          <center>
+            <b>KID STORIES FOR SPORT DADS</b>
+          </center>
+
+          <p class="jcarousel-pagination"></p>
         </div>
-				<!-- END CAROUSEL -->
-				
-					<!--<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
-				    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
-				    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>-->
-			
-			</div><!-- /content -->
+      </div><!-- END CAROUSEL -->
+      <!--<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+                                    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
+                                    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>-->
+    </div><!-- /content -->
 
-			<div class="jqm-footer">
-				<center>
-		<!--<img src="img/bannerSM2.jpg" /><br/>
-			&copy; Apps4Canadians-->
-			</center>
-			</div><!-- /jqm-footer -->
-			
-			<style>
-				.nav-search .ui-btn-up-a {
-					background-image:none;
-					background-color:green;
-				}
-				.nav-search .ui-btn-inner {
-					border-top: 1px solid white;
-					border-color: rgba(255, 255, 255, 1);
-				}
-			</style>
-			
-			<div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="d">
+    <div class="jqm-footer">
+      <center>
+        <!--<img src="img/bannerSM2.jpg" /><br/>
+                        &copy; Apps4Canadians-->
+      </center>
+    </div><!-- /jqm-footer -->
 
-	<ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-		<li data-icon="delete" style="background-color:#111;">
-			<a href="#" data-rel="close">Close menu</a>
-		</li>
-		
-		<li data-filtertext="NFL">
-			<a href="NFL.html" rel="external" data-transition="slideup" data-prefetch>Football (NFL)</a>
-		</li>
-		<li data-filtertext="NBA">
-			<a href="NBA.html" rel="external" data-transition="slideup" data-prefetch>Basketball (NBA)</a>
-		</li>		
-		<!--<li data-filtertext="MLB">
-			<a href="#" rel="external" data-transition="slideup" data-prefetch>Baseball (coming soon)</a>
-		</li>
-		<li data-filtertext="NHL">
-			<a href="#" rel="external" data-transition="slideup" data-prefetch>Hockey (coming soon)</a>
-		</li>	
-		<li data-filtertext="MLS">
-			<a href="#" rel="external" data-transition="slideup" data-prefetch>Soccer (coming soon)</a>
-		</li>		
-		<li data-filtertext="Tshirt">
-			<a href="Tshirt.html" rel="external" data-transition="slideup" data-prefetch>Fan Zone</a>
-		</li>-->
-		<li data-filtertext="Library">
-			<a href="Library.html" rel="external" data-transition="slideup" data-prefetch>Library</a>
-		</li>
-		<li data-filtertext="Generate">
-			<a href="Generate.html" rel="external" data-transition="slideup" data-prefetch>Generate</a>
-		</li>
-		<li data-filtertext="Generate">
-			<a href="Generate2.html" rel="external" data-transition="slideup" data-prefetch>Generate2</a>
-		</li>
-		<li data-filtertext="Library">
-			<a href="Games.html" rel="external" data-transition="slideup" data-prefetch>Games</a>
-		</li>
-		<!--
-		<li data-filtertext="Speedy">
-			<a href="Gamelogo.html" rel="external" data-transition="slideup" data-prefetch>Speedy</a>
-		</li>
-		<li data-filtertext="Drawing">
-			<a href="Sketch.html" rel="external" data-transition="slideup" data-prefetch>Draw</a>
-		</li>
-		<li data-filtertext="Maze">
-			<a href="#" onclick="javascript:doHomerun()" rel="external" data-transition="slideup" data-prefetch>Baseball Maze Game</a>
-		</li>
-		<li data-filtertext="Maze">
-			<a href="#" onclick="javascript:doBasketball()" rel="external" data-transition="slideup" data-prefetch>Basketball Maze Game</a>
-		</li>
-		<li data-filtertext="Maze">
-			<a href="#" onclick="javascript:doFootball()" rel="external" data-transition="slideup" data-prefetch>Football Maze Game</a>
-		</li>-->
-		<li data-filtertext="Store">
-			<a href="http://astore.amazon.com/ksfsdnfl-20" rel="external" data-transition="slideup" data-prefetch>Shop</a>
-		</li>
-		<!--<li data-filtertext="Test">
-			<a href="test.html" rel="external" data-transition="slideup" data-prefetch>TEST</a>
-		</li>-->		
-			
-	</ul>
+    <div data-role="panel"
+         data-position="left"
+         data-position-fixed="false"
+         data-display="reveal"
+         id="nav-panel"
+         data-theme="d">
+      <ul data-role="listview"
+          data-theme="a"
+          data-divider-theme="a"
+          style="margin-top:-16px;"
+          class="nav-search">
+        <li data-icon="delete"
+            style="background-color:#111;"><a href="#"
+           data-rel="close">Close menu</a></li>
 
-	<!-- panel content goes here -->
-</div><!-- /panel -->
-			
+        <li data-filtertext="NFL"><a href="NFL.html"
+           rel="external"
+           data-transition="slideup"
+           data-prefetch="">Football (NFL)</a></li>
 
-				<style>
-					.userform { padding:.8em 1.2em; background-color:white;}
-					.userform h2 { color:red; margin:0.3em 0 .8em 0; padding-bottom:.5em; border-bottom:1px solid rgba(0,0,0,.1); }
-					.userform p { color:black; margin:0.3em 0 .8em 0; padding-bottom:.5em; border-bottom:1px solid rgba(0,0,0,.1); }
-					.userform label { display:block; margin-top:1.2em; }
-					.switch .ui-slider-switch { width: 6.5em !important }
-					.ui-grid-a { margin-top:1em; padding-top:.8em; margin-top:1.4em; border-top:1px solid rgba(0,0,0,.1); }
-                </style>
+        <li data-filtertext="NBA"><a href="NBA.html"
+           rel="external"
+           data-transition="slideup"
+           data-prefetch="">Basketball (NBA)</a></li>
+	<li data-filtertext="EPL"><a href="EPL.html" rel="external" data-transition="slideup" data-prefetch>Soccer</a>
+                </li>
+	<!--<li data-filtertext="MLB">
+                        <a href="#" rel="external" data-transition="slideup" data-prefetch>Baseball (coming soon)</a>
+                </li>
+                <li data-filtertext="NHL">
+                        <a href="#" rel="external" data-transition="slideup" data-prefetch>Hockey (coming soon)</a>
+                </li>   
+                           
+                <li data-filtertext="Tshirt">
+                        <a href="Tshirt.html" rel="external" data-transition="slideup" data-prefetch>Fan Zone</a>
+                </li>-->
 
-				<div data-role="panel" data-position="right" data-position-fixed="false" data-display="overlay" id="add-form" data-theme="e">
+        <li data-filtertext="Library"><a href="Library.html"
+           rel="external"
+           data-transition="slideup"
+           data-prefetch="">Library</a></li>
 
-					<form class="userform">
-						<h2>FAQ</h2>								   
-						<p><b>1. What is Dad, Put Me In The Game?</b><br>
-						"Dad, Put Me In The Game" provides personalized and original sports themed children stories.  Each story includes the latest league and team sports headlines based upon your personal interest.  If you're a Dallas Cowboys fan then your child's story will include the latest NFL and Cowboys news, and if you're a Los Angeles Lakers fan then you'll enjoy the latest NBA and Lakers news.  "Dad, Put Me In The Game" provides stories for all National Football League (NFL), National Basketball Association (NBA), Major League Baseball (MLB) and National Hockey League (NHL) teams.
-						<br>
-						<b>2. Why do I have to enter a name and city in order to begin each story?</b><br>
-						Each story is personalized for your child so we request a name and city value be entered in order to be shown in the story.  We don't collect any of the information you enter and you can enter any personal name and any city name.  It just helps to make the story more personalized for your child.
-						<br>
-						<b>3. Can you add more leagues?</b><br>
-						Yes, we will be adding more leagues in future releases.  We are presently working on adding football (soccer).
-						<br>
-						<b>4. Affiliations?</b><br>
-						We are not affilliated or associated with either the National Football League, Major League Baseball, National Hockey League, National Basketball Association or any of their teams.
-						<br>
-						</p>
-						<!--
-						<label for="name">First Name</label>
-						<input type="text" name="fname" id="fname" value="" data-clear-btn="true" data-mini="true">
-						
-						<label for="name">Last Name</label>
-						<input type="text" name="lname" id="lname" value="" data-clear-btn="true" data-mini="true">
+        <li data-filtertext="Generate"><a href="Generate.html"
+           rel="external"
+           data-transition="slideup"
+           data-prefetch="">Generate</a></li>
+
+        <li data-filtertext="Generate"><a href="Generate2.html"
+           rel="external"
+           data-transition="slideup"
+           data-prefetch="">Generate2</a></li>
+
+        <li data-filtertext="Library"><a href="Games.html"
+           rel="external"
+           data-transition="slideup"
+           data-prefetch="">Games</a></li><!--
+                <li data-filtertext="Speedy">
+                        <a href="Gamelogo.html" rel="external" data-transition="slideup" data-prefetch>Speedy</a>
+                </li>
+                <li data-filtertext="Drawing">
+                        <a href="Sketch.html" rel="external" data-transition="slideup" data-prefetch>Draw</a>
+                </li>
+                <li data-filtertext="Maze">
+                        <a href="#" onclick="javascript:doHomerun()" rel="external" data-transition="slideup" data-prefetch>Baseball Maze Game</a>
+                </li>
+                <li data-filtertext="Maze">
+                        <a href="#" onclick="javascript:doBasketball()" rel="external" data-transition="slideup" data-prefetch>Basketball Maze Game</a>
+                </li>
+                <li data-filtertext="Maze">
+                        <a href="#" onclick="javascript:doFootball()" rel="external" data-transition="slideup" data-prefetch>Football Maze Game</a>
+                </li>-->
+
+        <li data-filtertext="Store"><a href="http://astore.amazon.com/ksfsdnfl-20"
+           rel="external"
+           data-transition="slideup"
+           data-prefetch="">Shop</a></li><!--<li data-filtertext="Test">
+                        <a href="test.html" rel="external" data-transition="slideup" data-prefetch>TEST</a>
+                </li>-->
+      </ul><!-- panel content goes here -->
+    </div><!-- /panel -->
+
+    <div data-role="panel"
+         data-position="right"
+         data-position-fixed="false"
+         data-display="overlay"
+         id="add-form"
+         data-theme="e">
+      <form class="userform">
+        <h2>FAQ</h2>
+
+        <p><b>1. What is Dad, Put Me In The Game?</b><br />
+        "Dad, Put Me In The Game" provides personalized and original sports themed
+        children stories. Each story includes the latest league and team sports headlines
+        based upon your personal interest. If you're a Dallas Cowboys fan then your
+        child's story will include the latest NFL and Cowboys news, and if you're a Los
+        Angeles Lakers fan then you'll enjoy the latest NBA and Lakers news. "Dad, Put Me
+        In The Game" provides stories for all National Football League (NFL), National
+        Basketball Association (NBA), Major League Baseball (MLB) and National Hockey
+        League (NHL) teams.<br />
+        <b>2. Why do I have to enter a name and city in order to begin each
+        story?</b><br />
+        Each story is personalized for your child so we request a name and city value be
+        entered in order to be shown in the story. We don't collect any of the
+        information you enter and you can enter any personal name and any city name. It
+        just helps to make the story more personalized for your child.<br />
+        <b>3. Can you add more leagues?</b><br />
+        Yes, we will be adding more leagues in future releases. We are presently working
+        on adding football (soccer).<br />
+        <b>4. Affiliations?</b><br />
+        We are not affilliated or associated with either the National Football League,
+        Major League Baseball, National Hockey League, National Basketball Association or
+        any of their teams.<br /></p><!--
+                                                <label for="name">First Name</label>
+                                                <input type="text" name="fname" id="fname" value="" data-clear-btn="true" data-mini="true">
+                                                
+                                                <label for="name">Last Name</label>
+                                                <input type="text" name="lname" id="lname" value="" data-clear-btn="true" data-mini="true">
 
 
-						<label for="email">Email</label>
-						<input type="email" name="email" id="email" value="" data-clear-btn="true" data-mini="true">
-						-->
-						<br>
-						<button onclick="window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time!  ', 'Kids, Reading and Sports?')">Comments</button>
-				
-						<!--<a href="mailto:apps4canadians@live.com?body=COMMENTS%20Sports!" + </script>COMMENTS</a>-->
-						
-						<!--
-						<div class="ui-grid-a">
-						    <div class="ui-block-a"><a href="#" data-rel="close" data-role="button" data-theme="c" data-mini="true">Cancel</a></div>
-						    <div class="ui-block-b"><a href="#" data-rel="close" data-role="button" data-theme="b" data-mini="true">Save</a></div>
-						</div>
-						-->
-					</form>
+                                                <label for="email">Email</label>
+                                                <input type="email" name="email" id="email" value="" data-clear-btn="true" data-mini="true">
+                                                -->
+        <br />
+        <button onclick=
+        "window.plugins.socialsharing.share('I can read with my children and get my ESPN sports headlines for NFL, MLB, NBA and NHL at the same time! ', 'Kids, Reading and Sports?')">
+        Comments</button> 
+        <!--<a href="mailto:apps4canadians@live.com?body=COMMENTS%20Sports!" + </script>COMMENTS</a>-->
+         <!--
+                                                <div class="ui-grid-a">
+                                                    <div class="ui-block-a"><a href="#" data-rel="close" data-role="button" data-theme="c" data-mini="true">Cancel</a></div>
+                                                    <div class="ui-block-b"><a href="#" data-rel="close" data-role="button" data-theme="b" data-mini="true">Save</a></div>
+                                                </div>
+                                                -->
+      </form><!-- panel content goes here -->
+    </div><!-- /panel -->
 
-					<!-- panel content goes here -->
-				</div><!-- /panel -->
-				
-		<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home</a> | <a href="mailto:apps4canadians@live.com">Contact |</a>  </center>
-			
-		</div><!-- /page -->
-	</body>
-
+    <center>
+      <a href="index.html"
+              rel="external"
+              data-transition="slideup"
+              data-prefetch="">| Home</a> | <a href=
+              "mailto:apps4canadians@live.com">Contact |</a>
+    </center>
+  </div><!-- /page -->
+</body>
 </html>

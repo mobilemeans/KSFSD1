@@ -51,17 +51,27 @@ function displayWeather2(data){
 		weather = data.weather[0].description;
 	  };
 	  
-	  //get sport
-	  if (localStorage.getItem("A4CLeague") == "basketball/nba"){
+	  
+
+//get sport
+	  
+if (localStorage.getItem("A4CLeague") == "basketball/nba"){
 					strLeague = "basketball";
 	  }
-	  else if(localStorage.getItem("A4CLeague") == "football/nfl"){
+	  
+else if(localStorage.getItem("A4CLeague") == "football/nfl"){
 					strLeague = "football";
 	  }
-	  else if(localStorage.getItem("A4CLeague") == "hockey/nhl"){
+
+else if(localStorage.getItem("A4CLeague") == "football/epl"){
+					strLeague = "football";
+	  }
+	  
+else if(localStorage.getItem("A4CLeague") == "hockey/nhl"){
 					strLeague = "hockey";
 	  }
-	  else{
+	  
+else{
 					strLeague = "baseball";
 	  }
     

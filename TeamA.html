@@ -1,198 +1,229 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>DAD, PUT ME IN THE GAME</title>
-<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
-<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
-<script src="js/doNavigation.js"></script>
-<link rel="stylesheet" href="style.css" />
+  <meta name="generator"
+        content="HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org" />
+  <meta http-equiv="Content-Type"
+        content="text/html; charset=us-ascii" />
 
-
-<!-- BEGIN FEED -->
-	<script src="http://www.google.com/jsapi/?key=internal-sample" type="text/javascript"></script>
-
-    <!-- Dynamic Feed Control and Stylesheet -->
-    <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
-    <style type="text/css">
-      @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
-    </style>
-
- 
-<script type="text/javascript">
-$(document).ready(function(){
-
-
-});	
+  <title>DAD, PUT ME IN THE GAME</title>
+  <script type="text/javascript"
+        src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js">
 </script>
-<style>
-	p.serif {    
-			font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-			font-size: 18px;
-		}		
-	</style>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet"
+        href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"
+        type="text/css" />
+  <script type="text/javascript"
+        src="http://code.jquery.com/jquery-1.6.3.min.js">
+</script>
+  <script type="text/javascript"
+        src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js">
+</script>
+  <script type="text/javascript"
+        src="http://www.modernizr.com/downloads/modernizr-latest.js">
+</script>
+  <script src="js/doNavigation.js"
+        type="text/javascript">
+</script>
+  <link rel="stylesheet"
+        href="style.css"
+        type="text/css" /><!-- BEGIN FEED -->
+
+  <script src="http://www.google.com/jsapi/?key=internal-sample"
+        type="text/javascript">
+</script><!-- Dynamic Feed Control and Stylesheet -->
+
+  <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
+        type="text/javascript">
+</script>
+  <style type="text/css">
+/*<![CDATA[*/
+      @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+  /*]]>*/
+  </style>
+  <script type="text/javascript">
+//<![CDATA[
+  $(document).ready(function(){
+
+
+  });     
+  //]]>
+  </script>
+  <style type="text/css">
+/*<![CDATA[*/
+        p.serif {    
+                        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+                        font-size: 18px;
+                }               
+  /*]]>*/
+  </style>
 </head>
+
 <body>
- <script type="text/javascript">
-            //<![CDATA[ 
-			/* personalization */
-			var _myCity = localStorage.getItem("A4CSportsCity");
-			var _myName = localStorage.getItem("A4CSportsName");
-			var _myAge = localStorage.getItem("A4CSportsAge");
-			var _myTeam = localStorage.getItem("A4CTeamName");
-			var _myPlayer = localStorage.getItem("A4CPlayerName");
-			var _storyId = localStorage.getItem("A4CSportsStory");
-			var _myLeague = localStorage.getItem("A4CLeague");
+  <script type="text/javascript">
+          //<![CDATA[ 
+                        /* personalization */
+                        var _myCity = localStorage.getItem("A4CSportsCity");
+                        var _myName = localStorage.getItem("A4CSportsName");
+                        var _myAge = localStorage.getItem("A4CSportsAge");
+                        var _myTeam = localStorage.getItem("A4CTeamName");
+                        var _myPlayer = localStorage.getItem("A4CPlayerName");
+                        var _storyId = localStorage.getItem("A4CSportsStory");
+                        var _myLeague = localStorage.getItem("A4CLeague");
+                        
+                        var strTeamFind = _myTeam.indexOf("-");
+                        var n = _myTeam.indexOf("-");
+                        var len = _myTeam.length;
+                        var strTeamName = _myTeam.substr(n+1, len-n);   
+                        
+                        var _sport = "";
+                        if (_myLeague.indexOf("nfl") > 0){                              
+                                _sport = "football";
+                        }
+                        else if (_myLeague.indexOf("mlb") > 0){
+                                _sport = "baseball";
+                        }
+                        else if (_myLeague.indexOf("nhl") > 0){
+                                _sport = "hockey";
+                        }
+			else if (_myLeague.indexOf("epl") > 0){
+                                _sport = "football";
+                        }
 			
-			var strTeamFind = _myTeam.indexOf("-");
-			var n = _myTeam.indexOf("-");
-			var len = _myTeam.length;
-			var strTeamName = _myTeam.substr(n+1, len-n);	
-			
-			var _sport = "";
-			if (_myLeague.indexOf("nfl") > 0){				
-				_sport = "football";
-			}
-			else if (_myLeague.indexOf("mlb") > 0){
-				_sport = "baseball";
-			}
-			else if (_myLeague.indexOf("nhl") > 0){
-				_sport = "hockey";
-			}
-			else{
-				_sport = "basketball";
-			}
+                        else {
+                                _sport = "basketball";
+                        }
 
 
-			/*customize the story text */
-			//customize story text 
-			var text = "";
-			var text2 = "";	
-	
-			if (_storyId == "1"){	
-				text = _myName + " had read in the latest " + _sport + " headlines that the Rastila Reds had one flaw in their defence.  But what was it? ";
-				text2 = "";	
-			}
-			else if (_storyId == "2"){	
-				text = _myName +" would read all of the " +_sport+ " headlines each day after helping to clean up after dinner.";
-				text2 = "";	
-			}
-			else if (_storyId == "3"){	
-				text = _myName + " was very excited and wanted to check if their big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
-				text2 = "";	
-			}
-			else if (_storyId == "4"){	
-				text = "The announcement was so new that Bolt could not see it in the " + _sport + " headlines for today.  Bolt and " + _myName + " wished that they could go to Planet Lime.<br><br>Can you read the headlines from today?";	
-				text2 = "";	
-			}
-			else if (_storyId == "5"){	
-				text = _myName + " wondered if the Ant Ball was in the " + _sport + " headlines for today.  " + _myName + " began to read the latest " + _sport + " news.";
-				text2 = "";
-			}
-			else if (_storyId == "6"){	
-				text = "The kingdom was normally filled with fun and games that gathered people from all across the land.  The princess read each one of the latest " + _sport + " headlines and she coud not find any stories about the kingdom.  <br><br><i>Do you see any stories about the Magestic Kingdom?<i>";
-				text2 = "";	
-			}
-			else if (_storyId == "9"){	
-				text = "The President was looking at the latest " + _sport + " news and read each headline to see if the game with " + _myName + " was being discussed.";
-				text2 = "";	
-			}
-			else{
-				text = _myName + " was very excited and wanted to check if their big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
-					
-			};
+                        /*customize the story text */
+                        //customize story text 
+                        var text = "";
+                        var text2 = ""; 
+        
+                        if (_storyId == "1"){   
+                                text = _myName + " had read in the latest " + _sport + " headlines that the Rastila Reds had one flaw in their defence.  But what was it? ";
+                                text2 = "";     
+                        }
+                        else if (_storyId == "2"){      
+                                text = _myName +" would read all of the " +_sport+ " headlines each day after helping to clean up after dinner.";
+                                text2 = "";     
+                        }
+                        else if (_storyId == "3"){      
+                                text = _myName + " was very excited and wanted to check if their big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
+                                text2 = "";     
+                        }
+                        else if (_storyId == "4"){      
+                                text = "The announcement was so new that Bolt could not see it in the " + _sport + " headlines for today.  Bolt and " + _myName + " wished that they could go to Planet Lime.<br><br>Can you read the headlines from today?";   
+                                text2 = "";     
+                        }
+                        else if (_storyId == "5"){      
+                                text = _myName + " wondered if the Ant Ball was in the " + _sport + " headlines for today.  " + _myName + " began to read the latest " + _sport + " news.";
+                                text2 = "";
+                        }
+                        else if (_storyId == "6"){      
+                                text = "The kingdom was normally filled with fun and games that gathered people from all across the land.  The princess read each one of the latest " + _sport + " headlines and she coud not find any stories about the kingdom.  <br><br><i>Do you see any stories about the Magestic Kingdom?<i>";
+                                text2 = "";     
+                        }
+                        else if (_storyId == "9"){      
+                                text = "The President was looking at the latest " + _sport + " news and read each headline to see if the game with " + _myName + " was being discussed.";
+                                text2 = "";     
+                        }
+                        else{
+                                text = _myName + " was very excited and wanted to check if their big game was in the " + _sport + " headlines for today. Everyone began to read the latest " + _sport + " news.";
+                                        
+                        };
 
-			
+                        
 
             /* configuration */
             var maxLength = 10;
-			/* writing HTML */
+                        /* writing HTML */
             document.write(
                 '<div data-role="page" id="list">' +
                 '<div data-role="header" data-theme="a">' +
                 '<div data-role="navbar" data-theme="c">' +
                 '<ul>' +
-                '<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"></a></li>' + 
-      			'<li><a href="TeamB.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ></a></li>' + 
-				'<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"></a></li>'+ 
-                '</ul>' +
-                '</div>' + <!-- /navbar--> 
-            '  </div>' + <!-- /header -->  
+                '<li><a href="index.html" rel="external" data-transition="slideup" data-prefetch data-icon="home"><\/a><\/li>' + 
+                        '<li><a href="TeamB.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-l" ><\/a><\/li>' + 
+                                '<li><a href="S1.html" rel="external" data-transition="slidedown" data-prefetch data-icon="arrow-r"><\/a><\/li>'+ 
+                '<\/ul>' +
+                '<\/div>' + <!-- /navbar--> 
+            '  <\/div>' + <!-- /header -->  
             
             '  <div data-role="content" data-theme="e">' +              
                '    <ul data-role="listview" data-filter="false" id="articleList">');
           
-		   for (var i = 1; i <= 1; i++) {
+                   for (var i = 1; i <= 1; i++) {
                 document.write(
-                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;</a></li>');-->
-					'<p class="serif">'+text+'</p>'+
-					'<p class="serif">"The first headline <a href="#article' + i + '" id="link' + i + '">&nbsp;</a> may mention something about the game in  '+_myCity +'." said '+_myName +'.</p>');
+                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a><\/li>');-->
+                                        '<p class="serif">'+text+'<\/p>'+
+                                        '<p class="serif">"The first headline <a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a> may mention something about the game in  '+_myCity +'." said '+_myName +'.<\/p>');
             }
-			for (var i = 2; i <= 2; i++) {
+                        for (var i = 2; i <= 2; i++) {
                 document.write(
-                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;</a></li>');-->
-					'<p class="serif">'+_myName +' thought '+_myCity +' would definitely be in the second headline <a href="#article' + i + '" id="link' + i + '">&nbsp;</a> but no luck.</p>');
+                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a><\/li>');-->
+                                        '<p class="serif">'+_myName +' thought '+_myCity +' would definitely be in the second headline <a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a> but no luck.<\/p>');
             }
-			for (var i = 3; i <= 3; i++) {
+                        for (var i = 3; i <= 3; i++) {
                 document.write(
-                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;</a></li>');-->
-					'<p class="serif">The third '+_sport +' headline which read <a href="#article' + i + '" id="link' + i + '">&nbsp;</a> was interesting but was still not what '+_myName +' wanted to find.</p>');
-					
+                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a><\/li>');-->
+                                        '<p class="serif">The third '+_sport +' headline which read <a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a> was interesting but was still not what '+_myName +' wanted to find.<\/p>');
+                                        
             }
-			
-			for (var i = 4; i <= 4; i++) {
+                        
+                        for (var i = 4; i <= 4; i++) {
                 document.write(
-                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;</a></li>');-->
-					'<p class="serif"> The fourth and last headline was <a href="#article' + i + '" id="link' + i + '">&nbsp;</a>.</p>'+
-					'<p class="serif">'+_myName+' did not find any information and scanned the rest of the headlines.</p>');
-			}
-			for (var i = 5; i <= 10; i++) {
+                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a><\/li>');-->
+                                        '<p class="serif"> The fourth and last headline was <a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a>.<\/p>'+
+                                        '<p class="serif">'+_myName+' did not find any information and scanned the rest of the headlines.<\/p>');
+                        }
+                        for (var i = 5; i <= 10; i++) {
                 document.write(
-                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;</a></li>');-->
-					
-					'<p class="serif"> -- <a href="#article' + i + '" id="link' + i + '">&nbsp;</a>.</p>');
-			}
+                    <!--'<li id="list' + i + '"><a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a><\/li>');-->
+                                        
+                                        '<p class="serif"> -- <a href="#article' + i + '" id="link' + i + '">&nbsp;<\/a>.<\/p>');
+                        }
             document.write(
-				'</ul>' +
-				
-				
-				
-				
-                '  </div>' +
-				'  <br/><br/><a href="TeamB.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /></a>' +
-				'	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' +
-				'	<a href="S1.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /></a>' +
-				'  <div id="footer"><center>' +
-				'		<img src="img/bannerSM.jpg" /><br/>' +
-				'		&copy; Apps4Canadians' +
-				'		</center>' +
-				'		<br>' +
-				'		<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home</a>- <a href="mailto:apps4canadians@live.com">Contact</a> - </center>' +
-				'	</div>' +
-                '</div>');
+                                '<\/ul>' +
+                                
+                                
+                                
+                                
+                '  <\/div>' +
+                                '  <br/><br/><a href="TeamB.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Previous.png" /><\/a>' +
+                                '       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' +
+                                '       <a href="S1.html" rel="external" data-transition="slidedown" data-prefetch><img src="img/Next.png" /><\/a>' +
+                                '  <div id="footer"><center>' +
+                                '               <img src="img/bannerSM.jpg" /><br/>' +
+                                '               &copy; Apps4Canadians' +
+                                '               <\/center>' +
+                                '               <br>' +
+                                '               <center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>Home<\/a>- <a href="mailto:apps4canadians@live.com">Contact<\/a> - <\/center>' +
+                                '       <\/div>' +
+                '<\/div>');
             for (i = 1; i <= maxLength; i++) {
                 document.write(
                     '<div data-role="page" id="article' + i + '">' +
                     '  <div data-role="header" data-position="inline">' +
-                    '    <a href="#list" data-role="button" data-icon="home" data-back="true">Return to list</a>' +
-                    '    <h1 id="articleHeader' + i + '">&nbsp;</h1>' +
+                    '    <a href="#list" data-role="button" data-icon="home" data-back="true">Return to list<\/a>' +
+                    '    <h1 id="articleHeader' + i + '">&nbsp;<\/h1>' +
                     '    <a href="#" id="openButton' + i + '" data-role="button" data-icon="plus"' +
-                    '      class="ui-btn-right" rel="external">Open</a>' +
-                    '  </div>' +
+                    '      class="ui-btn-right" rel="external">Open<\/a>' +
+                    '  <\/div>' +
                     '  <div data-role="content">' +
-                    '    <div id="articleContent' + i + '" class="articleContent"></div>' +
+                    '    <div id="articleContent' + i + '" class="articleContent"><\/div>' +
                     '    <div data-role="controlgroup" data-type="horizontal">' +
                     '      <a href="#article' + String(i - 1) + '" data-role="button" data-icon="arrow-l"' +
-                    '        data-inline="true" class="prevButton">Prev</a>' +
+                    '        data-inline="true" class="prevButton">Prev<\/a>' +
                     '      <a href="#article' + String(i + 1) + '" data-role="button" data-icon="arrow-r"' +
-                    '        data-inline="true" class="nextButton" data-iconpos="right">Next</a>' +
-                    '    </div>' +
-                    '  </div>' +
-                    '</div>');
+                    '        data-inline="true" class="nextButton" data-iconpos="right">Next<\/a>' +
+                    '    <\/div>' +
+                    '  <\/div>' +
+                    '<\/div>');
             }
             /* JSONP */
             $(function() {
@@ -205,16 +236,19 @@ $(document).ready(function(){
                   getOnlineFeed('http://www.nba.com/rss/nba_rss.xml');
                 }
                  else if (_myLeague.indexOf("nhl") > 0){
-				 //alert("NHL isn't being offered!");
+                                 //alert("NHL isn't being offered!");
                   getOnlineFeed('http://sports.espn.go.com/espn/rss/nhl/news');
                 }
                  else if (_myLeague.indexOf("mlb") > 0){
                   getOnlineFeed('http://sports.espn.go.com/espn/rss/mlb/news');
                 }
-				else{
-					//default to raptors on error
-					getOnlineFeed('http://www.nba.com/raptors/rss.xml');
-				}
+		else if (_myLeague.indexOf("epl") > 0){
+                  getOnlineFeed('http://www.premierleague.com/rss/ptv/page/ArticleIndex/0,,12306~2233528,00.xml');
+                }
+                else{
+                     //default to raptors on error
+                     getOnlineFeed('http://www.nba.com/raptors/rss.xml');
+               }
             });
             /* functions */
             var listEntries = function(json) {
@@ -251,11 +285,6 @@ $(document).ready(function(){
                 document.documentElement.firstChild.appendChild(script);
             };
             //]]>
-        </script>
+  </script>
 </body>
 </html>
-
-
-
-
-

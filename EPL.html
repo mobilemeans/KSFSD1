@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DAD, PUT ME IN THE GAME</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css"/>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+	<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+	<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+	<section data-role="page" id="pagePreferences">
+	<img src="img/bannerSM.jpg" />
+	 <section data-role="header">
+       <h2>Personalize your story</h2>  
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/arsenal.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/imgSoccer/avilla.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/burnley.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png" height="25" width="25"/> 
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/crystal.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/everton.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/hull.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/leicester.png" height="25" width="25"/> 
+			
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/liverpool.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/mancity.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/manunited.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/newcastle.png" height="25" width="25"/> 
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/qpr.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/southampton.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/stoke.png" height="25" width="25"/>
+			<img align="left" src="http://bsccart.appspot.com/Sports/img/Soccer/sunderland.png" height="25" width="25"/> 
+			
+	    </section>
+    <section data-role="content">
+	<ul data-role="listview" data-inset="true">
+	
+	<script type="text/javascript">
+	//PREFERENCES VALUES
+		var myName = "A4CSportsName";
+		var myAge = "A4CSportsAge";	
+		var myCity = "A4CSportsCity";
+		var myTeamName = "A4CTeamName";
+		var myTeamId = "A4CTeamId";
+		var myRemember = "A4CSportsRem";
+		var myPlayerName = "A4CPlayerName"; 
+		
+		
+        $('#pagePreferences').live('pagecreate', function() {
+            if (Modernizr.localstorage) {
+                showStoreValue();
+            }
+            else {
+               // $('#message').text("Unfortunately your browser doesn't support local storage");
+                $('#addToStorage').attr('disabled', 'disabled');
+               // $('#message').show();
+            }
+            $('#addToStorage').click(function(e) {       
+            
+				localStorage.setItem(myName, $('#myName').val());
+				localStorage.setItem(myAge, $('#myAge').val());		
+				localStorage.setItem(myCity, $('#myCity').val());
+				localStorage.setItem(myRemember, $('input[name="myRemember"]:checked').val());			
+				//team name and id are set on the switch of the select control
+				showStoreValue();
+                e.preventDefault();
+            });
+        });
+
+        function showStoreValue() {
+            
+			var _myName = localStorage.getItem(myName);
+			var _myAge = localStorage.getItem(myAge);
+			var _myCity = localStorage.getItem(myCity);
+			var _myTeamName = localStorage.getItem(myTeamName);
+			var _myTeamId = localStorage.getItem(myTeamId);
+			//var _myRemember = localStorage.getItem(myRemember);	
+			var _myPlayerName = localStorage.getItem(myPlayerName); 			
+			
+			
+			//name
+			if (_myName != null){                
+				document.getElementById("myName").setAttribute("value", _myName);	
+			}            
+						
+			//age
+			if (_myAge != null){                
+				document.getElementById("myAge").setAttribute("value", _myAge);	
+			}
+            			
+			//city
+			if (_myCity != null){                
+				document.getElementById("myCity").setAttribute("value", _myCity);	
+			}
+			
+
+			$('.storeItem').html("&nbsp;<b>Name:&nbsp; " + _myName + "</b>");  
+ 			$('.storeItem2').html("&nbsp;<b>Jersey #:&nbsp; " + _myAge+ "</b>"); 
+ 			$('.storeItem3').html("&nbsp;<b>City:&nbsp; " + _myCity+ "</b>"); 
+ 		    $('.storeItem4').html("&nbsp;<b>Team:&nbsp; " + _myTeamName+ "</b>"); 
+ 		    $('.storeItem5').html("&nbsp;<b>Team Id:&nbsp; " + _myTeamId+ "</b>"); 
+ 		    $('.storeItem6').html("&nbsp;<b>Player:&nbsp; " + _myPlayerName+ "</b>");	 
+		
+        }
+	
+	
+	//END PREFERENCES VALUES
+	
+	//CREATE A NBA TEAM ARRAY
+	var teamLists = new Array(1);
+	teamLists["EPL"] = new Array();
+        
+        
+                teamLists["EPL"].push(["CHE - Chelsea"]);      
+                teamLists["EPL"].push(["SH - Southampton"]);
+                teamLists["EPL"].push(["MC - Man City"]);   
+                teamLists["EPL"].push(["WHU - West Ham United"]);    
+                teamLists["EPL"].push(["ARS - Arsenal"]); 
+                teamLists["EPL"].push(["SWC - Swansea"]);           
+                teamLists["EPL"].push(["LIV - Liverpool"]);                  
+                teamLists["EPL"].push(["MU - Man United"]);    
+                teamLists["EPL"].push(["EVE - Everton"]);
+		teamLists["EPL"].push(["HC - Hull"]);        
+                teamLists["EPL"].push(["TH - Tottenham"]);       
+                teamLists["EPL"].push(["SC - Stoke"]);  
+                teamLists["EPL"].push(["WBA - West Brom"]); 
+                teamLists["EPL"].push(["NU - Newcastle"]); 
+                teamLists["EPL"].push(["AV - Aston Villa"]);   
+                teamLists["EPL"].push(["CP - Crystal Palace"]);         
+                teamLists["EPL"].push(["LC - Leicester"]);   
+                teamLists["EPL"].push(["SUN - Sunderland"]);   
+                teamLists["EPL"].push(["QPR - QPR"]); 
+      		teamLists["EPL"].push(["BUR - Burnley"]); 
+		
+ //CREATE A EPL TEAM ARRAY
+                var playerLists = new Array(20);
+                playerLists["CHE - Chelsea"] = new Array();     
+                playerLists["SH - Southampton"]= new Array();
+        	playerLists["MC - Man City"]= new Array();          
+                playerLists["WHU - West Ham"]= new Array();         
+                playerLists["ARS - Arsenal"]= new Array();    
+                playerLists["SWC - Swansea"]= new Array();                         
+		playerLists["LIV - Liverpool"]= new Array();       
+        	playerLists["MU - Man United"]= new Array();                        
+		playerLists["EVE - Everton"]= new Array();                         
+		playerLists["HC - Hull"]= new Array();            
+                playerLists["TH - Tottenham"]= new Array();                        
+		playerLists["SC - Stoke"]= new Array();           
+                playerLists["WBA - West Brom"]= new Array();        
+                playerLists["NU - Newcastle"]= new Array();       
+                playerLists["AV - Aston Villa"]= new Array();                       
+		playerLists["CP - Crystal Palace"]= new Array();                       
+		playerLists["LC - Leicester"]= new Array();  
+		playerLists["SUN - Sunderland"]= new Array();                      
+		playerLists["QPR - QPR"]= new Array();             
+                playerLists["BUR - Burnley"]= new Array();         
+                   
+                
+                //the pic images are named the same as the player name, requires a dummy record to pick up 1st actual player item (see DAL)
+playerLists["CHE - Chelsea"].push({ name: "Eden Hazard", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Eden Hazard", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Cesc Fabregas", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Gary Cahill", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Nemanja Matic", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Thibault Courtois", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "John Terry", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Diego Costa", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Oscar", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Filipe Luis", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["CHE - Chelsea"].push({ name: "Cesar Azilicueta", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/chelsea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+
+playerLists["SH - Southampton"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/southampton.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["SH - Southampton"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/southampton.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+
+
+playerLists["MC - Man City"].push({ name: "YaYa Toure", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/mancity.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["MC - Man City"].push({ name: "YaYa Toure", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/mancity.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["MC - Man City"].push({ name: "Sergio Aguero", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/mancity.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["MC - Man City"].push({ name: "David Silva", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/mancity.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["MC - Man City"].push({ name: "Vincent Kompany", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/mancity.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["MC - Man City"].push({ name: "Edin Dzeko", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/mancity.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["MC - Man City"].push({ name: "Jesus Navas", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/mancity.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["MC - Man City"].push({ name: "Pablo Zabaleta", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/mancity.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+
+playerLists["WHU - West Ham"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/westham.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})
+playerLists["WHU - West Ham"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/westham.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})
+
+playerLists["ARS - Arsenal"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/arsenal.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["ARS - Arsenal"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/arsenal.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+
+playerLists["SWC - Swansea"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/swansea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})
+playerLists["SWC - Swansea"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/swansea.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})
+
+playerLists["LIV - Liverpool"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/liverpool.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["LIV - Liverpool"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/liverpool.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+
+playerLists["MU - Man United"].push({ name: "Robin van Persie", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/manunited.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})
+playerLists["MU - Man United"].push({ name: "Robin van Persie", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/manunited.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+playerLists["MU - Man United"].push({ name: "Wayne Rooney", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/manunited.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})    	
+playerLists["MU - Man United"].push({ name: "Juan Mata", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/manunited.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})   
+playerLists["MU - Man United"].push({ name: "Ander Herrera", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/manunited.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"}) 
+playerLists["MU - Man United"].push({ name: "David de Gea", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/manunited.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})   	
+playerLists["MU - Man United"].push({ name: "Luke Shaw", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/manunited.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})      
+   
+playerLists["LIV - Liverpool"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/liverpool.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})  
+playerLists["LIV - Liverpool"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/liverpool.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})     
+
+playerLists["EVE - Everton"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/everton.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+playerLists["EVE - Everton"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/everton.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})   
+
+playerLists["HC - Hull"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/hull.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+playerLists["HC - Hull"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/hull.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+
+playerLists["TH - Tottenham"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/tottenham.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})  
+playerLists["TH - Tottenham"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/tottenham.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})  
+
+playerLists["SC - Stoke"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/stoke.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+playerLists["SC - Stoke"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/stoke.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})    
+
+playerLists["WBA - West Brom"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/westbrom.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})  
+playerLists["WBA - West Brom"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/westbrom.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})     
+
+playerLists["NU - Newcastle"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/newcastle.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+playerLists["NU - Newcastle"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/newcastle.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"}) 
+
+playerLists["AV - Aston Villa"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/avilla.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+playerLists["AV - Aston Villa"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/avilla.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})   
+
+playerLists["CP - Crystal Palace"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/crystal.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})  
+playerLists["CP - Crystal Palace"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/crystal.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})        
+        
+playerLists["LC - Leicester"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/leicester.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+playerLists["LC - Leicester"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/leicester.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"}) 
+
+playerLists["SUN - Sunderland"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/sunderland.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})  
+playerLists["SUN - Sunderland"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/sunderland.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"}) 
+
+playerLists["QPR - QPR"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/qpr.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})  
+playerLists["QPR - QPR"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/qpr.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player1.png"})   
+
+playerLists["BUR - Burnley"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/burnley.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})  
+playerLists["BUR - Burnley"].push({ name: "Ollie Jenson", profile: "", teamLogo: "http://bsccart.appspot.com/Sports/img/Soccer/burnley.png", pic: "http://bsccart.appspot.com/Sports/img/Soccer/Pic/Player2.png"})   
+		
+  
+//<![CDATA[
+// array of possible countries in the same order as they appear in the country selection list
+
+ 
+function leagueChange(selectObj) {
+	// get the index of the selected option
+	var idx = selectObj.selectedIndex;
+	// get the value of the selected option
+	var which = selectObj.options[idx].value;
+	// use the selected option value to retrieve the list of items from the teamLists array
+	cList = teamLists[which];	
+	// get the team select element via its known id
+	var cSelect = document.getElementById("teamSelect");
+	// remove the current options from the team select
+	var len=cSelect.options.length;
+	while (cSelect.options.length > 0) {
+		cSelect.remove(0);
+	}
+	
+	//add the default option to deal with issue of 1st item not selectable
+	var defaultOption;
+	defaultOption = document.createElement("option");
+	defaultOption.value = "Select A Team";  // assumes option string and value are the same
+	defaultOption.text="Select A Team";
+	cSelect.add(defaultOption);
+	
+	
+	var newOption;
+	// create new options
+	for (var i=0; i<cList.length; i++) {
+		newOption = document.createElement("option");
+		newOption.value = cList[i];  // assumes option string and value are the same
+		newOption.text=cList[i];
+		// add the new option
+		try {
+			cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE
+			
+		}
+		catch (e) {
+      if(e instanceof TypeError) {
+          // statements to handle TypeError exceptions
+      }
+      else if(e instanceof RangeError) {
+          // statements to handle RangeError exceptions
+      }
+      else if(e instanceof EvalError) {
+          // statements to handle EvalError exceptions
+      }
+      else {
+          // statements to handle any unspecified exceptions
+          
+      }
+    }
+	}
+	
+}
+
+function teamChange(selectObj) {
+	
+	// get the index of the selected option
+	var idx = selectObj.selectedIndex;
+	// get the value of the selected option
+	var which = selectObj.options[idx].value;
+	// use the selected option value to retrieve the list of items from the playerLists array
+	cList = playerLists[which];	
+	// get the player select element via its known id
+	var cSelect = document.getElementById("playerSelect");
+	// remove the current options from the player select
+	var len=cSelect.options.length;
+	while (cSelect.options.length > 0) {
+		cSelect.remove(0);
+	}
+	
+	//add the default option to deal with issue of 1st item not selectable
+	var defaultOption;
+	defaultOption = document.createElement("option");
+	defaultOption.value = "Select A Player";  // assumes option string and value are the same
+	defaultOption.text="Select A Player";
+	cSelect.add(defaultOption);
+	
+	var newOption;
+	// create new options, set to 1 since we need to add a dummy record to the arry to deal with select issue on 1st entry
+	for (var i=1; i<cList.length; i++) {
+		newOption = document.createElement("option");
+		newOption.value = cList[i].name;  // assumes option string and value are the same
+		newOption.text=cList[i].name;
+		var imgTeam = document.getElementById("imgTeam");
+		imgTeam.src = cList[i].teamLogo;	
+		
+	// add the new option
+		try {
+			cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE
+			
+		}
+		catch (e) {
+      if(e instanceof TypeError) {
+          // statements to handle TypeError exceptions
+      }
+      else if(e instanceof RangeError) {
+          // statements to handle RangeError exceptions
+      }
+      else if(e instanceof EvalError) {
+          // statements to handle EvalError exceptions
+      }
+      else {
+          // statements to handle any unspecified exceptions
+          
+      }
+    }
+	}
+	//assign the value to localstorage
+	showWidget(which);
+	
+	//assign the selected team value to the global variable for use in playerChange()
+	selectedTeamArray = which;
+	
+	
+}
+
+function playerChange(selectObj) {
+	
+	//doSndEffect();
+	
+	// get the index of the selected option
+	var idx = selectObj.selectedIndex;
+	//show the player's pic	and profile
+	var imgPic = document.getElementById("imgPic");
+	
+	//setup for profiled or themed team
+	if (playerLists[selectedTeamArray] == playerLists["lakers - Los Angeles Lakers"] || playerLists[selectedTeamArray] == playerLists["spurs - San Antonio Spurs"] || playerLists[selectedTeamArray] == playerLists["cavaliers - Cleveland Cavaliers"] || playerLists[selectedTeamArray] == playerLists["bulls - Chicago Bulls"]){
+		imgPic.src = playerLists[selectedTeamArray][idx].pic;	
+		document.getElementById("pProfile").innerHTML = playerLists[selectedTeamArray][idx].name + "-" + playerLists[selectedTeamArray][idx].profile;	
+	}
+	else
+	{
+		imgPic.src = "http://bsccart.appspot.com/Sports/img/Football/BlankSM.png";	
+		document.getElementById("pProfile").innerHTML = playerLists[selectedTeamArray][idx].name;
+	}	
+	
+	//assign the selected player to localstorage
+	localStorage.setItem("A4CPlayerName", selectObj.options[idx].value);
+	
+}
+
+function doSndEffect(){
+	var snd = new Audio("http://soundbible.com/grab.php?id=2017&type=wav"); 
+	snd.play();
+}
+
+function showWidget(x){
+	
+	//extract the team id
+	var strMark = x.indexOf("-");
+	var strId=""; 
+	/*
+	if (strMark == 4){
+		strId = x.substring(0,3);
+	}
+	else{
+		strId = x.substring(0,2);
+	}
+	*/
+	strId = x.substr(0, strMark - 1)
+	
+	//store values
+	localStorage.setItem("A4CTeamName", x);
+	localStorage.setItem("A4CTeamId", strId);
+	localStorage.setItem("A4CLeague", "basketball/nba");
+	
+	//redirect to new page 	
+	//window.location.href = 'Team.html';        
+}
+
+
+function validateProfile(){
+	//validate that the profile has been entered
+	var league = document.getElementById("leagueSelect");
+	var team = document.getElementById("teamSelect");
+	var city = document.getElementById("myCity");
+	var name = document.getElementById("myName");
+	var age = document.getElementById("myAge");
+	
+	if (league.selectedIndex == 0){
+		alert('Please select the league.');
+		league.focus();
+	}
+	else if (team.selectedIndex == 0){
+		alert('Please select the team.');
+		team.focus();
+	}
+	else if(name.value == "" || name.value.length < 1){
+		alert('Please enter your name.');
+		name.focus();
+	}
+	else if (localStorage.getItem("A4CSportsName") == null || localStorage.getItem("A4CSportsName") == "" && name.value.length > 1){
+		alert('Please remember to complete Step 3 next time to save your Name value!');
+		localStorage.setItem("A4CSportsName", name.value);
+	}
+	else if (city.value == ""  || city.value.length < 1){
+		alert('Please enter your city.');
+		city.focus();
+	}
+	else if (localStorage.getItem("A4CSportsCity") == null || localStorage.getItem("A4CSportsCity") == "" && city.value.length > 1){
+		alert('Please remember to complete Step 3 next time to save your City value!');
+		localStorage.setItem("A4CSportsCity", city.value);
+	}
+	else if(age.value == 0){
+		alert('Enter your jersey number.');
+		age.focus();
+	}
+	else if (localStorage.getItem("A4CSportsAge") == null || localStorage.getItem("A4CSportsAge") == "0" && age.value > 0){
+		alert('Please remember to complete Step 3 next time to save your Jersey number value!');
+		localStorage.setItem("A4CSportsAge", age.value);
+	}
+	else {
+		//passed validation
+		window.location.href = 'Library.html';
+	}	
+}
+
+//]]>
+</script>
+	
+	
+	<h2>GOOOOAAAAAALLLLLLL!</h2>
+	
+			<fieldset class="border">
+			<legend>Step 1.&nbsp;&nbsp;Select your team and player.</legend><br />
+			<label for="leagueSelect">Select your league</label><br>
+			<select id="leagueSelect" onchange="leagueChange(this);">				
+			<option value="empty"selected>Select a league</option>
+			<option value="EPL" >English Premier League</option>	
+			</select>
+			<br />
+			<br>			  
+			<label for="teamSelect">Select a team</label><br>
+			<select id="teamSelect" onchange="teamChange(this);">
+			<option value="0">Select a team</option>
+			</select>
+			<br />
+			<br>			  
+			<img id="imgTeam" align="left" src="img/Football/BlankSM.png" height="50" width="50"/>&nbsp;
+			<label for="playerSelect">Roster </label><br>
+			<select id="playerSelect" onchange="playerChange(this);">
+			<option value="0">Select a player</option>
+			</select>
+			<br>
+			<img id="imgPic" align="center" src="http://bsccart.appspot.com/Sports/img/Football/BlankSM.png"/>
+			<p id="pProfile" style="color:#FFFF00;text-shadow: 1px 1px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>
+			</fieldset>
+			<br />
+			<br />
+			<fieldset class="border">
+			<legend><b>Step 2.&nbsp;&nbsp;Personalize the story.</b></legend><br /> 
+			<input type="text" id="myName" name="myName" placeholder="What is your name?"/>
+			<br />
+			<br />
+			<input type="text" id="myCity" name="myCity" placeholder="What is your city?"/>
+			<br />
+			<br />
+			<label for="myAge">Favourite jersey number.</label><br>
+			<input id="myAge" name="age" type="number" value="0" />
+			</fieldset>
+			<br/>
+			<br/>
+			<fieldset class="border">
+			<legend><b>Step 3.&nbsp;&nbsp;Save settings.</b></legend><br /> 
+			<b><input type="button" id="addToStorage" value="save"/></b>
+			<br/><br/><br/>
+			</fieldset>
+			<br/>
+			<br/>
+			<fieldset class="border">
+			<legend><b>Step 4.&nbsp;&nbsp;Your story settings.</b></legend><br /> 
+			<li data-role="list-divider"><b>Values</b></li>
+			<li class="storeItem" style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem2"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem3"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem4"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem5"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			<li class="storeItem6"style="color:green;text-shadow: 1px 0px #FFFFFF;font-family: "Times New Roman", Times, serif;"/>/>
+			</fieldset>
+      <br/>
+			<br/>
+			<fieldset class="border">
+			<legend><b>Step 5.&nbsp;&nbsp;Click to read a story.</b></legend><br /> 
+			<a href="#" onclick="validateProfile()" rel="external" data-transition="pop" data-role="button" data-prefetch><b>READ NOW!</b></a>
+      </fieldset>
+	</section>
+	
+		
+		
+		
+		<p>Note:  We do not collect or recieve any of your entered information and it is used only for the purposes of each story.</p>
+	<div id="footer"><center>
+		<img src="img/bannerSM.jpg" /><br/>
+			&copy; Apps4Canadians
+			</center>
+			<br>
+	<center><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home |</a> <a href="mailto:apps4canadians@live.com">| Contact |</a>  </center>
+			
+		</div><!-- /footer -->
+	
+</section>	
+	
+	
+	</body>
+</html>
+	

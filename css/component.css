@@ -479,9 +479,33 @@ body {
     transform: rotate(-45deg);
 }
 
-/****** Custom book colors and borders *****/
+/****** Custom book colors and borders *****
+
+
+/
 
 /* Custom book covers */
+
+.no-csstransforms3d .book[data-book="book-111"],
+.no-js .book[data-book="book-11"],
+.book[data-book="book-11"] .front {
+    background: url(../img/cover11.jpg);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/cover11.jpg), #009bdb;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(211, 211, 211, 0.1) 5%, rgba(255, 255, 255, 0.15) 5%, rgba(255, 255, 255, 0.1) 9%, rgba(0, 0, 0, 0.01) 100%), url(../img/cover11.jpg), #009bdb;
+}
+
+.book[data-book="book-11"] .inner { border-color: #009bdb }
+
+
+.book[data-book="book-11"] .cover::before {
+    background: url(../img/spine11.jpg);
+    background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/spine11.jpg), #009bdb;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/spine11.jpg), #009bdb;
+}
+
+
+
+
 
 .no-csstransforms3d .book[data-book="book-10"],
 .no-js .book[data-book="book-10"],
@@ -493,11 +517,14 @@ body {
 
 .book[data-book="book-10"] .inner { border-color: #009bdb }
 
+
 .book[data-book="book-10"] .cover::before {
     background: url(../img/spine10.jpg);
     background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/spine10.jpg), #009bdb;
     background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.1) 50%, transparent 100%), url(../img/spine10.jpg), #009bdb;
 }
+
+
 
 
 
