@@ -219,18 +219,18 @@ Noah said to the group, Well if practicing our [sport] drills is so important th
 All of the team agreed and since everyone had the same favourite team they began their cheer with:
 Good old [teamname]!  We're proud to say that name! Whenever we sing this song, we'll win the game!
 */
-var story10_0 = "\"" + "This practice is so boring," + "\"" + " Noah said aloud during the middle of a drill.";
-var story10_1 = "\"" + "All we do is move a little to the left and then a little to the right.  I want to learn how to go all the way and make as many points as I can!  I only want to play a real game!"+ "\"";
-var story10_2 = "\"" +"It's not that bad," + "\"" + " Noah's best friend " + _myName + " told him, trying to calm him down. " + "\"" + "We need to know how to do all of these drills so that after practicing them we can really do it in a game."+ "\"" + " said " + _myName + ".";
-var story10_3 = "\"" +"I don't need to practice!" + "\"" + " said Noah.  " + "\"" + "Watch this move " + _myName + "\"";
-var story10_4 = "Noah ran faster than anyone had ever seen and charged at the ball near the middle of the field.  Once he reached the ball he gave it a quick boot and it soared high into the goal.";
-var story10_5 = "\"" +"Did you see that "+ _myName + "!  I definitely don't need to practice." + "\"" + " said Noah.";
-var story10_6 = "\"" +"But Noah, you wouldn't know what play to make if there 2, 3 or more defenders on you or you wouldn't know exactly how hard to pass the ball to Russell if he had an easier goal or you wouldn't know where to move in order to make the game winning goal..."+ "\"";
-var story10_7 = "Noah, thought aloud " + "\"" + "...unless I practiced."+ "\"";
-var story10_8 = "The rest of the team seemed relieved to know that they were all practicing so that they would each be ready to make a great play in their next game.  They liked to practice because it meant spending time with their friends, having fun exercising and they really liked it when their skills improved making them closer to being just like " + _myPlayer + ".";
-var story10_9 = "Noah said to the group," + "\"" +"Well if practicing our drills is so important then we should end each practice with a team cheer!  The more we practice then the louder we should cheer."+ "\"";
-var story10_10 = "All of the team agreed and since everyone had the same favourite team they began the following cheer.";
-var story10_11 = "\"" +"Good old " + strTeamName + "!  We're proud to say that name! Whenever we sing this song, we'll win the game!"+ "\"";
+var story11_0 = "\"" + "This practice is so boring," + "\"" + " Noah said aloud during the middle of a drill.";
+var story11_1 = "\"" + "All we do is move a little to the left and then a little to the right.  I want to learn how to go all the way and make as many points as I can!  I only want to play a real game!"+ "\"";
+var story11_2 = "\"" +"It's not that bad," + "\"" + " Noah's best friend " + _myName + " told him, trying to calm him down. " + "\"" + "We need to know how to do all of these drills so that after practicing them we can really do it in a game."+ "\"" + " said " + _myName + ".";
+var story11_3 = "\"" +"I don't need to practice!" + "\"" + " said Noah.  " + "\"" + "Watch this move " + _myName + ".\"";
+var story11_4 = "Noah ran faster than anyone had ever seen and charged at the ball near the middle of the field.  Once he reached the ball he gave it a quick boot and it soared high into the goal.";
+var story11_5 = "\"" +"Did you see that "+ _myName + "!  I definitely don't need to practice." + "\"" + " said Noah.";
+var story11_6 = "\"" +"But Noah, you wouldn't know what play to make if there 2, 3 or more defenders on you or you wouldn't know exactly how hard to pass the ball to Russell if he had an easier goal or you wouldn't know where to move in order to make the game winning goal..."+ "\"";
+var story11_7 = "Noah, thought aloud " + "\"" + "...unless I practiced."+ "\"";
+var story11_8 = "The rest of the team seemed relieved to know that they were all practicing so that they would each be ready to make a great play in their next game.  They liked to practice because it meant spending time with their friends, having fun exercising and they really liked it when their skills improved making them closer to being just like " + _myPlayer + ".";
+var story11_9 = "Noah said to the group," + "\"" +"Well if practicing our drills is so important then we should end each practice with a team cheer!  The more we practice then the louder we should cheer."+ "\"";
+var story11_10 = "All of the team agreed and since everyone had the same favourite team they began the following cheer.";
+var story11_11 = "\"" +"Good old " + strTeamName + "!  We're proud to say that name! Whenever we sing this song, we'll win the game!"+ "\"";
 
 
 //END STORY TEXT
@@ -741,6 +741,75 @@ switch(iStory) {
 						}						
 						break;
 						
+						case 11:					
+									
+						if (_myStoryPos == "0"){						
+											
+							$('#storyText').html(story11_0);					
+							
+						}
+						else if (_myStoryPos == "2"){				
+						
+							$('#storyText').html(story11_1);
+						}
+						else if (_myStoryPos == "4"){			
+							
+							//$('#storyText').html(story6C);
+							$('#storyText').html(story11_2);
+							
+						}
+						//compensate for navigation issue on feeds page
+						else if (_myStoryPos == "6"){				
+						
+							$('#storyText').html(story11_3);
+							
+						}
+						//hack
+						else if (_myStoryPos == "8"){				
+						$('#storyText').html(story11_4);	
+							localStorage.setItem("A4CSportsStoryPos", 10);
+						}
+						else if (_myStoryPos == "10"){				
+						; 
+							$('#storyText').html(story11_5);
+						}
+						else if (_myStoryPos == "12"){				
+						
+						$('#storyText').html(story11_6);
+							
+						}
+						else if (_myStoryPos == "14"){				
+						
+							$('#storyText').html(story11_7);
+							
+						}
+						else if (_myStoryPos == "16"){				
+						
+							$('#storyText').html(story11_8);
+							
+						}
+						else if (_myStoryPos == "18"){				
+						
+							$('#storyText').html(story11_9);
+							
+						}
+						else if (_myStoryPos == "20"){				
+						
+							$('#storyText').html(story11_10);
+							
+						}
+						else if (_myStoryPos == "22"){				
+						
+							$('#storyText').html(story11_11);
+							
+						}
+						
+						else{						
+							$('#storyText').html("Kid Stories For Sports Dads: Story 11");
+							
+						}						
+						break;
+						
 					
 					default:
 						$('#storyText').html("Kid Stories For Sports Dads: Story Id not assigned.");
@@ -766,8 +835,7 @@ google_ad_width = 320;
 google_ad_height = 50;
 //-->
 </script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
 
