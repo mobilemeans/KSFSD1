@@ -16,8 +16,8 @@
 	var myQ2 = "myQ2";
 	var myQ3 = "myQ3";
 	var myQ4 = "myQ4";
-	var myQ5 = "myQ5";
-	var myQ6 = "myQ6";
+	//var myQ5 = "myQ5";
+	//var myQ6 = "myQ6";
 	var myPoints = "myPoints";
 	var day1 = "";
 
@@ -61,7 +61,7 @@ else{
   num4 = parseInt($('#myQ4').val(), 10);
 }
 
-if($('#myQ5').val() == ""){alert("Please enter a value for the fifth question.");}
+/*if($('#myQ5').val() == ""){alert("Please enter a value for the fifth question.");}
 else{
   localStorage.setItem(myQ5, $('#myQ5').val());
   num5 = parseInt($('#myQ5').val(), 10);
@@ -71,7 +71,7 @@ if($('#myQ6').val() == ""){alert("Please enter a value for the sixth question.")
 else{
   localStorage.setItem(myQ6, $('#myQ6').val());
   num6 = parseInt($('#myQ6').val(), 10);
-}
+}*/
 
 //localStorage.setItem(myQ5, $('input[name="myQ5"]:checked').val());
 //localStorage.setItem(myQ6, $('input[name="myQ6"]:checked').val()); 
@@ -79,9 +79,9 @@ else{
 //var num6 = parseInt($('input[name="myQ6"]:checked').val(), 10);
 
 //UPDATE THE # OF POINTS 
-var newPoints = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4) + parseInt(num5) + parseInt(num6);
+var newPoints = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4); //+ parseInt(num5) + parseInt(num6);
 var curPoints = localStorage.getItem(myPoints);
-var totalPoints = parseInt(curPoints) + parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4) + parseInt(num5) + parseInt(num6);
+var totalPoints = parseInt(curPoints) + parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4);// + parseInt(num5) + parseInt(num6);
 if (totalPoints > 0){
 //check if the period is less than 30d, if not then reset points to 0
 //todo:
@@ -101,8 +101,8 @@ var _myQ1 = localStorage.getItem(myQ1);
 var _myQ2 = localStorage.getItem(myQ2);
 var _myQ3 = localStorage.getItem(myQ3);
 var _myQ4 = localStorage.getItem(myQ4);
-var _myQ5 = localStorage.getItem(myQ5);
-var _myQ6 = localStorage.getItem(myQ6);
+//var _myQ5 = localStorage.getItem(myQ5);
+//var _myQ6 = localStorage.getItem(myQ6);
 var _myPoints = localStorage.getItem(myPoints);
 
 //get the avatar images
@@ -122,19 +122,19 @@ else if (_myQ3 == null  || _myQ3.length === 0) {
 else if (_myQ4 == null  || _myQ4.length === 0) {
                 _myQ4 = 'There is no value for Q41'; 
             }
-else if (_myQ5 == null  || _myQ5.length === 0) {
+/*else if (_myQ5 == null  || _myQ5.length === 0) {
                 _myQ5 = 'There is no value for Q5'; 
             }
 else if (_myQ6 == null  || _myQ6.length === 0) {
                 _myQ6 = 'There is no value for Q6'; 
-            }
+            }*/
 else{
 $('.storeItem').text("Q1: " + _myQ1);
 $('.storeItem2').text("Q2: " + _myQ2);
 $('.storeItem3').text("Q3: " + _myQ3);
 $('.storeItem4').text("Q4: " + _myQ4);
-$('.storeItem5').text("Q5: " + _myQ5);
-$('.storeItem6').text("Q6: " + _myQ6);
+//$('.storeItem5').text("Q5: " + _myQ5);
+//$('.storeItem6').text("Q6: " + _myQ6);
 
 $("#imgHead").attr("src", "img/Avatar/" + _myHead + ".png");
 $("#imgTorso").attr("src", "img/Avatar/" + _myTorso + ".png");
@@ -268,7 +268,7 @@ snd.play();
     <option value="2">Yes, I can count up to 20</option>
     <option value="3">Yes, I can count up to 100</option>
 </select>
-
+<!--
 <select id="myQ4" name="myQ5">
     <option default value="">5.  Were you a good friend or teammate to someone this week?</option>
     <option value="0">No, but I'll try tomorrow!</option>
@@ -279,7 +279,7 @@ snd.play();
     <option default value="">6.  Did you get enough sleep this week?</option>
     <option value="0">No</option>
     <option value="1">Yes</option>
-</select>
+</select>-->
 <br/><br/><br/> 
 
 <input type="button" id="addToStorage" value="Step 2.  Press here to submit."/>
@@ -290,8 +290,8 @@ snd.play();
 <li class="storeItem2"/>
 <li class="storeItem3"/>
 <li class="storeItem4"/>
-<li class="storeItem5"/>
-<li class="storeItem6"/> 
+<!--<li class="storeItem5"/>
+<li class="storeItem6"/> -->
 <li class="storeItem7"/> 
 
         </ul>
