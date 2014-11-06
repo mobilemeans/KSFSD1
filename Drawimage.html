@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>draw image</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
+</head>
+<script>
+
+
+/*
+options:
+-place this on the league page as they are creating their profile
+-use this instead of the avator images
+-add it to the data page instead of the avatar image
+
+all logo images must be 50x50
+
+*/
+
+
+
+
+
+var _name = localStorage.getItem("A4CSportsName");
+var _num = localStorage.getItem("A4CSportsAge");
+
+
+
+window.onload = function(){
+	var canvas = document.getElementById("canPlayer");
+	var context = canvas.getContext("2d");
+	var imageObj = new Image();
+	imageObj.onload = function(){
+		context.drawImage(imageObj, 0,0);
+		context.font = "30px Calibri";
+		//context.textAlign = 'center';
+		context.strokeStyle = 'red';
+		//context.fillStyle = 'red';
+		//context.fillText(_name, 70, 50);
+		context.strokeText(_name, 55, 50);
+	};
+	imageObj.src = "img/jersey.jpg";
+	
+	var imageObj2 = new Image();
+	imageObj2.onload = function(){
+		context.drawImage(imageObj2, 75, 90);
+		context.font = "30px Calibri";
+		//context.textAlign = 'center';
+		context.strokeStyle = 'blue';
+		context.strokeText(_num, 85, 80);
+	};
+	
+	//get sport
+	  
+if (localStorage.getItem("A4CLeague") == "basketball/nba"){strLeague = "basketball";}	  
+else if(localStorage.getItem("A4CLeague") == "football/nfl"){strLeague = "football";}
+else if(localStorage.getItem("A4CLeague") == "football/epl"){strLeague = "football";}	  
+else if(localStorage.getItem("A4CLeague") == "hockey/nhl"){strLeague = "hockey";}	  
+else{	strLeague = "baseball";}
+	
+	
+	
+	imageObj2.src = "http://bsccart.appspot.com/Sports/img/Basketball/bos.gif";
+};
+</script>
+<body><a href="index.html" rel="external" data-transition="slideup" data-prefetch>| Home |</a>
+<canvas id="canPlayer" width="200" height="200"/>
+
+</body>
+
+</html>
+

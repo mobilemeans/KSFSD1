@@ -17,7 +17,7 @@ story3 layout:
 	function doNav(direction){
 	
 		switch(iStory) {
-				/*	case 1:
+					case 1:
 						if (_myStoryPos == "0"){	
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 1);
@@ -988,7 +988,7 @@ story3 layout:
 							}
 						}
 						
-						/*
+					
 						else if (_myStoryPos == "11"){		
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 12);
@@ -1050,7 +1050,7 @@ story3 layout:
 							window.location.href = 'Data.html';
 						}						
 						break;
-					*/
+					
 					case 6:
 					if (_myStoryPos == "0"){	
 							if (direction == 1){
@@ -1265,7 +1265,9 @@ story3 layout:
 							}
 						}	
 						
-				/*	case 9:
+						break;
+						
+					case 9:
 					if (_myStoryPos == "0"){	
 							if (direction == 1){
 								localStorage.setItem("A4CSportsStoryPos", 1);
@@ -1798,7 +1800,7 @@ story3 layout:
 						}						
 						break;
 						
-						*/
+						
 					
 					default:
 						$('#storyText').text("Kid Stories For Sports Dads: Navigation");
